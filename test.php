@@ -8,9 +8,9 @@ include("connect.php");
 
      $result = mysqli_query($conn, $sql);
 
-		<?php while($row=mysqli_fetch_array($result,MYSQLI_ASSOC)){
+		 while($row=mysqli_fetch_array($result,MYSQLI_ASSOC)){
                                         
-                                         echo $row["stwFirstname"];  ?>
-                                         echo $row["stwLastname"];  ?>
+                                         echo $row["stwFirstname"];  
+                                         echo $row["stwLastname"];  
 					}
 ?>

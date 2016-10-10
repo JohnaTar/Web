@@ -20,20 +20,16 @@
 
 <body>
 <?php 
+     include("connect.php");
+     $sql = "SELECT * FROM stwUser";
 
-        include("connect.php");
+     $result = mysqli_query($conn, $sql);
 
-        $sql = "SELECT
-stwuser.stwFirstname,
-stwuser.stwLastname,
-stwuser.stwGender,
-stwprefix.stwPrefix_name
-FROM
-stwuser
-INNER JOIN stwprefix ON stwuser.stwPrefix_id = stwprefix.stwPrefix_id";
-
-        $result = mysqli_query($conn, $sql);
+                                                      
 ?>
+
+
+      
      
 
     <div id="wrapper">
@@ -45,8 +41,7 @@ INNER JOIN stwprefix ON stwuser.stwPrefix_id = stwprefix.stwPrefix_id";
                 </button>
                 <a class="navbar-brand" href="index.html">Welcome</a>
             </div>
-            <!-- Top Menu Items -->
-            <ul class="nav navbar-right top-nav">                        
+            <!-- Top Menu Items -->            <ul class="nav navbar-right top-nav">                        
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Adminstator <b class="caret"></b></a>
                     <ul class="dropdown-menu">                       
@@ -132,29 +127,15 @@ INNER JOIN stwprefix ON stwuser.stwPrefix_id = stwprefix.stwPrefix_id";
                                  </thead>
                                 <tbody>                       
                                     <tr>
-                                
-                                    <?php while($row=mysqli_fetch_array($result,MYSQLI_ASSOC)){ 
-                                        if ($row["stwGender"]==1) {
-                                            $gender = "ชาย";
-                                        }else{
-                                            $gender = "หญิง";   
-                                        }
-
-                                        ?>                                      
-                                        <td><?php echo $row["stwFirstname"];  ?></td>
-                                        <td><?php echo $row["stwLastname"];  ?></td>
-                                        asdsads
+				<?php while($row=mysqli_fetch_array($result,MYSQLI_ASSOC)){
+				?>
+                                         
+                                         
                                         
 
-
-                                        <td>
-                                        <a href="edituser.php?id=<?php echo $row["id"];?><td><button type="button" class="btn btn-warning btn-xs"">แก้ไข</a>
-
-                                            <button class="btn btn-danger btn-xs" onclick="return delete_user(<?php echo $user['id']?>);">ลบ</button></td>
-                                    </tr>
-                                    <?php } ?>
-                                
-                                   
+					<td><?php echo $row["stwFirstname"]; ?></td>
+				    </tr>                       
+                                   <?php } ?>
                                     </thead>
                                 </tbody>
                             </table>
