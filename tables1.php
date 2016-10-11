@@ -15,6 +15,8 @@
     <link href="css/sb-admin.css" rel="stylesheet">
     <link href="css/plugins/morris.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> 
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 
 </head>
 
@@ -25,7 +27,7 @@
 
      $result = mysqli_query($conn, $sql);
 
-                                                      
+	                                                      
 ?>
 
 
@@ -112,28 +114,26 @@
                         <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">เพิ่มข้อมูลสมาชิก</button>
                             <table class="table table-bordered table-hover">
                                 <thead>
-                                    <tr>                                      
+                                    <tr>
+					<th>คำนำหน้า</th>                                      
                                         <th>ชื่อ</th>
                                         <th>นามสกุล</th>
-                                        <th>เพศ</th>
-                                        <th>อีเมลล์</th>
-                                        <th>เบอร์โทรศัพท์</th>
-                                        <th>แผนก</th>
-                                        <th>สถานะ</th> 
-                                        <th>ฃื่อเข้าใช้งาน</th>
-                                        <th>รหัสเข้าใช้งาน</th>
+                                        <th>สถานะ</th>
+					<th>สถานะการอบรม</th>
                                         <th>เมนู</th>                                            
                                     </tr>
                                  </thead>
                                 <tbody>                       
                                     <tr>
-				<?php while($row=mysqli_fetch_array($result,MYSQLI_ASSOC)){
-				?>
-                                         
-                                         
-                                        
+			<?php while($row=mysqli_fetch_array($result,MYSQLI_ASSOC)){?>
 
-					<td><?php echo $row["stwFirstname"]; ?></td>
+                                        <td><?php echo $row["stwPrefix_id"]; ?></td>
+                                     	<td><?php echo $row["stwFirstname"]; ?></td>
+					<td><?php echo $row["stwLastname"]; ?></td>
+					<td><?php echo $row["stwStatus_id"]; ?></td>
+					<td><?php echo $row["stwActivate"]; ?></td>
+
+ 
 				    </tr>                       
                                    <?php } ?>
                                     </thead>
@@ -286,11 +286,11 @@
     </div>
     <!-- /#wrapper -->
 
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+
+
+
+
 
 </body>
 
