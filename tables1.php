@@ -23,7 +23,14 @@
 <body>
 <?php 
      include("connect.php");
-     $sql = "SELECT * FROM stwUser";
+     $sql = "SELECT stwUser.stwFirstname,stwUser.stwLastname,stwUser.stwActivate,
+                    stwStatus.stwStatus_name,stwPrefix.stwPrefix_name
+            FROM stwUser
+            INNER JOIN stwStatus
+            ON stwUser.stwStatus_id = stwStatus.stwStatus_id 
+            INNER JOIN stwPrefix
+            ON stwUser.stwPrefix_id = stwPrefix.stwPrefix_id";
+
 
      $result = mysqli_query($conn, $sql);
 
@@ -115,28 +122,36 @@
                             <table class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
-					<th>คำนำหน้า</th>                                      
+					                    <th>คำนำหน้า</th>      
                                         <th>ชื่อ</th>
                                         <th>นามสกุล</th>
                                         <th>สถานะ</th>
-					<th>สถานะการอบรม</th>
+					                    <th>สถานะการอบรม</th>
                                         <th>เมนู</th>                                            
                                     </tr>
                                  </thead>
-                                <tbody>                       
-                                    <tr>
-			<?php while($row=mysqli_fetch_array($result,MYSQLI_ASSOC)){?>
+                                <tbody>   
 
-                                        <td><?php echo $row["stwPrefix_id"]; ?></td>
-                                     	<td><?php echo $row["stwFirstname"]; ?></td>
-					<td><?php echo $row["stwLastname"]; ?></td>
-					<td><?php echo $row["stwStatus_id"]; ?></td>
-					<td><?php echo $row["stwActivate"]; ?></td>
+                                <tr>
+			                     <?php while($row=mysqli_fetch_array($result,MYSQLI_ASSOC)){
+                                    if ($row["stwActivate"]==1) {
+                                        $A = "อนุมัติ";
+                                    }else {
+                                        $A = "ไม่อนุมัติ";
+                                        
+                                    }
+                                        ?>
+
+                                    <td><?php echo $row["stwPrefix_name"]; ?></td>
+                                    <td><?php echo $row["stwFirstname"]; ?></td>
+					                <td><?php echo $row["stwLastname"]; ?></td>
+					                <td><?php echo $row["stwStatus_name"]; ?></td>
+                                    <td><?php echo $A; ?> </td>
+					                
 
  
-				    </tr>                       
-                                   <?php } ?>
-                                    </thead>
+				                 </tr>                       
+                                <?php } ?>
                                 </tbody>
                             </table>
                         </div>

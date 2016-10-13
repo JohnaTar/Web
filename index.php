@@ -11,54 +11,58 @@
   <script src="js/bootstrap.min.js"></script>
       <title>Test</title> 
   </head>
-  <body> 
+<body> 
   
     
-        <form class="form-horizontal" action="checklogin.php" method="POST"> 
-          <div class="loginmodal-container">
-            <div class="row">
-               <h1>Please Login </h1><br>
+<form class="form-horizontal" action="checklogin.php" method="POST"> 
+    <div class="loginmodal-container">
+        <div class="row">
+            <h1>Please Login </h1><br>
               <div class="form-group">
                     <label class="col-md-4 control-label" for="fn">Username</label>  
-                <div class="col-md-8">
-                    <input  name="Username" type="text" placeholder="Username" class="form-control input-md" required="">
+                        <div class="col-md-8">
+                            <input  name="Username" type="text" placeholder="Username" class="form-control input-md" required="">
     
-                </div>
-            </div> 
+                        </div>
+              </div> 
+
               <div class="form-group">
                     <label class="col-md-4 control-label" for="fn">Password</label>  
-                <div class="col-md-8">
-                    <input name="Password" type="password" placeholder="Password" class="form-control input-md" required="">
+                        <div class="col-md-8">
+                            <input name="Password" type="password" placeholder="Password" class="form-control input-md" required="">
     
-                </div>
-            </div> 
-                <button type="submit" class="btn btn-primary btn-xl">เข้าสู่ระบบ</button> 
-                <button type="button" class="btn btn-info btn-xl" data-toggle="modal" data-target="#myModal">เพิ่มข้อมูลสมาชิก</button>
-                
-                  </div>
-            </div>
-          </div>
-      </form>
-  
+                        </div>
+              </div> 
 
- 
+
+                <button type="submit" class="btn btn-primary btn-xl">เข้าสู่ระบบ</button> 
+                <button type="button" class="btn btn-info btn-xl" data-toggle="modal" data-target="#myModal">สมัครสมาชิก</button>
+                
+                  
+        </div>
+    </div>
+</form>
+  
+<!-- *********************************start dialog********************************************* -->
     
 <form class="form-horizontal" action="save.php" method="POST"> 
 
-
 <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-md">
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h1 class="modal-title">เพิ่มข้อมูลสมาชิก</h1>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+            <h1 class="modal-title">สมัครสมาชิก</h1>
         </div>
-        <div class="modal-body">
+        
          
-        <form class="form-horizontal" action="save.php" method="POST"> 
+        
 <!-- *********************************username from********************************************* -->
+        <div class="modal-body">
             <div class="form-group">
                     <label class="col-md-4 control-label" for="fn">ชื่อเข้าใช้งาน</label>  
+
                 <div class="col-md-4">
                     <input  name="username" type="text" placeholder="Username" class="form-control input-md" required="">
     
@@ -72,6 +76,7 @@
     
                 </div>
             </div>
+
              <div class="form-group">
                     <label class="col-md-4 control-label" for="fn">ยืนยันรหัสเข้าใช้งาน</label>  
                 <div class="col-md-4">
@@ -141,14 +146,9 @@
             </div>
 
 <!-- **********************************dept**************************************************** -->
-                 <div class="form-group">
-                <label class="col-md-4 control-label" for="selectbasic"></label>
-                    <div class="col-md-4">
-                    <select  name="status" class="form-control input-md">
-                <option value="1">Super user  </option>
-                <option value="2">User</option>
-                
-                    </select>
+               <div class="form-group">                 
+                    <input name="stwStatus_id" value="3" type="hidden"">
+    
                 </div>
             </div>
             <div class="form-group">
@@ -174,5 +174,5 @@
 
     
 
-  </body>
+</body>
 </html>
