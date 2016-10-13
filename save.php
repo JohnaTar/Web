@@ -1,7 +1,11 @@
 <?php
 include("connect.php");
- 	$sql = "INSERT INTO `member` (`username`, `password`, `fname`, `lname`, `gender`, `email`, `tel`, `dept_id`, `status_id`)values('".$_POST["username"]."','".md5($_POST["password"])."',
- 									 '".$_POST["fname"]."','".$_POST["lname"]."','".$_POST["gender"]."','".$_POST["email"]."','".$_POST["tel"]."','".$_POST["dept"]."','".$_POST["status"]."')";
+ 	$sql = "INSERT INTO `stwUser` (`stwUsername`, `stwPassword`, `stwFirstname`, `stwLastname`, `stwEmail`, `stwTel`, `stwGender`, `stwActivate`, `stwDept_id`,`stwStatus_id`,`stwPrefix_id`)
+
+ 			VALUES ('".$_POST["stwUsername"]."','".md5($_POST["stwPassword"])."'
+ 				   ,'".$_POST["stwFirstname"]."','".$_POST["stwLastname"]."',
+ 				   '".$_POST["stwEmail"]."','".$_POST["stwTel"]."','".$_POST["stwGender"]."',
+ 				   '".$_POST["stwActivate"]."','".$_POST["stwDept_id"]."','".$_POST["stwStatus_id"]."','".$_POST["stwPrefix_id"]."')";
  	$query = mysqli_query($conn,$sql);
  	
 

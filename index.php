@@ -64,7 +64,7 @@
                     <label class="col-md-4 control-label" for="fn">ชื่อเข้าใช้งาน</label>  
 
                 <div class="col-md-4">
-                    <input  name="username" type="text" placeholder="Username" class="form-control input-md" required="">
+                    <input  name="stwUsername" type="text" placeholder="Username" class="form-control input-md" required="">
     
                 </div>
             </div>
@@ -80,7 +80,7 @@
              <div class="form-group">
                     <label class="col-md-4 control-label" for="fn">ยืนยันรหัสเข้าใช้งาน</label>  
                 <div class="col-md-4">
-                    <input id="repassword" name="fn" type="password" placeholder="Re-password" class="form-control input-md" required="">
+                    <input id="stuPassword" name="fn" type="password" placeholder="Re-password" class="form-control input-md" required="">
     
                 </div>
             </div>
@@ -88,7 +88,7 @@
             <div class="form-group">
                     <label class="col-md-4 control-label" for="fn">ชื่อ</label>  
                 <div class="col-md-4">
-                    <input name="fname" type="text" placeholder="Firstname" class="form-control input-md" required="">
+                    <input name="stwFirstname" type="text" placeholder="Firstname" class="form-control input-md" required="">
     
                 </div>
             </div>
@@ -96,7 +96,7 @@
             <div class="form-group">
                     <label class="col-md-4 control-label" for="fn">นามสกุล</label>  
                 <div class="col-md-4">
-                    <input  name="lname" type="text" placeholder="Lastname" class="form-control input-md" required="">
+                    <input  name="stwLastname" type="text" placeholder="Lastname" class="form-control input-md" required="">
     
                 </div>
             </div>
@@ -104,7 +104,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="selectbasic">เพศ</label>
                     <div class="col-md-4">
-                    <select  name="gender" class="form-control input-md">
+                    <select  name="stwGender" class="form-control input-md">
                 <option value="1">ชาย </option>
                 <option value="2">หญิง</option>
                 </select>
@@ -114,7 +114,7 @@
             <div class="form-group">
                     <label class="col-md-4 control-label" for="fn">อีเมลล์</label>  
                 <div class="col-md-4">
-                    <input  name="email" type="text" placeholder="Email" class="form-control input-md" required="">
+                    <input  name="stwEmail" type="text" placeholder="Email" class="form-control input-md" required="">
     
                 </div>
             </div>
@@ -122,7 +122,7 @@
             <div class="form-group">
                     <label class="col-md-4 control-label" for="fn">เบอร์โทร</label>  
                 <div class="col-md-4">
-                    <input name="tel" type="text" placeholder="Tel" class="form-control input-md" required="">
+                    <input name="stwTel" type="text" placeholder="Tel" class="form-control input-md" required="">
     
                 </div>
             </div>
@@ -130,7 +130,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="selectbasic">แผนก</label>
                     <div class="col-md-4">
-                    <select  name="dept" class="form-control input-md">
+                    <select  name="stwDept_id" class="form-control input-md">
                 <option value="1">ฝ่ายคลังสินค้า  </option>
                 <option value="2">ฝ่ายการวางแผนการผลิต</option>
                 <option value="3">ฝ่ายผลิต</option>
