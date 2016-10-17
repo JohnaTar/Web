@@ -74,7 +74,7 @@
                     <label class="col-md-4 control-label" for="fn">ชื่อเข้าใช้งาน</label>  
 
                 <div class="col-md-4">
-                    <input  name="stwUsername" type="text" placeholder="Username" class="form-control input-md" required="" pattern="[a-z0-9._%+-]">
+                    <input  name="stwUsername" type="text" placeholder="Username" class="form-control input-md" required="">
     
                 </div>
             </div>

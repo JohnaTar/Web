@@ -23,7 +23,7 @@
 <body>
 <?php 
      include("connect.php");
-     $sql = "SELECT stwUser.stwUser_id,stwUser.stwFirstname,stwUser.stwLastname,stwUser.stwActivate,
+     $sql = "SELECT stwUser.stwFirstname,stwUser.stwLastname,stwUser.stwActivate,
                     stwStatus.stwStatus_name,stwPrefix.stwPrefix_name
             FROM stwUser
             INNER JOIN stwStatus
@@ -60,7 +60,7 @@
                     </ul>
                 </li>
             </ul>
-            <!-- ***************************Start left bar******************************** -->
+            <!-- ***************************Start left bar************************************ -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li class="active"> 
@@ -118,11 +118,11 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <center><h2>ตารางแสดงข้อมูลสมาชิก</h2></center>
-                        <button type="button" class="btn btn-info btn-xl" data-toggle="modal" data-target="#myModal">เพิ่มข้อมูลสมาชิก</button>
+                        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">เพิ่มข้อมูลสมาชิก</button>
                             <table class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
-					                    <th>คำนำหน้า</th>      
+					                    <th>คำนำหน้า</th>                                      
                                         <th>ชื่อ</th>
                                         <th>นามสกุล</th>
                                         <th>สถานะ</th>
@@ -133,37 +133,17 @@
                                 <tbody>   
 
                                 <tr>
-			                     <?php while($row=mysqli_fetch_array($result,MYSQLI_ASSOC)){
-                                    if ($row["stwActivate"]==1) {
-                                        $A = "อนุมัติ";
-                                    }else {
-                                        $A = "ไม่อนุมัติ";
-                                        
-                                    }
-                                    
-                                        ?>
+			                     <?php while($row=mysqli_fetch_array($result,MYSQLI_ASSOC)){?>
 
                                     <td><?php echo $row["stwPrefix_name"]; ?></td>
                                     <td><?php echo $row["stwFirstname"]; ?></td>
 					                <td><?php echo $row["stwLastname"]; ?></td>
 					                <td><?php echo $row["stwStatus_name"]; ?></td>
-                                    <td><?php echo $A; ?> </td>
-                                    <td><div class="btn-group">
-  <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    เมนู <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu">
-    <button type="button" class="btn btn-xl " data-toggle="modal1" data-target="#myModal1">ดูข้อมูลสมาชิก</button></li>
-    <li><a href="#">แก้ไขข้อมูล</a></li>
-    <li><a href="#">ลบข้อมูลสมาชิก</a></li>
-</div></td>
+					                <td><?php echo ; ?></td>
 
-
-					           
+ 
 				                 </tr>                       
-                                <?php } 
-                                mysqli_close($con);
-                                ?>
+                                <?php } ?>
                                 </tbody>
                             </table>
                         </div>
@@ -172,36 +152,23 @@
                 </div>
  <!-- *********************************end table********************************************* -->
   <!-- *********************************startmodal********************************************* -->
-<form class="form-horizontal" action="saveadmin.php" method="POST"> 
-
+<   
+<form class="form-horizontal" action="save.php" method="POST"> 
 <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog modal-md">
+    <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-
-            <h1 class="modal-title">สมัครสมาชิก</h1>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h1 class="modal-title">เพิ่มข้อมูลสมาชิก</h1>
         </div>
-        
-         
-        
-<!-- *********************************username from************************************* -->
         <div class="modal-body">
-            <div class="form-group">
-                <label class="col-md-4 control-label" for="selectbasic">คำนำหน้า</label>
-                    <div class="col-md-4">
-                    <select  name="stwPrefix_id" class="form-control input-md">
-                <option value="1">นาย </option>
-                <option value="2">นาง</option>
-                </select>
-                </div>
-            </div>
-
+         
+        <form class="form-horizontal" action="save.php" method="POST"> 
+<!-- *********************************username from********************************************* -->
             <div class="form-group">
                     <label class="col-md-4 control-label" for="fn">ชื่อเข้าใช้งาน</label>  
-
                 <div class="col-md-4">
-                    <input  name="stwUsername" type="text" placeholder="Username" class="form-control input-md" required="">
+                    <input  name="username" type="text" placeholder="Username" class="form-control input-md" required="">
     
                 </div>
             </div>
@@ -213,11 +180,10 @@
     
                 </div>
             </div>
-
              <div class="form-group">
                     <label class="col-md-4 control-label" for="fn">ยืนยันรหัสเข้าใช้งาน</label>  
                 <div class="col-md-4">
-                    <input id="stuPassword" name="fn" type="password" placeholder="Re-password" class="form-control input-md" required="">
+                    <input id="repassword" name="fn" type="password" placeholder="Re-password" class="form-control input-md" required="">
     
                 </div>
             </div>
@@ -225,7 +191,7 @@
             <div class="form-group">
                     <label class="col-md-4 control-label" for="fn">ชื่อ</label>  
                 <div class="col-md-4">
-                    <input name="stwFirstname" type="text" placeholder="Firstname" class="form-control input-md" required="">
+                    <input name="fname" type="text" placeholder="Firstname" class="form-control input-md" required="">
     
                 </div>
             </div>
@@ -233,7 +199,7 @@
             <div class="form-group">
                     <label class="col-md-4 control-label" for="fn">นามสกุล</label>  
                 <div class="col-md-4">
-                    <input  name="stwLastname" type="text" placeholder="Lastname" class="form-control input-md" required="">
+                    <input  name="lname" type="text" placeholder="Lastname" class="form-control input-md" required="">
     
                 </div>
             </div>
@@ -241,7 +207,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="selectbasic">เพศ</label>
                     <div class="col-md-4">
-                    <select  name="stwGender" class="form-control input-md">
+                    <select  name="gender" class="form-control input-md">
                 <option value="1">ชาย </option>
                 <option value="2">หญิง</option>
                 </select>
@@ -251,7 +217,7 @@
             <div class="form-group">
                     <label class="col-md-4 control-label" for="fn">อีเมลล์</label>  
                 <div class="col-md-4">
-                    <input  name="stwEmail" type="email" placeholder="Email" class="form-control input-md" required="" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+                    <input  name="email" type="text" placeholder="Email" class="form-control input-md" required="">
     
                 </div>
             </div>
@@ -259,7 +225,7 @@
             <div class="form-group">
                     <label class="col-md-4 control-label" for="fn">เบอร์โทร</label>  
                 <div class="col-md-4">
-                    <input name="stwTel" type="text" placeholder="Tel" class="form-control input-md" required="">
+                    <input name="tel" type="text" placeholder="Tel" class="form-control input-md" required="">
     
                 </div>
             </div>
@@ -267,7 +233,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="selectbasic">แผนก</label>
                     <div class="col-md-4">
-                    <select  name="stwDept_id" class="form-control input-md">
+                    <select  name="dept" class="form-control input-md">
                 <option value="1">ฝ่ายคลังสินค้า  </option>
                 <option value="2">ฝ่ายการวางแผนการผลิต</option>
                 <option value="3">ฝ่ายผลิต</option>
@@ -283,30 +249,16 @@
             </div>
 
 <!-- **********************************dept**************************************************** -->
-            <div class="form-group">
-                <label class="col-md-4 control-label" for="selectbasic">สถานะ</label>
+                 <div class="form-group">
+                <label class="col-md-4 control-label" for="selectbasic"></label>
                     <div class="col-md-4">
-                    <select  name="stwStatus_id" class="form-control input-md">
-                <option value="1">Administrator </option>
-                <option value="2">Super User</option>
-                <option value="3">User</option>
-                    </select>
-                    </div>
-            </div>
-            <div class="form-group">
-                <label class="col-md-4 control-label" for="selectbasic">สถานะการอบรม</label>
-                    <div class="col-md-4">
-                    <select  name="stwActivate" class="form-control input-md">
-                <option value="1">อนุมัติ </option>
-                <option value="2">ไม่อนุมัติ</option>
+                    <select  name="status" class="form-control input-md">
+                <option value="1">Super user  </option>
+                <option value="2">User</option>
                 
                     </select>
-                    </div>
+                </div>
             </div>
-
-
-              
-            
             <div class="form-group">
                 <label class="col-md-4 control-label" for="submit"></label>
                 <div class="col-md-4">
@@ -324,27 +276,12 @@
 </div>
 </form>
 
+
+
  <!-- *********************************end modal********************************************* -->
  
-            <div class="modal fade" id="myModal1" role="dialog">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal1">&times;</button>
-          <h1 class="modal-title">เพิ่มข้อมูลสมาชิก</h1>
-        </div>
-        <div class="modal-body">
 
 
-   
-        
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
 
             </div>
             </div>
