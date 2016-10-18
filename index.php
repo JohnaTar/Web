@@ -74,7 +74,7 @@
                     <label class="col-md-4 control-label" for="fn">ชื่อเข้าใช้งาน</label>  
 
                 <div class="col-md-4">
-                    <input  name="stwUsername" type="text" placeholder="Username" class="form-control input-md" required="">
+                    <input  name="stwUsername" type="text" placeholder="Username" class="form-control input-md" required="" pattern=".{8,}" title="มากกว่าแปดตัวนะไอ้สัส">
     
                 </div>
             </div>
@@ -124,7 +124,7 @@
             <div class="form-group">
                     <label class="col-md-4 control-label" for="fn">อีเมลล์</label>  
                 <div class="col-md-4">
-                    <input  name="stwEmail" type="email" placeholder="Email" class="form-control input-md" required="" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+                    <input  name="stwEmail" type="email" placeholder="Email" class="form-control input-md" required="" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" >
     
                 </div>
             </div>
