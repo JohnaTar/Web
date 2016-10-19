@@ -3,9 +3,12 @@
 	include("connect.php");
 	$sql = "SELECT * FROM stwUser WHERE stwUsername = '".trim($_POST['stwUsername'])."' ";
 			$result = mysqli_query($conn, $sql);
-			$row=mysqli_fetch_array($result);
+			$row=mysqli_num_rows($result);
 			if ($row) {
-				echo "Username ซ้ำนะไอ้สัส";
+	echo "<script>";
+		echo "alert(\"Username ซ่ำนะไอ้สัส แม่เยส เดวตบคว่ำ\");";
+		
+	echo "</script>";
 			} else  {
 				
 			

@@ -64,7 +64,7 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li class="active"> 
-                    <img class="img-responsive" src="img/profile.gif" alt="">
+                    <img class="img-responsive" src="img/pro.png" alt="">
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-file""></i> เนื้อหาการอบรม <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse">
@@ -148,15 +148,19 @@
 					                <td><?php echo $row["stwLastname"]; ?></td>
 					                <td><?php echo $row["stwStatus_name"]; ?></td>
                                     <td><?php echo $A; ?> </td>
-                                    <td><div class="btn-group">
-  <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<td>
+    <div class="btn-group">
+        <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     เมนู <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu">
-    <button type="button" class="btn btn-xl " data-toggle="modal1" data-target="#myModal1">ดูข้อมูลสมาชิก</button></li>
+        </button>
+         <ul class="dropdown-menu">
+    <li><button type="button" class="btn btn-xl " data-toggle="modal" data-target="#myModal1" 
+        id=<?php echo $row["stwUser_id"]; ?>   >ดูข้อมูลสมาชิก</button>
+    </li>
     <li><a href="#">แก้ไขข้อมูล</a></li>
     <li><a href="#">ลบข้อมูลสมาชิก</a></li>
-</div></td>
+    </div>
+</td>
 
 
 					           
@@ -326,18 +330,17 @@
 
  <!-- *********************************end modal********************************************* -->
  
-            <div class="modal fade" id="myModal1" role="dialog">
+    <div class="modal fade" id="myModal1" role="dialog">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal1">&times;</button>
-          <h1 class="modal-title">เพิ่มข้อมูลสมาชิก</h1>
+         <center> <h1 class="modal-title" >Fuck You All Bitch!!</h1> </center>
         </div>
         <div class="modal-body">
-
-
-   
         
+   
+
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -345,7 +348,7 @@
         </div>
     </div>
 </div>
-
+        
             </div>
             </div>
             <!-- /.container-fluid -->
