@@ -20,11 +20,6 @@
 
 <body>
 
-
-
-
-
-
     <div id="wrapper">
 
         
@@ -92,23 +87,19 @@
                 <!-- Page Heading -->
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">
-                            แก้ไขข้อมูลสมาชิก
-
-                        </h1>
+                       <center> <h1 class="page-header">
+                            แก้ไขรหัสสมาชิก</h1> </center>
                         <ol class="breadcrumb">
                             <li>
                                 <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
                             </li>
                             <li class="active">
-                                <i class="fa fa-file"></i> แก้ไขข้อมูลสมาชิก
+                                <i class="fa fa-file"></i> แก้ไขรหัสสมาชิก
                             </li>
                         </ol>
+<!-- *********************************start database******************************* -->
     <?php
-    $serverName = "localhost";
-    $userName = "root";
-    $userPassword = "445566";
-    $dbName = "mydb";
+    
 
     $memid = null;
 
@@ -117,97 +108,30 @@
         $memid = $_GET["id"];
     }
     include("connect.php");
-    $sql = "SELECT * FROM stwUer 
-                        WHERE stwUer_id = '".$memid."' ";
+    $sql = "SELECT * FROM stwUser 
+                        WHERE stwUser_id = '".$memid."' ";
     $query = mysqli_query($conn,$sql);
     $result=mysqli_fetch_array($query,MYSQLI_ASSOC);
 
-   
-    
+
     ?>
-
-
+    
 
 <!-- *********************************start from********************************************* -->
-<form class="form-horizontal" action="checklogin.php" method="POST"> >
+<form class="form-horizontal" action="savepass.php" method="POST"> 
 
-<!-- *********************************first from********************************************* -->
+<!-- ************************username from********************************************* -->
             <div class="form-group">
-                    <label class="col-lg-4 control-label" for="fn">ชื่อ</label>  
-                <div class="col-lg-4">
-                    <input id="fn" name="fn" type="text" placeholder="Firstname" class="form-control input-md" required="" value="<?php echo $result["fname"];?>">
+                    <label class="col-md-4 control-label" for="fn">ชื่อเข้าใช้งาน  </label>  
+              
+                    <?php echo $result["stwFirstname"];?>
+                    <?php echo $result["stwLastname"];?>
+                    <?php echo $result["stwEmail"];?>
     
-                </div>
-            </div>
-<!-- *********************************last from********************************************* -->
-            <div class="form-group">
-                    <label class="col-lg-4 control-label" for="fn">นามสกุล</label>  
-                <div class="col-lg-4">
-                    <input id="fn" name="fn" type="text" placeholder="Lastname" class="form-control input-md" required="" value="<?php echo $result["lname"];?>">
-    
-                </div>
-            </div>
-<!-- *********************************gender********************************************* -->
-  <div class="form-group">
-                <label class="col-lg-4 control-label" for="selectbasic">เพศ</label>
-                    <div class="col-lg-4">
-                    <select  name="gender" class="form-control input-md"  >
-                <option value="1">ชาย  </option>
-                <option value="2">หญิง </option>
-                </select>
-                </div>
-            </div>
-<!-- **********************************email***************************************************** -->
-            <div class="form-group">
-                    <label class="col-lg-4 control-label" for="fn">อีเมลล์</label>  
-                <div class="col-lg-4">
-                    <input id="fn" name="fn" type="text" placeholder="Email" class="form-control input-md" required="" value="<?php echo $result["email"];?>">
-    
-                </div>
-            </div>
-<!-- **********************************tel**************************************************** -->
-            <div class="form-group">
-                    <label class="col-lg-4 control-label" for="fn">เบอร์โทร</label>  
-                <div class="col-lg-4">
-                    <input id="fn" name="fn" type="text" placeholder="Tel" class="form-control input-md" required="" value="<?php echo $result["tel"];?>">
-    
-                </div>
-            </div>
-<!-- **********************************dept**************************************************** -->
-           <div class="form-group">
-                <label class="col-lg-4 control-label" for="selectbasic">แผนก</label>
-                    <div class="col-lg-4">
-                    <select  name="dept" class="form-control input-md">
-                <option value="1">ฝ่ายคลังสินค้า</option>
-                <option value="2">ฝ่ายการวางแผนการผลิต</option>
-                <option value="3">ฝ่ายผลิต</option>
-                <option value="4">ฝ่ายจัดซื้อ</option>
-                <option value="5">ฝ่ายธุรการ</option>
-                <option value="6">ฝ่ายบัญชี</option>
-                <option value="7">ฝ่ายวิศวกรรม</option>
-                <option value="8">ฝ่ายการเงิน</option>
-                <option value="9">ฝ่ายพัฒนาเทคนิคและคุณภาพ</option>
-                <option value="10">ฝ่ายบุคคล</option>
-                    </select>
-                </div>
-            </div>
-<!-- **********************************dept**************************************************** -->
-                <div class="form-group">
-                <label class="col-lg-4 control-label" for="selectbasic"></label>
-                    <div class="col-lg-4">
-                    <select  name="status" class="form-control input-md">
-                <option value="1">Super user  </option>
-                <option value="2">User</option>
                 
-                    </select>
-                </div>
             </div>
-            <div class="form-group">
-                <label class="col-lg-4 control-label" for="submit"></label>
-                <div class="col-lg-4">
-            <button id="submit" name="submit" class="btn btn-primary">ตกลง</button>
-                </div>
-            </div>
+<!-- *********************************password from******************************** -->
+            
 
 
 

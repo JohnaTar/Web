@@ -101,7 +101,7 @@
     <?php
     $serverName = "localhost";
     $userName = "root";
-    $userPassword = "";
+    $userPassword = "445566";
     $dbName = "mydb";
 
     $memid = null;
@@ -111,8 +111,8 @@
         $memid = $_GET["id"];
     }
     include("connect.php");
-    $sql = "SELECT * FROM member 
-                        WHERE id = '".$memid."' ";
+    $sql = "SELECT * FROM stwUser 
+                        WHERE stwUser_id = '".$memid."' ";
     $query = mysqli_query($conn,$sql);
     $result=mysqli_fetch_array($query,MYSQLI_ASSOC);
 
@@ -122,45 +122,18 @@
 
 <!-- *********************************start from********************************************* -->
 <form class="form-horizontal" action="savepass.php" method="POST"> 
-<div class="form-group">
-                    
-                <div class="col-lg-4">
-                    <input  name="id" type="hidden"  class="form-control input-md" readonly=""
-                     value="<?php echo $result["id"];?>">
-    
-                </div>
-            </div>
-<!-- *********************************username from********************************************* -->
+
+<!-- ************************username from********************************************* -->
             <div class="form-group">
                     <label class="col-lg-4 control-label" for="fn">ชื่อเข้าใช้งาน</label>  
                 <div class="col-lg-4">
                     <input  name="username" type="text" class="form-control input-md" readonly="" 
-                    value="<?php echo $result["username"];?>">
+                    value="<?php echo $result["stwFirstname"];?>">
     
                 </div>
             </div>
 <!-- *********************************password from********************************************* -->
-            <div class="form-group">
-                    <label class="col-lg-4 control-label" for="fn">รหัสเข้าใช้งาน</label>  
-                <div class="col-lg-4">
-                    <input name="password" type="password" placeholder="Password" class="form-control input-md" required="">
-    
-                </div>
-            </div>
-             <div class="form-group">
-                    <label class="col-lg-4 control-label" for="fn">ยืนยันรหัสเข้าใช้งาน</label>  
-                <div class="col-lg-4">
-                    <input  name="repassword" type="password" placeholder="Re-password" class="form-control input-md" required="">
-    
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label class="col-lg-4 control-label" for="submit"></label>
-                <div class="col-lg-4">
-            <button id="submit" name="submit" class="btn btn-primary">ตกลง</button>
-                </div>
-            </div>
+            <
 
 
 

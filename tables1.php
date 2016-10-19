@@ -148,16 +148,15 @@
 					                <td><?php echo $row["stwLastname"]; ?></td>
 					                <td><?php echo $row["stwStatus_name"]; ?></td>
                                     <td><?php echo $A; ?> </td>
+                                    
 <td>
     <div class="btn-group">
         <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     เมนู <span class="caret"></span>
         </button>
          <ul class="dropdown-menu">
-    <li><button type="button" class="btn btn-xl " data-toggle="modal" data-target="#myModal1" 
-        id=<?php echo $row["stwUser_id"]; ?>   >ดูข้อมูลสมาชิก</button>
-    </li>
-    <li><a href="#">แก้ไขข้อมูล</a></li>
+    <li><a href="listdata.php? id=<?php echo $row["stwUser_id"]; ?>">ดูช้อมูล</a></li>
+    <li><a href="editdata.php?id=<?php echo $row["stwUser_id"]; ?>">แก้ไขข้อมูล</a></li>
     <li><a href="#">ลบข้อมูลสมาชิก</a></li>
     </div>
 </td>
@@ -209,7 +208,7 @@
     
                 </div>
             </div>
-<!-- *********************************password from********************************************* -->
+<!-- ***************************password from********************************************* -->
             <div class="form-group">
                     <label class="col-md-4 control-label" for="fn">รหัสเข้าใช้งาน</label>  
                 <div class="col-md-4">
@@ -330,24 +329,7 @@
 
  <!-- *********************************end modal********************************************* -->
  
-    <div class="modal fade" id="myModal1" role="dialog">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal1">&times;</button>
-         <center> <h1 class="modal-title" >Fuck You All Bitch!!</h1> </center>
-        </div>
-        <div class="modal-body">
-        
-   
-
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
+  
         
             </div>
             </div>

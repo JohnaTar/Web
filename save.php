@@ -4,7 +4,7 @@
 	$sql = "SELECT * FROM stwUser WHERE stwUsername = '".trim($_POST['stwUsername'])."' ";
 			$result = mysqli_query($conn, $sql);
 			$row=mysqli_num_rows($result);
-			if ($row) {
+			if ($row ) {
 	echo "<script>";
 		echo "alert(\"Username ซ่ำนะไอ้สัส แม่เยส เดวตบคว่ำ\");";
 		

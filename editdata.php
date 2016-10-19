@@ -20,11 +20,6 @@
 
 <body>
 
-
-
-
-
-
     <div id="wrapper">
 
         
@@ -92,23 +87,19 @@
                 <!-- Page Heading -->
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">
-                            แก้ไขข้อมูลสมาชิก
-
-                        </h1>
+                       <center> <h1 class="page-header">
+                            แก้ไขรหัสสมาชิก</h1> </center>
                         <ol class="breadcrumb">
                             <li>
                                 <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
                             </li>
                             <li class="active">
-                                <i class="fa fa-file"></i> แก้ไขข้อมูลสมาชิก
+                                <i class="fa fa-file"></i> แก้ไขรหัสสมาชิก
                             </li>
                         </ol>
+<!-- *********************************start database******************************* -->
     <?php
-    $serverName = "localhost";
-    $userName = "root";
-    $userPassword = "445566";
-    $dbName = "mydb";
+    
 
     $memid = null;
 
@@ -117,66 +108,80 @@
         $memid = $_GET["id"];
     }
     include("connect.php");
-    $sql = "SELECT * FROM stwUer 
-                        WHERE stwUer_id = '".$memid."' ";
+    $sql = "SELECT * FROM stwUser 
+                        WHERE stwUser_id = '".$memid."' ";
     $query = mysqli_query($conn,$sql);
     $result=mysqli_fetch_array($query,MYSQLI_ASSOC);
+    if ($result["stwPrefix_id"]==1) {
+                                        $A = "นาย";
+                                    }else {
+                                        $A = "นาง";
+                                        
+                                    }
 
-   
-    
+
     ?>
-
-
+    
 
 <!-- *********************************start from********************************************* -->
-<form class="form-horizontal" action="checklogin.php" method="POST"> >
+<form class="form-horizontal" action="checklogin.php" method="POST"> 
 
-<!-- *********************************first from********************************************* -->
+<!-- *****************************first from********************************************* -->
+            <input name="stwUser_id" value="<?php echo $result["stwUser_id"];?>" type="hidden">
             <div class="form-group">
-                    <label class="col-lg-4 control-label" for="fn">ชื่อ</label>  
-                <div class="col-lg-4">
-                    <input id="fn" name="fn" type="text" placeholder="Firstname" class="form-control input-md" required="" value="<?php echo $result["fname"];?>">
+                    <label class="col-md-4 control-label" for="fn">คำนำหน้า</label>  
+                <div class="col-md-4">
+                    <input id="fn" name="fn" type="text" placeholder="คำนำหน้า" class="form-control input-md" required="" value="<?php echo $A ;?>">
+    
+                </div>
+            </div>
+
+            <div class="form-group">
+                    <label class="col-md-4 control-label" for="fn">ชื่อ</label>  
+                <div class="col-md-4">
+                    <input id="fn" name="fn" type="text" placeholder="Firstname" class="form-control input-md" required="" value="<?php echo $result["stwFirstname"];?>">
+
     
                 </div>
             </div>
 <!-- *********************************last from********************************************* -->
             <div class="form-group">
-                    <label class="col-lg-4 control-label" for="fn">นามสกุล</label>  
-                <div class="col-lg-4">
-                    <input id="fn" name="fn" type="text" placeholder="Lastname" class="form-control input-md" required="" value="<?php echo $result["lname"];?>">
+                    <label class="col-md-4 control-label" for="fn">นามสกุล</label>  
+                <div class="col-md-4">
+                    <input id="fn" name="fn" type="text" placeholder="Lastname" class="form-control input-md" required="" value="<?php echo $result["stwLastname"];?>">
     
                 </div>
             </div>
 <!-- *********************************gender********************************************* -->
   <div class="form-group">
-                <label class="col-lg-4 control-label" for="selectbasic">เพศ</label>
-                    <div class="col-lg-4">
+                <label class="col-md-4 control-label" for="selectbasic">เพศ</label>
+                    <div class="col-md-4">
                     <select  name="gender" class="form-control input-md"  >
                 <option value="1">ชาย  </option>
                 <option value="2">หญิง </option>
                 </select>
                 </div>
             </div>
-<!-- **********************************email***************************************************** -->
+<!-- **********************************email************************************************* -->
             <div class="form-group">
-                    <label class="col-lg-4 control-label" for="fn">อีเมลล์</label>  
-                <div class="col-lg-4">
-                    <input id="fn" name="fn" type="text" placeholder="Email" class="form-control input-md" required="" value="<?php echo $result["email"];?>">
+                    <label class="col-md-4 control-label" for="fn">อีเมลล์</label>  
+                <div class="col-md-4">
+                    <input id="fn" name="fn" type="text" placeholder="Email" class="form-control input-md" required="" value="<?php echo $result["stwEmail"];?>">
     
                 </div>
             </div>
 <!-- **********************************tel**************************************************** -->
             <div class="form-group">
-                    <label class="col-lg-4 control-label" for="fn">เบอร์โทร</label>  
-                <div class="col-lg-4">
-                    <input id="fn" name="fn" type="text" placeholder="Tel" class="form-control input-md" required="" value="<?php echo $result["tel"];?>">
+                    <label class="col-md-4 control-label" for="fn">เบอร์โทร</label>  
+                <div class="col-md-4">
+                    <input id="fn" name="fn" type="text" placeholder="Tel" class="form-control input-md" required="" value="<?php echo $result["stwTel"];?>">
     
                 </div>
             </div>
 <!-- **********************************dept**************************************************** -->
            <div class="form-group">
-                <label class="col-lg-4 control-label" for="selectbasic">แผนก</label>
-                    <div class="col-lg-4">
+                <label class="col-md-4 control-label" for="selectbasic">แผนก</label>
+                    <div class="col-md-4">
                     <select  name="dept" class="form-control input-md">
                 <option value="1">ฝ่ายคลังสินค้า</option>
                 <option value="2">ฝ่ายการวางแผนการผลิต</option>
@@ -193,8 +198,8 @@
             </div>
 <!-- **********************************dept**************************************************** -->
                 <div class="form-group">
-                <label class="col-lg-4 control-label" for="selectbasic"></label>
-                    <div class="col-lg-4">
+                <label class="col-md-4 control-label" for="selectbasic"></label>
+                    <div class="col-md-4">
                     <select  name="status" class="form-control input-md">
                 <option value="1">Super user  </option>
                 <option value="2">User</option>
@@ -203,11 +208,20 @@
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-lg-4 control-label" for="submit"></label>
-                <div class="col-lg-4">
+                <label class="col-md-4 control-label" for="submit"></label>
+                <div class="col-md-4">
             <button id="submit" name="submit" class="btn btn-primary">ตกลง</button>
                 </div>
             </div>
+
+
+
+
+
+
+
+
+
 
 
 
