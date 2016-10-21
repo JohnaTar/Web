@@ -35,6 +35,7 @@ if($query) {
 echo "<script>";
         echo "alert(\"บันทึกข้อมูลเรียบร้อย\");";        
     echo "</script>";
+    
 
 	}
 

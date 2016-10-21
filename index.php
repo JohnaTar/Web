@@ -66,6 +66,7 @@
                     <select  name="stwPrefix_id" class="form-control input-md">
                 <option value="1">นาย </option>
                 <option value="2">นาง</option>
+                <option value="3">นางสาว</option>
                 </select>
                 </div>
             </div>
@@ -141,16 +142,10 @@
                 <label class="col-md-4 control-label" for="selectbasic">แผนก</label>
                     <div class="col-md-4">
                     <select  name="stwDept_id" class="form-control input-md">
-                <option value="1">ฝ่ายคลังสินค้า  </option>
-                <option value="2">ฝ่ายการวางแผนการผลิต</option>
-                <option value="3">ฝ่ายผลิต</option>
-                <option value="4">ฝ่ายจัดซื้อ</option>
-                <option value="5">ฝ่ายธุรการ</option>
-                <option value="6">ฝ่ายบัญชี</option>
-                <option value="7">ฝ่ายวิศวกรรม</option>
-                <option value="8">ฝ่ายการเงิน</option>
-                <option value="9">ฝ่ายพัฒนาเทคนิคและคุณภาพ</option>
-                <option value="10">ฝ่ายบุคคล</option>
+                <option value="1">แผนก 1 </option>
+                <option value="2">แผนก 2</option>
+                <option value="3">แผนก 3</option>
+              
                     </select>
                 </div>
             </div>

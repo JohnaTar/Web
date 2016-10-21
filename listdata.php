@@ -88,19 +88,20 @@
                 <div class="row">
                     <div class="col-lg-12">
                        <center> <h1 class="page-header">
-                            แก้ไขรหัสสมาชิก</h1> </center>
+                            แก้ไขข้อมูลสมาชิก</h1> </center>
                         <ol class="breadcrumb">
                             <li>
                                 <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
                             </li>
                             <li class="active">
-                                <i class="fa fa-file"></i> แก้ไขรหัสสมาชิก
+                                <i class="fa fa-file"></i> แก้ไขข้อมูลสมาชิก
                             </li>
                         </ol>
 <!-- *********************************start database******************************* -->
     <?php
     
 
+   
     $memid = null;
 
     if(isset($_GET["id"]))
@@ -117,21 +118,121 @@
     ?>
     
 
-<!-- *********************************start from********************************************* -->
-<form class="form-horizontal" action="savepass.php" method="POST"> 
-
-<!-- ************************username from********************************************* -->
-            <div class="form-group">
-                    <label class="col-md-4 control-label" for="fn">ชื่อเข้าใช้งาน  </label>  
-              
-                    <?php echo $result["stwFirstname"];?>
-                    <?php echo $result["stwLastname"];?>
-                    <?php echo $result["stwEmail"];?>
     
-                
+    
+
+<!-- *********************************start from********************************************* -->
+<form class="form-horizontal" action="checklogin.php" method="POST"> 
+
+<!-- *****************************first from********************************************* -->
+          <div class="form-group">
+                <label class="col-md-4 control-label" for="selectbasic">คำนำหน้า</label>
+                    <div class="col-md-4">
+                    <select  name="stwPrefix_id" class="form-control input-md">
+                <option value="1" <?php if($result['stwPrefix_id'] == '1'){echo "selected='selected'";} ?> >นาย </option>
+                <option value="2" <?php if($result['stwPrefix_id'] == '2'){echo "selected='selected'";} ?> >นาง</option>
+                <option value="3" <?php if($result['stwPrefix_id'] == '3'){echo "selected='selected'";} ?>>นางสาว</option>
+                </select>
+                </div>
             </div>
-<!-- *********************************password from******************************** -->
+
             
+<!-- *********************************first from********************************************* -->
+            <div class="form-group">
+                    <label class="col-md-4 control-label" for="fn">ชื่อ</label>  
+                <div class="col-md-4">
+                    <input name="stwFirstname" type="text" placeholder="Firstname" class="form-control input-md" required="" value="<?php echo $result['stwFirstname']; ?>">
+    
+                </div>
+            </div>
+<!-- *********************************last from********************************************* -->
+            <div class="form-group">
+                    <label class="col-md-4 control-label" for="fn">นามสกุล</label>  
+                <div class="col-md-4">
+                    <input  name="stwLastname" type="text" placeholder="Lastname" class="form-control input-md" required="" value="<?php echo $result["stwLastname"]; ?>">
+    
+                </div>
+            </div>
+<!-- *********************************gender********************************************* -->
+            <div class="form-group">
+           
+                <label class="col-md-4 control-label" for="selectbasic">เพศ</label>
+                    <div class="col-md-4">
+               </select>
+               
+                 <select  name="stwGender" class="form-control input-md">
+                <option value="1" <?php if($result['stwGender'] == '1'){echo "selected='selected'";} ?> >ชาย </option>
+                <option value="2" <?php if($result['stwGender'] == '2'){echo "selected='selected'";} ?>>หญิง</option>
+                </select>
+                </div>
+            </div>
+<!-- **********************************email***************************************************** -->
+            <div class="form-group">
+                    <label class="col-md-4 control-label" for="fn">อีเมลล์</label>  
+                <div class="col-md-4">
+                    <input  name="stwEmail" type="email" placeholder="Email" class="form-control input-md" required="" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" value="<?php echo $result["stwEmail"]; ?>">
+    
+                </div>
+            </div>
+<!-- **********************************tel**************************************************** -->
+            <div class="form-group">
+                    <label class="col-md-4 control-label" for="fn">เบอร์โทร</label>  
+                <div class="col-md-4">
+                    <input name="stwTel" type="text" placeholder="Tel" class="form-control input-md" required="" value="<?php echo $result['stwTel']; ?>">
+    
+                </div>
+            </div>
+<!-- **********************************dept**************************************************** -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="selectbasic">แผนก</label>
+                    <div class="col-md-4">
+                    <select  name="stwDept_id" class="form-control input-md">
+                <option value="1" <?php if($result['stwDept_id'] == '1'){echo "selected='selected'";} ?>>แผนก 1  </option>
+                <option value="2" <?php if($result['stwDept_id'] == '2'){echo "selected='selected'";} ?>>แผนก 2</option>
+                <option value="2" <?php if($result['stwDept_id'] == '3'){echo "selected='selected'";} ?>>แผนก 3</option>
+
+              
+                    </select>
+                </div>
+            </div>
+
+<!-- **********************************dept**************************************************** -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="selectbasic">สถานะ</label>
+                    <div class="col-md-4">
+                    <select  name="stwStatus_id" class="form-control input-md">
+                <option value="1"<?php if($result['stwStatus_id'] == '1'){echo "selected='selected'";} ?> >Administrator </option>
+                <option value="2" <?php if($result['stwStatus_id'] == '2'){echo "selected='selected'";} ?>>Super User</option>
+                <option value="3" <?php if($result['stwStatus_id'] == '3'){echo "selected='selected'";} ?>>User</option>
+                    </select>
+                    </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="selectbasic">สถานะการอบรม</label>
+                    <div class="col-md-4">
+                    <select  name="stwActivate" class="form-control input-md">
+                <option value="1"<?php if($result['stwActivate'] == '1'){echo "selected='selected'";} ?>>อนุมัติ </option>
+                <option value="2"<?php if($result['stwActivate'] == '2'){echo "selected='selected'";} ?>>ไม่อนุมัติ</option>
+                
+                    </select>
+                    </div>
+            </div>
+
+
+              
+            
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="submit"></label>
+                <div class="col-md-4">
+            <button id="submit" name="submit" class="btn btn-primary">ตกลง</button>
+                </div>
+            </div>
+
+
+
+
+
+
 
 
 
