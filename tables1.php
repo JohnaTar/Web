@@ -157,7 +157,7 @@
          <ul class="dropdown-menu">
     <li><a href="listdata.php? id=<?php echo $row["stwUser_id"]; ?>">ดูช้อมูล</a></li>
     <li><a href="editdata.php? id=<?php echo $row["stwUser_id"]; ?>">แก้ไขข้อมูล</a></li>
-    <li><a href="#">ลบข้อมูลสมาชิก</a></li>
+    <li><a href="deldata.php? id=<?php echo $row["stwUser_id"]; ?>">ลบข้อมูลสมาชิก</a></li>
     </div>
 </td>
 

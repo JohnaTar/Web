@@ -33,7 +33,11 @@
 if($query) {
 
 echo "<script>";
-        echo "alert(\"บันทึกข้อมูลเรียบร้อย\");";        
+        echo "alert(\"บันทึกข้อมูลเรียบร้อย\");"; 
+
+	
+		echo "window.history.back()";
+	       
     echo "</script>";
     
 
