@@ -9,6 +9,55 @@
   <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> 
   <script src="js/jquery.js"></script>
   <script src="js/bootstrap.min.js"></script>
+  <script type="text/javascript">
+
+$(document).ready(function(){
+
+        $ ("#stwUsername,#stwEmail").change(function(){
+
+            $("#UserID").empty();
+            $("#Email").empty();
+
+            $.ajax  ({
+                url: "save.php",
+                type: "POST",
+                data: 'UserID='+$("#stwUsername").val()+'$Email='+$("#stwEmail").val()
+            })
+            .success(function(result){
+
+                var obj = jQuery.parseJSON(result);
+
+                if (obj !='')
+                {
+                    $.each (obj,function(key, inval){
+
+                        if ($ ("#stwUsername").val() == inval ["stwUsername"])
+                        {
+                            $("#UserID").html ("<font color ='red'> Userซ้ำ</font>");
+
+                        }
+                        if ($ ("#Email").val() == inval ["stwEmail"])
+                        {
+                            $("#UserID").html ("<font color ='red'> Emailซ้ำ</font>");
+
+                        }
+
+
+                    });
+
+                }
+
+            });
+            
+        });
+
+});
+</script>
+
+
+
+
+
       <title>Test</title> 
   </head>
 <body> 
@@ -42,8 +91,34 @@
         </div>
     </div>
 </form>
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
-<!-- *********************************start dialog********************************************* -->
+<!-- *********************************start dialog***************************************** -->
     
 <form class="form-horizontal" action="save.php" method="POST"> 
 
@@ -58,7 +133,7 @@
         
          
         
-<!-- *********************************username from********************************************* -->
+<!-- *********************************username from***************************************** -->
         <div class="modal-body">
             <div class="form-group">
                 <label class="col-md-4 control-label" for="selectbasic">คำนำหน้า</label>
@@ -76,10 +151,11 @@
 
                 <div class="col-md-4">
                     <input  name="stwUsername" type="text" placeholder="Username" class="form-control input-md" required="" pattern=".{8,}" title="มากกว่าแปดตัวนะไอ้สัส">
+                    <span id="UserID"></span>
     
                 </div>
             </div>
-<!-- *********************************password from********************************************* -->
+<!-- *********************************password from***************************************** -->
             <div class="form-group">
                     <label class="col-md-4 control-label" for="fn">รหัสเข้าใช้งาน</label>  
                 <div class="col-md-4">

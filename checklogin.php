@@ -10,15 +10,16 @@ include("connect.php");
 	$sql = "SELECT * FROM stwUser 
 						WHERE stwUsername = '$Username'
 						AND stwPassword = '$Password' ";
-	$result = $conn->query($sql);	
-	$num = $result->num_rows;
+	$result = mysqli_query($conn, $sql);	
+	$num = mysqli_num_rows($result);
 	if($num <= 0){
 		echo "<script>";
 		echo "alert(\"Username และ password ไม่ถูกโว้ย\");"; 
 		echo "window.history.back()";
 	echo "</script>";
 	} else{
-		while ($user = $result->fetch_array()){ 
+		while ($user = mysqli_fetch_array($result,MYSQLI_ASSOC)){  
+			
 		//admin**********************************************************************
 			if ($user['stwStatus_id']== 1)
 			 {

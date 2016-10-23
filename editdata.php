@@ -113,16 +113,18 @@
                         WHERE stwUser_id = '".$memid."' ";
     $query = mysqli_query($conn,$sql);
     $result=mysqli_fetch_array($query,MYSQLI_ASSOC);
+    
 
-
+ 
     ?>
     
 
     
-    
+  
 
 <!-- *********************************start from********************************************* -->
 <form class="form-horizontal" action="checklogin.php" method="POST"> 
+
 
 <!-- *****************************first from********************************************* -->
           <div class="form-group">
@@ -135,6 +137,7 @@
                 </select>
                 </div>
             </div>
+
 
             
 <!-- *********************************first from********************************************* -->
