@@ -88,13 +88,13 @@
                 <div class="row">
                     <div class="col-lg-12">
                        <center> <h1 class="page-header">
-                            แก้ไขข้อมูลสมาชิก</h1> </center>
+                            ข้อมูลสมาชิก</h1> </center>
                         <ol class="breadcrumb">
                             <li>
                                 <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
                             </li>
                             <li class="active">
-                                <i class="fa fa-file"></i> แก้ไขข้อมูลสมาชิก
+                                <i class="fa fa-file"></i> ข้อมูลสมาชิก
                             </li>
                         </ol>
 <!-- *********************************start database******************************* -->
@@ -141,7 +141,7 @@
             <div class="form-group">
                     <label class="col-md-4 control-label" for="fn">ชื่อ</label>  
                 <div class="col-md-4">
-                    <input name="stwFirstname" type="text" placeholder="Firstname" class="form-control input-md" required="" value="<?php echo $result['stwFirstname']; ?>">
+                    <input name="stwFirstname" type="text" placeholder="Firstname" class="form-control input-md"  value="<?php echo $result['stwFirstname']; ?>">
     
                 </div>
             </div>
