@@ -10,6 +10,7 @@ include("connect.php");
 	$sql = "SELECT * FROM stwUser 
 						WHERE stwUsername = '$Username'
 						AND stwPassword = '$Password' ";
+						//exit();
 	$result = mysqli_query($conn, $sql);	
 	$num = mysqli_num_rows($result);
 	if($num <= 0){
@@ -25,7 +26,7 @@ include("connect.php");
 			 {
 				$_SESSION['ses_id'] = session_id();
 				$_SESSION['stwUsername'] = $user['stwUsername'];
-				$_SESSION['status'] =1;
+				$_SESSION['status'] =$user['stwStatus_id'];
 
 
 		echo "<meta http-equiv='refresh' content ='1;URL=admin.php'>";
@@ -34,7 +35,7 @@ include("connect.php");
 			} else{
 				$_SESSION['ses_id'] = session_id();
 				$_SESSION['username'] = $user['username'];
-				$_SESSION['status'] =2;
+				$_SESSION['status'] =$user['stwStatus_id'];
 
 		echo "<meta http-equiv='refresh' content ='1;URL=tables1.php'>";
 			}

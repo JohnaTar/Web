@@ -122,6 +122,7 @@
                             <table class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
+                                        <th>ลำดับ</th>
 					                    <th>คำนำหน้า</th>      
                                         <th>ชื่อ</th>
                                         <th>นามสกุล</th>
@@ -133,7 +134,8 @@
                                 <tbody>   
 
                                 <tr>
-			                     <?php while($row=mysqli_fetch_array($result,MYSQLI_ASSOC)){
+                                <?php $i=1 ;?>
+			                     <?php  while($row=mysqli_fetch_array($result,MYSQLI_ASSOC)){
                                     if ($row["stwActivate"]==1) {
                                         $A = "อนุมัติ";
                                     }else {
@@ -143,11 +145,13 @@
                                     
                                         ?>
 
+                                    <td><?php echo $i; ?> </td>
                                     <td><?php echo $row["stwPrefix_name"]; ?></td>
                                     <td><?php echo $row["stwFirstname"]; ?></td>
 					                <td><?php echo $row["stwLastname"]; ?></td>
 					                <td><?php echo $row["stwStatus_name"]; ?></td>
                                     <td><?php echo $A; ?> </td>
+                                    
                                     
 <td>
     <div class="btn-group">
@@ -164,8 +168,8 @@
 
 					           
 				                 </tr>                       
-                                <?php } 
-                                mysqli_close($con);
+                                <?php $i++;} 
+                                mysqli_close($conn);
                                 ?>
                                 </tbody>
                             </table>
@@ -285,7 +289,7 @@
                 <label class="col-md-4 control-label" for="selectbasic">สถานะ</label>
                     <div class="col-md-4">
                     <select  name="stwStatus_id" class="form-control input-md">
-                <option value="1">Administrator </option>
+                
                 <option value="2">Super User</option>
                 <option value="3">User</option>
                     </select>

@@ -5,7 +5,7 @@
 			$row=mysqli_num_rows($result);
 			if ($row ) {
 	echo "<script>";
-		echo "alert(\"Username ซ่ำนะไอ้สัส แม่เยส เดวตบคว่ำ\");";
+		echo "alert(\"Username ว\");";
 		
 	echo "</script>";
 			} else  {

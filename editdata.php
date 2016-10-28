@@ -123,7 +123,12 @@
   
 
 <!-- *********************************start from********************************************* -->
-<form class="form-horizontal" action="checklogin.php" method="POST"> 
+<form class="form-horizontal" action="save2.php" method="POST"> 
+<div class="form-group">                 
+                    <input name="stwUser_id" value="<?php echo $result['stwUser_id']; ?>" type="hidden">
+                
+    
+               </div>
 
 
 <!-- *****************************first from********************************************* -->
@@ -204,7 +209,7 @@
                 <label class="col-md-4 control-label" for="selectbasic">สถานะ</label>
                     <div class="col-md-4">
                     <select  name="stwStatus_id" class="form-control input-md">
-                <option value="1"<?php if($result['stwStatus_id'] == '1'){echo "selected='selected'";} ?> >Administrator </option>
+                
                 <option value="2" <?php if($result['stwStatus_id'] == '2'){echo "selected='selected'";} ?>>Super User</option>
                 <option value="3" <?php if($result['stwStatus_id'] == '3'){echo "selected='selected'";} ?>>User</option>
                     </select>
