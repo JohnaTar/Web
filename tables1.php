@@ -17,6 +17,18 @@
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> 
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <!-- ***************************Start function******************************** -->
+    <script type="text/javascript">
+        $('.editdata').click(function(){
+
+            var id =$(this).attr('data-id');
+            var firstname = $(this).attr('data-firstname');
+        $("#id").val(id);
+        $("#firstname").val(firstname);
+
+        });
+
+    </script>
 
 </head>
 
@@ -159,7 +171,14 @@
     เมนู <span class="caret"></span>
         </button>
          <ul class="dropdown-menu">
-    <li><a href="listdata.php? id=<?php echo $row["stwUser_id"]; ?>">ดูช้อมูล</a></li>
+    <li>
+    <a class="editdata" 
+        data-id="<?php echo $row["stwUser_id"]; ?>"
+        data-firstname = "<?php echo $row["stwFirstname"]; ?>">
+        asdasdasdasd
+    </a>
+    </li>
+
     <li><a href="editdata.php? id=<?php echo $row["stwUser_id"]; ?>">แก้ไขข้อมูล</a></li>
     <li><a href="deldata.php? id=<?php echo $row["stwUser_id"]; ?>">ลบข้อมูลสมาชิก</a></li>
     </div>

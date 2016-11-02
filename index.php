@@ -52,7 +52,7 @@
 
 
 
-    
+
 
 
 
@@ -90,6 +90,34 @@
         
 <!-- *********************************username from***************************************** -->
         <div class="modal-body">
+        <script type="text/javascript">
+    $(function () {
+        $("#btnSubmit").click(function () {
+            var password = $("#stwPassword").val();
+            var confirmPassword = $("#stwrePassword").val();
+         
+
+            if (password != confirmPassword) {
+                alert("รหัสเข้าใช้งานไม่ตรงกัน");
+                return false;
+            }
+
+
+
+
+
+
+
+
+
+
+
+            return true;
+        });
+    });
+</script>
+            <!-- *********************************username from***************************************** -->
+        <div class="modal-body">
             <div class="form-group">
                 <label class="col-md-4 control-label" for="selectbasic">คำนำหน้า</label>
                     <div class="col-md-4">
@@ -105,17 +133,17 @@
                     <label class="col-md-4 control-label" for="fn">ชื่อเข้าใช้งาน</label>  
 
                 <div class="col-md-4">
-                    <input  name="stwUsername" type="text" placeholder="Username" class="form-control input-md" required="" pattern="[a-zA-Z][a-zA-Z0-9-_\.]{8,}$" title="กรุณากรอกภาษาอังกฤษและตัวเลขเท่านั้น">
-                <div class="help">!! กรุณากรอกมากกว่า 8 ตัว</div>
-                  
+                    <input  name="stwUsername" id="username" type="text" placeholder="Username" class="form-control input-md" required="" pattern="[a-zA-Z][a-zA-Z0-9-_\.]{8,}$" title="กรุณากรอกภาษาอังกฤษและตัวเลขเท่านั้น">
+                         
     
                 </div>
             </div>
+            
 <!-- *********************************password from***************************************** -->
             <div class="form-group">
                     <label class="col-md-4 control-label" for="fn">รหัสเข้าใช้งาน</label>  
                 <div class="col-md-4">
-                    <input name="stwPassword" type="password" placeholder="Password" class="form-control input-md" required="">
+                    <input id="stwPassword" name="stwPassword" type="password" placeholder="Password" class="form-control input-md" required="">
     
                 </div>
             </div>
@@ -123,11 +151,12 @@
              <div class="form-group">
                     <label class="col-md-4 control-label" for="fn">ยืนยันรหัสเข้าใช้งาน</label>  
                 <div class="col-md-4">
-                    <input  name="fn" type="password" placeholder="Re-password" class="form-control input-md" required="">
+                    <input  id="stwrePassword" type="password" placeholder="Re-password" class="form-control input-md" required="">
     
                 </div>
             </div>
-<!-- *********************************first from********************************************* -->
+<!-- *********************************first from****************************************** -->
+
             <div class="form-group">
                     <label class="col-md-4 control-label" for="fn">ชื่อ</label>  
                 <div class="col-md-4">
@@ -182,18 +211,18 @@
                 </div>
             </div>
 
-<!-- **********************************dept**************************************************** -->
+<!-- **********************************default value**************************************** -->
                <div class="form-group">                 
                     <input name="stwStatus_id" value="3" type="hidden">
                     <input type="hidden" name="stwActivate" value="2">
     
                </div>
-               
+            
             
             <div class="form-group">
                 <label class="col-md-4 control-label" for="submit"></label>
                 <div class="col-md-4">
-            <button id="submit" name="submit" class="btn btn-primary">ตกลง</button>
+            <button id="btnSubmit" name="submit" class="btn btn-primary">ตกลง</button>
                 </div>
             </div>
 
