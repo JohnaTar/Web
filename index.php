@@ -88,7 +88,7 @@
         
          
         
-<!-- *********************************username from***************************************** -->
+<!-- *********************************javascript***************************************** -->
         <div class="modal-body">
         <script type="text/javascript">
     $(function () {
@@ -101,22 +101,11 @@
                 alert("รหัสเข้าใช้งานไม่ตรงกัน");
                 return false;
             }
-
-
-
-
-
-
-
-
-
-
-
-            return true;
+         return true;
         });
     });
 </script>
-            <!-- *********************************username from***************************************** -->
+            <!-- ***************************username from******************************** -->
         <div class="modal-body">
             <div class="form-group">
                 <label class="col-md-4 control-label" for="selectbasic">คำนำหน้า</label>
