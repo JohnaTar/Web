@@ -9,68 +9,84 @@
   <script src="js/jquery.js"></script>
   <script src="js/bootstrap.min.js"></script>
         <title>Welcome to MyWebbbbb</title> 
+
+ <!-- ***************************JAVA******************************** -->
 <script>
 $(function () {
-  $("#UserName").change(function(){
-    var flag;
+
+
+
+  $("#UserName").keyup(function(){
+   
     $.ajax({
-      url: "ckuser.php",
+      url: "ckAjax.php",
       data: "UserName=" + $("#UserName").val(),
       type: "POST",
-      async:false,
-      success: function(data, status) { 
-         var result = data.split(",");
-         flag = result[0];
-         var msg = result[1];
-         $("#msg1").html(msg);
-        },
-      error: function(xhr, status, exception) { alert(status); }
+      dataType :"text",
+      
+      success: function(html) 
+        { 
+     
+         $("#msg1").html(html);
+        }
+    
       });
-    return flag;
+
     });
   });
-</script> 
 
-  <script type="text/javascript">
+
+
+
+
     $(function () {
-        $("#rePassword").change(function () {
+        $("#rePassword").keyup(function () {
             var password = $("#Password").val();
             var confirmPassword = $("#rePassword").val();
-         
+            
+           
 
             if (password != confirmPassword) {
                 $("#verify").html("<font color = 'red'>รหัสผ่านไม่ตรงกัน</font>")
                 return false;
             }else if(password == confirmPassword){
                 $("#verify").html("<font color = 'green'>รหัสผ่านตรงกัน</font>")
+                return false;
 
             }
          return true;
         });
     });
-</script>
 
-<script>
+
 $(function () {
-  $("#Email").change(function(){
-    var flag;
+
+  $("#Email").keyup(function(){
+
+   
     $.ajax({
-      url: "ckemail.php",
+      url: "ckAjax.php",
       data: "Email=" + $("#Email").val(),
       type: "POST",
-      async:false,
-      success: function(data, status) { 
-         var result = data.split(",");
-         flag = result[0];
-         var msg = result[1];
-         $("#msg2").html(msg);
-        },
-      error: function(xhr, status, exception) { alert(status); }
+      dataType :"text",
+      
+      success: function(html) 
+        { 
+     
+         $("#msg2").html(html);
+        }
+    
       });
-    return flag;
+
     });
   });
-</script> 
+
+
+
+
+
+
+</script>
 
   
   </head>
@@ -104,7 +120,7 @@ $(function () {
     </div>
 </form>
  <!-- ***************************call modal******************************** -->
-<?php include("modal/modalRegister.php");?>
+          <?php include("modal/modalRegister.php");?>
 <!-- ********************************************************************** -->
 
 

@@ -16,16 +16,7 @@
     
 
         <div class="modal-body">
-            <div class="form-group">
-                <label class="col-md-4 control-label" for="selectbasic">คำนำหน้า</label>
-                    <div class="col-md-4">
-                    <select  name="stwPrefix_id" class="form-control input-md">
-                <option value="1">นาย </option>
-                <option value="2">นาง</option>
-                <option value="3">นางสาว</option>
-                </select>
-                </div>
-            </div>
+            
   
             <div class="form-group">
                     <label class="col-md-4 control-label" for="fn">ชื่อเข้าใช้งาน</label>  
@@ -53,6 +44,16 @@
                     <input  id="rePassword" type="password" placeholder="Re-password" class="form-control input-md" required="" maxlength="12">
                     <span id="verify" ></span>
     
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="selectbasic">คำนำหน้า</label>
+                    <div class="col-md-4">
+                    <select  name="stwPrefix_id" class="form-control input-md">
+                <option value="1">นาย </option>
+                <option value="2">นาง</option>
+                <option value="3">นางสาว</option>
+                </select>
                 </div>
             </div>
 <!-- *********************************first from****************************************** -->
