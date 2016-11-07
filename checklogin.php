@@ -7,6 +7,7 @@ include("connect.php");
 	$Password = md5($_POST['Password']); // ประกาศตัวแปร
 
 
+
 	$sql = "SELECT * FROM stwUser 
 						WHERE stwUsername = '$Username'
 						AND stwPassword = '$Password' ";

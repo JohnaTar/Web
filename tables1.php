@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+
 
     <head>
         <?php include("head/head.php");?>
@@ -7,17 +7,7 @@
     </head>
 
         <body>
-            <?php 
-                include("connect.php");
-                $sql = "SELECT stwUser.stwUser_id,stwUser.stwFirstname,stwUser.stwLastname,stwUser.stwActivate,
-                    stwStatus.stwStatus_name,stwPrefix.stwPrefix_name
-                FROM stwUser
-                INNER JOIN stwStatus
-                ON stwUser.stwStatus_id = stwStatus.stwStatus_id 
-                INNER JOIN stwPrefix
-                ON stwUser.stwPrefix_id = stwPrefix.stwPrefix_id";
-                $result = mysqli_query($conn, $sql);
-            ?>
+            
             
             <div id="wrapper">
 
@@ -27,7 +17,7 @@
         <div id="page-wrapper">
             <div class="container-fluid">            
                 <div class="row">
-                    <div class="col-lg-12">                    
+                    <div class="col-md-12">                    
                         <ol class="breadcrumb">
                             <li>
                                 <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
@@ -58,16 +48,30 @@
                                 <tbody>   
 
                                 <tr>
-                                <?php $i=1 ;?>
-			                     <?php  while($row=mysqli_fetch_array($result,MYSQLI_ASSOC)){
-                                    if ($row["stwActivate"]==1) {
-                                        $A = "อนุมัติ";
-                                    }else {
-                                        $A = "ไม่อนุมัติ";
+    <?php 
+               
+         include("connect.php");
+
+        $sql = "SELECT stwUser.stwUser_id,stwUser.stwFirstname,stwUser.stwLastname,stwUser.stwActivate,stwStatus.stwStatus_name,stwPrefix.stwPrefix_name
+                FROM stwUser
+                INNER JOIN stwStatus
+                ON stwUser.stwStatus_id = stwStatus.stwStatus_id 
+                INNER JOIN stwPrefix
+                ON stwUser.stwPrefix_id = stwPrefix.stwPrefix_id";
+        $result = mysqli_query($conn, $sql);
+            
+                 $i=1 ;
+			                     
+                 while($row=mysqli_fetch_array($result,MYSQLI_ASSOC)){
+                    if ($row["stwActivate"]==1) {
+
+                         $A = "อนุมัติ";
+                        }else {
+                        $A = "ไม่อนุมัติ";
                                         
-                                    }
+                            }
                                     
-                                        ?>
+     ?>
 
                                     <td><?php echo $i; ?> </td>
                                     <td><?php echo $row["stwPrefix_name"]; ?></td>

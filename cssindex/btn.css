@@ -1,0 +1,85 @@
+﻿.bt-bank {
+ display: inline-block;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  width: 45%;
+  cursor: pointer;
+  margin: 15px;
+  padding: 7px 20px;
+  border: 1px solid rgba(255,255,255,1);
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+  font: normal normal bold 25px/normal "TH SarabunPSK", Helvetica, sans-serif;
+  color: rgba(0,0,0,1);
+  text-align: center;
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  background: rgba(255,255,255,1);
+  -webkit-box-shadow: 2px 2px 5px 0 rgba(40,40,40,0.7) ;
+  box-shadow: 2px 2px 5px 0 rgba(40,40,40,0.7) ;
+  text-shadow: -1px -1px 0 rgba(122,122,122,1) ;
+  -webkit-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+  -moz-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+  -o-transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+  transition: all 300ms cubic-bezier(0.42, 0, 0.58, 1);
+  -webkit-transform: rotateX(2.291831180523293deg) rotateY(1.7188733853924696deg)   ;
+  transform: rotateX(2.291831180523293deg) rotateY(1.7188733853924696deg)   ;
+  text-decoration: none;
+}
+
+
+.t25-b-black {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  border: none;
+  font: normal normal bold 25px/1 "TH SarabunPSK", Helvetica, sans-serif;
+  color: #000000;
+  text-align: center;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5) ;
+}
+
+.t22-b-black {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  border: none;
+  font: normal normal bold 22px/1 "TH SarabunPSK", Helvetica, sans-serif;
+  color: #000000;
+  text-align: center;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5) ;
+}
+
+.t25-b-white {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  border: none;
+  font: normal normal bold 25px/1 "TH SarabunPSK", Helvetica, sans-serif;
+  color: #fff;
+  text-align: center;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5) ;
+}
+
+.t22-b-white {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  border: none;
+  font: normal normal bold 22px/1 "TH SarabunPSK", Helvetica, sans-serif;
+  color: #fff;
+  text-align: center;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5) ;
+}
+.tar{
+
+}

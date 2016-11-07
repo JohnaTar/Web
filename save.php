@@ -1,14 +1,19 @@
 <?php
 	include("connect.php");
-	$sql = "SELECT * FROM stwUser WHERE stwUsername = '".trim($_POST['stwUsername'])."' ";
+if (isset($_POST['stwUsername'])){
+	
+	$sql = "SELECT * FROM stwUser WHERE stwUsername = '".($_POST['stwUsername'])."' ";
 			$result = mysqli_query($conn, $sql);
 			$row=mysqli_num_rows($result);
-			if ($row ) {
-	echo "<script>";
-		echo "alert(\"Username ว\");";
-		
-	echo "</script>";
-			} else  {
+			if ($row) {
+				echo "<script>";
+					echo "alert(\"asdasda\");";
+					echo "window.history.back()";
+				echo "</script>";
+			}
+	
+
+
 				
 			
 	
@@ -30,7 +35,9 @@ echo "<script>";
     echo "</script>";
     
 	}
-}
+
+
+}  
 ?>
 
 
