@@ -104,9 +104,9 @@
    
     $memid = null;
 
-    if(isset($_GET["id"]))
+    if(isset($_POST["id"]))
     {
-        $memid = $_GET["id"];
+        $memid = $_POST["id"];
     }
     include("connect.php");
     $sql = "SELECT * FROM stwUser 
