@@ -60,13 +60,13 @@ $(function () {
 </head>
     <body>
 
-        <div class="wrapper facebook-bg ">
+        <div class="wrapper facebook-bg"> 
             <div class="container">
 
             <div class="img">
-                <img src="img/1.png"  >
+                <img src="img/2.png" width="350" height="300"  >
             </div>
-            <br />
+           
             <div class="t25-b-white">
                 <h3 class="text-center">Safety Training Web Application for Factory Workers</h3>
                 <h5 class="text-center">โดย Tarlnwza007</h5>
@@ -86,9 +86,7 @@ $(function () {
             <br />
             <br />
             
-            <div class="t22-b-white"> 
-                <p class="text-center">Copyrights ?. All rights reserved.</p>           
-            </div>
+            
 
         </div>
     </div>

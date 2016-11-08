@@ -9,3 +9,4 @@
     <link href="css/sb-admin.css" rel="stylesheet">
     <link href="css/plugins/morris.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> 
+    <link href="cssindex/style-color.css" rel="stylesheet">
