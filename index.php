@@ -60,7 +60,7 @@ $(function () {
 </head>
     <body>
 
-        <div class="wrapper facebook-bg"> 
+        <div class="wrapper dark-bg"> 
             <div class="container">
 
             <div class="img">
