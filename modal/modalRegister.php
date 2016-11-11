@@ -29,7 +29,7 @@
                 </div>
             </div>
             
-<!-- *********************************password from***************************************** -->
+<!-- *****************password from***************************************** -->
             <div class="form-group">
                     <label class="col-md-4 control-label" for="fn">รหัสเข้าใช้งาน</label>  
                 <div class="col-md-4">
@@ -56,7 +56,7 @@
                 </select>
                 </div>
             </div>
-<!-- *********************************first from****************************************** -->
+<!-- *********************************first from******************************** -->
               <div class="form-group">
                     <label class="col-md-4 control-label" for="fn">ชื่อ</label>  
                 <div class="col-md-4">
@@ -98,7 +98,7 @@
     
                 </div>
             </div>
-<!-- **********************************dept**************************************************** -->
+<!-- **********************************dept****************************** -->
             <div class="form-group">
                 <label class="col-md-4 control-label" for="selectbasic">แผนก</label>
                     <div class="col-md-4">
@@ -111,7 +111,7 @@
                 </div>
             </div>
 
-<!-- **********************************default value**************************************** -->
+<!-- **********************************default value******************************* -->
                <div class="form-group">                 
                     <input name="stwStatus_id" value="3" type="hidden">
                     <input type="hidden" name="stwActivate" value="2">

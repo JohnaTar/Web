@@ -5,9 +5,9 @@
    
     $memid = null;
 
-    if(isset($_GET["id"]))
+    if(isset($_POST["id"]))
     {
-        $memid = $_GET["id"];
+        $memid = $_POST["id"];
     }
     include("connect.php");
     $sql = "DELETE  FROM stwUser 
@@ -16,13 +16,11 @@
 
     if (mysqli_affected_rows($conn)) {
         echo "<script>";
-        echo "alert(\"ลบแล้วนาจา\");"; 
-        
+        echo "alert(\"ลบแล้วนาจา\");";
+        echo "window.history.back()";
 
-
-
-
-    echo "</script>";
+  
+        echo "</script>";
     }else {
         echo "<script>";
         echo "alert(\"ลบไม่ได้นาจา\");"; 
