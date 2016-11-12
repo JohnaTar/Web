@@ -3,8 +3,9 @@
     <title>Welcome </title>
     <?php include("head/indexhead.php"); ?>
     <script>
+///////////////////////////////////////////////////////////////////////////////
 $(function () {
-  $("#UserName").keyup(function(){
+  $("#UserName").change(function(){
    
     $.ajax({
       url: "ckAjax.php",
@@ -14,8 +15,21 @@ $(function () {
       
       success: function(html) 
         { 
-        if(html ==true){$("#btnSubmit").attr("disabled",true);}
-         //("#msg1").html(html);
+        if(html ==true){
+            
+            $("#btnSubmit").attr("disabled",false);
+              $("#Password").attr("disabled",false);
+                $("#rePassword").attr("disabled",false);
+                  $("#Email").attr("disabled",false);
+            $("#msg1").html("<span style='color:green'>Usernameใช้งานได้</span>");
+            }else if (html ==false) {
+              $("#btnSubmit").attr("disabled",true);
+                $("#Password").attr("disabled",true);
+                  $("#rePassword").attr("disabled",true);
+                    $("#Email").attr("disabled",true);
+            $("#msg1").html("<span style='color:red'>Usernameใช้งานไม่ได้กรุณากรอกใหม่</span>");
+
+            }
         }
     
       });
@@ -23,50 +37,58 @@ $(function () {
   });
 
 
-
+////////////////////////////////////////////////////////////////////////////////////
 
 
     $(function () {
-        $("#rePassword").keyup(function () {
+        $("#Password"),$("#rePassword").keyup(function () {
             var password = $("#Password").val();
             var confirmPassword = $("#rePassword").val();
             
            
             if (password != confirmPassword) {
                 $("#verify").html("<font color = 'red'>รหัสผ่านไม่ตรงกัน</font>")
+                $("#btnSubmit").attr("disabled",true);
+                $("#Email").attr("disabled",true);
                 return false;
             }else if(password == confirmPassword){
                 $("#verify").html("<font color = 'green'>รหัสผ่านตรงกัน</font>")
+                $("#btnSubmit").attr("disabled",false);
+                $("#Email").attr("disabled",false);
                 return false;
             }
          return true;
         });
     });
+
+///////////////////////////////////////////////////////////////////////////////////
 $(function () {
-
- $("#Email").keyup(function(){
-
-         var email = $("#Email").val();
-         var reEmail = /(\w+)@(\w+)\.(\w+)/;
+  $("#Email").keyup(function(){
+   
+    $.ajax({
+      url: "ckAjax.php",
+      data: "Email=" + $("#Email").val(),
+      type: "POST",
+      dataType :"text",
+      
+      success: function(html) 
+        { 
+        if(html ==true){
             
-           
-            if (!reEmail.test(email)) {
-                $("#msg2").html("<font color = 'red'>รูปแบบอีเมลล์ไม่ถูกต้อง</font>")
-                return false;
-            }else{
-                
-
-
-
-
-
+            $("#btnSubmit").attr("disabled",false);
+          
+            $("#msg2").html("<span style='color:green'>Emailใช้งานได้</span>");
+            }else if (html ==false) {
+              $("#btnSubmit").attr("disabled",true);
+               
+            $("#msg2").html("<span style='color:red'>Emailใช้งานไม่ได้กรุณากรอกใหม่</span>");
 
             }
-
-         return true;
-        });
+        }
+    
+      });
     });
-  
+  });
  
 
 </script>
