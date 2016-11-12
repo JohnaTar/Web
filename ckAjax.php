@@ -8,12 +8,19 @@ if (isset($_POST['UserName']))
 	$result = mysqli_query($conn, $sql);
 	if(mysqli_num_rows($result) == 0)
 		{
-			echo "<span style='color:green'>ชื่อผู้ใช้งานได้</span>";
-			
+			//echo "<span style='color:green'>ชื่อผู้ใช้งานได้</span>";
+			echo true;
+			exit();
+		
 		}
+			
 	else
-		{ 
-	echo "<span style='color:red'>ชื่อผู้ใช้งานไม่ได้</span>";
+		{ 	
+			echo false;
+			exit();
+		
+
+	
 		}
 	exit();
 	}

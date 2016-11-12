@@ -52,43 +52,18 @@
                                 <tbody>   
 
                                 <tr>
-    <?php 
-               
-         include("connect.php");
-
-        $sql = "SELECT stwUser.stwUser_id,stwUser.stwFirstname,stwUser.stwLastname,stwUser.stwActivate,stwUser.stwGender,stwUser.stwTel,stwUser.stwEmail,stwStatus.stwStatus_name,stwPrefix.stwPrefix_name,
-            stwDepartment.stwDept_name,stwUser.stwCreated_date
-                FROM stwUser
-                INNER JOIN stwStatus
-                ON stwUser.stwStatus_id = stwStatus.stwStatus_id 
-                INNER JOIN stwDepartment
-                ON stwUser.stwDept_id = stwDepartment.stwDept_id
-                INNER JOIN stwPrefix
-                ON stwUser.stwPrefix_id = stwPrefix.stwPrefix_id";
-        $result = mysqli_query($conn, $sql);
-            
-                 $i=1 ;
-                                 
-                 while($row=mysqli_fetch_array($result,MYSQLI_ASSOC)){
-                    if ($row['stwActivate']==1) {
-                         $A = "อนุมัติ";
-                        }else {
-                        $A = "ไม่อนุมัติ";
-                                        
-                            }
-                    if ($row['stwGender']==1) {
-                        $B = "ชาย";
-                        }else {
-                        $B = "หญิง";
-                                        
-                            }
-                                    
-     ?>
+    <?php   
+        include("connect.php");
+            $db = new Database();
+                $get_user = $db->get_all_user();
+                    if(!empty($get_user)){
+                foreach($get_user as $user){
+    ?>
 
                                    
                                     <td><?php echo 
-                                    $row['stwPrefix_name'],
-                                    $row['stwFirstname'],
+                                    $user['stwPrefix_name'],
+                                    $user['stwFirstname'],
                                     $row['stwLastname'] ?></td>
                                     <td><?php echo $B; ?></td>
                                     <td><?php echo $row['stwTel']; ?></td>

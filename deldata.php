@@ -5,9 +5,9 @@
    
     $memid = null;
 
-    if(isset($_POST["id"]))
+    if(isset($_GET["id"]))
     {
-        $memid = $_POST["id"];
+        $memid = $_GET["id"];
     }
     include("connect.php");
     $sql = "DELETE  FROM stwUser 

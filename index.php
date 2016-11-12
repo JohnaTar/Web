@@ -14,13 +14,18 @@ $(function () {
       
       success: function(html) 
         { 
-     
-         $("#msg1").html(html);
+        if(html ==true){$("#btnSubmit").attr("disabled",true);}
+         //("#msg1").html(html);
         }
     
       });
     });
   });
+
+
+
+
+
     $(function () {
         $("#rePassword").keyup(function () {
             var password = $("#Password").val();
@@ -38,23 +43,32 @@ $(function () {
         });
     });
 $(function () {
-  $("#Email").keyup(function(){
-   
-    $.ajax({
-      url: "ckAjax.php",
-      data: "Email=" + $("#Email").val(),
-      type: "POST",
-      dataType :"text",
-      
-      success: function(html) 
-        { 
-     
-         $("#msg2").html(html);
-        }
-    
-      });
+
+ $("#Email").keyup(function(){
+
+         var email = $("#Email").val();
+         var reEmail = /(\w+)@(\w+)\.(\w+)/;
+            
+           
+            if (!reEmail.test(email)) {
+                $("#msg2").html("<font color = 'red'>รูปแบบอีเมลล์ไม่ถูกต้อง</font>")
+                return false;
+            }else{
+                
+
+
+
+
+
+
+            }
+
+         return true;
+        });
     });
-  });
+  
+ 
+
 </script>
 
 </head>
@@ -64,7 +78,7 @@ $(function () {
             <div class="container">
 
             <div class="img">
-                <img src="img/2.png" width="350" height="300"  >
+                <img src="img/2.png" width="400" height="300"  >
             </div>
            
             <div class="t25-b-white">

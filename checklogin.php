@@ -11,7 +11,7 @@ include("connect.php");
 	$sql = "SELECT * FROM stwUser 
 						WHERE stwUsername = '$Username'
 						AND stwPassword = '$Password' ";
-						//exit();
+						
 	$result = mysqli_query($conn, $sql);	
 	$num = mysqli_num_rows($result);
 	if($num <= 0){
