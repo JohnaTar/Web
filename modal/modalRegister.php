@@ -1,4 +1,4 @@
-<form class="form-horizontal" action="save.php" method="POST"> 
+<form class="form-horizontal" id="add_user_form"> 
 
 <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog modal-md">
@@ -127,7 +127,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="submit"></label>
                 <div class="col-md-4">
-            <button id="btnSubmit" name="submit" class="btn btn-primary">ตกลง</button>
+            <button id="btnSubmit" name="submit" class="btn btn-primary" onclick="return add_user_form();">ตกลง</button>
                 </div>
             </div>
 

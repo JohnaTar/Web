@@ -112,5 +112,25 @@ function delete_user(id){
   }
   return false;
 }
+//////////////////////////////////////////////////////////////////////////////////
+function add_user_form(){
+  $.ajax({
+    type:"POST",
+    url:"ckAjax.php",
+    data:$("#add_user_form").serialize(),
+    success:function(data){
+      
+      //close modal
+      $(".close").trigger("click");
+      
+      //show result
+      alert(data);
+      
+      //reload page
+      location.reload();
+    }
+  });
+  return false;
+}
 
             
