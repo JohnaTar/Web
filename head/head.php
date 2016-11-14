@@ -10,3 +10,8 @@
     <link href="css/plugins/morris.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> 
     <link href="cssindex/style-color.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+    <script src ="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js">
+        
+    </script>
+    <script src="js/tar.js"></script>

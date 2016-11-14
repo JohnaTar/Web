@@ -1,4 +1,4 @@
-<form class="form-horizontal" id="add_user_form">
+<form class="form-horizontal" action="saveadmin.php" method="POST">
 
 <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog modal-md">
@@ -11,8 +11,37 @@
         
          
         
-<!-- *********************************username from************************************* -->
-        <div class="modal-body">
+<div class="modal-body">
+            
+  
+            <div class="form-group">
+                    <label class="col-md-4 control-label" for="fn">ชื่อเข้าใช้งาน</label>  
+
+                <div class="col-md-4">
+                    <input  name="stwUsername" id="UserName" type="text" placeholder="Username" class="form-control input-md" required="" maxlength="15">
+                    <span id="msg1"></span>
+                         
+    
+                </div>
+            </div>
+            
+<!-- *****************password from***************************************** -->
+            <div class="form-group">
+                    <label class="col-md-4 control-label" for="fn">รหัสเข้าใช้งาน</label>  
+                <div class="col-md-4">
+                    <input id="Password" name="stwPassword" type="password" placeholder="Password" class="form-control input-md" required="" maxlength="12">
+    
+                </div>
+            </div>
+
+             <div class="form-group">
+                    <label class="col-md-4 control-label" for="fn">ยืนยันรหัสเข้าใช้งาน</label>  
+                <div class="col-md-4">
+                    <input  id="rePassword" type="password" placeholder="Re-password" class="form-control input-md" required="" maxlength="12">
+                    <span id="verify" ></span>
+    
+                </div>
+            </div>
             <div class="form-group">
                 <label class="col-md-4 control-label" for="selectbasic">คำนำหน้า</label>
                     <div class="col-md-4">
@@ -23,49 +52,24 @@
                 </select>
                 </div>
             </div>
-
-            <div class="form-group">
-                    <label class="col-md-4 control-label" for="fn">ชื่อเข้าใช้งาน</label>  
-
-                <div class="col-md-4">
-                    <input  name="stwUsername" type="text" placeholder="Username" class="form-control input-md" required="">
-    
-                </div>
-            </div>
-<!-- ***************************password from********************************************* -->
-            <div class="form-group">
-                    <label class="col-md-4 control-label" for="fn">รหัสเข้าใช้งาน</label>  
-                <div class="col-md-4">
-                    <input name="password" type="password" placeholder="Password" class="form-control input-md" required="">
-    
-                </div>
-            </div>
-
-             <div class="form-group">
-                    <label class="col-md-4 control-label" for="fn">ยืนยันรหัสเข้าใช้งาน</label>  
-                <div class="col-md-4">
-                    <input id="stuPassword" name="fn" type="password" placeholder="Re-password" class="form-control input-md" required="">
-    
-                </div>
-            </div>
-<!-- *********************************first from********************************************* -->
-            <div class="form-group">
+<!-- *********************************first from******************************** -->
+              <div class="form-group">
                     <label class="col-md-4 control-label" for="fn">ชื่อ</label>  
                 <div class="col-md-4">
                     <input name="stwFirstname" type="text" placeholder="Firstname" class="form-control input-md" required="">
     
                 </div>
             </div>
-<!-- *********************************last from********************************************* -->
-            <div class="form-group">
+
+              <div class="form-group">
                     <label class="col-md-4 control-label" for="fn">นามสกุล</label>  
                 <div class="col-md-4">
                     <input  name="stwLastname" type="text" placeholder="Lastname" class="form-control input-md" required="">
     
                 </div>
             </div>
-<!-- *********************************gender********************************************* -->
-            <div class="form-group">
+
+              <div class="form-group">
                 <label class="col-md-4 control-label" for="selectbasic">เพศ</label>
                     <div class="col-md-4">
                     <select  name="stwGender" class="form-control input-md">
@@ -74,36 +78,42 @@
                 </select>
                 </div>
             </div>
-<!-- **********************************email***************************************************** -->
-            <div class="form-group">
+                    <div class="form-group">
                     <label class="col-md-4 control-label" for="fn">อีเมลล์</label>  
                 <div class="col-md-4">
-                    <input  name="stwEmail" type="email" placeholder="Email" class="form-control input-md" required="" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+                    <input  name="stwEmail" type="email" placeholder="Email" class="form-control input-md" required="" id="Email">
+                     <span id="msg2"></span>
     
                 </div>
             </div>
-<!-- **********************************tel**************************************************** -->
+
             <div class="form-group">
                     <label class="col-md-4 control-label" for="fn">เบอร์โทร</label>  
                 <div class="col-md-4">
-                    <input name="stwTel" type="text" placeholder="Tel" class="form-control input-md" required="">
+                    <input name="stwTel" type="text" placeholder="Tel" class="form-control input-md" required="" pattern="([0-9])+(?:-?\d){9,}" title="กรุณากรอกตัวเลข 10 ตัว">
     
                 </div>
             </div>
-<!-- **********************************dept**************************************************** -->
+<!-- **********************************dept****************************** -->
             <div class="form-group">
                 <label class="col-md-4 control-label" for="selectbasic">แผนก</label>
                     <div class="col-md-4">
                     <select  name="stwDept_id" class="form-control input-md">
-                <option value="1">แผนก 1  </option>
+                <option value="1">แผนก 1 </option>
                 <option value="2">แผนก 2</option>
                 <option value="3">แผนก 3</option>
-                
+              
                     </select>
                 </div>
             </div>
+            
 
-<!-- **********************************dept**************************************************** -->
+           
+            
+            
+          
+
+<!-- **********************************dept********************************** -->
             <div class="form-group">
                 <label class="col-md-4 control-label" for="selectbasic">สถานะ</label>
                     <div class="col-md-4">
@@ -131,7 +141,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="submit"></label>
                 <div class="col-md-4">
-            <button id="submit" name="submit" class="btn btn-primary" onclick="return add_user_form();">ตกลง</button>
+            <button id="btnSubmit" name="submit" class="btn btn-primary" >ตกลง</button>
                 </div>
             </div>
 

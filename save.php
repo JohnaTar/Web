@@ -2,6 +2,8 @@
 	include("connect.php");
 
     
+
+    
    
 
 
@@ -16,7 +18,7 @@ $sql = "INSERT INTO `stwUser` (`stwUsername`, `stwPassword`, `stwFirstname`, `st
  				   '".$_POST["stwActivate"]."','".$_POST["stwDept_id"]."','".$_POST["stwStatus_id"]."','".$_POST["stwPrefix_id"]."',NOW())";
  	$query = mysqli_query($conn,$sql);
  	
-if($query) {
+ 	if($query) {
 echo "<script>";
         echo "alert(\"บันทึกข้อมูลเรียบร้อย\");"; 
 	
@@ -25,7 +27,6 @@ echo "<script>";
     echo "</script>";
     
 	}
-
 
  
 ?>
