@@ -98,10 +98,16 @@
                 <td><?php echo $row['stwStatus_name']; ?></td>
                 <td><?php echo $A; ?> </td>
                 <td><?php echo $row['stwCreated_date']; ?></td>
-                <td>
-                    <button class="btn btn-warning btn-xs" data-toggle="modal" data-target="#edit_user" onclick="return showedit(<?php echo $row['stwUser_id']?>);">แก้ไข
-                    </button>
-                </td>
+<td>
+     <a href="editdata.php? id=<?php echo $row["stwUser_id"]; ?>" class="btn btn-success btn-xs" role="button" >แก้ไขข้อมูล
+     </a>
+     
+
+
+
+
+</td>
+
                 <td><button class="btn btn-danger btn-xs" onclick="return delete_user(<?php echo $row['stwUser_id']?>);">ลบ
                     </button>
                 </td>

@@ -1,4 +1,4 @@
-<form class="form-horizontal" id="add_user_form">
+<form class="form-horizontal" id="add_user_form" >
 
 <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog modal-md">

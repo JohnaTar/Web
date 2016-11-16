@@ -1,4 +1,4 @@
-<form class="form-horizontal" id="add_user_form"> 
+<form class="form-horizontal" id="add_user_form" > 
 
 <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog modal-md">
@@ -98,7 +98,7 @@
                     <div class="form-group">
                     <label class="col-md-4 control-label" for="fn">อีเมลล์</label>  
                 <div class="col-md-4">
-                    <input  name="stwEmail" type="email" placeholder="Email" class="form-control input-md" required="" id="Email">
+                    <input  name="stwEmail" type="email" placeholder="Email" class="form-control input-md" required="" id="Email" data-validation="email">
                      <span id="msg2"></span>
     
                 </div>

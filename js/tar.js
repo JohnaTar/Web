@@ -93,6 +93,7 @@ $(function () {
       });
     });
   });
+
 ///////////////////////////Data Table///////////////////////////////////////////////////
 $(function(){
     $('#myTable').DataTable();
@@ -125,6 +126,8 @@ function add_user_form(){
       
       //show result
       alert(data);
+
+
       
       //reload page
       location.reload();
@@ -133,15 +136,6 @@ function add_user_form(){
   return false;
 }
 /////////////////////////////////Show Data For Edit/////////////////////////////////
-function showedit(id){
-  $.ajax({
-    type:"POST",
-    url:"ckAjax.php",
-    data:{showuser:id},
-    success:function(data){
-      $("#edit_form").html(data);
-    }
-  });
-  return false;
-}
+
+ 
             
