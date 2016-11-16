@@ -97,7 +97,7 @@ $(function () {
 $(function(){
     $('#myTable').DataTable();
 });
-//////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////Delete//////////////////////////////////////
 function delete_user(id){
   if(confirm("คุณต้องการลบข้อมูลหรือไม่")){
     $.ajax({
@@ -112,7 +112,7 @@ function delete_user(id){
   }
   return false;
 }
-//////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////Add User////////////////////////////////////////
 function add_user_form(){
   $.ajax({
     type:"POST",
@@ -132,5 +132,16 @@ function add_user_form(){
   });
   return false;
 }
-
+/////////////////////////////////Show Data For Edit/////////////////////////////////
+function showedit(id){
+  $.ajax({
+    type:"POST",
+    url:"ckAjax.php",
+    data:{showuser:id},
+    success:function(data){
+      $("#edit_form").html(data);
+    }
+  });
+  return false;
+}
             

@@ -46,9 +46,13 @@
                 <label class="col-md-4 control-label" for="selectbasic">คำนำหน้า</label>
                     <div class="col-md-4">
                     <select  name="stwPrefix_id" class="form-control input-md">
-                <option value="1">นาย </option>
-                <option value="2">นาง</option>
-                <option value="3">นางสาว</option>
+                <?php    include('connect.php');
+                        $sql = "SELECT * FROM stwPrefix";
+                        $result = mysqli_query($conn, $sql);
+        while($row=mysqli_fetch_array($result,MYSQLI_ASSOC))
+                {
+            echo "<option value =$row[stwPrefix_id]>$row[stwPrefix_name]</option>";
+                } ?>
                 </select>
                 </div>
             </div>
@@ -99,10 +103,15 @@
                 <label class="col-md-4 control-label" for="selectbasic">แผนก</label>
                     <div class="col-md-4">
                     <select  name="stwDept_id" class="form-control input-md">
-                <option value="1">แผนก 1 </option>
-                <option value="2">แผนก 2</option>
-                <option value="3">แผนก 3</option>
-              
+               <?php   
+            $sql = "SELECT * FROM `stwDepartment` ";
+            $result = mysqli_query($conn, $sql);
+        while($row=mysqli_fetch_array($result,MYSQLI_ASSOC))
+        {
+            echo "<option value =$row[stwDept_id]>$row[stwDept_name]</option>";
+        }
+               ?>
+
                     </select>
                 </div>
             </div>

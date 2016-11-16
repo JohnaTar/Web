@@ -87,29 +87,30 @@
      ?>
 
                                    
-                                    <td><?php echo 
-                                    $row['stwPrefix_name']." ".
-                                    $row['stwFirstname'].
-                                    $row['stwLastname']; ?></td>
-                                    <td><?php echo $B; ?></td>
-                                    <td><?php echo $row['stwTel']; ?></td>
-                                    <td><?php echo $row['stwEmail']; ?></td>
-                                    <td><?php echo $row['stwDept_name']; ?></td>
-                                    <td><?php echo $row['stwStatus_name']; ?></td>
-                                    <td><?php echo $A; ?> </td>
-                                    <td><?php echo $row['stwCreated_date']; ?></td>
-                                    
-                                    
-                                <td>
-                                
-                                <td><button class="btn btn-danger btn-xs" onclick="return delete_user(<?php echo $row['stwUser_id']?>);">ลบ</button></td>
+                <td><?php echo 
+                    $row['stwPrefix_name']." ".
+                    $row['stwFirstname']." ".
+                    $row['stwLastname']; ?></td>
+                <td><?php echo $B; ?></td>
+                <td><?php echo $row['stwTel']; ?></td>
+                <td><?php echo $row['stwEmail']; ?></td>
+                <td><?php echo $row['stwDept_name']; ?></td>
+                <td><?php echo $row['stwStatus_name']; ?></td>
+                <td><?php echo $A; ?> </td>
+                <td><?php echo $row['stwCreated_date']; ?></td>
+                <td>
+                    <button class="btn btn-warning btn-xs" data-toggle="modal" data-target="#edit_user" onclick="return showedit(<?php echo $row['stwUser_id']?>);">แก้ไข
+                    </button>
+                </td>
+                <td><button class="btn btn-danger btn-xs" onclick="return delete_user(<?php echo $row['stwUser_id']?>);">ลบ
+                    </button>
+                </td>
     
-</td>
 
 
                                
                                  </tr>                       
-                                <?php $i++;} 
+                                <?php } 
                                 mysqli_close($conn);
                                 ?>
                                 </tbody>
@@ -125,6 +126,8 @@
     </div>
  <!-- *********************************end table***************************************** -->
                                     <?php include("modal/modalAdmin.php");?>
+                                    <?php include("modal/edit.php");?>
+  
   
 
 
