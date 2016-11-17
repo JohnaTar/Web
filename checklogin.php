@@ -35,7 +35,7 @@ include("connect.php");
 	
 			} else{
 				$_SESSION['ses_id'] = session_id();
-				$_SESSION['username'] = $user['username'];
+				$_SESSION['username'] = $user['stwUsername'];
 				$_SESSION['status'] =$user['stwStatus_id'];
 
 		echo "<meta http-equiv='refresh' content ='1;URL=tables1.php'>";

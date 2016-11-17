@@ -59,7 +59,8 @@
   
 
 <!-- *********************************start from********************************************* -->
-<form class="form-horizontal" id="edit_user_form"> 
+<form class="form-horizontal" id="edit_user_form" 
+onsubmit="return edit_user_form();"> 
     <div class="form-group">                 
          <input name="stwUser_id" value="<?php echo $result['stwUser_id']; ?>" type="hidden">
     </div>
@@ -169,7 +170,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="submit"></label>
                 <div class="col-md-4">
-            <button id="btnSubmit" name="submit" class="btn btn-primary" onclick="return edit_user_form();">ตกลง</button>
+            <button id="btnSubmit" name="submit" class="btn btn-primary" >ตกลง</button>
                 </div>
             </div>
 

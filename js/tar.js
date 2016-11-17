@@ -61,7 +61,7 @@ $(function () {
 
 ////////////////////////////////////////Email//////////////////////////////////
 $(function () {
-  $("#Email").keyup(function(){
+  $("#Email").change(function(){
    
     $.ajax({
       url: "ckAjax.php",
@@ -115,6 +115,11 @@ function delete_user(id){
 }
 //////////////////////////////////Add User////////////////////////////////////////
 function add_user_form(){
+
+
+
+
+
   $.ajax({
     type:"POST",
     url:"ckAjax.php",
@@ -135,7 +140,25 @@ function add_user_form(){
   });
   return false;
 }
-/////////////////////////////////Show Data For Edit/////////////////////////////////
+//////////////////////////////////////////////////////////////////
+function edit_user_form(){
+  $.ajax({
+    type:"POST",
+    url:"ckAjax2.php",
+    data:$("#edit_user_form").serialize(),
+    success:function(data){
+      
+      //close modal
+      $(".close").trigger("click");
+      
+      //show result
+      alert(data);
 
- 
-            
+
+      location.replace("tables1.php");
+      //reload page
+      
+    }
+  });
+  return false;
+}
