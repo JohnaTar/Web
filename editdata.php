@@ -49,6 +49,9 @@
                         WHERE stwUser_id = '".$_GET["id"]."' ";
     $query = mysqli_query($conn,$sql);
     $result=mysqli_fetch_array($query,MYSQLI_ASSOC);
+
+    $prefix =$result['stwPrefix_id'];
+    
     
 
  
@@ -124,7 +127,7 @@ onsubmit="return edit_user_form();">
             <div class="form-group">
                     <label class="col-md-4 control-label" for="fn">เบอร์โทร</label>  
                 <div class="col-md-4">
-                    <input name="stwTel" type="text" placeholder="Tel" class="form-control input-md" required="" value="<?php echo $result['stwTel']; ?>">
+                    <input name="stwTel" type="text" placeholder="Tel" class="form-control input-md" required="" value="<?php echo $result['stwTel']; ?>" pattern="([0-9])+(?:-?\d){9,}" title="กรุณากรอกตัวเลข 10 ตัว">
     
                 </div>
             </div>

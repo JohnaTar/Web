@@ -6,18 +6,18 @@ $(function () {
       url: "ckAjax.php",
       data: "UserName=" + $("#UserName").val(),
       type: "POST",
-      dataType :"text",
       
-      success: function(html) 
+      
+      success: function(data) 
         { 
-        if(html ==true){
+        if(data ==true){
             
             $("#btnSubmit").attr("disabled",false);
               $("#Password").attr("disabled",false);
                 $("#rePassword").attr("disabled",false);
                   $("#Email").attr("disabled",false);
             $("#msg1").html("<span style='color:green'>Usernameใช้งานได้</span>");
-            }else if (html ==false) {
+            }else if (data ==false) {
               $("#btnSubmit").attr("disabled",true);
                 $("#Password").attr("disabled",true);
                   $("#rePassword").attr("disabled",true);
@@ -67,11 +67,11 @@ $(function () {
       url: "ckAjax.php",
       data: "Email=" + $("#Email").val(),
       type: "POST",
-      dataType :"text",
+   
       
-      success: function(html) 
+      success: function(data) 
         { 
-        if(html ==true){
+        if(data ==true){
             
             $("#btnSubmit").attr("disabled",false);
              $("#Password").attr("disabled",false);
@@ -79,7 +79,7 @@ $(function () {
                   $("#UserName").attr("disabled",false);
           
             $("#msg2").html("<span style='color:green'>Emailใช้งานได้</span>");
-            }else if (html ==false) {
+            }else if (data ==false) {
               $("#btnSubmit").attr("disabled",true);
                 $("#Password").attr("disabled",true);
                   $("#rePassword").attr("disabled",true);
@@ -115,11 +115,6 @@ function delete_user(id){
 }
 //////////////////////////////////Add User////////////////////////////////////////
 function add_user_form(){
-
-
-
-
-
   $.ajax({
     type:"POST",
     url:"ckAjax.php",
