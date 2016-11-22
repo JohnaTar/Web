@@ -139,19 +139,64 @@ function add_user_form(){
 function edit_user_form(){
   $.ajax({
     type:"POST",
-    url:"ckAjax2.php",
+    url:"ckAjax.php",
     data:$("#edit_user_form").serialize(),
     success:function(data){
       
-      //close modal
-      $(".close").trigger("click");
+     
       
       //show result
       alert(data);
 
 
-      location.replace("tables1.php");
+      location.replace("tables.php");
       //reload page
+      
+    }
+  });
+  return false;
+}
+////////////////////////////////////////////////////////////////
+
+function edit_authen(){
+  $.ajax({
+        type:"POST",
+        url:"ckAjax.php",
+        data:{authen:id},
+      success:function(data){
+          $("#authen").html(data);
+
+      }
+  });
+    return false;
+
+}
+
+
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////
+
+function cre_room(){
+  $.ajax({
+    type:"POST",
+    url:"ckAjax.php",
+    data:$("#CreateRoom").serialize(),
+    success:function(data){
+      
+      //close modal
+      
+      
+      //show result
+      alert(data);
+
+
+      //reload page
+      location.reload();
       
     }
   });

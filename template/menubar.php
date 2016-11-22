@@ -5,23 +5,39 @@
                 <a class="navbar-brand" href="index.html">Welcome</a>
             </div>
             <!-- Top Menu Items **************************************************-->           
-             <ul class="nav navbar-right top-nav">                        
+             <ul class="nav navbar-right top-nav">
+             <?php 
+             if ($_SESSION['status']==1) {
+                 $C = "Administrator";
+             }else if ($_SESSION['status']==2) {
+                 $C = "Super User";
+             }
+             ?>
+
+                                   
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Adminstator <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="fa fa-user"></i><?php echo $C; ?> <b class="caret"></b>
+                    </a>
                     <ul class="dropdown-menu">                       
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                            <a href="logout.php"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
                         </li>
                     </ul>
                 </li>
             </ul>
             
-            <!-- ***************************Start left bar******************************** -->
+<!-- ***************************Start left bar**************** -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
+
+
                     <li class="active"> 
+
                     <img class="img-responsive" src="img/pro.png" alt="">
+                
                     <li>
+
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-file""></i> เนื้อหาการอบรม <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse">
                             <li>
@@ -51,7 +67,8 @@
                     </li>
                     <li>
                         <a href="3.html"><i class="fa fa-fw fa-table"></i> หน้าเปล่า</a>
-                    </li>  
+                    </li> 
+
                                                     
             </div>
         </nav>

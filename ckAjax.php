@@ -89,12 +89,12 @@ $sql ="UPDATE stwUser SET
 
     if($result) {
 
-        echo "บันทึกข้อมูลเรียบร้อย"; 
+        echo "แก้ไขข้อมูลเรียบร้อย"; 
         exit();
     
     
     }else {
-        echo "บันทึกข้อมูลไม่เรียบร้อย"; 
+        echo "ไม่สามารถแก้ไขข้อมูลได้"; 
         exit();
     
 
@@ -116,15 +116,68 @@ $sql ="UPDATE stwUser SET
   
 if($query) {
 
-        echo "บันทึกข้อมูลเรียบร้อยนาาจา"; 
+        echo "บันทึกข้อมูลเรียบร้อย"; 
         exit();
   }else {
-        echo "บันทึกข้อมูลไม่เรียบร้อยนาจา"; 
+        echo "บันทึกข้อมูลไม่เรียบร้อย"; 
         exit();
     
 
     }
    }
+
+if (isset($_POST['TopicName'])) {
+
+
+
+//$sql = "INSERT INTO `stwTopic` (`stwTopic_name`, `stwTopic_datestart`, `stwTopic_dateend`, `  stwTopic_approval`, `stwTopic_credate`, `stwQuiztype_id`)
+      $sql = "INSERT INTO `stwTopic` (`stwTopic_name`, `stwTopic_datestart`,`stwTopic_dateend`,`stwTopic_approval`,`stwTopic_credate`,`stwQuiztype_id`)
+
+      VALUES ('".$_POST["TopicName"]."','".$_POST["Start"]."',
+           '".$_POST["End"]."','".$_POST["approve"]."',NOW(),'".$_POST["Quiz"]."')";
+
+    $result = mysqli_query($conn,$sql);
+
+    if($result) {
+
+        echo "สร้างหัวข้อเรียบร้อย"; 
+        exit();
+    
+    
+    }else {
+        echo "ไม่สามารถสรา้งหัวข้อได้"; 
+        exit();
+    
+
+    }
+}
+
+
+if(isset($_POST['authen'])){
+
+  $sql ="UPDATE stwUser SET
+
+          stwActivate = '".$_POST["stwActivate"]."'
+          WHERE stwUser_id = '".$_POST['authen']."' "; 
+
+    $result = mysqli_query($conn,$sql);
+
+    if($result) {
+
+        echo "แก้ไชสิทธิเรียบร้อย"; 
+        exit();
+    
+    
+    }else {
+        echo "แก้ไชสิทธิไม่เรียบร้อย"; 
+        exit();
+    
+
+    }
+}
+
+
+
 
 
 

@@ -16,7 +16,7 @@ include("connect.php");
 	$num = mysqli_num_rows($result);
 	if($num <= 0){
 	echo "<script>";
-		echo "alert(\"Username และ password ไม่ถูกต้อง\");"; 
+		echo "alert(\"Username และ Password ไม่ถูกต้อง\");"; 
 		echo "window.history.back()";
 	echo "</script>";
 	} else{
@@ -26,11 +26,11 @@ include("connect.php");
 			if ($row['stwStatus_id']== 1)
 			 {
 				$_SESSION['ses_id'] = session_id();
-				$_SESSION['stwUsername'] = $row['stwUsername'];
+				$_SESSION['username'] = $row['stwUsername'];
 				$_SESSION['status'] =$row['stwStatus_id'];
 
 
-		echo "<meta http-equiv='refresh' content ='1;URL=admin.php'>";
+		echo "<meta http-equiv='refresh' content ='1;URL=tables.php'>";
 		//Super User********************************************
 	
 			} else if ($row['stwStatus_id']== 2) {
@@ -39,14 +39,14 @@ include("connect.php");
 				$_SESSION['username'] = $row['stwUsername'];
 				$_SESSION['status'] =$row['stwStatus_id'];
 
-		echo "<meta http-equiv='refresh' content ='1;URL=tables1.php'>";
+		echo "<meta http-equiv='refresh' content ='1;URL=tables.php'>";
 			}
 			 else{
 				$_SESSION['ses_id'] = session_id();
 				$_SESSION['username'] = $row['stwUsername'];
 				$_SESSION['status'] =$row['stwStatus_id'];
 
-		echo "<meta http-equiv='refresh' content ='1;URL=tables2.php'>";
+		echo "<meta http-equiv='refresh' content ='1;URL=user.php'>";
 			}
 			
 		} // end while

@@ -23,7 +23,7 @@
 
                 <!-- Page Heading -->
                 <div class="row">
-                    <div class="col-lg-12">
+                    <div class="col-md-12">
                        <center> <h1 class="page-header">
                             แก้ไขข้อมูลสมาชิก</h1> </center>
                         <ol class="breadcrumb">
@@ -105,7 +105,7 @@ onsubmit="return edit_user_form();">
            
                 <label class="col-md-4 control-label" for="selectbasic">เพศ</label>
                     <div class="col-md-4">
-               </select>
+             
                
                  <select  name="stwGender" class="form-control input-md">
                 <option value="1" <?php if($result['stwGender'] == '1'){echo "selected='selected'";} ?> >ชาย </option>

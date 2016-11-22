@@ -3,13 +3,13 @@ session_start();
 
 if ($_SESSION['ses_id']=='') {
 		echo "<script>";
-		echo "alert(\"Please Login \");"; 
+		echo "alert(\"กรุณาล๊อกอิน \");"; 
 		echo "window.history.back()";
 	echo "</script>";
   echo "<meta http-equiv='refresh' content ='1;URL=index.php'>";
-  } elseif ($_SESSION['status']!=1) {
+  } else if ($_SESSION['status']== 3 ) {
   	echo "<script>";
-		echo "alert(\"NO Permission\");"; 
+		echo "alert(\"คุณไม่มีสิทธิเข้าถึงหน้า\");"; 
 		echo "window.history.back()";
 	echo "</script>";
 

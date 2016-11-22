@@ -8,9 +8,12 @@
     </head>
 
         <body>
-            
+        <?php 
+        include("checkadmin.php"); 
+       ?>
             
             <div id="wrapper">
+
 
 <!-- *************************MENU BAR************************** -->
                 <?php include("template/menubar.php"); ?>
@@ -47,16 +50,25 @@
                                         <th>สถานะ</th>
                                         <th>สถานะการอบรม</th>
                                         <th>วันที่สมัคร</th>
-                                        <th>แก้ไข</th>
-                                        <th>ลบ</th>                                            
+                                        <th>เมนู</th>
+                                        <th>เมนู</th>
+                                                                                   
                                     </tr>
                                  </thead>
                                 <tbody>   
 
                                 <tr>
-    <?php 
+   
+    <?php
+     
+
+        include("connect.php");
+           
+              
+
+
              
-         include("connect.php");
+
       
         $sql = "SELECT stwUser.stwUser_id,stwUser.stwFirstname,stwUser.stwLastname,stwUser.stwActivate,stwUser.stwGender,stwUser.stwTel,stwUser.stwEmail,stwStatus.stwStatus_name,stwPrefix.stwPrefix_name,
             stwDepartment.stwDept_name,stwUser.stwCreated_date
@@ -68,8 +80,7 @@
                 INNER JOIN stwPrefix
                 ON stwUser.stwPrefix_id = stwPrefix.stwPrefix_id";
         $result = mysqli_query($conn, $sql);
-            
-                 $i=1 ;
+               
                                  
                  while($row=mysqli_fetch_array($result,MYSQLI_ASSOC)){
                     if ($row['stwActivate']==1) {
@@ -85,7 +96,7 @@
                                         
                             }
                                     
-     ?>
+    ?>
 
                                    
                 <td><?php echo 
@@ -99,17 +110,16 @@
                 <td><?php echo $row['stwStatus_name']; ?></td>
                 <td><?php echo $A; ?> </td>
                 <td><?php echo $row['stwCreated_date']; ?></td>
-<td>
-     <a href="editdata.php? id=<?php echo $row["stwUser_id"]; ?>" class="btn btn-success btn-xs" role="button" >แก้ไขข้อมูล
-     </a>
+<?php 
+if ($_SESSION['status']==1) {
+                include("template/admin.php");
+             }else if ($_SESSION['status']==2) {
+                include("template/super.php");
+             }
 
-</td>
 
-<td>
-    <button class="btn btn-danger btn-xs" onclick="return delete_user(<?php echo $row['stwUser_id']?>);">ลบ
-    </button>
-</td>
-    
+
+?>
 
 
                                
@@ -128,9 +138,12 @@
                     <!-- Row -->
                  </div>
     </div>
- <!-- *********************************end table***************************************** -->
-                                    <?php include("modal/modalAdmin.php");?>
-                                    <?php include("modal/edit.php");?>
+</div>
+ <!-- *******************end table************************ -->
+<?php include("modal/modalAdmin.php");
+      include("modal/edit.php");
+       include("modal/authen.php");
+ ?>
   
   
 
