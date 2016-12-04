@@ -33,7 +33,7 @@
 <!-- *****************start table************************* -->                                               
                 <div class="row">
                     <div class="col-md-12">
-                    8;p
+                  <a href="tables.php">Dashboard</a>
 
                         
                     </div>

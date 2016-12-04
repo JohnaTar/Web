@@ -1,8 +1,14 @@
+<?php 
+       session_start();
+?>
 <!DOCTYPE html>
 
 
     <head>
-        <?php include("head/head.php");?>
+        <?php include("head/head.php");
+              include("checkuser.php");
+
+        ?>
         <title>SB Admin - Bootstrap Admin Template</title>
   
     </head>
@@ -14,7 +20,7 @@
 
 <!-- *************************MENU BAR************************** -->
                 <?php include("menu/menubar.php"); ?>
-<!-- *********************************************************** -->
+
 <!-- *********************************end left bar************* -->
 
         <div id="page-wrapper">
@@ -34,16 +40,15 @@
                                 <i class="fa fa-file"></i> แก้ไขข้อมูลสมาชิก
                             </li>
                         </ol>
-<!-- *********************************start database******************************* -->
+<!-- ************start database******************************* -->
     <?php
     
 
    
     
-    if(isset($_GET["id"]))
-    {
+    if(isset($_GET["id"])){
         
-    }
+    
     include("connect.php");
     $sql = "SELECT * FROM stwUser 
                         WHERE stwUser_id = '".$_GET["id"]."' ";
@@ -51,17 +56,18 @@
     $result=mysqli_fetch_array($query,MYSQLI_ASSOC);
 
     $prefix =$result['stwPrefix_id'];
-    
-    
 
- 
+
+    }
+     
+
     ?>
     
-
     
+ 
   
 
-<!-- *********************************start from********************************************* -->
+<!-- *******************start from*********************** -->
 <form class="form-horizontal" id="edit_user_form" 
 onsubmit="return edit_user_form();"> 
     <div class="form-group">                 
@@ -138,7 +144,7 @@ onsubmit="return edit_user_form();">
                     <select  name="stwDept_id" class="form-control input-md">
                 <option value="1" <?php if($result['stwDept_id'] == '1'){echo "selected='selected'";} ?>>แผนก 1  </option>
                 <option value="2" <?php if($result['stwDept_id'] == '2'){echo "selected='selected'";} ?>>แผนก 2</option>
-                <option value="2" <?php if($result['stwDept_id'] == '3'){echo "selected='selected'";} ?>>แผนก 3</option>
+                <option value="3" <?php if($result['stwDept_id'] == '3'){echo "selected='selected'";} ?>>แผนก 3</option>
 
               
                     </select>
@@ -176,7 +182,7 @@ onsubmit="return edit_user_form();">
             <button id="btnSubmit" name="submit" class="btn btn-primary" >ตกลง</button>
                 </div>
             </div>
-
+</form>
 
 
 
@@ -217,12 +223,6 @@ onsubmit="return edit_user_form();">
 
     </div>
     <!-- /#wrapper -->
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
 
 </body>
 

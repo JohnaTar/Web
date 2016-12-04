@@ -1,3 +1,6 @@
+<?php 
+       session_start();
+?>
 <!DOCTYPE html>
 
 
@@ -36,7 +39,13 @@
 
 
                     <h1>Welcome</h1>
+                    <?php
+                    $User = $_SESSION['ID'];
                     
+
+                    ?>
+
+                   
 
                         
                     </div>

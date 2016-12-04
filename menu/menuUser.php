@@ -46,7 +46,13 @@
                     </li>
 
                     <li>
-                        <a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i> แก้ไขข้อมูลส่วนตัว</a>
+                     <?php
+                    $User = $_SESSION['ID'];
+                    
+
+                    ?>
+                        <a href="editdata.php? id=<?php echo $User; ?>">
+                        <i class="fa fa-fw fa-bar-chart-o"></i> แก้ไขข้อมูลส่วนตัว</a>
                     </li>
                   
                 </li>
@@ -56,3 +62,5 @@
                                                     
             </div>
         </nav>
+
+    
