@@ -14,7 +14,7 @@
            
             <div class="t25-b-white">
                 <h3 class="text-center">Safety Training Web Application for Factory Workers</h3>
-                <h5 class="text-center">โดย Tarlnwza007</h5>
+                <h5 class="text-center">การพัฒนาเว็บแอพพลิเคชั่นการอบรมด้านความปลอดภัยให้กับพนักงานโรงงาน</h5>
             </div>
             <br />
 

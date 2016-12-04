@@ -1,56 +1,37 @@
 <?php
 include("connect.php");
 
-if (isset($_POST['UserName']))
-  {
+    if (isset($_POST['UserName'])){
+        $sql = "SELECT * FROM stwUser 
+                WHERE stwUserName='".$_POST['UserName']."'";
+        $result = mysqli_query($conn, $sql);
+          if(mysqli_num_rows($result) == 0){
+             echo true;
+                exit();
+          }else {   
+             echo false;
+                exit();
   
-  $sql = "SELECT * FROM stwUser WHERE stwUserName='".$_POST['UserName']."'";
-  $result = mysqli_query($conn, $sql);
-  if(mysqli_num_rows($result) == 0)
-    {
-      
-      echo true;
-      exit();
-    
-    }
-      
-  else
-    {   
-      echo false;
-      exit();
-  
-    }
-  exit();
+          }
+    exit();
   }
-
 
 //email *********************************
 
-if (isset($_POST['Email'])) 
-{
-  
-
-  $sql = "SELECT * FROM stwUser WHERE stwEmail='".$_POST['Email']."'";
-  $result = mysqli_query($conn, $sql);
-  if(mysqli_num_rows($result) == 0){
-      
-      echo true;
-      exit();
-    
-    }
-      
-  else
-    {   
-      echo false;
-      exit();
-
-    }
+    if (isset($_POST['Email'])) {
+      $sql = "SELECT * FROM stwUser 
+              WHERE stwEmail='".$_POST['Email']."'";
+     $result = mysqli_query($conn, $sql);
+       if(mysqli_num_rows($result) == 0){
+          echo true;
+            exit();
+          }else {   
+            echo false;
+              exit();
+          }
   exit();
   }
-
-
-
-
+//delete *********************************
 
   if(isset($_POST['delete'])){
     
@@ -68,10 +49,9 @@ if (isset($_POST['Email']))
       exit();
     }
 }
+//edit *********************************
 
 if (isset($_POST['stwUser_id'])) {
-
-
 
 $sql ="UPDATE stwUser SET
 
@@ -102,7 +82,7 @@ $sql ="UPDATE stwUser SET
 }
 
 
-
+//register user *********************************
 
   if(isset($_POST['stwUsername'])){
     
@@ -125,6 +105,7 @@ if($query) {
 
     }
    }
+//insert *********************************
 
 if (isset($_POST['TopicName'])) {
 
@@ -151,31 +132,55 @@ if (isset($_POST['TopicName'])) {
 
     }
 }
-
+//edit authen *********************************
 
 if(isset($_POST['authen'])){
+  $sql = "SELECT * FROM stwUser
+          WHERE stwUser_id = '".$_POST['authen']."'";
+  $query =mysqli_query($conn,$sql);
+  $result =mysqli_fetch_array($query,MYSQLI_ASSOC);
 
+  echo ' <form class="form-horizontal" id="save_authen">
+            <div class="form-group" >
+                <label class="col-md-4 control-label" for="selectbasic">สถานะการอบรม</label>
+                    <div class="col-md-4">
+                    <select  name="stwActivate" class="form-control input-md">
+                <option value="1">อนุมัติ </option>
+                <option value="2">ไม่อนุมัติ</option>
+                
+                    </select>
+                  <input name="authen_id" value="'.$result['stwUser_id'].'"  type="hidden">
+                    </div>
+            </div>
+          
+';
+
+
+}
+
+
+if (isset($_POST['authen_id'])) {
   $sql ="UPDATE stwUser SET
 
           stwActivate = '".$_POST["stwActivate"]."'
-          WHERE stwUser_id = '".$_POST['authen']."' "; 
-
+          WHERE stwUser_id = '".$_POST['authen_id']."' "; 
     $result = mysqli_query($conn,$sql);
 
     if($result) {
 
-        echo "แก้ไชสิทธิเรียบร้อย"; 
+        echo "แก้ไขสิทธิ์เรียบร้อย"; 
         exit();
     
     
     }else {
-        echo "แก้ไชสิทธิไม่เรียบร้อย"; 
+        echo "ไม่สามารถแก้ไขสิทธิ์ได้"; 
         exit();
     
 
     }
 }
 
+ 
 
 
 

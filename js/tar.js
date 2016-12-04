@@ -158,13 +158,13 @@ function edit_user_form(){
 }
 ////////////////////////////////////////////////////////////////
 
-function edit_authen(){
+function show_authen(id){
   $.ajax({
         type:"POST",
         url:"ckAjax.php",
         data:{authen:id},
       success:function(data){
-          $("#authen").html(data);
+          $("#authen_form").html(data);
 
       }
   });
@@ -172,6 +172,28 @@ function edit_authen(){
 
 }
 
+function edit_authen(){
+  $.ajax({
+    type:"POST",
+    url:"ckAjax2.php",
+    data:$("#save_authen").serialize(),
+    success:function(data){
+
+        $(".close").trigger("click");
+      
+     
+      
+      //show result
+      alert(data);
+
+
+      location.reload();
+      //reload page
+      
+    }
+  });
+  return false;
+}
 
 
 

@@ -2,21 +2,24 @@
 
 
     <head>
-        <?php include("head/head.php");?>
+        <?php 
+        include("head/head.php");
+
+        include("checkadmin.php"); 
+     
+        ?>
         <title>SB Admin - Bootstrap Admin Template</title>
   
     </head>
 
         <body>
-        <?php 
-        include("checkadmin.php"); 
-       ?>
+        
             
             <div id="wrapper">
 
 
 <!-- *************************MENU BAR************************** -->
-                <?php include("template/menubar.php"); ?>
+                <?php include("menu/menubar.php"); ?>
 <!-- *********************************************************** -->
         <div id="page-wrapper">
             <div class="container-fluid">            
@@ -51,7 +54,7 @@
                                         <th>สถานะการอบรม</th>
                                         <th>วันที่สมัคร</th>
                                         <th>เมนู</th>
-                                        <th>เมนู</th>
+                                        
                                                                                    
                                     </tr>
                                  </thead>
@@ -112,14 +115,15 @@
                 <td><?php echo $row['stwCreated_date']; ?></td>
 <?php 
 if ($_SESSION['status']==1) {
-                include("template/admin.php");
+                include("menu/admin.php");
              }else if ($_SESSION['status']==2) {
-                include("template/super.php");
+                include("menu/super.php");
              }
 
 
 
 ?>
+
 
 
                                

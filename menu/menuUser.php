@@ -11,7 +11,10 @@
                  $C = "Administrator";
              }else if ($_SESSION['status']==2) {
                  $C = "Super User";
-             }
+             }else{
+                $C= "User";
+
+             }  
              ?>
 
                                    
@@ -29,45 +32,26 @@
             
 <!-- ***************************Start left bar**************** -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
+
                 <ul class="nav navbar-nav side-nav">
 
 
                     <li class="active"> 
 
                     <img class="img-responsive" src="img/pro.png" alt="">
-                
-                    <li>
-
-                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-file""></i> เนื้อหาการอบรม <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="demo" class="collapse">
-                            <li>
-                                <a href="#">Dropdown Item</a>
-                            </li>
-                            <li>
-                                <a href="#">Dropdown Item</a>
-                            </li>
-                        </ul>
-                    </li>                   
+                   
+                               
                     <li>                 
-                        <a href="forms.html"><i class="fa fa-fw fa-edit"></i> สร้างหัวข้อการอบรม</a>
+                        <a href="forms.html"><i class="fa fa-fw fa-edit"></i> หัวข้อการอบรม</a>
                     </li>
 
                     <li>
-                        <a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i> รายงานการอบรม</a>
+                        <a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i> แก้ไขข้อมูลส่วนตัว</a>
                     </li>
-                    <li>
-       
-                        <a href="tables.html"><i class="fa fa-fw fa-table"></i> จัดการข้อมูลสมาชิก</a>
-                    </li>
-                    <li>
-                        <a href="1.html"><i class="fa fa-fw fa-table"></i> กิด</a>
-                    </li>
-                    <li>
-                        <a href="2.html"><i class="fa fa-fw fa-table"></i> รูปแบบ</a>
-                    </li>
-                    <li>
-                        <a href="3.html"><i class="fa fa-fw fa-table"></i> หน้าเปล่า</a>
-                    </li> 
+                  
+                </li>
+                
+            </ul> 
 
                                                     
             </div>
