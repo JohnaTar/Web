@@ -7,6 +7,7 @@
     <head>
         <?php include("head/head.php");
               include("checkuser.php");
+              include ("modal/pass.php");
 
         ?>
         <title>SB Admin - Bootstrap Admin Template</title>
@@ -34,7 +35,7 @@
                             แก้ไขข้อมูลส่วนตัว</h1> </center>
                         <ol class="breadcrumb">
                             <li>
-                                <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
+                                <i class="fa fa-dashboard"></i>  <a href="user.php">Dashboard</a>
                             </li>
                             <li class="active">
                                 <i class="fa fa-file"></i> แก้ไขข้อมูลส่วนตัว

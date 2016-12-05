@@ -36,7 +36,7 @@ $(function () {
 
 
     $(function () {
-        $("#rePassword").change(function () {
+        $("#pass_form").change(function () {
             var password = $("#Password").val();
             var confirmPassword = $("#rePassword").val();
             
@@ -93,6 +93,8 @@ $(function () {
       });
     });
   });
+
+
 
 ///////////////////////////Data Table///////////////////////////////////////////////////
 $(function(){
@@ -224,7 +226,7 @@ function cre_room(){
   });
   return false;
 }
-
+////////////////////////////////////////////////////////////////
 function edit_user_form1(){
   $.ajax({
     type:"POST",
@@ -244,4 +246,18 @@ function edit_user_form1(){
     }
   });
   return false;
+}
+////////////////////////////////////////////////////////////////
+function show_pass(id){
+  $.ajax({
+        type:"POST",
+        url:"ckAjax.php",
+        data:{pass:id},
+      success:function(data){
+          $("#pass_form").html(data);
+
+      }
+  });
+    return false;
+
 }

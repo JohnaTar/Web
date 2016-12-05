@@ -180,8 +180,49 @@ if (isset($_POST['authen_id'])) {
     }
 }
 
- 
+ //edit authen *********************************
 
+if (isset($_POST['pass'])) {
+
+  $sql = "SELECT * FROM stwUser
+          WHERE stwUser_id = '".$_POST['pass']."'";
+  $query =mysqli_query($conn,$sql);
+  $result =mysqli_fetch_array($query,MYSQLI_ASSOC);
+
+  echo ' <form class="form-horizontal" id="save_authen" >
+           <div class="form-group">
+                    <label class="col-md-4 control-label" for="fn">ชื่อเข้าใช้งาน</label>  
+
+                <div class="col-md-4">
+                    <input  name="stwUsername" value="'.$result['stwUsername'].'" class="form-control input-md" readonly>   
+                    <input name="authen_id" value="'.$result['stwUser_id'].'"  type="hidden">
+                </div>
+            </div>
+
+            
+            <div class="form-group">
+                    <label class="col-md-4 control-label" for="fn">รหัสเข้าใช้งานใหม่</label>  
+                <div class="col-md-4">
+                    <input  type="password" placeholder="New-Password" class="form-control input-md" required="" maxlength="12" id="Password">
+    
+                </div>
+            </div>
+            <div class="form-group">
+                    <label class="col-md-4 control-label" for="fn">ยืนยันรหัสเข้าใช้งานใหม่</label>  
+                <div class="col-md-4">
+                    <input  type="password" placeholder="New-Password" class="form-control input-md" required="" maxlength="12" id="rePassword">
+                    <span id="verify" ></span>
+    
+                </div>
+            </div>
+           
+                  
+                   
+          
+';
+
+
+}
 
 
 

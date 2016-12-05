@@ -1,6 +1,4 @@
- <?php 
-       session_start();
-?>
+
 <!DOCTYPE html>
 
 
@@ -149,7 +147,7 @@ if ($_SESSION['status']==1) {
 </div>
  <!-- *******************end table************************ -->
 <?php include("modal/modalAdmin.php");
-      include("modal/edit.php");
+     
        include("modal/authen.php");
  ?>
   

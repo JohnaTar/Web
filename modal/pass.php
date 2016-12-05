@@ -12,7 +12,10 @@
             
 
 
-            <div id="authen_form"></div>sss
+            <div id="pass_form">
+                
+            </div>
+           
   
  
            
@@ -22,7 +25,7 @@
                 <label class="col-md-4 control-label" for="submit"></label>
                 <div class="col-md-4">
             <button id="btnSubmit" name="submit" 
-            onclick="return edit_authen(); " class="btn btn-primary" >ตกลง</button>
+             class="btn btn-primary" >ตกลง</button>
                 </div>
             </div>
 
