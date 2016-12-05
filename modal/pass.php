@@ -6,13 +6,13 @@
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-            <h1 class="modal-title">เปลี่ยนรหัสผ่าน</h1>
+            <h1 class="modal-title">เปลี่ยนรหัสผ่าน </h1>
         </div>
        <div class="modal-body">
             
 
 
-            <div id="authen_form"></div>
+            <div id="authen_form"></div>sss
   
  
            
