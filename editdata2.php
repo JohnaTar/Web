@@ -123,7 +123,7 @@ onsubmit="return edit_user_form1();">
             <div class="form-group">
                     <label class="col-md-4 control-label" for="fn">อีเมลล์</label>  
                 <div class="col-md-4">
-                    <input  name="stwEmail" type="email" placeholder="Email" class="form-control input-md" required="" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" value="<?php echo $result["stwEmail"]; ?>"
+                    <input  name="stwEmail" type="email" placeholder="Email" class="form-control input-md" required=""  value="<?php echo $result["stwEmail"]; ?>"
                     id="Email">
                      <span id="msg2"></span>
     
