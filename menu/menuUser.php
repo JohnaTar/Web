@@ -46,6 +46,8 @@
                     <?php  
 
     include ("connect.php");
+    
+
    
         $sql = "SELECT stwUser.stwUser_id,stwUser.stwFirstname,stwUser.stwLastname,stwUser.stwGender,stwUser.stwTel,stwUser.stwEmail,stwPrefix.stwPrefix_name,
             stwDepartment.stwDept_name,stwUser.stwCreated_date
@@ -114,8 +116,9 @@
                 </li>    
 
                             <li>
-                                <a href="#">เปลี่ยนรหัสผ่าน</a>
-
+                             <a href="#" onclick="" data-toggle="modal" data-target="#pass">
+                        <i class="fa fa-fw fa-plus"></i> เปลี่ยนรหัสผ่าน</a>
+                                  
                             </li>
                         </ul>
                     </li>  

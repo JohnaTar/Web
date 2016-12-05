@@ -5,7 +5,10 @@
 
 
     <head>
-        <?php include("head/head.php");?>
+        <?php include("head/head.php");
+          include ("modal/pass.php");
+        ?>
+
         <title>SB Admin - Bootstrap Admin Template</title>
   
     </head>
@@ -39,7 +42,7 @@
 
 
                     <h1>Welcome</h1>
-
+  
                   
 
                    
