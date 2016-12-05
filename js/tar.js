@@ -224,3 +224,24 @@ function cre_room(){
   });
   return false;
 }
+
+function edit_user_form1(){
+  $.ajax({
+    type:"POST",
+    url:"ckAjax.php",
+    data:$("#edit_user_form").serialize(),
+    success:function(data){
+      
+     
+      
+      //show result
+      alert(data);
+
+
+      window.history.back()
+      //reload page
+      
+    }
+  });
+  return false;
+}

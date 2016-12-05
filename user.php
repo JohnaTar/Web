@@ -1,4 +1,4 @@
-<?php 
+ <?php 
        session_start();
 ?>
 <!DOCTYPE html>
@@ -27,7 +27,7 @@
                                 <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
                             </li>
                             <li class="active">
-                                <i class="fa fa-table"></i> ตารางแสดงข้อมูลสมาชิก
+                                <i class="fa fa-table"></i> หน้าแรก
                             </li>
                         </ol>
                     </div>
@@ -39,11 +39,8 @@
 
 
                     <h1>Welcome</h1>
-                    <?php
-                    $User = $_SESSION['ID'];
-                    
 
-                    ?>
+                  
 
                    
 
