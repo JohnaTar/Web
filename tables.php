@@ -68,7 +68,22 @@
      
 
         include("connect.php");
-           
+        function DateThai($strDate)
+    {
+        $strYear = date("Y",strtotime($strDate))+543;
+        $strMonth= date("n",strtotime($strDate));
+        $strDay= date("j",strtotime($strDate));
+        $strHour= date("H",strtotime($strDate));
+        $strMinute= date("i",strtotime($strDate));
+        $strSeconds= date("s",strtotime($strDate));
+        $strMonthCut = Array("","ม.ค.","ก.พ.","มี.ค.","เม.ย.","พ.ค.","มิ.ย.","ก.ค.","ส.ค.","ก.ย.","ต.ค.","พ.ย.","ธ.ค.");
+        $strMonthThai=$strMonthCut[$strMonth];
+        return "$strDay $strMonthThai $strYear, $strHour:$strMinute";
+    }
+
+  
+ // แสดงวันที่ 
+          
               
 
 
@@ -85,7 +100,8 @@
                 INNER JOIN stwPrefix
                 ON stwUser.stwPrefix_id = stwPrefix.stwPrefix_id";
         $result = mysqli_query($conn, $sql);
-               
+      
+          
                                  
                  while($row=mysqli_fetch_array($result,MYSQLI_ASSOC)){
                     if ($row['stwActivate']==1) {
@@ -98,9 +114,10 @@
                         $B = "ชาย";
                         }else {
                         $B = "หญิง";
-                                        
-                            }
-                                    
+                    }
+                    $strDate = $row['stwCreated_date'];
+   
+                   
     ?>
 
                                    
@@ -114,7 +131,7 @@
                 <td><?php echo $row['stwDept_name']; ?></td>
                 <td><?php echo $row['stwStatus_name']; ?></td>
                 <td><?php echo $A; ?> </td>
-                <td><?php echo $row['stwCreated_date']; ?></td>
+                <td><?php   echo DateThai($strDate);; ?></td>
 <?php 
 if ($_SESSION['status']==1) {
                 include("menu/admin.php");
