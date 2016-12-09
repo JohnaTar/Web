@@ -12,7 +12,7 @@
          
         
 
-            <!-- *****************username from******************************** -->
+<!-- *****************username from******************************** -->
     
 
         <div class="modal-body">
@@ -29,7 +29,7 @@
                 </div>
             </div>
             
-<!-- *****************password from***************************************** -->
+<!-- *****************password from***************************** -->
 <div id="pass_form">
 
             <div class="form-group">
@@ -72,7 +72,7 @@
                 </select>
                 </div>
             </div>
-<!-- *********************************first from******************************** -->
+<!-- ********************first from******************************** -->
               <div class="form-group">
                     <label class="col-md-4 control-label" for="fn">ชื่อ</label>  
                 <div class="col-md-4">
@@ -87,18 +87,22 @@
                     <input  name="stwLastname" type="text" placeholder="Lastname" class="form-control input-md" required="">
     
                 </div>
-            </div>
-
-              <div class="form-group">
-                <label class="col-md-4 control-label" for="selectbasic">เพศ</label>
-                    <div class="col-md-4">
-                    <select  name="stwGender" class="form-control input-md">
-                <option value="1">ชาย </option>
-                <option value="2">หญิง</option>
-                </select>
                 </div>
-            </div>
-                    <div class="form-group">
+                 <div class="form-group">
+              <label class="col-md-4 control-label" for="fn">เพศ</label>  
+              <div class="col-md-4">
+              
+  <label><input type="radio" required="" name="stwGender" value="1">ชาย</label><br>
+
+
+  <label><input type="radio" required="" name="stwGender" value="2">หญิง</label>
+</div>
+</div>  
+           
+ 
+    
+
+                <div class="form-group">
                     <label class="col-md-4 control-label" for="fn">อีเมลล์</label>  
                 <div class="col-md-4">
                     <input  name="stwEmail" type="email" placeholder="Email" class="form-control input-md" required="" id="Email" data-validation="email">
@@ -108,13 +112,13 @@
             </div>
 
             <div class="form-group">
-                    <label class="col-md-4 control-label" for="fn">เบอร์โทร</label>  
+                    <label class="col-md-4 control-label" for="fn">โทรศัพท์มือถือ</label>  
                 <div class="col-md-4">
                     <input name="stwTel" type="text" placeholder="Tel" class="form-control input-md" required="" pattern="([0-9])+(?:-?\d){9,}" title="กรุณากรอกตัวเลข 10 ตัว">
     
                 </div>
             </div>
-<!-- **********************************dept****************************** -->
+<!-- *********************dept****************************** -->
             <div class="form-group">
                 <label class="col-md-4 control-label" for="selectbasic">แผนก</label>
                     <div class="col-md-4">
@@ -134,7 +138,7 @@
                 </div>
             </div>
 
-<!-- **********************************default value******************************* -->
+<!-- **************default value******************************* -->
                <div class="form-group">                 
                     <input name="stwStatus_id" value="3" type="hidden">
                     <input type="hidden" name="stwActivate" value="2">

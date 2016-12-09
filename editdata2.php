@@ -121,6 +121,16 @@ onsubmit="return edit_user_form1();">
                 </div>
             </div>
 <!-- **********************************email******************** -->
+<div class="form-group">
+              <label class="col-md-4 control-label" for="fn">เพศ</label>  
+              <div class="col-md-4">
+              
+  <label><input type="radio" name="stwGender" value="1" <?php if($result['stwGender'] == '2'){echo "checked='checked'";} ?>>ชาย</label>
+
+
+  <label><input type="radio" name="stwGender" value="2" <?php if($result['stwGender'] == '2'){echo "checked='checked'";} ?>>หญิง</label>
+</div>
+</div>
             <div class="form-group">
                     <label class="col-md-4 control-label" for="fn">อีเมลล์</label>  
                 <div class="col-md-4">
