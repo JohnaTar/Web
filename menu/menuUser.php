@@ -116,7 +116,7 @@
                 </li>    
 
                             <li>
-                             <a href="#" onclick="return show_pass(<?php echo $User?>);" data-toggle="modal" data-target="#pass">
+                             <a href="editpass.php? id=<?php echo $User; ?>">
                         <i class="fa fa-fw fa-plus"></i> เปลี่ยนรหัสผ่าน</a>
 
                         

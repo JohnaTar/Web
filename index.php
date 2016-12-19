@@ -17,8 +17,7 @@
                 <h5 class="text-center">การพัฒนาเว็บแอพพลิเคชั่นการอบรมด้านความปลอดภัยให้กับพนักงานโรงงาน</h5>
             </div>
             <br />
-            <div class="login">
-
+           
             <form class="form" action="checklogin.php" method="POST">
                 <input type="text" placeholder="Username"  required="" name="Username" />
                 <input type="password" placeholder="Password" required="" name="Password" />
@@ -26,7 +25,7 @@
                 <button type="button" class="btn btn-success " data-toggle="modal" data-target="#myModal">สมัครสมาชิก</button>
                 
             </form>
-            </div>
+           
             
 
             <br />

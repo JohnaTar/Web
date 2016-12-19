@@ -230,7 +230,7 @@ function cre_room(){
   return false;
 }
 ////////////////////////////////////////////////////////////////
-function edit_user_form1(){
+function edit_user_form1(){ //มี 2 อันเพราะติดสิทธิ์ 
   $.ajax({
     type:"POST",
     url:"ckAjax.php",
@@ -243,7 +243,7 @@ function edit_user_form1(){
       alert(data);
 
 
-      window.history.back()
+       location.replace("user.php");
       //reload page
       
     }
@@ -251,16 +251,23 @@ function edit_user_form1(){
   return false;
 }
 ////////////////////////////////////////////////////////////////
-function show_pass(id){
+function save_pass(){ 
   $.ajax({
-        type:"POST",
-        url:"ckAjax.php",
-        data:{pass:id},
-      success:function(data){
-          $("#pass_form").html(data);
+    type:"POST",
+    url:"ckAjax.php",
+    data:$("#save_pass").serialize(),
+    success:function(data){
+      
+     
+      
+      //show result
+      alert(data);
 
-      }
+
+       location.replace("user.php");
+      //reload page
+      
+    }
   });
-    return false;
-
+  return false;
 }
