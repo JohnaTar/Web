@@ -152,7 +152,7 @@ onsubmit="return edit_user_form();">
 
 <!-- ***************dept************************************* -->
             <div class="form-group">
-                <label class="col-md-4 control-label" for="selectbasic">สถานะ</label>
+                <label class="col-md-4 control-label" for="selectbasic">ประเภทผู้ใช้</label>
                     <div class="col-md-4">
                     <select  name="stwStatus_id" class="form-control input-md">
                 

@@ -64,10 +64,22 @@
                     <li>
                         <a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i> รายงานการอบรม</a>
                     </li>
+                    
                     <li>
-       
-                        <a href="tables.html"><i class="fa fa-fw fa-table"></i> จัดการข้อมูลสมาชิก</a>
-                    </li>
+
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo1"><i class="fa fa-fw fa-table"></i> เมนูจัดการ <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo1" class="collapse">
+                            <li>
+                                <a href="tables.php"> จัดการข้อมูลสมาชิก</a>
+                            </li>
+                            <li>
+                            <a href="#" onclick="" data-toggle="modal" data-target="#add_dept">เพิ่มข้อมูลแผนก</a>
+                                
+                            </li>
+                        </ul>
+                    </li>                
+
+                   
                 </li>
             </ul> 
 

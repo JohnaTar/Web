@@ -32,7 +32,7 @@
                 <div class="row">
                     <div class="col-md-12">
                        <center> <h1 class="page-header">
-                            แก้ไขข้อมูลส่วนตัว</h1> </center>
+                            แก้ไขรหัสผ่าน</h1> </center>
                         <ol class="breadcrumb">
                             <li>
                                 <i class="fa fa-dashboard"></i>  <a href="user.php">Dashboard</a>
@@ -84,7 +84,7 @@ onsubmit="return save_pass();">
             <div class="form-group">
                     <label class="col-md-4 control-label" for="fn">ชื่อผู้ใช้งาน</label>  
                 <div class="col-md-4">
-                    <input name="stwFirstname" readonly=""placeholder="Firstname" class="form-control input-md" required="" value="<?php echo $result['stwUsername']; ?>">
+                    <input name="stwFirstname" readonly="" class="form-control input-md" required="" value="<?php echo $result['stwUsername']; ?>">
     
                 </div>
             </div>
@@ -92,7 +92,7 @@ onsubmit="return save_pass();">
             <div class="form-group">
                     <label class="col-md-4 control-label" for="fn">รหัสผ่านใหม่</label>  
                 <div class="col-md-4">
-                    <input  name="Password" type="password" placeholder="New-Password" class="form-control input-md" required="">
+                    <input  name="Password" type="password" placeholder="New-Password" class="form-control input-md" required="" id="Password">
     
                 </div>
             </div>
@@ -100,7 +100,9 @@ onsubmit="return save_pass();">
             <div class="form-group">
                     <label class="col-md-4 control-label" for="fn">ยืนยันรหัสผ่านใหม่</label>  
                 <div class="col-md-4">
-                    <input   type="password" placeholder="Confirm-New-Password" class="form-control input-md" required="">
+                    <input   type="password" placeholder="Confirm-New-Password" class="form-control input-md" required="" id="rePassword">
+                    <span id="verify" ></span>
+    
     
                 </div>
             </div>
