@@ -1,6 +1,33 @@
+$(function () {
+  $("#Dept").change(function(){
+   
+    $.ajax({
+      url: "ckAjax2.php",
+      data: "add_dept=" + $("#Dept").val(),
+      type: "POST",
+      
+      
+      success: function(data) 
+        { 
+        if(data ==true){
+            
+            $("#btnSM").attr("disabled",false);
+              
+            $("#msg3").html("<span style='color:green'>ชื่อแผนกใช้งานได้</span>");
+            }else if (data ==false) {
+              
+                $("#btnSM").attr("disabled",true);
+               
+               
+            $("#msg3").html("<span style='color:red'>แผนกนี้มีอยุ่ในระบบแล้ว</span>");
 
+            }
+        }
+    
+      });
+    });
+  });
 
-  
 /////////////////////////Username/////////////////////////////////////
 $(function () {
   $("#UserName").change(function(){

@@ -38,7 +38,7 @@
                                 <i class="fa fa-dashboard"></i>  <a href="user.php">Dashboard</a>
                             </li>
                             <li class="active">
-                                <i class="fa fa-file"></i> แก้ไขข้อมูลส่วนตัว
+                                <i class="fa fa-file"></i> แก้ไขรหัสผ่าน
                             </li>
                         </ol>
 <!-- ************start database******************************* -->
@@ -89,6 +89,7 @@ onsubmit="return save_pass();">
                 </div>
             </div>
 <!-- *********************************last from************ -->
+<div id="pass_form">
             <div class="form-group">
                     <label class="col-md-4 control-label" for="fn">รหัสผ่านใหม่</label>  
                 <div class="col-md-4">
@@ -97,6 +98,7 @@ onsubmit="return save_pass();">
                 </div>
             </div>
 <!-- ************************gender****************************** -->
+
             <div class="form-group">
                     <label class="col-md-4 control-label" for="fn">ยืนยันรหัสผ่านใหม่</label>  
                 <div class="col-md-4">
@@ -106,6 +108,7 @@ onsubmit="return save_pass();">
     
                 </div>
             </div>
+</div>
 
 
 

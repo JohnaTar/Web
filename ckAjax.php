@@ -1,6 +1,14 @@
 <?php
 include("connect.php");
 
+  echo $_POST['add_dept'];
+       
+
+
+
+
+
+//email *********************************
     if (isset($_POST['UserName'])){
         $sql = "SELECT * FROM stwUser 
                 WHERE stwUserName='".$_POST['UserName']."'";
