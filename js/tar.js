@@ -2,7 +2,7 @@ $(function () {
   $("#Dept").change(function(){
    
     $.ajax({
-      url: "ckAjax2.php",
+      url: "ckAjax.php",
       data: "add_dept=" + $("#Dept").val(),
       type: "POST",
       
@@ -27,6 +27,29 @@ $(function () {
       });
     });
   });
+
+function add_dept(){
+  if(confirm("คุณต้องการเพิ่มข้อมูลหรือไม่")){
+  $.ajax({
+    type:"POST",
+    url:"ckAjax.php",
+    data:$("#Department").serialize(),
+    success:function(data){
+      
+     
+      
+      //show result
+      alert(data);
+
+
+      location.replace("tables.php");
+      //reload page
+      
+    }
+  });
+}
+  return false;
+}
 
 /////////////////////////Username/////////////////////////////////////
 $(function () {

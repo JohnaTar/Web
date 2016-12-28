@@ -1,4 +1,4 @@
-<form class="form-horizontal" onsubmit="return ">
+<form class="form-horizontal" id="Department" onsubmit="return add_dept();">
 
 <div class="modal fade" id="add_dept" role="dialog">
     <div class="modal-dialog modal-md">
@@ -6,7 +6,7 @@
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-            <h1 class="modal-title">สมัครสมาชิก</h1>
+            <h1 class="modal-title">เพิ่มแผนก</h1>
         </div>
         
          
