@@ -36,6 +36,22 @@ include("connect.php");
   
 
   }
+  if(isset($_POST['delete2'])){
+    
+    include("connect.php");
+    $sql = "DELETE  FROM stwDepartment
+                        WHERE stwDept_id = '".$_POST['delete2']."' ";
+    $query = mysqli_query($conn,$sql);
+
+    if ($query) {
+        echo "ลบข้อมูลเรียบร้อย";
+        exit();
+     
+    }else {
+        echo "ไม่สามารถลบข้อมูลได้"; 
+      exit();
+    }
+}
        
 
 

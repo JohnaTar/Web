@@ -164,7 +164,7 @@ if ($_SESSION['status']==1) {
 </div>
  <!-- *******************end table************************ -->
 <?php include("modal/modalAdmin.php");
-      include("modal/add_dept.php");
+     
       include("modal/authen.php");
  ?>
   

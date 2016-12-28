@@ -42,12 +42,27 @@ function add_dept(){
       alert(data);
 
 
-      location.replace("tables.php");
+      location.replace("tables1.php");
       //reload page
       
     }
   });
 }
+  return false;
+}
+
+function delete_dept(id){
+  if(confirm("คุณต้องการลบข้อมูลหรือไม่")){
+    $.ajax({
+      type:"POST",
+      url:"ckAjax.php",
+      data:{delete2:id},
+      success:function(data){
+        alert(data);
+        location.reload();
+      }
+    });
+  }
   return false;
 }
 

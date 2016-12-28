@@ -73,9 +73,9 @@
                                 <a href="tables.php"> จัดการข้อมูลสมาชิก</a>
                             </li>
                             <li>
-                            <a href="#" onclick="" data-toggle="modal" data-target="#add_dept">เพิ่มข้อมูลแผนก</a>
-                                
+                                <a href="tables1.php"> จัดการข้อมูลแผนก</a>
                             </li>
+                          
                         </ul>
                     </li>                
 
