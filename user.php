@@ -6,7 +6,7 @@
 
     <head>
         <?php include("head/head.php");
-          include ("modal/pass.php");
+         
         ?>
 
         <title>SB Admin - Bootstrap Admin Template</title>

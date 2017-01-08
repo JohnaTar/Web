@@ -42,8 +42,10 @@
                     <div class="col-md-12">
                         <center><h2>ตารางแสดงข้อมูลสมาชิก</h2></center>
                             <div class="table-responsive">
+
                         <button type="button" class="btn btn-info btn-xl" data-toggle="modal" data-target="#myModal">เพิ่มข้อมูลสมาชิก</button>
-                            <table class="table table-bordered table-hover table-striped" id="myTable">
+                           
+                         <table class="table table-striped table-hover" id="myTable">
                                 <thead>
                                     <tr>
                                           
@@ -128,8 +130,17 @@
                 <td><?php echo $B; ?></td>
                 <td><?php echo $row['stwTel']; ?></td>
                 <td><?php echo $row['stwEmail']; ?></td>
-                <td><?php echo $row['stwDept_name']; ?></td>
-                <td><?php echo $row['stwStatus_name']; ?></td>
+                <td><?php echo $row['stwDept_name']; ?></td>                
+                <td><?php if($row['stwStatus_name'] == 'Administrator'){
+                                echo '<span class="label label-warnning">Administrator</span>';
+                            }
+                            else if ($row['stwStatus_name'] == 'Super User' ){
+                                echo '<span class="label label-info">Super User</span>';
+                            }
+                            else if ($row['stwStatus_name'] == 'User' ){
+                                echo '<span class="label label-success">User</span>';
+                            }?></td>
+               
                 <td><?php echo $A; ?> </td>
                 <td><?php   echo DateThai($strDate);; ?></td>
 <?php 

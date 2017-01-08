@@ -1,3 +1,5 @@
+
+///////////////////////////////////Department////////////////////////////////////////
 $(function () {
   $("#Dept").change(function(){
    
@@ -245,7 +247,7 @@ function show_authen(id){
 function edit_authen(){
   $.ajax({
     type:"POST",
-    url:"ckAjax2.php",
+    url:"ckAjax.php",
     data:$("#save_authen").serialize(),
     success:function(data){
 

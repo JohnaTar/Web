@@ -7,10 +7,14 @@
     <head>
         <?php include("head/head.php");
               include("checkuser.php");
-              include ("modal/pass.php");
-
+             
         ?>
         <title>SB Admin - Bootstrap Admin Template</title>
+        <style>
+        .content {
+            margin-top: 80px;
+        }
+    </style>
   
     </head>
 
@@ -27,112 +31,95 @@
         <div id="page-wrapper">
 
             <div class="container-fluid">
-
+            
+               
                 <!-- Page Heading -->
                 <div class="row">
                     <div class="col-md-12">
                        <center> <h1 class="page-header">
-                            แก้ไขรหัสผ่าน</h1> </center>
+                            เปลี่ยนรหัสผ่าน</h1> </center>
                         <ol class="breadcrumb">
                             <li>
                                 <i class="fa fa-dashboard"></i>  <a href="user.php">Dashboard</a>
                             </li>
                             <li class="active">
-                                <i class="fa fa-file"></i> แก้ไขรหัสผ่าน
+                                <i class="fa fa-file"></i> เปลี่ยนรหัสผ่าน
                             </li>
                         </ol>
+                        
 <!-- ************start database******************************* -->
     <?php
     
-
+            include("connect.php");
    
-    
-    if(isset($_GET["id"])){
-        
-    
-    include("connect.php");
-    $sql = "SELECT * FROM stwUser 
-                        WHERE stwUser_id = '".$_GET["id"]."' ";
-    $query = mysqli_query($conn,$sql);
-    $result=mysqli_fetch_array($query,MYSQLI_ASSOC);
 
-    
+            if(isset($_POST['button'])){
+                $id        = $_GET['id'];
+                $password   = md5($_POST['password']);
+                $password1  = $_POST['password1'];
+                $password2  = $_POST['password2'];
 
+                $sql="SELECT * FROM stwUser WHERE stwUser_id='$id' 
+                                                AND stwPassword='$password'";
+                                               
 
-    }
-     
+                $result = mysqli_query($conn,$sql);
+                
 
-    ?>
-    
-    
- 
-  
-
-<!-- *******************start from*********************** -->
-<form class="form-horizontal" id="save_pass" 
-onsubmit="return save_pass();"> 
-    <div class="form-group">                 
-         <input name="PassUser_id" value="<?php echo $result['stwUser_id']; ?>" type="hidden">
-    </div>
-
-
-<!-- *****************************first from********************** -->
-       
-
+                if(mysqli_num_rows($result) == 0){
+                    echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Password เดิมไม่ถูกต้อง</div>';
+                }else{
+                    if($password1 == $password2){
+                        if(strlen($password1) >= 6){
+                            $pass = md5($password1);
+                            $update = mysqli_query($conn,"UPDATE stwUser SET stwPassword='$pass' WHERE stwUser_id='$id'");
+                            if($update){
+                                echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>เปลี่ยนรหัสผ่านเรียบร้อย.</div>';
+                            }else{
+                                echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>"ไม่สามารถเปลี่ยนรหัสผ่านได้</div>';
+                            }
+                        }else{
+                            echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>กรุณากรอกรหัสผ่านอย่างน้อย 6 ตัว</div>';
+                        }
+                    }else{
+                        echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>รหัสผ่านใหม่ไม่ตรงกัน</div>';
+                    }
+                }
+            }
             
-<!-- *********************************first from********************* -->
-            <div class="form-group">
-                    <label class="col-md-4 control-label" for="fn">ชื่อผู้ใช้งาน</label>  
-                <div class="col-md-4">
-                    <input name="stwFirstname" readonly="" class="form-control input-md" required="" value="<?php echo $result['stwUsername']; ?>">
-    
+            ?>
+
+            <form class="form-horizontal" action="" method="post">
+                <div class="form-group">
+                    <label class="col-md-4 control-label">รหัสผ่านเดิม</label>
+                    <div class="col-md-4">
+                        <input type="password" name="password" class="form-control" placeholder="Old-Password " required>
+                    </div>
                 </div>
-            </div>
-<!-- *********************************last from************ -->
-<div id="pass_form">
-            <div class="form-group">
-                    <label class="col-md-4 control-label" for="fn">รหัสผ่านใหม่</label>  
-                <div class="col-md-4">
-                    <input  name="Password" type="password" placeholder="New-Password" class="form-control input-md" required="" id="Password">
-    
+                <div class="form-group">
+                    <label class="col-md-4 control-label">รหัสผ่านใหม่</label>
+                    <div class="col-md-4">
+                        <input type="password" name="password1" class="form-control" placeholder="New-Password" required>
+                    </div>
                 </div>
-            </div>
-<!-- ************************gender****************************** -->
-
-            <div class="form-group">
-                    <label class="col-md-4 control-label" for="fn">ยืนยันรหัสผ่านใหม่</label>  
-                <div class="col-md-4">
-                    <input   type="password" placeholder="Confirm-New-Password" class="form-control input-md" required="" id="rePassword">
-                    <span id="verify" ></span>
-    
-    
+                <div class="form-group">
+                    <label class="col-md-4 control-label">ยืนยันรหัสผ่านใหม่</label>
+                    <div class="col-md-4">
+                        <input type="password" name="password2" class="form-control" placeholder="Confirm-New-Password" required>
+                    </div>
                 </div>
-            </div>
-</div>
+               
 
-
-
-              
-            
             <div class="form-group">
                 <label class="col-md-4 control-label" for="submit"></label>
                 <div class="col-md-4">
-            <button id="btnSubmit" name="submit" class="btn btn-primary" >ตกลง</button>
+            <button id="btnSubmit" name="button" class="btn btn-primary" >ตกลง</button>
                 </div>
             </div>
-</form>
-
-
-
-
-
-
-
-
-
-
-
-
+                
+            </form>
+       
+    
 
 
 
@@ -144,9 +131,11 @@ onsubmit="return save_pass();">
                     </div>
                 </div>
                 <!-- /.row -->
+               </div> 
 
             </div>
             <!-- /.container-fluid -->
+
 
         </div>
         <!-- /#page-wrapper -->
