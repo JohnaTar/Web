@@ -137,20 +137,8 @@ onsubmit="return edit_user_form();">
                 </div>
             </div>
 <!-- **********************************dept*********************** -->
-            <div class="form-group">
-                <label class="col-md-4 control-label" for="selectbasic">แผนก</label>
-                    <div class="col-md-4">
-                    <select  name="stwDept_id" class="form-control input-md">
-                <option value="1" <?php if($result['stwDept_id'] == '1'){echo "selected='selected'";} ?>>แผนก 1  </option>
-                <option value="2" <?php if($result['stwDept_id'] == '2'){echo "selected='selected'";} ?>>แผนก 2</option>
-                <option value="3" <?php if($result['stwDept_id'] == '3'){echo "selected='selected'";} ?>>แผนก 3</option>
+            
 
-              
-                    </select>
-                </div>
-            </div>
-
-<!-- ***************dept************************************* -->
             <div class="form-group">
                 <label class="col-md-4 control-label" for="selectbasic">ประเภทผู้ใช้</label>
                     <div class="col-md-4">
@@ -171,6 +159,36 @@ onsubmit="return edit_user_form();">
                     </select>
                     </div>
             </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="selectbasic">แผนก</label>
+                    <div class="col-md-4">
+                    <select  name="stwDept_id" class="form-control input-md" required="">
+                    <option value="">- โปรดเลือกแผนก -</option>
+        <?php   
+            $sql = "SELECT * FROM `stwDepartment` ";
+            $result = mysqli_query($conn, $sql);
+        while($row=mysqli_fetch_array($result,MYSQLI_ASSOC))
+        {
+            echo "<option value =$row[stwDept_id]>$row[stwDept_name]</option>";
+        }
+               
+
+                        
+
+
+
+
+                 ?>
+                 
+                
+
+              
+                    </select>
+                    
+                  
+                    
+                </div>
+            </div
 
 
               

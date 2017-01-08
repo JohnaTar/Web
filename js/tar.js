@@ -318,23 +318,3 @@ function edit_user_form1(){ //มี 2 อันเพราะติดสิ�
   return false;
 }
 ////////////////////////////////////////////////////////////////
-function save_pass(){ 
-  $.ajax({
-    type:"POST",
-    url:"ckAjax.php",
-    data:$("#save_pass").serialize(),
-    success:function(data){
-      
-     
-      
-      //show result
-      alert(data);
-
-
-       location.replace("user.php");
-      //reload page
-      
-    }
-  });
-  return false;
-}

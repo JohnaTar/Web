@@ -106,12 +106,7 @@
           
                                  
                  while($row=mysqli_fetch_array($result,MYSQLI_ASSOC)){
-                    if ($row['stwActivate']==1) {
-                         $A = "อนุมัติ";
-                        }else {
-                        $A = "ไม่อนุมัติ";
-                                        
-                            }
+                 
                     if ($row['stwGender']==1) {
                         $B = "ชาย";
                         }else {
@@ -132,17 +127,24 @@
                 <td><?php echo $row['stwEmail']; ?></td>
                 <td><?php echo $row['stwDept_name']; ?></td>                
                 <td><?php if($row['stwStatus_name'] == 'Administrator'){
-                                echo '<span class="label label-warnning">Administrator</span>';
+                                echo '<span class="label label-danger">Administrator</span>';
                             }
                             else if ($row['stwStatus_name'] == 'Super User' ){
                                 echo '<span class="label label-info">Super User</span>';
                             }
                             else if ($row['stwStatus_name'] == 'User' ){
-                                echo '<span class="label label-success">User</span>';
+                                echo '<span class="label label-warning">User</span>';
                             }?></td>
                
-                <td><?php echo $A; ?> </td>
+                <td><?php if($row['stwActivate'] == '1'){
+                                echo '<span class="label label-success">อนุมัติ</span>';
+                            }
+                            else if ($row['stwActivate'] == '2' ){
+                                echo '<span class="label label-danger">ไม่อนุมัติ</span>';
+                            
+                            }?> </td>
                 <td><?php   echo DateThai($strDate);; ?></td>
+               
 <?php 
 if ($_SESSION['status']==1) {
                 include("menu/admin.php");
