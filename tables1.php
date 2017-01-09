@@ -76,8 +76,8 @@
                 <td><?php echo $i; ?></td>
                 <td><?php echo $row['stwDept_name']; ?></td>
 
-                <td><button type="button" class="btn btn-danger btn-xl"
-                onclick="return delete_dept(<?php echo $row['stwDept_id']?>);" >ลบ </button></td>
+                <td><button type="button" class="btn btn-warning btn-xl" data-toggle="modal" data-target="#edit_dept"
+                onclick="return show_department(<?php echo $row['stwDept_id']?>);" >แก้ไข </button></td>
 
                
 
@@ -104,6 +104,7 @@
  <!-- *******************end table************************ -->
 <?php 
       include("modal/add_dept.php");
+      include("modal/edit_dept.php");
       
  ?>
   

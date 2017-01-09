@@ -52,21 +52,42 @@ function add_dept(){
 }
   return false;
 }
+function show_department(id){
+  $.ajax({
+        type:"POST",
+        url:"ckAjax.php",
+        data:{show_department:id},
+      success:function(data)
+      {
+        $("#dept_form").html(data);
 
-function delete_dept(id){
-  if(confirm("คุณต้องการลบข้อมูลหรือไม่")){
-    $.ajax({
-      type:"POST",
-      url:"ckAjax.php",
-      data:{delete2:id},
-      success:function(data){
-        alert(data);
-        location.reload();
       }
-    });
-  }
+  });
+    return false;
+
+}
+
+function edit_dept_form(){
+  $.ajax({
+    type:"POST",
+    url:"ckAjax.php",
+    data:$("#edit_dept_data").serialize(),
+    success:function(data){
+      
+     
+      
+      //show result
+      alert(data);
+
+
+      location.replace("tables1.php");
+      //reload page
+      
+    }
+  });
   return false;
 }
+
 
 /////////////////////////Username/////////////////////////////////////
 $(function () {

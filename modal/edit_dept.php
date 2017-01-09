@@ -1,6 +1,6 @@
-<form class="form-horizontal" id="" onsubmit="r">
+<form class="form-horizontal" id="edit_dept_data" onsubmit="return edit_dept_form();">
 
-<div class="modal fade" id="add_dept" role="dialog">
+<div class="modal fade" id="edit_dept" role="dialog">
     <div class="modal-dialog modal-md">
       <div class="modal-content">
         <div class="modal-header">
@@ -14,17 +14,7 @@
 <div class="modal-body">
             
   
-            <div class="form-group">
-                    <label class="col-md-4 control-label" for="fn">ชื่อแผนก</label>  
-
-                <div class="col-md-4">
-                    <input  name="Dept"  type="text" placeholder="Department" class="form-control input-md" required="" id="Dept">
-                    <span id="msg3"></span>
-                  
-                         
-    
-                </div>
-            </div>
+          <div id="dept_form"></div>
 
  
             <div class="form-group">

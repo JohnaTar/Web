@@ -34,24 +34,56 @@ include("connect.php");
 
     }
   
-
   }
-  if(isset($_POST['delete2'])){
-    
-    include("connect.php");
-    $sql = "DELETE  FROM stwDepartment
-                        WHERE stwDept_id = '".$_POST['delete2']."' ";
-    $query = mysqli_query($conn,$sql);
+  
 
-    if ($query) {
-        echo "ลบข้อมูลเรียบร้อย";
+if (isset($_POST['show_department'])) {
+  $sql ="SELECT * FROM stwDepartment
+         WHERE stwDept_id ='".$_POST['show_department']."'";
+  $query =mysqli_query($conn,$sql);
+  $result =mysqli_fetch_array($query,MYSQLI_ASSOC);
+   echo ' <form class="form-horizontal" id="save_authen">
+             <div class="form-group">
+                    <label class="col-md-4 control-label" for="fn">ชื่อเข้าใช้งาน</label>  
+
+                <div class="col-md-4">
+                    <input  name="edit_dept_name"  type="text" placeholder="Username" class="form-control input-md" required="" value="'.$result['stwDept_name'].'">
+
+                  </div>
+            </div>
+                  <input name="edit_dept_id" value="'.$result['stwDept_id'].'"  type="hidden">
+                    </div>
+            </div>
+          
+';
+
+
+}
+if (isset($_POST['edit_dept_id'])) {
+$sql ="UPDATE stwDepartment SET
+
+          stwDept_name = '".$_POST["edit_dept_name"]."'
+          WHERE stwDept_id = '".$_POST['edit_dept_id']."' "; 
+          $result = mysqli_query($conn,$sql);
+
+    if($result) {
+
+        echo "แก้ไขชื่อแผนกเรียบร้อย"; 
         exit();
-     
+    
+    
     }else {
-        echo "ไม่สามารถลบข้อมูลได้"; 
-      exit();
+        echo "ไม่สามารถแก้ไขชื่อแผนกได้"; 
+        exit();
+    
+
     }
 }
+
+
+
+
+
        
 
 
