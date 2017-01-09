@@ -57,6 +57,7 @@
     $result=mysqli_fetch_array($query,MYSQLI_ASSOC);
 
     $prefix =$result['stwPrefix_id'];
+     $Dep = $result['stwDept_id'];
 
 
     }
@@ -147,15 +148,23 @@ onsubmit="return edit_user_form1();">
                     <div class="col-md-4">
                     <select  name="stwDept_id" class="form-control input-md">
               <?php   
+            
+           
             $sql = "SELECT * FROM `stwDepartment` ";
             $result = mysqli_query($conn, $sql);
         while($row=mysqli_fetch_array($result,MYSQLI_ASSOC))
         {
-            echo "<option value =$row[stwDept_id]>$row[stwDept_name]</option>";
-        }
-               ?>
-
-              
+          if ($Dep ==$row['stwDept_id']) {
+              $sel= "selected";
+          }else {
+              $sel = "";
+          }
+        
+        
+          ?>
+        <option value="<?php echo $row['stwDept_id'];?>" <?php echo $sel; ?>><?php echo $row['stwDept_name']; ?> </option>
+        <?php }?>
+          
                     </select>
                 </div>
             </div>

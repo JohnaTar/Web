@@ -60,6 +60,8 @@
 
     }
      
+    $Dep = $result['stwDept_id'];
+
 
     ?>
     
@@ -159,36 +161,44 @@ onsubmit="return edit_user_form();">
                     </select>
                     </div>
             </div>
+           
             <div class="form-group">
                 <label class="col-md-4 control-label" for="selectbasic">แผนก</label>
                     <div class="col-md-4">
                     <select  name="stwDept_id" class="form-control input-md" required="">
-                    <option value="">- โปรดเลือกแผนก -</option>
-        <?php   
+                    
+                      <?php   
+            
+           
             $sql = "SELECT * FROM `stwDepartment` ";
             $result = mysqli_query($conn, $sql);
         while($row=mysqli_fetch_array($result,MYSQLI_ASSOC))
         {
-            echo "<option value =$row[stwDept_id]>$row[stwDept_name]</option>";
-        }
-               
-
-                        
-
-
-
-
-                 ?>
-                 
-                
-
-              
+          if ($Dep ==$row['stwDept_id']) {
+              $sel= "selected";
+          }else {
+              $sel = "";
+          }
+        
+        
+          ?>
+        <option value="<?php echo $row['stwDept_id'];?>" <?php echo $sel; ?>><?php echo $row['stwDept_name']; ?> </option>
+        <?php }?>
+          
+           
+    
                     </select>
+
                     
                   
                     
                 </div>
-            </div
+            </div>
+             
+                  
+
+
+
 
 
               
