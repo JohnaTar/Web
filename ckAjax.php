@@ -44,10 +44,10 @@ if (isset($_POST['show_department'])) {
   $result =mysqli_fetch_array($query,MYSQLI_ASSOC);
    echo ' <form class="form-horizontal" id="save_authen">
              <div class="form-group">
-                    <label class="col-md-4 control-label" for="fn">ชื่อเข้าใช้งาน</label>  
+                    <label class="col-md-4 control-label" for="fn">ชื่อแผนก</label>  
 
                 <div class="col-md-4">
-                    <input  name="edit_dept_name"  type="text" placeholder="Username" class="form-control input-md" required="" value="'.$result['stwDept_name'].'">
+                    <input  name="edit_dept_name"  type="text" placeholder="Department" class="form-control input-md" required="" value="'.$result['stwDept_name'].'">
 
                   </div>
             </div>
