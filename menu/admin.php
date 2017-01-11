@@ -1,6 +1,6 @@
 <td>
     <div class="btn-group">
-  <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <button type="button" class="btn btn-success dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     เมนู<span class="caret"></span>
   </button>
   <ul class="dropdown-menu">

@@ -3,7 +3,7 @@
       <title>Welcome </title>
           <?php include("head/indexhead.php"); ?>
     </head>
-      <body>
+      <body class="bg-success">
 
         <div class="wrapper dark-bg"> 
             <div class="container">
@@ -23,14 +23,13 @@
                 <input type="password" placeholder="Password" required="" name="Password" />
                 <button type="submit" class="btn btn-warning">เข้าสู่ระบบ</button> 
                 <button type="button" class="btn btn-success " data-toggle="modal" data-target="#myModal">สมัครสมาชิก</button>
-                
+
+
             </form>
-           
+            
+                
             
 
-            <br />
-            <br />
-            <br />
             
             
 

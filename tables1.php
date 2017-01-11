@@ -76,7 +76,7 @@
                 <td><?php echo $i; ?></td>
                 <td><?php echo $row['stwDept_name']; ?></td>
 
-                <td><button type="button" class="btn btn-warning btn-xl" data-toggle="modal" data-target="#edit_dept"
+                <td><button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#edit_dept"
                 onclick="return show_department(<?php echo $row['stwDept_id']?>);" >แก้ไข </button></td>
 
                
