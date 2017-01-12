@@ -67,6 +67,35 @@
                         </ol>
                     </div>
                 </div> 
+                <?php
+        include("connect.php");
+        if (isset($_POST['button1'])) {
+            $encrypt = mysqli_real_escape_string($conn,$_POST['user_ID']);
+            $password =mysqli_real_escape_string($conn,$_POST['stwPassword']);
+            $sql="SELECT stwUser_ID FROM stwUser WHERE md5(55+10+stwUser_ID)='".$encrypt."'";
+            $result = mysqli_query($conn,$sql);
+            $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+                if (count($row)>=1) {
+
+                    $sql = "UPDATE stwUser SET stwPassword ='".md5($password)."' WHERE stwUser_ID='".$row['stwUser_ID']."'";
+                    mysqli_query($conn,$sql);
+                    echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>เปลี่ยนรหัสผ่านเรียบร้อย.</div>';
+                } else{
+
+                   echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Invalid key please try again ไม่สามารถเปลี่ยนรหัสผ่านได้</div>';
+                }
+        }
+   
+
+        
+
+
+
+
+            
+        
+
+?>
 
 <!-- *****************start table************************* -->
 <form class="form-horizontal" method="POST">                                               
@@ -78,7 +107,7 @@
 
                     ?>
                    
-                   <input type="text" name="user_ID" value="<?php echo "$UserID"; ?>"> 
+                   <input type="hidden" name="user_ID" value="<?php echo $UserID;?>"> 
 
 <div id="pass_form">
                     <div class="form-group">
@@ -101,7 +130,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="submit"></label>
                 <div class="col-md-4">
-            <button id="btnSubmit" name="button" class="btn btn-primary" >ตกลง</button>
+            <button id="btnSubmit" name="button1" class="btn btn-primary" >ตกลง</button>
                 </div>
             </div>
   </div>
@@ -115,34 +144,7 @@
 
         </div>  <!-- Page wraper -->
 
-<?php
-        include("connect.php");
-        if (isset($_POST['button'])) {
-            $encrypt = mysqli_real_escape_string($conn,$_POST['user_ID']);
-            $password =mysqli_real_escape_string($conn,$_POST['stwPassword']);
-            $sql="SELECT stwUser_ID FROM stwUser WHERE md5(55+10+stwUser_ID)='".$encrypt."'";
-            $result = mysqli_query($conn,$sql);
-            $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-                if (count($result)>=1) {
 
-                    $sql = "UPDATE stwUser SET stwPassword ='".md5($password)."' WHERE stwUser_ID='".$row['stwUser_ID']."'";
-                    mysqli_query($conn,$sql);
-                    echo "สำเร็จ";
-                } else{
-
-                   echo "8;p";
-                }
-
-
-        
-
-
-
-
-            
-        }
-
-?>
   
 
 
