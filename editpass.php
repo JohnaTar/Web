@@ -10,11 +10,7 @@
              
         ?>
         <title>SB Admin - Bootstrap Admin Template</title>
-        <style>
-        .content {
-            margin-top: 80px;
-        }
-    </style>
+       
   
     </head>
 

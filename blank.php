@@ -68,7 +68,8 @@
                     </div>
                 </div> 
 
-<!-- *****************start table************************* -->                                               
+<!-- *****************start table************************* -->
+<form class="form-horizontal" method="POST">                                               
                 <div class="row">
                     <div class="col-md-12">
                     <?php   
@@ -76,7 +77,8 @@
 
 
                     ?>
-                   <input type="text" name="" value="<?php echo "$UserID"; ?>"> 
+                   
+                   <input type="text" name="user_ID" value="<?php echo "$UserID"; ?>"> 
 
 <div id="pass_form">
                     <div class="form-group">
@@ -99,11 +101,12 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="submit"></label>
                 <div class="col-md-4">
-            <button id="btnSubmit" name="submit" class="btn btn-primary" >ตกลง</button>
+            <button id="btnSubmit" name="button" class="btn btn-primary" >ตกลง</button>
                 </div>
             </div>
-                 
-
+  </div>
+</div>
+</form>
                         
                     </div>
                 </div> <!-- row  -->
@@ -112,7 +115,34 @@
 
         </div>  <!-- Page wraper -->
 
+<?php
+        include("connect.php");
+        if (isset($_POST['button'])) {
+            $encrypt = mysqli_real_escape_string($conn,$_POST['user_ID']);
+            $password =mysqli_real_escape_string($conn,$_POST['stwPassword']);
+            $sql="SELECT stwUser_ID FROM stwUser WHERE md5(55+10+stwUser_ID)='".$encrypt."'";
+            $result = mysqli_query($conn,$sql);
+            $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+                if (count($result)>=1) {
 
+                    $sql = "UPDATE stwUser SET stwPassword ='".md5($password)."' WHERE stwUser_ID='".$row['stwUser_ID']."'";
+                    mysqli_query($conn,$sql);
+                    echo "สำเร็จ";
+                } else{
+
+                   echo "8;p";
+                }
+
+
+        
+
+
+
+
+            
+        }
+
+?>
   
 
 
