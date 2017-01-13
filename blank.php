@@ -121,7 +121,7 @@
              <div class="form-group">
                     <label class="col-md-4 control-label" for="fn">ยืนยันรหัสเข้าใช้งาน</label>  
                 <div class="col-md-4">
-                    <input  id="rePassword" type="password" placeholder="Re-password" class="form-control input-md" required="" maxlength="12">
+                    <input  id="rePassword" type="password" placeholder="Re-password" class="form-control input-md" required="" maxlength="12" >
                     <span id="verify" ></span>
     
                 </div>
@@ -131,11 +131,14 @@
                 <label class="col-md-4 control-label" for="submit"></label>
                 <div class="col-md-4">
             <button id="btnSubmit" name="button1" class="btn btn-primary" >ตกลง</button>
-                </div>
+            <button type="button" class="btn btn-success" onclick="location.href='index.php';">หน้าแรก</button>
+              
             </div>
   </div>
 </div>
 </form>
+
+                </div>
                         
                     </div>
                 </div> <!-- row  -->

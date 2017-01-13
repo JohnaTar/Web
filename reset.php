@@ -18,7 +18,7 @@ if (isset($_GET['action'])) {
 }
 else {
 
-	header("location:email.php");
+	header("location:index.php");
 
 	
 }

@@ -32,13 +32,16 @@ $mail->msgHTML($body);
 if (!$mail->send()) {
     echo "Mailer Error: " . $mail->ErrorInfo;
 } else {
-    echo "Message sent!";
+    
+    echo "<script>alert('Message sent!')</script>";
+            echo "<script>window.location='index.php'</script>";
 }
 
 
         		
         	}else
-        	echo "ไม่เจอเมลล์ไอ้สัส มึงนี้แมร้งมั่ว";
+        	echo "<script>alert('ไม่พบอีเมลล์ในระบบ')</script>";
+            echo "<script>window.location='index.php'</script>";
         }
 
  ?>

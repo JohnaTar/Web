@@ -9,7 +9,7 @@
             <div class="container">
 
             <div class="img">
-                <img src="img/2.png" width="400" height="300"  >
+                <img src="img/2.png" width="350" height="250"  >
             </div>
            
             <div class="t25-b-white">
@@ -23,6 +23,9 @@
                 <input type="password" placeholder="Password" required="" name="Password" />
                 <button type="submit" class="btn btn-warning">เข้าสู่ระบบ</button> 
                 <button type="button" class="btn btn-success " data-toggle="modal" data-target="#myModal">สมัครสมาชิก</button>
+                <br>
+               <br>
+                <a href=""  data-toggle="modal" data-target="#forget_email" ><span class="label label-danger">FORGET PASSWORD</span> </a>
 
 
             </form>
@@ -37,6 +40,7 @@
     </div>
     <!-- ***************************call modal******************************** -->
           <?php include("modal/modalRegister.php");?>
+          <?php include("modal/forget_email.php");?>
     <!-- ********************************************************************** -->
 
         

@@ -63,11 +63,10 @@ if ($_SESSION['ses_id']=='') {
                                     <tr>
                                           
                                         <th>ชื่อ-นามสกุล</th>
-                                        <th>เพศ</th>
                                         <th>เบอร์โทร</th>
                                         <th>อีเมลล์</th>
                                         <th>แผนก</th> 
-                                        <th>สถานะ</th>
+                                        <th>ประเภทผู้ใช้</th>
                                         <th>สถานะการอบรม</th>
                                         <th>วันที่สมัคร</th>
                                         <th>เมนู</th>
@@ -120,11 +119,7 @@ if ($_SESSION['ses_id']=='') {
                                  
                  while($row=mysqli_fetch_array($result,MYSQLI_ASSOC)){
                  
-                    if ($row['stwGender']==1) {
-                        $B = "ชาย";
-                        }else {
-                        $B = "หญิง";
-                    }
+                  
                     $strDate = $row['stwCreated_date'];
    
                    
@@ -135,7 +130,6 @@ if ($_SESSION['ses_id']=='') {
                     $row['stwPrefix_name']." ".
                     $row['stwFirstname']." ".
                     $row['stwLastname']; ?></td>
-                <td><?php echo $B; ?></td>
                 <td><?php echo $row['stwTel']; ?></td>
                 <td><?php echo $row['stwEmail']; ?></td>
                 <td><?php echo $row['stwDept_name']; ?></td>                
