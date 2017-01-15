@@ -1,7 +1,18 @@
-<?php 
-       session_start();
-?>
-<!DOCTYPE html>
+<?php
+session_start();
+
+if ($_SESSION['ses_id']=='') {
+     echo "<script>alert('PLEASE LOGIN')</script>";
+     echo "<script>window.location='index.php'</script>";
+ 
+  } else if ($_SESSION['status']== 3 ) {
+    echo "<script>alert('NO PERMISSION')</script>";
+    echo "<script>window.location='index.php'</script>";
+
+  
+} else{
+}
+?>OCTYPE html>
 
 
     <head>

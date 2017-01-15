@@ -172,7 +172,7 @@ if ($_SESSION['status']==1) {
                                 ?>
                                 </tbody>
                             </table>
-                             </ul>
+                            
                             </div>
 
                         </div>

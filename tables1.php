@@ -1,15 +1,27 @@
+<?php
+session_start();
 
+if ($_SESSION['ses_id']=='') {
+     echo "<script>alert('PLEASE LOGIN')</script>";
+     echo "<script>window.location='index.php'</script>";
+ 
+  } else if ($_SESSION['status']== 3 ) {
+    echo "<script>alert('NO PERMISSION')</script>";
+    echo "<script>window.location='index.php'</script>";
+
+  
+} else{
+}
+?>
 <!DOCTYPE html>
 
-
-
     <head>
-        <?php 
+     <?php 
         include("head/head.php");
 
-        include("checkadmin.php"); 
-     
+        
         ?>
+        
         <title>SB Admin - Bootstrap Admin Template</title>
   
     </head>
@@ -46,7 +58,7 @@
                         <br>
                         <br>
                         
-                            <table class="table table-bordered table-hover table-striped" id="myTable">
+                            <table class="table table-striped table-hover" id="myTable">
                                 <thead>
                                     <tr>
                                           

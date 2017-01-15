@@ -58,7 +58,7 @@
                         </ul>
                     </li>                   
                     <li>                 
-                        <a href="Create_room.php"><i class="fa fa-fw fa-edit"></i> สร้างหัวข้อการอบรม</a>
+                        <a href="Create.php"><i class="fa fa-fw fa-edit"></i> สร้างหัวข้อการอบรม</a>
                     </li>
 
                     <li>

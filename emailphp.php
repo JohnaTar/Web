@@ -13,13 +13,13 @@ include("email/PHPMailerAutoload.php");
         		$firstname =$row['stwFirstname'];
         		$encrypt=md5(55+10+$row['stwUser_id']);
         		
-        		$body= 'Hi, <br/> <br/>Your Username  is '.$row['stwUsername'].' <br><br>Click here to reset your password http://localhost/Web/reset.php?encrypt='.$encrypt.'&action=reset   <br/> <br/>--<br>Tarlnwza007<br>love you na.';
+        		$body= 'Hi, <br/> <br/>Your Username  is '.$row['stwUsername'].' <br><br>Click here to reset your password http://www.safety.juntheicon.com/reset.php?encrypt='.$encrypt.'&action=reset   <br/> <br/>--<br>Tarlnwza007<br>love you na.';
 $mail = new PHPMailer;
 $mail->isSMTP();
 $mail->CharSet = 'UTF-8';
 $mail->SMTPDebug = 0;
 $mail->Debugoutput = 'html';
-$mail->Host = 'smtp.gmail.com';
+$mail->Host = 'smtp-relay.gmail.com';
 $mail->Port = 587;
 $mail->SMTPSecure = 'tls';
 $mail->SMTPAuth = true;
@@ -32,20 +32,13 @@ $mail->msgHTML($body);
 if (!$mail->send()) {
     echo "Mailer Error: " . $mail->ErrorInfo;
 } else {
-    
-    echo "<script>alert('Message sent!')</script>";
-            echo "<script>window.location='index.php'</script>";
+    echo "Message sent!";
 }
-
-
-        		
-        	}else
-        	echo "<script>alert('ไม่พบอีเมลล์ในระบบ')</script>";
-            echo "<script>window.location='index.php'</script>";
+                
+            }else
+            echo "ไม่เจอเมลล์ไอ้สัส มึงนี้แมร้งมั่ว";
         }
-
- ?>
-            
+ ?>    
             
          
 

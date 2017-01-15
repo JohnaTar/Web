@@ -102,7 +102,7 @@
 
 
                     <li>                 
-                        <a href="forms.html"><i class="fa fa-fw fa-edit"></i> หัวข้อการอบรม</a>
+                        <a href="Create.php"><i class="fa fa-fw fa-edit"></i> หัวข้อการอบรม</a>
                     </li>
                      <li>
 
