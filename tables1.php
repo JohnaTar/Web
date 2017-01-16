@@ -41,7 +41,7 @@ if ($_SESSION['ses_id']=='') {
                     <div class="col-md-12">                    
                         <ol class="breadcrumb">
                             <li>
-                                <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
+                                <i class="fa fa-dashboard"></i>  <a href="index">Dashboard</a>
                             </li>
                             <li class="active">
                                 <i class="fa fa-table"></i> ข้อมูลแผนก

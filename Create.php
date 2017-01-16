@@ -59,6 +59,7 @@ if ($_SESSION['ses_id']=='') {
                     <div class="col-md-12">
                         <center><h2>แบบทดสอบ</h2></center>
                             <div class="table-responsive">
+                            <a href="New_subject"> <button type="button" class="btn btn-info btn-xl" >เพิ่มแบบทดสอบ</button></a>
 
                        
                          <table class="table table-striped table-hover" id="myTable">
@@ -77,26 +78,25 @@ if ($_SESSION['ses_id']=='') {
    
     <?php
      
-
-    $link = @mysqli_connect("localhost", "root", "", "webtesting") or die(mysqli_connect_error());
+include("connect.php");
 //อ่านหัวข้อแบบทดสอบจากตาราง subject
 //ให้รูปแบบวันเดือนปีให้เป็น date-month-year และเวลาเป็น hour:minute
     $sql = "SELECT *, 
                 DATE_FORMAT(date_test, '%d-%m-%Y') AS date_test, 
                 TIME_FORMAT(time_start, '%H:%i') AS time_start,  
                 TIME_FORMAT(time_end, '%H:%i') AS time_end   
-            FROM subject ORDER BY  subject_id DESC";
+            FROM stwSubject ORDER BY  subject_id DESC";
 
-    $result = mysqli_query($link,$sql);
+    $result = mysqli_query($conn,$sql);
 
-    while($data = mysqli_fetch_array($result)) {
+     while($data = mysqli_fetch_array($result)) {
     $subject_id = $data['subject_id'];
     $dt = "วันที่ " . $data['date_test'] . " เวลา " . $data['time_start'] . " - " . $data['time_end'];  
     if($data['date_test'] == "00-00-0000") {   //กรณีที่ไม่กำหนดวันเวลาทำแบบทดสอบเอาไว้
         $dt = "ไม่ระบุ";
     }
-    $sql = "SELECT COUNT(*) FROM question WHERE subject_id = $subject_id";  //นับจำนวนคำถามของหัวข้อนี้
-    $r = mysqli_query($link, $sql);
+    $sql = "SELECT COUNT(*) FROM stwQuestion WHERE subject_id = $subject_id";  //นับจำนวนคำถามของหัวข้อนี้
+    $r = mysqli_query($conn, $sql);
     $num_q = 0;
     if($r) {
         $row = mysqli_fetch_array($r);
@@ -141,7 +141,7 @@ if ($_SESSION['ses_id']=='') {
                                
                                  </tr>                       
                                 <?php } 
-                                mysqli_close($link);
+                                mysqli_close($conn);
                                 ?>
                                 </tbody>
                             </table>
