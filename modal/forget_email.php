@@ -1,4 +1,4 @@
-<form class="form-horizontal" action="emailphp.php" method="POST">
+<form class="form-horizontal" action="emailphp" method="POST">
 
 <div class="modal fade" id="forget_email" role="dialog">
     <div class="modal-dialog modal-md">

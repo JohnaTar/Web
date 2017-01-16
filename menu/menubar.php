@@ -6,7 +6,7 @@
                     <span class="icon-bar"></span>  
                     <span class="icon-bar"></span>               
                 </button>
-                <a class="navbar-brand" href="index.html">Welcome</a>
+                <a class="navbar-brand" href="index">Welcome</a>
             </div>
             <!-- Top Menu Items **************************************************-->           
              <ul class="nav navbar-right top-nav">
@@ -28,7 +28,7 @@
                     </a>
                     <ul class="dropdown-menu">                       
                         <li>
-                            <a href="logout.php"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                            <a href="logout"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
                         </li>
                     </ul>
                 </li>
@@ -58,7 +58,7 @@
                         </ul>
                     </li>                   
                     <li>                 
-                        <a href="Create.php"><i class="fa fa-fw fa-edit"></i> สร้างหัวข้อการอบรม</a>
+                        <a href="Create"><i class="fa fa-fw fa-edit"></i> สร้างหัวข้อการอบรม</a>
                     </li>
 
                     <li>
@@ -70,10 +70,10 @@
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo1"><i class="fa fa-fw fa-table"></i> เมนูจัดการ <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo1" class="collapse">
                             <li>
-                                <a href="tables.php"> จัดการข้อมูลสมาชิก</a>
+                                <a href="Tables"> จัดการข้อมูลสมาชิก</a>
                             </li>
                             <li>
-                                <a href="tables1.php"> จัดการข้อมูลแผนก</a>
+                                <a href="Tables1"> จัดการข้อมูลแผนก</a>
                             </li>
                           
                         </ul>

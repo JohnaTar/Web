@@ -18,7 +18,7 @@
             </div>
             <br />
            
-            <form class="form" action="checklogin.php" method="POST">
+            <form class="form" action="checklogin" method="POST">
                 <input type="text" placeholder="Username"  required="" name="Username" />
                 <input type="password" placeholder="Password" required="" name="Password" />
                 <button type="submit" class="btn btn-warning">เข้าสู่ระบบ</button> 

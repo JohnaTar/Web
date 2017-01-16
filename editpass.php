@@ -47,10 +47,12 @@
     <?php
     
             include("connect.php");
+
+            
    
 
             if(isset($_POST['button'])){
-                $id        = $_GET['id'];
+                $id        = $_SESSION['ID'];
                 $password   = md5($_POST['password']);
                 $password1  = $_POST['password1'];
                 $password2  = $_POST['password2'];

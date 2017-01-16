@@ -6,7 +6,7 @@
   <ul class="dropdown-menu">
    
     
-    <li><a href="editdata.php? id=<?php echo $row["stwUser_id"];  ?>"    >แก้ไขข้อมูล
+    <li><a href="editdata?id=<?php echo $row["stwUser_id"];  ?>"    >แก้ไขข้อมูล
      </a></li>
      <li role="separator" class="divider"></li>
     <li><a href="#" onclick="return delete_user(<?php echo $row['stwUser_id']?>);">ลบ</a></li>

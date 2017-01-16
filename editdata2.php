@@ -3,7 +3,7 @@ session_start();
 
 if ($_SESSION['ses_id']=='') {
      echo "<script>alert('PLEASE LOGIN')</script>";
-     echo "<script>window.location='index.php'</script>";
+     echo "<script>window.location='index'</script>";
  
   } 
 ?>
@@ -50,15 +50,15 @@ if ($_SESSION['ses_id']=='') {
 <!-- ************start database******************************* -->
     <?php
     
-
+  
    
     
-    if(isset($_GET["id"])){
+    if(isset($_SESSION['ID'])){
         
     
     include("connect.php");
     $sql = "SELECT * FROM stwUser 
-                        WHERE stwUser_id = '".$_GET["id"]."' ";
+                        WHERE stwUser_id = '".$_SESSION['ID']."' ";
     $query = mysqli_query($conn,$sql);
     $result=mysqli_fetch_array($query,MYSQLI_ASSOC);
 

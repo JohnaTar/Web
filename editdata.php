@@ -3,11 +3,11 @@ session_start();
 
 if ($_SESSION['ses_id']=='') {
      echo "<script>alert('PLEASE LOGIN')</script>";
-     echo "<script>window.location='index.php'</script>";
+     echo "<script>window.location='index'</script>";
  
   } else if ($_SESSION['status']== 3 ) {
     echo "<script>alert('NO PERMISSION')</script>";
-    echo "<script>window.location='index.php'</script>";
+    echo "<script>window.location='index</script>";
 
   
 } else{
@@ -54,7 +54,7 @@ if ($_SESSION['ses_id']=='') {
 <!-- ************start database******************************* -->
     <?php
     
-
+//
    
     
     if(isset($_GET["id"])){

@@ -18,12 +18,12 @@ if (isset($_GET['action'])) {
 }
 else {
 
-	header("location:index.php");
+	header("location:index");
 
 	
 }
 
-?>
+?>	
 
 
 

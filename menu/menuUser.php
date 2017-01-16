@@ -6,7 +6,7 @@
                     <span class="icon-bar"></span>  
                     <span class="icon-bar"></span>                              
                 </button>
-                <a class="navbar-brand" href="index.html">Welcome</a>
+                <a class="navbar-brand" href="index">Welcome</a>
             </div>
             <!-- Top Menu Items **************************************************-->           
              <ul class="nav navbar-right top-nav">
@@ -28,7 +28,7 @@
                     </a>
                     <ul class="dropdown-menu">                       
                         <li>
-                            <a href="logout.php"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                            <a href="logout"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
                         </li>
                     </ul>
                 </li>
@@ -102,7 +102,7 @@
 
 
                     <li>                 
-                        <a href="Create.php"><i class="fa fa-fw fa-edit"></i> หัวข้อการอบรม</a>
+                        <a href="Create"><i class="fa fa-fw fa-edit"></i> หัวข้อการอบรม</a>
                     </li>
                      <li>
 
@@ -111,12 +111,12 @@
                             
                 <li>
                      <?php $User = $_SESSION['ID']; ?>
-                        <a href="editdata2.php? id=<?php echo $User; ?>">
+                        <a href="editdata2">
                         <i class="fa fa-fw fa-pencil"></i> แก้ไขข้อมูลส่วนตัว</a>
                 </li>    
 
                             <li>
-                             <a href="editpass.php? id=<?php echo $User; ?>">
+                             <a href="editpass">
                         <i class="fa fa-fw fa-plus"></i> เปลี่ยนรหัสผ่าน</a>
 
                         
