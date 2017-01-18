@@ -47,7 +47,10 @@ if ($_SESSION['ses_id']=='') {
                     <div class="col-md-12">
                     <h1>Welcome</h1>
   
-                  
+            <?php 
+            echo $_SESSION['ID'];
+
+            ?>                
 
                    
 

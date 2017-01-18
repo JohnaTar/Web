@@ -17,8 +17,7 @@ if ($_SESSION['ses_id']=='') {
 
     <head>
         <?php include("head/head.php");
-              include("checkuser.php");
-
+            
         ?>
         <title>SB Admin - Bootstrap Admin Template</title>
   

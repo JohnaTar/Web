@@ -57,6 +57,7 @@ if ($_SESSION['ses_id']=='') {
                             <div class="table-responsive">
 
                         <button type="button" class="btn btn-info btn-xl" data-toggle="modal" data-target="#myModal">เพิ่มข้อมูลสมาชิก</button>
+                        
                            
                          <table class="table table-striped table-hover" id="myTable">
                                 <thead>
@@ -68,6 +69,7 @@ if ($_SESSION['ses_id']=='') {
                                         <th>แผนก</th> 
                                         <th>ประเภทผู้ใช้</th>
                                         <th>สถานะการอบรม</th>
+                                        <th>ร้องขอสิทธิ์</th>
                                         <th>วันที่สมัคร</th>
                                         <th>เมนู</th>
                                         
@@ -105,7 +107,7 @@ if ($_SESSION['ses_id']=='') {
 
       
         $sql = "SELECT stwUser.stwUser_id,stwUser.stwFirstname,stwUser.stwLastname,stwUser.stwActivate,stwUser.stwGender,stwUser.stwTel,stwUser.stwEmail,stwStatus.stwStatus_name,stwPrefix.stwPrefix_name,
-            stwDepartment.stwDept_name,stwUser.stwCreated_date
+            stwDepartment.stwDept_name,stwUser.stwCreated_date,stwUser.stwRequest
                 FROM stwUser
                 INNER JOIN stwStatus
                 ON stwUser.stwStatus_id = stwStatus.stwStatus_id 
@@ -149,7 +151,20 @@ if ($_SESSION['ses_id']=='') {
                             else if ($row['stwActivate'] == '2' ){
                                 echo '<span class="label label-danger">ไม่อนุมัติ</span>';
                             
-                            }?> </td>
+                            }?> 
+                </td>
+                <td> <?php if ($row['stwRequest']=='1') {
+                    echo '<i class="fa fa-bars  fa-2x "></i>';
+                } elseif ($row['stwRequest']=='2') { 
+                    echo '<i class="fa fa-spinner fa-spin fa-2x fa-fw"></i>';
+                } else {
+                    echo '<i class="fa fa-check fa-2x"></i>';
+                }
+                
+
+
+
+                ?></td>
                 <td><?php   echo DateThai($strDate);; ?></td>
                
 <?php 

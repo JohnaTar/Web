@@ -339,3 +339,17 @@ function edit_user_form1(){ //มี 2 อันเพราะติดสิ�
   return false;
 }
 ////////////////////////////////////////////////////////////////
+function user_request(id){
+  if(confirm("คุณต้องการขอสิทธื์ในการอบรมหรือไม่")){
+    $.ajax({
+      type:"POST",
+      url:"ckAjax.php",
+      data:{request:id},
+      success:function(data){
+        alert(data);
+        location.reload();
+      }
+    });
+  }
+  return false;
+}

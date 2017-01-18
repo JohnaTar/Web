@@ -143,6 +143,12 @@ $sql ="UPDATE stwDepartment SET
 
 if (isset($_POST['stwUser_id'])) {
 
+  if ($_POST['stwActivate']=='1') {
+    $Request ='3';
+  } else{
+    $Request ='1';
+  }
+
 $sql ="UPDATE stwUser SET
 
           stwPrefix_id = '".$_POST["stwPrefix_id"]."',
@@ -153,7 +159,8 @@ $sql ="UPDATE stwUser SET
           stwTel = '".$_POST["stwTel"]."',
           stwDept_id = '".$_POST["stwDept_id"]."',
           stwStatus_id ='".$_POST["stwStatus_id"]."',
-          stwActivate = '".$_POST["stwActivate"]."'
+          stwActivate = '".$_POST["stwActivate"]."',
+          stwRequest ='".$Request."'
           WHERE stwUser_id = '".$_POST["stwUser_id"]."' "; 
     $result = mysqli_query($conn,$sql);
 
@@ -177,11 +184,11 @@ $sql ="UPDATE stwUser SET
   if(isset($_POST['stwUsername'])){
     
 
-  $sql = "INSERT INTO `stwUser` (`stwUsername`, `stwPassword`, `stwFirstname`, `stwLastname`, `stwEmail`, `stwTel`, `stwGender`, `stwActivate`, `stwDept_id`,`stwStatus_id`,`stwPrefix_id`,`stwCreated_date`)
+  $sql = "INSERT INTO `stwUser` (`stwUsername`, `stwPassword`, `stwFirstname`, `stwLastname`, `stwEmail`, `stwTel`, `stwGender`, `stwActivate`, `stwDept_id`,`stwStatus_id`,`stwPrefix_id`,`stwRequest`,`stwCreated_date`)
       VALUES ('".$_POST["stwUsername"]."','".md5($_POST["stwPassword"])."'
            ,'".$_POST["stwFirstname"]."','".$_POST["stwLastname"]."',
            '".$_POST["stwEmail"]."','".$_POST["stwTel"]."','".$_POST["stwGender"]."',
-           '".$_POST["stwActivate"]."','".$_POST["stwDept_id"]."','".$_POST["stwStatus_id"]."','".$_POST["stwPrefix_id"]."',NOW())";
+           '".$_POST["stwActivate"]."','".$_POST["stwDept_id"]."','".$_POST["stwStatus_id"]."','".$_POST["stwPrefix_id"]."','".$_POST["stwRequest"]."',NOW())";
   $query = mysqli_query($conn,$sql);
   
 if($query) {
@@ -195,33 +202,8 @@ if($query) {
 
     }
    }
-//insert *********************************
-
-if (isset($_POST['TopicName'])) {
 
 
-
-
-      $sql = "INSERT INTO `stwTopic` (`stwTopic_name`, `stwTopic_datestart`,`stwTopic_dateend`,`stwTopic_approval`,`stwTopic_credate`,`stwQuiztype_id`)
-
-      VALUES ('".$_POST["TopicName"]."','".$_POST["Start"]."',
-           '".$_POST["End"]."','".$_POST["approve"]."',NOW(),'".$_POST["Quiz"]."')";
-
-    $result = mysqli_query($conn,$sql);
-
-    if($result) {
-
-        echo "สร้างหัวข้อเรียบร้อย"; 
-        exit();
-    
-    
-    }else {
-        echo "ไม่สามารถสรา้งหัวข้อได้"; 
-        exit();
-    
-
-    }
-}
 //edit authen *********************************
 
 if(isset($_POST['authen'])){
@@ -240,6 +222,7 @@ if(isset($_POST['authen'])){
                 
                     </select>
                   <input name="authen_id" value="'.$result['stwUser_id'].'"  type="hidden">
+
                     </div>
             </div>
           
@@ -250,9 +233,15 @@ if(isset($_POST['authen'])){
 
 
 if (isset($_POST['authen_id'])) {
+  if ($_POST['stwActivate']=='1') {
+    $Request ='3';
+  } else{
+    $Request ='1';
+  }
   $sql ="UPDATE stwUser SET
 
-          stwActivate = '".$_POST["stwActivate"]."'
+          stwActivate = '".$_POST['stwActivate']."',
+          stwRequest = '".$Request."'
           WHERE stwUser_id = '".$_POST['authen_id']."' "; 
     $result = mysqli_query($conn,$sql);
 
@@ -289,6 +278,27 @@ if (isset($_POST['PassUser_id'])) {
     
 
     }
+}
+
+if (isset($_POST['request'])) {
+  $request = '2';
+  $sql ="UPDATE stwUser SET stwRequest ='".$request."'
+        WHERE stwUser_id ='".$_POST['request']."'";
+         $result = mysqli_query($conn,$sql);
+
+    if($result) {
+
+        echo "กำลังร้องขอสิทธิ์ในทำแบบทดสอบ โปรดรอการอนุมัติ "; 
+        exit();
+    
+    
+    }else {
+        echo "ไม่สามารถดำเนินการได้"; 
+        exit();
+    
+
+    }
+  # code...
 }
 
 

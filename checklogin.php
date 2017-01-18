@@ -28,6 +28,7 @@ include("connect.php");
 				$_SESSION['ses_id'] = session_id();
 				$_SESSION['username'] = $row['stwUsername'];
 				$_SESSION['status'] =$row['stwStatus_id'];
+				$_SESSION['Activate'] = 1;
 
 
 		echo "<meta http-equiv='refresh' content ='1;URL=Tables'>";
@@ -38,6 +39,7 @@ include("connect.php");
 				$_SESSION['ses_id'] = session_id();
 				$_SESSION['username'] = $row['stwUsername'];
 				$_SESSION['status'] =$row['stwStatus_id'];
+				$_SESSION['Activate'] = 1;
 
 		echo "<meta http-equiv='refresh' content ='1;URL=Tables'>";
 			}
@@ -45,6 +47,7 @@ include("connect.php");
 				$_SESSION['ses_id'] = session_id();
 				$_SESSION['ID'] = $row['stwUser_id'];
 				$_SESSION['status'] =$row['stwStatus_id'];
+				$_SESSION['Activate'] =$row['stwActivate'];
 
 		echo "<meta http-equiv='refresh' content ='1;URL=User'>";
 			}
