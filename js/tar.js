@@ -44,7 +44,7 @@ function add_dept(){
       alert(data);
 
 
-      location.replace("tables1");
+      location.replace("Tables1");
       //reload page
       
     }
