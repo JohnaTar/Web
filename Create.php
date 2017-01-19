@@ -17,6 +17,8 @@ if ($_SESSION['ses_id']=='') {
         <?php 
         include("head/head.php");
 
+
+
         
         ?>
         <title>SB Admin - Bootstrap Admin Template</title>
@@ -97,8 +99,7 @@ if ($_SESSION['ses_id']=='') {
 
  
  
-  
-
+  <?php include("modal/addQuest.php");?>
 
 
 

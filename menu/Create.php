@@ -63,7 +63,7 @@ include("connect.php");
     }
     else  {
       $bt = //'<a href="add-question.php?'.$q.'">เพิ่มคำถาม</a>'. origin
-                '<a href="add-question.php?'.$q.'"> <button type="button"  class="btn btn-success" >เพิ่มคำถาม</button> </a>'.
+                '<button type="button" class="btn btn-success" data-toggle="modal" data-target="#addQuest" onclick="return add_question('.$subject_id.');" >เพิ่มคำถาม </button>'.
 
              // '<a href="testing.php?'.$q.'">ดูแบบทดสอบ</a>'.
                  '<a href="add-question.php?'.$q.'"> <button type="button"  class="btn btn-info" >ดูแบบทำสอบ</button> </a>'.
@@ -71,6 +71,7 @@ include("connect.php");
                  '<a href="add-question.php?'.$q.'"> <button type="button"  class="btn btn-warning" >ลบ/แก้ไข</button> </a>';
   }   
 ?>
+
 
                                    
                 <td>

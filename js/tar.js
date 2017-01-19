@@ -353,5 +353,18 @@ function user_request(id){
   }
   return false;
 }
+////////////////////////////////////////////////////////////////
+function add_question(id){
+  $.ajax({
+        type:"POST",
+        url:"ckAjax.php",
+        data:{add_quest:id},
+      success:function(data)
+      {
+        $("#quest_form").html(data);
 
+      }
+  });
+    return false;
 
+}
