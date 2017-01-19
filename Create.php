@@ -54,7 +54,18 @@ if ($_SESSION['ses_id']=='') {
                         </ol>
                     </div>
                 </div> 
-<!-- *********************************start table************ -->              <?php if ($_SESSION['Activate']==1) {
+<!-- *********************************start table************ -->              <?php 
+        $ID=$_SESSION['ID'];
+        
+        $sql = "SELECT stwActivate FROM stwUser 
+                        WHERE stwUser_id = '$ID'";
+        $res =mysqli_query($conn,$sql);
+        $row =mysqli_fetch_array($res,MYSQLI_ASSOC);
+
+                       
+
+
+        if ($row['stwActivate']=='1') {
 
     include("menu/Create.php");
             } else {
@@ -64,7 +75,7 @@ if ($_SESSION['ses_id']=='') {
                
                 echo ' <button type="button" class="btn btn-success btn-xl" onclick="return user_request('.$_SESSION['ID'].');">ร้องขอชิวิต</button>';
                
-               
+            
 
 
 
