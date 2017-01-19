@@ -34,20 +34,20 @@ include("connect.php");
 //อ่านหัวข้อแบบทดสอบจากตาราง subject
 //ให้รูปแบบวันเดือนปีให้เป็น date-month-year และเวลาเป็น hour:minute
     $sql = "SELECT *, 
-                DATE_FORMAT(date_test, '%d-%m-%Y') AS date_test, 
-                TIME_FORMAT(time_start, '%H:%i') AS time_start,  
-                TIME_FORMAT(time_end, '%H:%i') AS time_end   
-            FROM stwSubject ORDER BY  subject_id DESC";
+                DATE_FORMAT(stwDate_test, '%d-%m-%Y') AS stwDate_test, 
+                TIME_FORMAT(stwTime_start, '%H:%i') AS stwTime_start,  
+                TIME_FORMAT(stwTime_end, '%H:%i') AS stwTime_end   
+            FROM stwSubject ORDER BY  stwSubject_id DESC";
 
     $result = mysqli_query($conn,$sql);
 
      while($data = mysqli_fetch_array($result)) {
-    $subject_id = $data['subject_id'];
-    $dt = "วันที่ " . $data['date_test'] . " เวลา " . $data['time_start'] . " - " . $data['time_end'];  
-    if($data['date_test'] == "00-00-0000") {   //กรณีที่ไม่กำหนดวันเวลาทำแบบทดสอบเอาไว้
+    $subject_id = $data['stwSubject_id'];
+    $dt = "วันที่ " . $data['stwDate_test'] . " เวลา " . $data['stwTime_start'] . " - " . $data['stwTime_end'];  
+    if($data['stwDate_test'] == "00-00-0000") {   //กรณีที่ไม่กำหนดวันเวลาทำแบบทดสอบเอาไว้
         $dt = "ไม่ระบุ";
     }
-    $sql = "SELECT COUNT(*) FROM stwQuestion WHERE subject_id = $subject_id";  //นับจำนวนคำถามของหัวข้อนี้
+    $sql = "SELECT COUNT(*) FROM stwQuestion WHERE stwSubject_id = $subject_id";  //นับจำนวนคำถามของหัวข้อนี้
     $r = mysqli_query($conn, $sql);
     $num_q = 0;
     if($r) {
@@ -75,7 +75,7 @@ include("connect.php");
                                    
                 <td>
                     
-            <?php echo '<div class="subject">'.$data['subject_text'].'</div>
+            <?php echo '<div class="subject">'.$data['stwSubject_text'].'</div>
             <div class="question">'.$num_q.' คำถาม</div><br>
             <div class="datetime">กำหนดทำแบบทดสอบ: '.$dt.'</div>
           '.$bt.'<a href="score.php?'.$q.'"><button type="button"  class="btn btn-danger" >ดูผลทดสอบ</button> </a></a>

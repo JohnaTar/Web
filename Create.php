@@ -54,13 +54,13 @@ if ($_SESSION['ses_id']=='') {
                         </ol>
                     </div>
                 </div> 
-<!-- *********************************start table************ -->              <?php 
-        $ID=$_SESSION['ID'];
-        
-        $sql = "SELECT stwActivate FROM stwUser 
-                        WHERE stwUser_id = '$ID'";
-        $res =mysqli_query($conn,$sql);
-        $row =mysqli_fetch_array($res,MYSQLI_ASSOC);
+<!-- *********************************start table************ -->   <?php 
+        include("connect.php");
+            $ID=$_SESSION['ID'];        
+            $sql = "SELECT stwActivate FROM stwUser 
+                        WHERE stwUser_id = '".$ID."'";
+            $res =mysqli_query($conn,$sql);
+            $row =mysqli_fetch_array($res,MYSQLI_ASSOC);
 
                        
 

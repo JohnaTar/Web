@@ -44,7 +44,7 @@ function add_dept(){
       alert(data);
 
 
-      location.replace("tables1.php");
+      location.replace("tables1");
       //reload page
       
     }
@@ -80,7 +80,7 @@ function edit_dept_form(){
       alert(data);
 
 
-      location.replace("tables1.php");
+      location.replace("Tables1");
       //reload page
       
     }
@@ -242,7 +242,7 @@ function edit_user_form(){
       alert(data);
 
 
-      location.replace("tables.php");
+      location.replace("Tables");
       //reload page
       
     }
@@ -331,7 +331,7 @@ function edit_user_form1(){ //มี 2 อันเพราะติดสิ�
       alert(data);
 
 
-       location.replace("user.php");
+       location.replace("User");
       //reload page
       
     }
@@ -353,3 +353,5 @@ function user_request(id){
   }
   return false;
 }
+
+

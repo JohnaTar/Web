@@ -298,12 +298,26 @@ if (isset($_POST['request'])) {
     
 
     }
-  # code...
+ 
 }
 
 
 
 
+if (isset($_POST['text'])){
+        $sql = "SELECT * FROM stwSubject 
+                WHERE stwSubject_text='".$_POST['text']."'";
+        $result = mysqli_query($conn, $sql);
+          if(mysqli_num_rows($result) == 0){
+             echo true;
+                exit();
+          }else {   
+             echo false;
+                exit();
+  
+          }
+    exit();
+  }
 
   
 
