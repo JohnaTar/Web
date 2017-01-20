@@ -354,11 +354,11 @@ function user_request(id){
   return false;
 }
 ////////////////////////////////////////////////////////////////
-function add_question(id){
+function show_add_question(id){
   $.ajax({
         type:"POST",
-        url:"ckAjax.php",
-        data:{add_quest:id},
+        url:"ckAjax2.php",
+        data:{show_add_quest:id},
       success:function(data)
       {
         $("#quest_form").html(data);
@@ -367,4 +367,24 @@ function add_question(id){
   });
     return false;
 
+} 
+function add_question(){ //มี 2 อันเพราะติดสิทธิ์ 
+  $.ajax({
+    type:"POST",
+    url:"ckAjax2.php",
+    data:$("#add_quest").serialize(),
+    success:function(data){
+      
+     
+      
+      //show result
+      alert(data);
+
+
+      
+      //reload page
+      
+    }
+  });
+  return false;
 }

@@ -319,19 +319,21 @@ if (isset($_POST['text'])){
     exit();
   }
 
- if (isset($_POST['add_quest'])) {
+ if (isset($_POST['show_add_quest'])) {
 
-  $id = $_POST['add_quest'];
+  $id = $_POST['show_add_quest'];
 
-    echo '<form class="form-horizontal" id="">
+    echo '<form class="form-horizontal" id="add_quest">
+
             <div class="form-group">
                     <label class="col-md-4 control-label" for="fn">คำถาม</label>  
 
                 <div class="col-md-4">
-                    <input  name="Dept"  type="text" placeholder="Department" class="form-control input-md" required=""  value=" '.$id.'">
+                    <input  name="question"  type="text" placeholder="Department" class="form-control input-md" required=""  >
                        
                 </div>
             </div>
+            <input name" " type="hidden" value="'.$id.'">
             <div class="form-group">
                     <label class="col-md-4 control-label" for="fn">* ไฟล์ภาพประกอบ(ถ้ามี)</label>  
 
@@ -346,7 +348,7 @@ if (isset($_POST['text'])){
 
                 <div class="col-md-4">
                     <input  name="choice[1]"  type="text" placeholder="Department" class="form-control input-md" required="" maxlength="250"> 
-                    <input type="radio" name="answer" value="1">(คำตอบ)
+                    <input type="radio" name="answer" required="" value="1">(คำตอบ)
                        
                 </div>
             </div>
@@ -355,7 +357,7 @@ if (isset($_POST['text'])){
 
                 <div class="col-md-4">
                     <input  name="choice[2]"  type="text" placeholder="Department" class="form-control input-md" required="" maxlength="250"> 
-                    <input type="radio" name="answer" value="2">(คำตอบ)
+                    <input type="radio" name="answer" required="" value="2">(คำตอบ)
                        
                 </div>
             </div>
@@ -364,7 +366,7 @@ if (isset($_POST['text'])){
 
                 <div class="col-md-4">
                     <input  name="choice[3]"  type="text" placeholder="Department" class="form-control input-md" required=""  maxlength="250"> 
-                    <input type="radio" name="answer" value="3">(คำตอบ)
+                    <input type="radio" name="answer" required="" value="3">(คำตอบ)
                        
                 </div>
             </div>
@@ -373,15 +375,26 @@ if (isset($_POST['text'])){
 
                 <div class="col-md-4">
                     <input  name="choice[4]"  type="text" placeholder="Department" class="form-control input-md" required=""  maxlength="250"> 
-                    <input type="radio" name="answer" value="4">(คำตอบ)
+                    <input type="radio" name="answer" required="" value="4">(คำตอบ)
                        
                 </div>
             </div>
 
 
+            </div>
+
+            
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="submit"></label>
+                <div class="col-md-4">
+            <button name="submit" class="btn btn-primary" onsubmit="return add_question(); ">ตกลง</button>
+                </div>
             </div>';
   } 
 
+if (isset($_POST['question'])) {
+  echo "asdasdsads";
+}
 
 
 
