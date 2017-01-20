@@ -61,31 +61,59 @@ if ($_SESSION['ses_id']=='') {
              <div class="row">
                 <div class="col-md-12"> 
 <?php 
-    $sql ="SELECT stwSubject_text , DATE_FORMAT(stwDate_test, '%d/%m/%y'),
-                               TIME_FORMAT(stwTime_start,'%H:%i'),
-                               TIME_FORMAT(stwTime_end, '%H:%i'),
-                               stwDate_test, stwTime_start ,stwTime_end
-            FROM stwSubject WHERE  stwSubject = '".$_GET['subject_id']."'";
-    $result = mysqli_query($conn,$sql);
-    $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-    $subject = $row[0];
-    $datetime = $row[1]." ".$row[2]."-".$row[3];
-    if ($row[1] =="00/00/0000")   {
-        $datetime = "ไม่กำหนดวันเวลา";
-    }
+      $subject_id = $_GET['subject_id'];
+      $sql = "SELECT stwSubject_text,
+        DATE_FORMAT(stwDate_test, '%d/%m/%Y'), 
+        TIME_FORMAT(stwTime_start, '%H:%i'),  
+        TIME_FORMAT(stwTime_end, '%H:%i'),
+        stwDate_test, stwTime_start, stwTime_end
+      FROM stwSubject WHERE stwSubject_id = $subject_id";
+$result = mysqli_query($conn, $sql);
+$row = mysqli_fetch_array($result);
 
-    
- ?>
-<?php echo "[$datetime]"; ?>
+$datetime = $row[1] . "   " . $row[2]. "-" . $row[3];
+if($row[1] == "00/00/0000") {
+  $datetime = "-ไม่กำหนดวันเวลา-";
+}
+?>
+<center><h2><div class="alert alert-info alert-dismissable">เรื่อง : <?php echo $row['stwSubject_text']; ?></div></h2> </center>
+<center><h2><div class="alert alert-success alert-dismissable"> <?php echo "[$datetime]"; ?></div></h2> </center>
+
+<?php
+$now = strtotime("now");
+$start = $row[4] . " " . $row[5];
+$end = $row[4] . " " . $row[6];
+$start = strtotime($start);
+$end = strtotime($end);
+//ถ้าเป็นผู้ทำแบบทดสอบ และกำหนดวันเวลาที่แน่นอนในการทำแบบทดสอบ
+//แล้วถ้าไม่อยู่ในช่วงวันเวลาที่กำหนดในการทำแบบทดสอบ จะไม่แสดงคำถาม
+if(($_SESSION['status'] == "3") && ($row[1] != "00/00/0000") && (($start > $now) || ($end < $now))) {
+  echo "<script>alert('ขณะนี้ไม่อยู่ในช่วงวันเวลาที่กำหนดในการทำแบบทดสอบ')</script>";
+    echo "<script>window.location='Create'</script>";
+
+      
+  
+  exit;
+} 
+
+if(isset($_SESSION['ID'])) {
+  $testee_id = $_SESSION['ID'];
+  $sql = "SELECT COUNT(*) FROM stwScore WHERE stwSubject_id = $subject_id AND stwUser_id = $testee_id";
+  $result = mysqli_query($conn, $sql);
+  $row = mysqli_fetch_array($result);
+  if($row[0] !=0) {
+    mysqli_close($conn);
+    echo "<script>alert('ท่านได้ทำแบบสอบทดสอบหัวข้อนี้ไปแล้ว ไม่สามารถทำซ้ำได้อีก')</script>";
+    echo "<script>window.location='Create'</script>";
+    exit;
+  }
+}
+?>
+
 
 
                 </div>
              </div>          
-
-
-
-     
-          
  
                     <!-- Row -->
                  </div>
