@@ -191,6 +191,15 @@ $(function () {
 $(function(){
     $('#myTable').DataTable();
 });
+$( function() {
+    $( "#datepicker" ).datepicker();
+  } );
+  $( function() {
+    $( "#timepicker" ).timepicker();
+  } );
+  $( function() {
+    $( "#timepicker1" ).timepicker();
+  } );
 ///////////////////////////////Delete//////////////////////////////////////
 function delete_user(id){
   if(confirm("คุณต้องการลบข้อมูลหรือไม่")){

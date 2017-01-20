@@ -22,6 +22,7 @@ if ($_SESSION['ses_id']=='') {
         
         ?>
         <title>SB Admin - Bootstrap Admin Template</title>
+       
   
     </head>
 
@@ -56,7 +57,9 @@ if ($_SESSION['ses_id']=='') {
                         </ol>
                     </div>
                 </div> 
-<!-- *********************************start table************ -->   <?php 
+<!-- *********************************start table************ -->   
+
+ <?php 
         include("connect.php");
             $ID=$_SESSION['ID'];        
             $sql = "SELECT stwActivate FROM stwUser 

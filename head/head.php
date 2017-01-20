@@ -11,8 +11,10 @@
     <link href="css/plugins/morris.css" rel="stylesheet">
     <link href="cssindex/style-color.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
-    <script src ="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"> 
-        
-    </script>
+    <script src ="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> 
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="js/tar.js"></script>
 <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
