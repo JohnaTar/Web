@@ -379,6 +379,7 @@ function add_question(){ //มี 2 อันเพราะติดสิท�
       
       //show result
       alert(data);
+      location.reload();
 
 
       
