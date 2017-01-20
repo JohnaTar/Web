@@ -18,21 +18,12 @@
             <div class="form-group">
                     <label class="col-md-4 control-label" for="fn">คำถาม</label>  
 
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <input  name="question"  type="text" class="form-control input-md" required=""  >
                        
                 </div>
             </div>
-            
-            <div class="form-group">
-                    <label class="col-md-4 control-label" for="fn">* ไฟล์ภาพประกอบ(ถ้ามี)</label>  
-
-                <div class="col-md-4">
-                <input type="hidden" name="MAX_FILE_SIZE" value="1048576">
-                    <input type="file"  name="file">
-                    <span class="label label-success">ขนาดไฟล์ไม่เกิน 1 MB</span>
-               </div>
-            </div>
+          
             <div class="form-group">
                     <label class="col-md-4 control-label" for="fn">ตัวเลือกและคำตอบ</label>  
 

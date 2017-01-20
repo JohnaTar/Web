@@ -366,7 +366,7 @@ function user_request(id){
 function show_add_question(id){
   $.ajax({
         type:"POST",
-        url:"ckAjax2.php",
+        url:"AddQuest.php",
         data:{show_add_quest:id},
       success:function(data)
       {
@@ -380,7 +380,7 @@ function show_add_question(id){
 function add_question(){ //มี 2 อันเพราะติดสิทธิ์ 
   $.ajax({
     type:"POST",
-    url:"ckAjax2.php",
+    url:"AddQuest.php",
     data:$("#add_quest").serialize(),
     success:function(data){
       

@@ -58,7 +58,7 @@ include("connect.php");
     $bt = "";
     $q = "subject_id=$subject_id";
     if($_SESSION['status']  == 3 ) {
-        $bt = '<a href="add-question.php?'.$q.'"> <button type="button"  class="btn btn-success" >ทำแบบทดสอบ</button> </a>';
+        $bt = '<a href="Testing.php?'.$q.'"> <button type="button"  class="btn btn-success" >ทำแบบทดสอบ</button> </a>';
          //'<a href="testing.php?'.$q.'">ทำแบบทดสอบ</a>';
     }
     else  {
@@ -66,7 +66,7 @@ include("connect.php");
                 '<button type="button" class="btn btn-success" data-toggle="modal" data-target="#addQuest" onclick="return show_add_question('.$subject_id.');" >เพิ่มคำถาม </button>'.
 
              // '<a href="testing.php?'.$q.'">ดูแบบทดสอบ</a>'.
-                 '<a href="add-question.php?'.$q.'"> <button type="button"  class="btn btn-info" >ดูแบบทำสอบ</button> </a>'.
+                 '<a href="add-question.php?'.$q.'"> <button type="button"  class="btn btn-info" >ดูแบบทดสอบ</button> </a>'.
              // '<a href="#">ลบ/แก้ไข</a>';
                  '<a href="add-question.php?'.$q.'"> <button type="button"  class="btn btn-warning" >ลบ/แก้ไข</button> </a>';
   }   
@@ -83,7 +83,6 @@ include("connect.php");
                 <hr>';; ?>
                 </td>
                
-
 
 
 
