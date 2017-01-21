@@ -168,7 +168,7 @@ mysqli_close($conn);
                     <input name="datetime"  type="radio"   value="no">ไม่กำหนด(ทดสอบเมื่อไหร่ก็ได้)<br>
                     <input name="datetime"  type="radio"   value="yes">กำหนดวันเวลา<br>
                     <label >วันที่จะทดสอบ</label>  
-                    <input type="text" id="datepicker" class="form-control input-md" name="date" ><br> <label >เวลาเริ่ม</label>
+                    <input type="text" id="datepicker"  class="form-control input-md" name="date" ><br> <label >เวลาเริ่ม</label>
                     <input type="text" id="timepicker" class="form-control input-md" name="time_start" ><br> <label >เวลาสิ้นสุด</label>
                     <input type="text" id="timepicker1" class="form-control input-md" name="time_end" >
 

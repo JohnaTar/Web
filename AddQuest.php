@@ -36,7 +36,7 @@ if(($row[0] != "0000-00-00 00:00:00") && ($now >= $dt_test)) {
 
 			
 		
-		$sql = "REPLACE INTO stwQuestion VALUES('','".$_POST['suject_id']."', '".$_POST['question']."')";
+		$sql = "REPLACE INTO stwQuestion VALUES('','".$_POST['suject_id']."','".$_POST['question']."')";
 		if(mysqli_query($conn, $sql)) {
 			//อ่านค่า id ของคำถามที่เพิ่มใหม่ เพื่อนำไปเชื่อมโยงกับตัวเลือกในตาราง choice
 			$question_id = mysqli_insert_id($conn);   
