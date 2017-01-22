@@ -12,10 +12,8 @@ $file=$_FILES['image']['tmp_name'];
 $image= addslashes(file_get_contents($_FILES['image']['tmp_name']));
 $image_name= addslashes($_FILES['image']['name']);
 			
-move_uploaded_file($_FILES["image"]["tmp_name"],"Images/Logo" . $_FILES["image"]["name"]);
 
 			
-$location="Images/Logo".$_FILES["image"]["name"];
 
 
 
