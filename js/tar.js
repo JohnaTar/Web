@@ -304,32 +304,6 @@ function edit_authen(){
 
 
 
-
-
-
-////////////////////////////////////////////////////////////////
-
-function cre_room(){
-  $.ajax({
-    type:"POST",
-    url:"ckAjax.php",
-    data:$("#CreateRoom").serialize(),
-    success:function(data){
-      
-      //close modal
-      
-      
-      //show result
-      alert(data);
-
-
-      //reload page
-      location.reload();
-      
-    }
-  });
-  return false;
-}
 ////////////////////////////////////////////////////////////////
 function edit_user_form1(){ //มี 2 อันเพราะติดสิทธิ์ 
   $.ajax({

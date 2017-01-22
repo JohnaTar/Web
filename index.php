@@ -10,6 +10,27 @@
 <body>
   <div class="wrapper">
 	<div class="container">
+  <?php  
+
+    include ("connect.php");
+    $BB ="1";
+    $sql ="SELECT
+stwurllogo.stwUrlname,
+stwshowlogo.stwShowlogo_id
+FROM
+stwshowlogo
+INNER JOIN stwurllogo ON stwshowlogo.stwUrllogo_id = stwurllogo.stwUrllogo_id
+ ";
+
+    $result =mysqli_query($conn,$sql);
+while($row = mysqli_fetch_array($result,MYSQLI_ASSOC))
+{
+echo '<p><img class="img-circle" width="270" height="260" border="2" src="'.$row['stwUrlname'].'"></p>';
+
+
+}
+
+?>
 		<div class="t25-b-white">
                 <h3 class="text-center">Safety Training Web Application for Factory Workers</h3>
                 <h4 class="text-center">การพัฒนาเว็บแอพพลิเคชั่นการอบรมด้านความปลอดภัยให้กับพนักงานโรงงาน</h4>

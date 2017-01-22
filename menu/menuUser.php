@@ -61,9 +61,9 @@ echo '<p><img class="img-circle" width="200" height="200" border="2" src="'.$row
 </li>
 <li>
   <a>
-<form action="uploadpic.php" method="post" enctype="multipart/form-data" name="addroom">
+<form action="uploadPIC.php" method="post" enctype="multipart/form-data" name="addroom">
 <input type="file" name="image" class="btn btnn-info" required ="">
-<center><input type="submit" name="Submit" value="Change"  class="btn-xl btn-info"/></center>
+<center><input type="submit" name="Submit" value="Change"  class="btn  btn-xl btn-info"/></center>
 
 
 

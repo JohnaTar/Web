@@ -60,7 +60,7 @@ echo '<p><img class="img-circle" width="200" height="200" border="2" src="'.$row
 </li>
 <li>
   <a>
-<form action="uploadpic.php" method="post" enctype="multipart/form-data" name="addroom">
+<form action="uploadPIC.php" method="post" enctype="multipart/form-data" name="addroom">
 <input type="file" name="image" class="btn btnn-info" required ="">
 <center><input type="submit" name="Submit" value="Change"  class="btn-xl btn-info"/></center>
 
@@ -101,6 +101,9 @@ echo '<p><img class="img-circle" width="200" height="200" border="2" src="'.$row
                             </li>
                             <li>
                                 <a href="Tables1"> จัดการข้อมูลแผนก</a>
+                            </li>
+                            <li>
+                                <a href="Logo"> เปลี่ยนโลโก็</a>
                             </li>
                           
                         </ul>
