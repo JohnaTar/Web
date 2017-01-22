@@ -5,11 +5,9 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <link href="cssindex/btn.css" rel="stylesheet">
-    <link href="cssindex/stylebank.css" rel="stylesheet">
-    <link href="cssindex/style-color.css" rel="stylesheet">
-    <link href="cssindex/thaifont.css" rel="stylesheet"> 
+    <link rel="stylesheet" href="cssindex/style.css">
     <script src="js/tar.js"></script>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
    
    
 

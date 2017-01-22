@@ -1,11 +1,9 @@
 <!DOCTYPE html>
     <head>
       <title>Welcome </title>
-          <?php include("head/indexhead.php"); ?>
+         
     </head>
-      <body class="bg-success">
-
-        <div class="wrapper dark-bg"> 
+    
             <div class="container">
 
             <div class="img">

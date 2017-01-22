@@ -42,10 +42,36 @@
 
                     <li class="active"> 
 
-                    <img class="img-responsive" src="img/pro.png" alt="">
-                    <?php  
+                    
+<?php  
 
     include ("connect.php");
+    $sql ="SELECT * FROM stwUser WHERE stwUser_id = '".$_SESSION['ID']."' ";
+
+    $result =mysqli_query($conn,$sql);
+while($row = mysqli_fetch_array($result,MYSQLI_ASSOC))
+{
+echo '<p><img class="img-circle" width="200" height="200" border="2" src="'.$row['stwProfileurl'].'"></p>';
+
+
+}
+
+?>
+
+</li>
+<li>
+  <a>
+<form action="uploadpic.php" method="post" enctype="multipart/form-data" name="addroom">
+<input type="file" name="image" class="btn btnn-info" required ="">
+<center><input type="submit" name="Submit" value="Change"  class="btn-xl btn-info"/></center>
+
+
+
+
+</form>
+  </a>
+</li>
+<?php
     
 
    
