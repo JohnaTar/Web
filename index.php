@@ -1,47 +1,38 @@
 <!DOCTYPE html>
-    <head>
-      <title>Welcome </title>
-         
-    </head>
-    
-            <div class="container">
+<html >
+<head>
+  
+  <title>Welcome</title>
+  <?php include ("head/indexhead.php");?>
 
-            <div class="img">
-                <img src="img/2.png" width="350" height="250"  >
-            </div>
-           
-            <div class="t25-b-white">
+</head>
+
+<body>
+  <div class="wrapper">
+	<div class="container">
+		<div class="t25-b-white">
                 <h3 class="text-center">Safety Training Web Application for Factory Workers</h3>
-                <h5 class="text-center">การพัฒนาเว็บแอพพลิเคชั่นการอบรมด้านความปลอดภัยให้กับพนักงานโรงงาน</h5>
+                <h4 class="text-center">การพัฒนาเว็บแอพพลิเคชั่นการอบรมด้านความปลอดภัยให้กับพนักงานโรงงาน</h4>
             </div>
-            <br />
-           
-            <form class="form" action="checklogin" method="POST">
-                <input type="text" placeholder="Username"  required="" name="Username" />
+            <div class="dd">
+		<form class="form-" action="checklogin" method="POST">
+		 		<input type="text" placeholder="Username"  required="" name="Username" />
                 <input type="password" placeholder="Password" required="" name="Password" />
                 <button type="submit" class="btn btn-warning">เข้าสู่ระบบ</button> 
                 <button type="button" class="btn btn-success " data-toggle="modal" data-target="#myModal">สมัครสมาชิก</button>
-                <br>
-               <br>
-                <a href=""  data-toggle="modal" data-target="#forget_email" ><span class="label label-danger">FORGET PASSWORD</span> </a>
+		</form>
+           </div>
+            <a href=""  data-toggle="modal" data-target="#forget_email" ><span class="label label-danger">FORGET PASSWORD</span> </a>
+
+	</div>
+	
+	
+</div>
+ <?php include("modal/modalRegister.php");?>
+<?php include("modal/forget_email.php");?>
+    
 
 
-            </form>
-            
-                
-            
-
-            
-            
-
-        </div>
-    </div>
-    <!-- ***************************call modal******************************** -->
-          <?php include("modal/modalRegister.php");?>
-          <?php include("modal/forget_email.php");?>
-    <!-- ********************************************************************** -->
-
-        
-
-      </body>
+</body>
 </html>
+

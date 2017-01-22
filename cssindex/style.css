@@ -1,4 +1,5 @@
-@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300);
+@import url('https://fonts.googleapis.com/css?family=Kanit');
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -6,45 +7,46 @@
   font-weight: 300;
 }
 body {
-  font-family: 'Source Sans Pro', sans-serif;
-  color: white;
+  font-family: 'Kanit', sans-serif;
+ color: black;
   font-weight: 300;
 }
 body ::-webkit-input-placeholder {
   /* WebKit browsers */
-  font-family: 'Source Sans Pro', sans-serif;
-  color: white;
-  font-weight: 300;
+ font-family: 'Kanit', sans-serif;
+  color: black;
+ font-weight: 300;
 }
 body :-moz-placeholder {
   /* Mozilla Firefox 4 to 18 */
-  font-family: 'Source Sans Pro', sans-serif;
-  color: white;
+  font-family: 'Kanit', sans-serif;
+  color: black;
   opacity: 1;
   font-weight: 300;
 }
 body ::-moz-placeholder {
   /* Mozilla Firefox 19+ */
-  font-family: 'Source Sans Pro', sans-serif;
-  color: white;
+  font-family: 'Kanit', sans-serif;
+  color: black;
   opacity: 1;
   font-weight: 300;
 }
 body :-ms-input-placeholder {
   /* Internet Explorer 10+ */
-  font-family: 'Source Sans Pro', sans-serif;
-  color: white;
+  font-family: 'Kanit', sans-serif;
+ color: black;
   font-weight: 300;
 }
 .wrapper {
+  
   color : #fff;
   background : #1a2732;
   background-color : #1a2732;
   position: absolute;
-  top: 0%;
+  top: 0;
   left: 0;
   width: 100%;
-  height: 100%:;
+  height: 100%;
   margin-top: 0;
   overflow: hidden;
 }
@@ -67,12 +69,12 @@ body :-ms-input-placeholder {
           transition-timing-function: ease-in-put;
   font-weight: 200;
 }
-form {
+.dd form {
   padding: 20px 0;
   position: relative;
   z-index: 2;
 }
-form input {
+.dd form input {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
@@ -91,13 +93,13 @@ form input {
           transition-duration: 0.25s;
   font-weight: 300;
 }
-form input:hover {
+.dd form input.:hover {
   background-color: rgba(255, 255, 255, 0.4);
 }
-form input:focus {
+.dd form input:focus {
   background-color: white;
   width: 300px;
-  color: black;
+  color:black;
 }
 
 
@@ -120,4 +122,16 @@ form input:focus {
     -webkit-transform: translateY(-700px) rotate(600deg);
             transform: translateY(-700px) rotate(600deg);
   }
+}
+.t25-b-white {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  border: none;
+  font-family: 'Kanit', sans-serif;
+  color: #fff;
+  text-align: center;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5) ;
 }
