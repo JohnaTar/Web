@@ -31,8 +31,21 @@ if (isset($_POST['use_logo'])) {
 
   
 }
+/////////////////////////////////////////////////////////////////////////////////
+if (isset($_POST['del_lesson'])) {
+  $sql= "DELETE FROM stwContent WHERE stwContent_id ='".$_POST['del_lesson']."'";
+  $result = mysqli_query($conn,$sql);
+    if($result) {
+        echo "ลบข้อมูลเนื้อหา้เรียบร้อย"; 
+        exit();    
+    }else {
+        echo "ไม่สามารถลบข้อมูลเนื้อหา้เรียบร้อย"; 
+        exit();
+    
 
+    }
 
+}
 
 
 ?>

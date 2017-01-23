@@ -26,3 +26,21 @@ function use_this_logo(id){
   }
   return false;
 }
+//////////////////////////////////////////////////////////////////////
+function del_lesson(id){
+  if(confirm("คุณต้องการลบข้อมูลเนื้อหาหรือไม่")){
+    $.ajax({
+      type:"POST",
+      url:"ckAjaxs.php",
+      data:{del_lesson:id},
+      success:function(data){
+        alert(data);
+        location.reload();
+      }
+    });
+  }
+  return false;
+}
+
+
+}

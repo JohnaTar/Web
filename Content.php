@@ -52,12 +52,27 @@ if ($_SESSION['ses_id']=='') {
                                 <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
                             </li>
                             <li class="active">
-                                <i class="fa fa-puzzle-piece"></i> แบบทดสอบ
+                                <i class="fa fa-puzzle-piece"></i> เนื้อหา
                             </li>
                         </ol>
                     </div>
                 </div> 
 <!-- *********************************start table************ -->   
+                <div class="row">
+                    <div class="col-md-12">
+                    $sql ="";
+
+
+
+                        
+
+                    </div>                   
+                </div>
+
+
+
+
+
 
           
  

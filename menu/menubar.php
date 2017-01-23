@@ -74,7 +74,7 @@ echo '<p><img class="img-circle" width="200" height="200" border="2" src="'.$row
                     
                     <li>
 
-                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-file""></i> เนื้อหาการอบรม <i class="fa fa-fw fa-caret-down"></i></a>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-file""></i> เนื้อหา <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse">
                             <li>
                                 <a href="Content">บทที่ 1</a>
@@ -83,7 +83,25 @@ echo '<p><img class="img-circle" width="200" height="200" border="2" src="'.$row
                                 <a href="#">Dropdown Item</a>
                             </li>
                         </ul>
-                    </li>                   
+                    </li>  
+                    <li>
+                     <a href="javascript:;" data-toggle="collapse" data-target="#demo2"><i class="fa fa-fw fa-bookmark"></i> แก้ไขเนื้อหา <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo2" class="collapse">
+                            
+                        
+                            <li>
+                                <a href="edit_lesson?ID=1"> บทที่ 1</a>
+                            </li>
+                            <li>
+                                <a href="edit_lesson?ID=2"> จัดการข้อมูลแผนก</a>
+                            </li>
+                            <li>
+                                <a href="Logo"> เปลี่ยนโลโก็</a>
+                            </li>
+                            
+                        </ul>
+                        
+                    </li>                 
                     <li>                 
                         <a href="Create"><i class="fa fa-fw fa-edit"></i> สร้างหัวข้อการอบรม</a>
                     </li>
@@ -96,6 +114,8 @@ echo '<p><img class="img-circle" width="200" height="200" border="2" src="'.$row
 
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo1"><i class="fa fa-fw fa-table"></i> เมนูจัดการ <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo1" class="collapse">
+                            
+                        
                             <li>
                                 <a href="Tables"> จัดการข้อมูลสมาชิก</a>
                             </li>
@@ -105,9 +125,11 @@ echo '<p><img class="img-circle" width="200" height="200" border="2" src="'.$row
                             <li>
                                 <a href="Logo"> เปลี่ยนโลโก็</a>
                             </li>
-                          
+                            
                         </ul>
-                    </li>                
+                    </li>  
+
+
 
                    
                 </li>
