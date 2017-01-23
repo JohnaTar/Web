@@ -146,8 +146,7 @@ mysqli_close($conn);
     ?>
 
 <div class="alert alert-danger alert-dismissable">หากกำหนดวันเวลา จะทำให้ผู้เข้าทดสอบสามารถทำแบบทดสอบได้เฉพาะในวันและช่วงเวลาที่กำหนดเท่านั้น</div>
-<div class="alert alert-warning alert-dismissable">หากการกำหนดวันเดือนปีและเวลาเป็นช่อง text ธรรมดา แสดงว่าเบราเซอร์ที่ท่านกำลังใช้อยู่ 
-อาจยังไม่สนับสนุนอิลิเมนต์เหล่านี้ เราแนะนำให้ใช้ Chrome หรือ Opera เวอร์ชั่นล่าสุด</div>
+
 
 <form class="form-horizontal" method="POST">
 
