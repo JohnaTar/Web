@@ -43,4 +43,3 @@ function del_lesson(id){
 }
 
 
-}

@@ -27,7 +27,7 @@ if ($query) {
     echo "<script>alert('Success!!')</script>";
      echo "<script>window.location='Logo'</script>";
 } else {
-    echo "Error: " ;
+    echo "Error " ;
 }
 }else{
 	echo "<script>alert('File is not an image')</script>";

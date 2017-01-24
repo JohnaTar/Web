@@ -8,13 +8,13 @@
             <h1 class="modal-title">เพิ่มเนื้อหา</h1>
 
         
-         
+        <input type="hidden" name="lesson" value="<?php echo $_GET['ID'];?>"> 
         
 <div class="modal-body">
            <div class="form-group">
                     <label class="col-md-4 control-label" for="fn">Title</label>  
                 <div class="col-md-4">
-                    <input name="titile" type="text" placeholder="Title" class="form-control input-md" required="">
+                    <input name="title" type="text" placeholder="Title" class="form-control input-md" required="">
     
                 </div>
             </div>
@@ -27,7 +27,7 @@
             <div class="form-group">
                     <label class="col-md-4 control-label" for="fn">Picture</label>  
                 <div class="col-md-4">
-                    <input name="imgae" type="file" placeholder="Title" class="form-control input-md" >
+                    <input name="image" type="file" placeholder="Title" class="form-control input-md"  accept="image/*">
     
                 </div>
             </div>

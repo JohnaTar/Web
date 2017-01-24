@@ -28,7 +28,7 @@ if ($query) {
      echo "<script>location.reload();</script>";
  
 } else {
-    echo "Error: " ;
+    echo "Error " ;
 }
         
        
