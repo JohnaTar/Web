@@ -130,10 +130,13 @@ echo '<p><img class="img-circle" width="200" height="200" border="2" src="'.$row
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-file""></i> เนื้อหา<i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse">
                             <li>
-                                <a href="Content">บทที่ 1</a>
+                                <a href="Content?ID=1">บทที่ 1</a>
                             </li>
                             <li>
-                                <a href="#">Dropdown Item</a>
+                                <a href="Content?ID=2">บทที่ 2</a>
+                            </li>
+                            <li>
+                                <a href="Content?ID=3">บทที่ 3</a>
                             </li>
                         </ul>
                     </li>                  

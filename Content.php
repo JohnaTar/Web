@@ -107,8 +107,16 @@ $res =mysqli_query($conn,$sql);
       </div>
     </div>   
     <div class="row">
-      <div class="col-md-12 text-center">   
-     <img class="img-thumbnail" src="<?php echo $row['stwContent_img'];?>" alt="" width="350" height="350">
+      <div class="col-md-12 text-center">  
+      <?php if ($row['stwContent_img']== NULL) {
+        
+      } else{
+        $IMG =  $row['stwContent_img'];
+
+      echo '<img class="img-thumbnail" src="'.$IMG.'" alt="" width="350" height="350">';
+    }
+      ?> 
+     
  </div>
     </div>
     <br>

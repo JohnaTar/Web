@@ -17,6 +17,12 @@ move_uploaded_file($_FILES["image"]["tmp_name"],"photos/" . $_FILES["image"]["na
 $user = $_SESSION['ID'];			
 $location="photos/" . $_FILES["image"]["name"];
 
+$sqli = "SELECT stwProfileurl FROM stwUser WHERE stwUser_id = '$user' ";
+$res =mysqli_query($conn,$sqli);
+$row =mysqli_fetch_array($res,MYSQLI_ASSOC);
+$del = $row['stwProfileurl'];
+unlink($del);
+
 
 
 
@@ -28,7 +34,7 @@ if ($query) {
      echo "<script>location.reload();</script>";
  
 } else {
-    echo "Error " ;
+    echo "Error: " ;
 }
         
        

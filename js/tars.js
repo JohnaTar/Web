@@ -42,4 +42,19 @@ function del_lesson(id){
   return false;
 }
 
+function show_edit_info(id){
+  $.ajax({
+        type:"POST",
+        url:"ckAjaxs.php",
+        data:{edit_info:id},
+      success:function(data){
+          
+         $("#info_form").html(data);
+
+      }
+  });
+    return false;
+
+}
+
 

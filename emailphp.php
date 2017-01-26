@@ -22,7 +22,7 @@ $mail->Port = 587;
 $mail->SMTPSecure = 'tls';
 $mail->SMTPAuth = true;
 $mail->Username = "leavemetar@gmail.com";
-$mail->Password = "leavemealone";
+$mail->Password = "leavetar123";
 $mail->setFrom('leavemetar@gmail.com', 'Administrator@Web');
 $mail->addAddress($email,$firstname);
 $mail->Subject = 'FORGET PASSWORD';
@@ -38,7 +38,7 @@ if (!$mail->send()) {
                 
             }else
             echo "<script>alert('ไม่พบอีเมลล์ในระบบ')</script>";
-             echo "<script>window.location='index'</script>";
+             
             
         }
  ?>

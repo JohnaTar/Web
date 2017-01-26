@@ -45,7 +45,7 @@ if ($_SESSION['ses_id']=='') {
                                 <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
                             </li>
                             <li class="active">
-                                <i class="fa fa-table"></i> ตารางแสดงข้อมูลสมาชิก
+                                <i class="fa fa-table"></i> แก้ไขเนือหา
                             </li>
                         </ol>
                     </div>
@@ -101,15 +101,17 @@ stwcontent WHERE stwLesson_id ='".$ID."'";
 <td> <?php echo $row['stwContent_title'];?></td>
 <td> <?php echo $row['stwContent_detail'];?></td>
 <td><?php echo '<img class="img"  width="50" height="50" border="2" src="'.$row['stwContent_img'].'">'; ?></td>
-  <td> <button type="button" class="btn btn-success btn-sm" 
-                onclick="return use_this_logo(<?php echo $row['stwUrllogo_id']?>);" >แก้ไข </button>
-                <button type="button" class="btn btn-danger btn-sm" 
-                onclick="return del_lesson(<?php echo $row['stwContent_id']?>);" >ลบ </button>
+  <td> 
+
+  <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#edit_info" onclick="return  show_edit_info(<?php echo $row['stwContent_id']?>);"">แก้ไข</button>
+    <button type="button" class="btn btn-danger btn-sm" 
+                 onclick="return del_lesson(<?php echo $row['stwContent_id']?>);" >ลบ 
+
+      </button>
                
  </td>
 
-
-                                   
+                
              
 
 
@@ -135,18 +137,16 @@ stwcontent WHERE stwLesson_id ='".$ID."'";
 </div>
  <!-- *******************end table************************ -->
 
-  <?php include("modal/addLesson.php"); ?>
-
-
-
-
- 
- 
+  <?php 
+   include("modal/Info_edit.php");
+  include("modal/addLesson.php");
   
 
 
+  
 
 
+  ?>
 
 
     </body>
