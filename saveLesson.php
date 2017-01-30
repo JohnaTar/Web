@@ -22,12 +22,17 @@ move_uploaded_file($_FILES["image"]["tmp_name"],"Infophoto/" . $_FILES["image"][
 			
 $location="Infophoto/".$_FILES["image"]["name"];
 
+} if ($_POST['video']==null) {
+	$Vdo ="";
+} else{
 
-
-
+	$Vdo = $_POST['video'];
 }
 
-$sql ="INSERT INTO `stwContent` (`stwLesson_id`, `stwContent_title`, `stwContent_detail`, `stwContent_img`) VALUES ('$lesson', '$title', '$content','$location')";
+
+
+
+$sql ="INSERT INTO `stwContent` (`stwLesson_id`, `stwContent_title`, `stwContent_detail`, `stwContent_img`, `stwYoutube`) VALUES ('$lesson', '$title', '$content','$location','$Vdo')";
 $query=mysqli_query($conn,$sql);
 
 if ($query) {

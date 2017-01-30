@@ -87,13 +87,13 @@ if ($_SESSION['ses_id']=='') {
    <?php 
    $ID =$_GET['ID'];
     $sql ="SELECT
-stwcontent.stwContent_id,
-stwcontent.stwContent_title,
-stwcontent.stwContent_detail,
-stwcontent.stwContent_img,
-stwcontent.stwLesson_id
+stwContent.stwContent_id,
+stwContent.stwContent_title,
+stwContent.stwContent_detail,
+stwContent.stwContent_img,
+stwContent.stwLesson_id
 FROM
-stwcontent WHERE stwLesson_id ='".$ID."'";
+stwContent WHERE stwLesson_id ='".$ID."'";
     $res =mysqli_query($conn,$sql);
    while($row=mysqli_fetch_array($res,MYSQLI_ASSOC)){
 

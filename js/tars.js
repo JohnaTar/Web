@@ -1,3 +1,4 @@
+
 function del_logo(id){
   if(confirm("คุณต้องการลบข้อมูลหรือไม่")){
     $.ajax({

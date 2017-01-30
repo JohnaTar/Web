@@ -15,20 +15,19 @@ if ($_SESSION['ses_id']=='') {
 
     <head>
         <?php 
-        include("head/head.php");
-
-
-
-        
+        include("head/head.php");        
         ?>
         <title>SB Admin - Bootstrap Admin Template</title>
+
+
        
+            
   
     </head>
 
+
         <body>
-        
-            
+
             <div id="wrapper">
 
 
@@ -86,26 +85,49 @@ $row =mysqli_fetch_array($res,MYSQLI_ASSOC);
     <?php  
 
     $sql="SELECT
-stwcontent.stwContent_title,
-stwcontent.stwContent_detail,
-stwcontent.stwContent_img,
-stwcontent.stwLesson_id
+stwContent.stwContent_title,
+stwContent.stwContent_detail,
+stwContent.stwContent_img,
+stwContent.stwLesson_id,
+stwContent.stwYoutube
 FROM
-stwcontent WHERE stwLesson_id ='".$ID."'
+stwContent WHERE stwLesson_id ='".$ID."'
 ";
 $res =mysqli_query($conn,$sql);
  while($row=mysqli_fetch_array($res,MYSQLI_ASSOC)){
+$Vdo = $row['stwYoutube'];
 
 
     ?>
-
+    
     <div class="row">
       <div class="col-md-12"> 
                  <div class="well">
                    <?php echo $row['stwContent_title'];  ?>
                 </div>
       </div>
-    </div>   
+    </div> 
+  <div class="row">
+    <div class="col-md-12"> 
+    <center>
+      <script type="text/javascript">
+            jwplayer("my-video").setup({
+                autostart: false,
+                file: "<?php echo $Vdo ;?>",               
+                width: "50%",
+                aspectratio:"16:9",
+                primary: "html",
+
+            });
+        </script> 
+    <?php echo '<div id ="my-video"></div>'; ?></center>
+    
+</div>
+</div>
+
+    <br> 
+    <br>
+     
     <div class="row">
       <div class="col-md-12 text-center">  
       <?php if ($row['stwContent_img']== NULL) {
@@ -113,12 +135,13 @@ $res =mysqli_query($conn,$sql);
       } else{
         $IMG =  $row['stwContent_img'];
 
-      echo '<img class="img-thumbnail" src="'.$IMG.'" alt="" width="350" height="350">';
+      echo '<img class="img-thumbnail" src="'.$IMG.'" alt="" width="450" height="500">';
     }
       ?> 
      
  </div>
     </div>
+    
     <br>
 
 
