@@ -87,7 +87,16 @@ if (isset($_POST['edit_info'])) {
                     <input name="image" type="file" placeholder="Title" class="form-control input-md"  accept="image/*">
     
                 </div>
-            </div>';
+            </div>
+            
+             <div class="form-group">
+                    <label class="col-md-2 control-label" for="fn">Link-Video</label>  
+                <div class="col-md-10">
+                    <input name="video" type="text" placeholder="Title" class="form-control input-md" value="https://www.youtube.com/watch?v='.$row['stwYoutube'].'">
+    
+                </div>
+            </div>'
+            ;
 
 
  

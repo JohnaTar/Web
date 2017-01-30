@@ -95,7 +95,6 @@ stwContent WHERE stwLesson_id ='".$ID."'
 ";
 $res =mysqli_query($conn,$sql);
  while($row=mysqli_fetch_array($res,MYSQLI_ASSOC)){
-$Vdo = $row['stwYoutube'];
 
 
     ?>
@@ -108,22 +107,22 @@ $Vdo = $row['stwYoutube'];
       </div>
     </div> 
   <div class="row">
-    <div class="col-md-12"> 
-    <center>
-      <script type="text/javascript">
-            jwplayer("my-video").setup({
-                autostart: false,
-                file: "<?php echo $Vdo ;?>",               
-                width: "50%",
-                aspectratio:"16:9",
-                primary: "html",
+  <div class="col-md-2"></div> 
+    <div class="col-md-8 "> 
+    <?php  if ($row['stwYoutube']==NULl) {
+      
+    }else{
 
-            });
-        </script> 
-    <?php echo '<div id ="my-video"></div>'; ?></center>
-    
+      $VDO =  $row['stwYoutube'];
+      echo ' <div class="embed-responsive embed-responsive-16by9 ">
+    <iframe class="embed-responsive-item" src="//www.youtube.com/embed/'.$VDO.'"></iframe> 
+    </div>';
+    } 
+    ?>
+   
 </div>
-</div>
+    </div>
+   
 
     <br> 
     <br>

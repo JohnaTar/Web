@@ -23,4 +23,3 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
 
  <script src="http://jwpsrv.com/library/4+R8PsscEeO69iIACooLPQ.js"></script>
-<script type="text/javascript" src="https://p.jwpcdn.com/6/10/jwplayer.js"></script>

@@ -34,7 +34,7 @@
              <div class="form-group">
                     <label class="col-md-2 control-label" for="fn">Link-Video</label>  
                 <div class="col-md-10">
-                    <input name="video" type="text" placeholder="Title" class="form-control input-md" required="">
+                    <input name="video" type="text" placeholder="Title" class="form-control input-md" >
     
                 </div>
             </div>

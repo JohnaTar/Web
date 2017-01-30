@@ -3,9 +3,11 @@ include("connect.php");
 if (isset($_POST['content_edit'])) {
 
   if ($file=$_FILES['image']['tmp_name'] == NULL) {
+$sub = $_POST['video'];
+$Vdo = substr($sub,32);
 
     $sql ="UPDATE `stwcontent` 
-    SET `stwContent_title`='".$_POST['title']."', `stwContent_detail`='".$_POST['content']."' 
+    SET `stwContent_title`='".$_POST['title']."', `stwContent_detail`='".$_POST['content']."',`stwYoutube`='$Vdo' 
     WHERE (`stwContent_id`='".$_POST['content_edit']."') ";
   
     
@@ -24,11 +26,12 @@ $row =mysqli_fetch_array($res,MYSQLI_ASSOC);
 $del = $row['stwContent_img'];
 unlink($del);
 
-
+$sub = $_POST['video'];
+$Vdo = substr($sub,32);
 
 
 $sql ="UPDATE `stwcontent` 
-SET `stwContent_title`='".$_POST['title']."', `stwContent_detail`='".$_POST['content']."', `stwContent_img`='$location' 
+SET `stwContent_title`='".$_POST['title']."', `stwContent_detail`='".$_POST['content']."', `stwContent_img`='$location',`stwYoutube`='$Vdo'
 WHERE (`stwContent_id`='".$_POST['content_edit']."')  ";
 
    }

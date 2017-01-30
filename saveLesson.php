@@ -25,8 +25,11 @@ $location="Infophoto/".$_FILES["image"]["name"];
 } if ($_POST['video']==null) {
 	$Vdo ="";
 } else{
+	
+$sub = $_POST['video'];
+$Vdo = substr($sub,32);
 
-	$Vdo = $_POST['video'];
+	
 }
 
 

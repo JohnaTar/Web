@@ -75,6 +75,7 @@ if ($_SESSION['ses_id']=='') {
                                         <th>Title</th>
                                         <th>Content</th>
                                         <th>Picture</th>
+                                        <th>Youtube</th>
                                         <th>Menu</th> 
                                       
                                         
@@ -91,6 +92,7 @@ stwContent.stwContent_id,
 stwContent.stwContent_title,
 stwContent.stwContent_detail,
 stwContent.stwContent_img,
+stwContent.stwYoutube,
 stwContent.stwLesson_id
 FROM
 stwContent WHERE stwLesson_id ='".$ID."'";
@@ -101,6 +103,17 @@ stwContent WHERE stwLesson_id ='".$ID."'";
 <td> <?php echo $row['stwContent_title'];?></td>
 <td> <?php echo $row['stwContent_detail'];?></td>
 <td><?php echo '<img class="img"  width="50" height="50" border="2" src="'.$row['stwContent_img'].'">'; ?></td>
+
+<td>
+ 
+    <?php if ($row['stwYoutube']==NULL) {  
+        }else{
+           $VDO =  $row['stwYoutube'];
+      echo 'https://www.youtube.com/watch?v='.$VDO.' ';
+        }
+    ?>
+</td>
+
   <td> 
 
   <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#edit_info" onclick="return  show_edit_info(<?php echo $row['stwContent_id']?>);"">แก้ไข</button>
