@@ -6,7 +6,7 @@ if (isset($_POST['content_edit'])) {
 $sub = $_POST['video'];
 $Vdo = substr($sub,32);
 
-    $sql ="UPDATE `stwcontent` 
+    $sql ="UPDATE `stwContent` 
     SET `stwContent_title`='".$_POST['title']."', `stwContent_detail`='".$_POST['content']."',`stwYoutube`='$Vdo' 
     WHERE (`stwContent_id`='".$_POST['content_edit']."') ";
   
@@ -30,7 +30,7 @@ $sub = $_POST['video'];
 $Vdo = substr($sub,32);
 
 
-$sql ="UPDATE `stwcontent` 
+$sql ="UPDATE `stwContent` 
 SET `stwContent_title`='".$_POST['title']."', `stwContent_detail`='".$_POST['content']."', `stwContent_img`='$location',`stwYoutube`='$Vdo'
 WHERE (`stwContent_id`='".$_POST['content_edit']."')  ";
 

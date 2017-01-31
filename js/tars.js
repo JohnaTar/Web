@@ -42,7 +42,7 @@ function del_lesson(id){
   }
   return false;
 }
-
+////////////////////////////////////////////////////////////////////
 function show_edit_info(id){
   $.ajax({
         type:"POST",
@@ -58,4 +58,18 @@ function show_edit_info(id){
 
 }
 
-
+///////////////////////////////////////////////////////////////////////
+function del_fileupload(id){
+  if(confirm("คุณต้องการลบข้อมูลไฟล์หรือไม่")){
+    $.ajax({
+      type:"POST",
+      url:"ckAjaxs.php",
+      data:{del_fileupload:id},
+      success:function(data){
+        alert(data);
+        location.reload();
+      }
+    });
+  }
+  return false;
+}

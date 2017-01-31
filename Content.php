@@ -63,10 +63,10 @@ if ($_SESSION['ses_id']=='') {
                     include("connect.php");
 $ID =$_GET['ID'];
  $sql ="SELECT
-stwlesson.stwLesson_name,
-stwlesson.stwLesson_id
+stwLesson.stwLesson_name,
+stwLesson.stwLesson_id
 FROM
-stwlesson
+stwLesson
 
 
 WHERE stwLesson_id ='".$ID."'";
@@ -78,7 +78,7 @@ $row =mysqli_fetch_array($res,MYSQLI_ASSOC);
     <div class="row">
       <div class="col-md-6"> 
          <div class="page-header">
-                    <h1><?php echo $row['stwLesson_name'];  ?></h1>
+                 <h1><?php echo $row['stwLesson_name'];  ?></h1>
         </div>
        </div> 
     </div>
@@ -102,7 +102,7 @@ $res =mysqli_query($conn,$sql);
     <div class="row">
       <div class="col-md-12"> 
                  <div class="well">
-                   <?php echo $row['stwContent_title'];  ?>
+                   <h2><?php echo $row['stwContent_title'];?></h2>
                 </div>
       </div>
     </div> 

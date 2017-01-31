@@ -30,7 +30,7 @@ if (isset($_POST['use_logo'])) {
         echo "เปลี่ยนโลโก้เรียนร้อย"; 
         exit();    
     }else {
-        echo "ไม่สามารถเปลี่ยนโลโก้เรียนร้อย"; 
+        echo "ไม่สามารถเปลี่ยนโลโก้"; 
         exit();
     
 
@@ -54,7 +54,7 @@ if (isset($_POST['del_lesson'])) {
         echo "ลบข้อมูลเนื้อหา้เรียบร้อย"; 
         exit();    
     }else {
-        echo "ไม่สามารถลบข้อมูลเนื้อหา้เรียบร้อย"; 
+        echo "ไม่สามารถลบข้อมูลเนื้อหาได้"; 
         exit();
     
 
@@ -88,19 +88,41 @@ if (isset($_POST['edit_info'])) {
     
                 </div>
             </div>
+
             
              <div class="form-group">
                     <label class="col-md-2 control-label" for="fn">Link-Video</label>  
                 <div class="col-md-10">
-                    <input name="video" type="text" placeholder="Title" class="form-control input-md" value="https://www.youtube.com/watch?v='.$row['stwYoutube'].'">
+                    <input name="video" type="text" placeholder="Url-Video" class="form-control input-md" value="https://www.youtube.com/watch?v='.$row['stwYoutube'].'">
     
                 </div>
             </div>'
             ;
 
-
- 
 }
+
+///////////////////////////////////////////////////////////////////////////
+if (isset($_POST['del_fileupload'])) {
+  $sqli = "SELECT stwFileupload_path FROM stwFileupload WHERE stwFileupload_id ='".$_POST['del_fileupload']."'";
+  $res = mysqli_query($conn,$sqli);
+  $row =mysqli_fetch_array($res,MYSQLI_ASSOC);
+  $del = $row['stwFileupload_path'];
+  unlink($del);
+
+  $sql= "DELETE FROM stwFileupload WHERE stwFileupload_id ='".$_POST['del_fileupload']."'";
+  $result = mysqli_query($conn,$sql);
+    if($result) {
+        echo "ลบไฟล์เรียบร้อย"; 
+        exit();    
+    }else {
+        echo "ไม่สามารถลบไฟล์ได้"; 
+        exit();
+    
+
+    }
+
+}
+
 
 
 ?>
