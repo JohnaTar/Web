@@ -44,9 +44,7 @@ include("connect.php");
      while($data = mysqli_fetch_array($result)) {
     $subject_id = $data['stwSubject_id'];
     $dt = "วันที่ " . $data['stwDate_test'] . " เวลา " . $data['stwTime_start'] . " - " . $data['stwTime_end'];  
-    if($data['stwDate_test'] == "00-00-0000") {   //กรณีที่ไม่กำหนดวันเวลาทำแบบทดสอบเอาไว้
-        $dt = "ไม่ระบุ";
-    }
+   
     $sql = "SELECT COUNT(*) FROM stwQuestion WHERE stwSubject_id = $subject_id";  //นับจำนวนคำถามของหัวข้อนี้
     $r = mysqli_query($conn, $sql);
     $num_q = 0;

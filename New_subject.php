@@ -24,24 +24,8 @@ if ($_SESSION['ses_id']=='') {
         <title>SB Admin - Bootstrap Admin Template</title>
     </head>
     <script >
-    $(function() {
-    $('#ok').click(function(event) { 
-        if($(':text').val().length == 0) {
-            alert('ท่านยังไม่ได้กำหนดหัวข้อการทดสอบ');
-            return;
-        }
-        
-        if($(':radio:checked').length == 0) {
-            alert('ท่านยังไม่ได้กำหนดวันเวลาที่จะทดสอบ');
-            return;
-        }
-        $('form').submit();
-    });
-    
-    $('#cancel').click(function() {
-        window.location = 'index.php';
-    });
-});
+
+
     
  $(function () {
   $("#text").change(function(){
@@ -120,14 +104,9 @@ if ($_SESSION['ses_id']=='') {
 
     $subject = $_POST['subject'];
     $date_test = $_POST['date'];
-    $time_start ="";
-    $time_end ="";
-    if ($_POST['datetime']=="yes") {
-         $time_start = $_POST['time_start'];
-         $time_end = $_POST['time_end'];
-
-    }
-
+    $time_start =$_POST['time_start'];
+    $time_end =$_POST['time_end'];
+   
         $sql ="REPLACE INTO stwSubject VALUES('','$subject','$date_test',
         '$time_start','$time_end')";
         $result = mysqli_query($conn,$sql);
@@ -164,35 +143,34 @@ mysqli_close($conn);
             <div class="form-group">
                     <label class="col-md-4 control-label" for="fn">วันเวลาที่จะทดสอบ</label>  
                 <div class="col-md-4">
-                    <input name="datetime"  type="radio"   value="no">ไม่กำหนด(ทดสอบเมื่อไหร่ก็ได้)<br>
-                    <input name="datetime"  type="radio"   value="yes">กำหนดวันเวลา<br>
+                   
                     <label >วันที่จะทดสอบ</label>  
                     <input type="text" id="datepicker"  class="form-control input-md" name="date" ><br> <label >เวลาเริ่ม</label>
-                    <input type="text" id="timepicker" class="form-control input-md" name="time_start" ><br> <label >เวลาสิ้นสุด</label>
-                    <input type="text" id="timepicker1" class="form-control input-md" name="time_end" >
+                    <input type="time"  class="form-control input-md" name="time_start" ><br> <label >เวลาสิ้นสุด</label>
+                    <input type="time" class="form-control input-md" name="time_end" >
 
     
                 </div>
             </div>
 
             
-</form>
+
 
              <div class="form-group">
                 <label class="col-md-4 control-label" for=""></label>
                 <div class="col-md-4">
             <button id="ok"  class="btn btn-primary" >ตกลง</button>
-            <a href="Create"><button class="btn btn-success">แสดงแบบทดสอบ</button> </a>
+            
 
                 </div>
             </div>
 
-                            
+     </form>                       
                         
                         
                            
    
-   
+   <a href="Create"><button class="btn btn-success">แสดงแบบทดสอบ</button> </a>
   
   
 
