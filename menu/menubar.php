@@ -106,7 +106,7 @@ echo '<p><img class="img-circle" width="200" height="200" border="2" src="'.$row
                         
                     </li> 
                     <li>                 
-                        <a href="File_upload"><i class="fa fa-fw fa-file-word-o"></i>เอกสารเพิ่มเติม</a>
+                        <a href="File_upload"><i class="fa fa-fw fa-file-word-o"></i> เอกสารเพิ่มเติม</a>
                     </li>                
                     <li>                 
                         <a href="Create"><i class="fa fa-fw fa-edit"></i> สร้างหัวข้อการอบรม</a>
