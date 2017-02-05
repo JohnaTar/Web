@@ -26,7 +26,7 @@ if ($_SESSION['ses_id']=='') {
         
         ?>
         <title>SB Admin - Bootstrap Admin Template</title>
-       
+   
   
     </head>
 
@@ -62,59 +62,89 @@ if ($_SESSION['ses_id']=='') {
                     </div>
                 </div> 
 <!-- *********************************start table************ -->   
-                 <div class="row">
-                    <div class="col-md-12">
-                        <center><h2>จัดการแบบทดสอบ</h2></center>
+       
+              
+         
 
-                            
-   
-    <?php
-     
+<?php 
+
 
         include("connect.php");
 
        $subject_id = $_GET['subject_id'];
        $sql = "SELECT * FROM stwQuestion WHERE stwSubject_id = $subject_id ";
        $result = mysqli_query($conn, $sql);
+       $i =1;
        while($data = mysqli_fetch_array($result,MYSQLI_ASSOC)) {
 
                 $question_text = $data['stwQuestion_text'];
                 $question_id = $data['stwQuestion_id'];
                  
-        ?>
 
-                 <?php echo $question_text; ?> 
+        ?><div class="alert alert-success alert-dismissable">ข้อที่ : <?php echo $i;?></div>
+
+                    <form class="form-horizontal">
+
+                    <div class="form-group">
+                    <label class="col-md-4 control-label">คำถาม</label>
+                    <div class="col-md-4">
+                        <input type="text" value="<?php echo $question_text; ?> " class="form-control"  readonly>
+                    </div>
+                </div>  
+                           
+   
+  
+
+                      
+          
 
         <?php
             $sql = "SELECT * FROM stwChoice WHERE stwQuestion_id = $question_id ORDER BY stwChoice_id ASC";
                  $r = mysqli_query($conn, $sql);
                  while($ch = mysqli_fetch_array($r)) {
 
-                    ?>
-                    
-                    <?php echo $ch['stwChoice_text'];  ?>
 
-
-
-
+?>                  
                 
-
-               
-
-
-
-
-                               
-                                                      
-                                    <?php } }
-                                mysqli_close($conn);
-                                ?>
-                             
+                    <div class="form-group">
+                    <label class="col-md-4 control-label">คำตอบ</label>
+                    <div class="col-md-4">
+                        <input type="text" value="<?php echo $ch['stwChoice_text']; ?>" class="form-control" readonly >
                     </div>
-                </div>    
+                </div>  
+                   
 
- 
+
+
+                   <?php } ?>
+
+
+                                                      
+                <div class="form-group">
+                <label class="col-md-4 control-label" for=""></label>
+                <div class="col-md-4">
+            <button   class="btn btn-info" >แก้ไข</button>
+            <button   class="btn btn-danger" >ลบ</button>
+            
+
+                </div>
+            </div>
+                 
+                            
+
+
+   
+                                
+
+
+<?php $i++;}
+                                mysqli_close($conn);
+                            
+?>
      
+        </div>
+    </div>
+ 
           
  
                     <!-- Row -->
