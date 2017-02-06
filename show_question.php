@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 if ($_SESSION['ses_id']=='') {
      echo "<script>alert('PLEASE LOGIN')</script>";
      echo "<script>window.location='index'</script>";
@@ -8,7 +7,6 @@ if ($_SESSION['ses_id']=='') {
   } else if ($_SESSION['status']== 3 ) {
     echo "<script>alert('NO PERMISSION')</script>";
     echo "<script>window.location='index'</script>";
-
   
 } else{
 }
@@ -20,9 +18,6 @@ if ($_SESSION['ses_id']=='') {
     <head>
         <?php 
         include("head/head.php");
-
-
-
         
         ?>
         <title>SB Admin - Bootstrap Admin Template</title>
@@ -41,10 +36,8 @@ if ($_SESSION['ses_id']=='') {
                     
                     include ("menu/menuUser.php");
                 }else {
-
                 include("menu/menubar.php");
             }
-
                  ?>
 <!-- *********************************************************** -->
         <div id="page-wrapper">
@@ -67,20 +60,15 @@ if ($_SESSION['ses_id']=='') {
          
 
 <?php 
-
-
         include("connect.php");
-
        $subject_id = $_GET['subject_id'];
        $sql = "SELECT * FROM stwQuestion WHERE stwSubject_id = $subject_id ";
        $result = mysqli_query($conn, $sql);
        $i =1;
        while($data = mysqli_fetch_array($result,MYSQLI_ASSOC)) {
-
                 $question_text = $data['stwQuestion_text'];
                 $question_id = $data['stwQuestion_id'];
                  
-
         ?><div class="alert alert-success alert-dismissable">ข้อที่ : <?php echo $i;?></div>
 
                     <form class="form-horizontal">
@@ -102,8 +90,6 @@ if ($_SESSION['ses_id']=='') {
             $sql = "SELECT * FROM stwChoice WHERE stwQuestion_id = $question_id ORDER BY stwChoice_id ASC";
                  $r = mysqli_query($conn, $sql);
                  while($ch = mysqli_fetch_array($r)) {
-
-
 ?>                  
                 
                     <div class="form-group">
