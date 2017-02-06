@@ -24,6 +24,11 @@ if ($_SESSION['ses_id']=='') {
             
   
     </head>
+  <script>
+$(document).ready(function() {
+$("pic").fancyZoom();
+}); 
+</script>
 
 
         <body>
@@ -134,7 +139,7 @@ $res =mysqli_query($conn,$sql);
       } else{
         $IMG =  $row['stwContent_img'];
 
-      echo '<img class="img-thumbnail" src="'.$IMG.'" alt="" width="450" height="500">';
+      echo '<img class="img-thumbnail" src="'.$IMG.'" alt="" width="450" height="500" id="pic">';
     }
       ?> 
      

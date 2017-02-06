@@ -15,11 +15,12 @@
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="js/tar.js"></script>
     <script src="js/tars.js"></script>
-    <script src="js/Player.js"></script>
+ >
 
 
 <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
 <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
-
- <script src="http://jwpsrv.com/library/4+R8PsscEeO69iIACooLPQ.js"></script>
+<link rel="stylesheet" href="css/fancyzoom.css"/>
+<script src="js/jquery.fancyzoom.js"></script> 
+ 
