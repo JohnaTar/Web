@@ -60,8 +60,8 @@ echo '<p><img class="img-circle" width="200" height="200" border="2" src="'.$row
 </li>
 <li>
   <a>
-<form action="uploadPIC.php" method="post" enctype="multipart/form-data" name="addroom">
-<input type="file" name="image" class="btn btnn-info" required ="">
+<form action="uploadPIC.php" method="post" enctype="multipart/form-data" >
+<input type="file" name="image" class="btn btnn-info" required ="" accept="image/*">
 <center><input type="submit" name="Submit" value="Change"  class="btn-xl btn-info"/></center>
 
 

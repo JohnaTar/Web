@@ -19,7 +19,7 @@
                     <label class="col-md-4 control-label" for="fn">รูปภาพ</label>  
 
                 <div class="col-md-6">
-                    <input type="file" name="image" class="btn btnn-info" required ="">
+                    <input type="file" name="image" class="btn btnn-info" required ="" accept="image/*">
                        
                 </div>
             </div>
