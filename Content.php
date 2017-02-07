@@ -135,12 +135,10 @@ $res =mysqli_query($conn,$sql);
       } else{
         $IMG =  $row['stwContent_img'];
 
-      echo '
-      <a href="'.$IMG.'"><img src="'.$IMG.'" width="300" height="300" > </a>';
+      echo '<img class="img-thumbnail" src="'.$IMG.'" alt="" width="450" height="500" id="pic">';
     }
       ?> 
-    
-
+     
  </div>
     </div>
     

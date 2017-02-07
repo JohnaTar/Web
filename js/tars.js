@@ -74,7 +74,6 @@ function del_fileupload(id){
   return false;
 }
 
- $(document).ready(function() {
-        $("a").fancyZoom();
-}); 
-    
+$(function(){ 
+  $("img").popImg(); 
+})
