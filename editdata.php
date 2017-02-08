@@ -19,7 +19,7 @@ if ($_SESSION['ses_id']=='') {
         <?php include("head/head.php");
             
         ?>
-        <title>SB Admin - Bootstrap Admin Template</title>
+     
   
     </head>
 

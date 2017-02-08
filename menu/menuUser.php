@@ -147,7 +147,7 @@ echo '<p><img class="img-circle" width="200" height="200" border="2" src="'.$row
 
 
                     <li>                 
-                        <a href="Create"><i class="fa fa-fw fa-edit"></i> หัวข้อการอบรม</a>
+                        <a href="Create"><i class="fa fa-fw fa-edit"></i> หัวข้อแบบทดสอบ</a>
                     </li>
                      <li>
 

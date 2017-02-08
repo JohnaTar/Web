@@ -17,7 +17,7 @@ if ($_SESSION['ses_id']=='') {
         <?php 
         include("head/head.php");        
         ?>
-        <title>SB Admin - Bootstrap Admin Template</title>
+       
 
 
        
@@ -148,10 +148,22 @@ $res =mysqli_query($conn,$sql);
     <div class="row">
       <div class="col-md-12 text-center"  > 
                    <div class="panel">
-                    <p><?php echo $row['stwContent_detail']; ?>
+                    
+              
+
+        <div id="content" class="outro outro2">
+                <div id="rvfs-controllers" class="fontsize-controllers group"></div>
+                <div class="post">
+                    <p><?php echo $row['stwContent_detail']; ?></p> 
                 </div>
             </div>
-        </div>    
+                </div>
+            </div>
+        </div>
+          
+
+
+
                 
     
             
@@ -170,7 +182,7 @@ $res =mysqli_query($conn,$sql);
 
 
 
-
+ 
 
           
  

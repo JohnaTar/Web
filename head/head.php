@@ -23,5 +23,7 @@
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
 <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
 <link rel="stylesheet" href="css/fancyzoom.css"/>
+<script type="text/javascript" src="js/store.min.js"></script>
+<script type="text/javascript" src="js/rv-jquery-fontsize-2.0.3.min.js"></script>
 
- 
+ <title>Welcome - STWAFW</title>

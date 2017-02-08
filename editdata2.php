@@ -16,7 +16,7 @@ if ($_SESSION['ses_id']=='') {
              
 
         ?>
-        <title>SB Admin - Bootstrap Admin Template</title>
+        
   
     </head>
 

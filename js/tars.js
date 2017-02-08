@@ -77,3 +77,14 @@ function del_fileupload(id){
 $(function(){ 
   $("img").popImg(); 
 })
+
+$(document).ready(function() { 
+    $.rvFontsize({
+        targetSection: '#content .post',
+        store: true, // store.min.js required!
+        controllers: {
+            appendTo: '#rvfs-controllers',
+            showResetButton: true
+        }
+    }); 
+});

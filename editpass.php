@@ -9,7 +9,7 @@
               include("checkuser.php");
              
         ?>
-        <title>SB Admin - Bootstrap Admin Template</title>
+     
        
   
     </head>
