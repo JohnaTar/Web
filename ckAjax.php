@@ -42,7 +42,7 @@ if (isset($_POST['show_department'])) {
          WHERE stwDept_id ='".$_POST['show_department']."'";
   $query =mysqli_query($conn,$sql);
   $result =mysqli_fetch_array($query,MYSQLI_ASSOC);
-   echo ' <form class="form-horizontal" id="save_authen">
+   echo ' <form class="form-horizontal" >
              <div class="form-group">
                     <label class="col-md-4 control-label" for="fn">ชื่อแผนก</label>  
 

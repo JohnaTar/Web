@@ -49,7 +49,7 @@ if ($_SESSION['ses_id']=='') {
                                 <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
                             </li>
                             <li class="active">
-                                <i class="fa fa-puzzle-piece"></i> จัดการแบบทดสอบ
+                                <i class="fa fa-puzzle-piece"></i> แก้ไขคำถาม
                             </li>
                         </ol>
                     </div>
@@ -61,29 +61,23 @@ if ($_SESSION['ses_id']=='') {
 
 <?php 
         include("connect.php");
-       $subject_id = $_GET['subject_id'];
-       $sql = "SELECT * FROM stwQuestion WHERE stwSubject_id = $subject_id ";
+       $question_id = $_GET['id'];
+       $sql = "SELECT * FROM stwQuestion WHERE stwQuestion_id = $question_id ";
        $result = mysqli_query($conn, $sql);
-       $i =1;
-       while($data = mysqli_fetch_array($result,MYSQLI_ASSOC)) {
+    
+       $data = mysqli_fetch_array($result,MYSQLI_ASSOC) ;
                 $question_text = $data['stwQuestion_text'];
                 $question_id = $data['stwQuestion_id'];
                  
-        ?><div class="alert alert-info alert-dismissable">ข้อที่ : <?php echo $i;?></div>
+        ?>
 
-                    <form class="form-horizontal">
+                    <form class="form-horizontal" method="POST" action="editquestion.php">
 
                     <div class="form-group">
                     <label class="col-md-4 control-label">คำถาม</label>
                     <div class="col-md-4">
-                        <input type="text" value="<?php echo $question_text; ?> " class="form-control"  readonly>
-                   
+                        <input type="text" value="<?php echo $question_text; ?> " class="form-control"  >
                     </div>
-                 
-    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#show_edit_choice" onclick="return show_edit_quiz(<?php echo $data['stwQuestion_id']?>);"  >แก้ไข 
-    </button>
-                
-                 
                 </div>  
                            
    
@@ -95,44 +89,37 @@ if ($_SESSION['ses_id']=='') {
         <?php
             $sql = "SELECT * FROM stwChoice WHERE stwQuestion_id = $question_id ORDER BY stwChoice_id ASC";
                  $r = mysqli_query($conn, $sql);
-                 while($ch = mysqli_fetch_array($r,MYSQLI_ASSOC)) {
-
-                    if ($ch['stwAnswer']=='yes') {
-                       
-                       $div = '<div class="form-group has-success">';
-                    } else{
-                         $div = '<div class="form-group">';
-                    }
+                 $i =1;
+                 while($ch = mysqli_fetch_array($r)) {
 ?>                  
                 
-                    <?php echo $div; ?>
+                    <div class="form-group">
                     <label class="col-md-4 control-label">คำตอบ</label>
                     <div class="col-md-4">
-                        <input type="text" value="<?php echo $ch['stwChoice_text']; ?>" class="form-control" readonly  > 
+                        <input type="text" class="form-control" value="<?php echo $ch['stwChoice_text']; ?>" name="<?php echo $i;?>" >
+                        <div class="radio">
+                        <label><input type="radio" name="s" <?php if($ch['stwAnswer'] == 'yes'){echo "checked='checked'";} ?>>ตัวเลือก</label>
+                          </div>
                     </div>
-        <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#show_edit_choice" onclick="return show_edit_choice(<?php echo $ch['stwChoice_id']?>);"  >แก้ไข 
-    </button>
-
-    
                 </div>  
                    
 
 
 
-                   <?php } ?>
+                   <?php $i++; } ?>
 
 
                                                       
                 <div class="form-group">
                 <label class="col-md-4 control-label" for=""></label>
                 <div class="col-md-4">
-            
-            <button   class="btn btn-danger btn-sm" >ลบ</button>
-            
+            <button id="btnSubmit" name="submit" class="btn btn-primary" >ตกลง</button>
+            <input type=button class="btn btn-danger" onclick=window.history.back() value=ยกเลิก>
 
                 </div>
             </div>
-                 
+            </form>
+         
                             
 
 
@@ -140,12 +127,11 @@ if ($_SESSION['ses_id']=='') {
                                 
 
 
-<?php $i++;}
+<?php 
                                 mysqli_close($conn);
                             
 ?>
-
-
+     
         </div>
     </div>
  
@@ -160,9 +146,10 @@ if ($_SESSION['ses_id']=='') {
   
   
 
+
  
  
-  <?php include("modal/show_choice.php");?>
+  <?php include("modal/addQuest.php");?>
 
 
 
