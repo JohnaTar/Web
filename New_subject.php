@@ -123,6 +123,9 @@ mysqli_close($conn);
 
 
     ?>
+    <a href="Create"><button class="btn btn-success">แสดงแบบทดสอบ</button> </a>
+    <br>
+    <br>
 
 <div class="alert alert-danger alert-dismissable">หากกำหนดวันเวลา จะทำให้ผู้เข้าทดสอบสามารถทำแบบทดสอบได้เฉพาะในวันและช่วงเวลาที่กำหนดเท่านั้น</div>
 
@@ -170,7 +173,7 @@ mysqli_close($conn);
                         
                            
    
-   <a href="Create"><button class="btn btn-success">แสดงแบบทดสอบ</button> </a>
+   
   
   
 

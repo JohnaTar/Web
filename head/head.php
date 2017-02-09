@@ -14,7 +14,7 @@
     <script src="js/tar.js"></script>
     <script src="js/tars.js"></script>
     <script src="js/tarss.js"></script>
-    <script src="js/popimg.js"></script>
+    <script src="js/popImg.js"></script>
   
 
 

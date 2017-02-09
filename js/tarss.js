@@ -47,3 +47,18 @@ function show_edit_quiz(id){
     return false;
 
 }
+
+function delete_quiz(id){
+  if(confirm("คุณต้องการลบคำถามหรือไม่")){
+    $.ajax({
+      type:"POST",
+      url:"manage_quiz.php",
+      data:{delete_quiz:id},
+      success:function(data){
+        alert(data);
+        location.reload();
+      }
+    });
+  }
+  return false;
+}

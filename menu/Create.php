@@ -13,7 +13,8 @@
                             ?>
                            
 
-                       
+                       <br>
+                       <br>
                          <table class="table table-striped table-hover" id="myTable">
                                 <thead>
                                     <tr>
@@ -64,7 +65,7 @@ include("connect.php");
                 '<button type="button" class="btn btn-success" data-toggle="modal" data-target="#addQuest" onclick="return show_add_question('.$subject_id.');" >เพิ่มคำถาม </button>'.
 
              // '<a href="testing.php?'.$q.'">ดูแบบทดสอบ</a>'.
-                 '<a href="show_question?'.$q.'"> <button type="button"  class="btn btn-info" >ดูแบบทดสอบ</button> </a>'.
+                 '<a href="show_question?'.$q.'"> <button type="button"  class="btn btn-info" >แก้ไขคำถาม</button> </a>'.
              // '<a href="#">ลบ/แก้ไข</a>';
                  '<a href="add-question.php?'.$q.'"> <button type="button"  class="btn btn-warning" >ลบ/แก้ไข</button> </a>';
   }   

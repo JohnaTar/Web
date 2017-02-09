@@ -127,7 +127,7 @@ if ($_SESSION['ses_id']=='') {
                 <label class="col-md-4 control-label" for=""></label>
                 <div class="col-md-4">
             
-            <button   class="btn btn-danger btn-sm" >ลบ</button>
+            <button   class="btn btn-danger btn-sm" onclick="return delete_quiz(<?php echo $question_id  ?>);">ลบ</button>
             
 
                 </div>

@@ -85,6 +85,15 @@ echo '<p><img class="img-circle" width="200" height="200" border="2" src="'.$row
                             <li>
                                 <a href="Content?ID=3">บทที่ 3</a>
                             </li>
+                            <li>
+                                <a href="Content?ID=4">บทที่ 4</a>
+                            </li>
+                            <li>
+                                <a href="Content?ID=5">บทที่ 5</a>
+                            </li>
+                            <li>
+                                <a href="Content?ID=6">บทที่ 6</a>
+                            </li>
                         </ul>
                     </li>  
                     <li>
@@ -100,6 +109,15 @@ echo '<p><img class="img-circle" width="200" height="200" border="2" src="'.$row
                             </li>
                            <li>
                                 <a href="edit_lesson?ID=3"> บทที่ 3</a>
+                            </li>
+                             <li>
+                                <a href="edit_lesson?ID=4"> บทที่ 4</a>
+                            </li>
+                             <li>
+                                <a href="edit_lesson?ID=5"> บทที่ 5</a>
+                            </li>
+                             <li>
+                                <a href="edit_lesson?ID=6"> บทที่ 6</a>
                             </li>
                             
                         </ul>

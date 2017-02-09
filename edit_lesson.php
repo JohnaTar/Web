@@ -114,14 +114,23 @@ stwContent WHERE stwLesson_id ='".$ID."'";
     ?>
 </td>
 
-  <td> 
+  
+ <td>
+       <div class="btn-group">
+  <button type="button" class="btn btn-success dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    เมนู<span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+   
+    
+    <li><a href=""  data-toggle="modal" data-target="#edit_info" onclick="return  show_edit_info(<?php echo $row['stwContent_id']?>);"">แก้ไข  
+     </a></li>
+     <li role="separator" class="divider"></li>
+    <li><a href="#" onclick="return del_lesson(<?php echo $row['stwContent_id']?>);" >ลบ </a></li>
+    
+  </ul>
+</div>
 
-  <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#edit_info" onclick="return  show_edit_info(<?php echo $row['stwContent_id']?>);"">แก้ไข</button>
-    <button type="button" class="btn btn-danger btn-sm" 
-                 onclick="return del_lesson(<?php echo $row['stwContent_id']?>);" >ลบ 
-
-      </button>
-               
  </td>
 
                 
