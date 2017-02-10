@@ -77,7 +77,7 @@ $row =mysqli_fetch_array($res,MYSQLI_ASSOC);
 
 ?>
     <div class="row">
-      <div class="col-md-6"> 
+      <div class="col-md-12"> 
          <div class="page-header">
                  <h1><?php echo $row['stwLesson_name'];  ?></h1>
         </div>

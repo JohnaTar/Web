@@ -20,6 +20,7 @@
                                     <tr>
                                           
                                         <th>หัวข้อแบบทดสอบ</th>
+                                        <th>เมนู</th>
                                       
                                         
                                                                                    
@@ -65,23 +66,29 @@ include("connect.php");
                 '<button type="button" class="btn btn-success" data-toggle="modal" data-target="#addQuest" onclick="return show_add_question('.$subject_id.');" >เพิ่มคำถาม </button>'.
 
              // '<a href="testing.php?'.$q.'">ดูแบบทดสอบ</a>'.
-                 '<a href="show_question?'.$q.'"> <button type="button"  class="btn btn-info" >แก้ไขคำถาม</button> </a>'.
+                 '<a href="show_question?'.$q.'"> <button type="button"  class="btn btn-info" >แก้ไขคำถาม</button> </a>';
              // '<a href="#">ลบ/แก้ไข</a>';
-                 '<a href="add-question.php?'.$q.'"> <button type="button"  class="btn btn-warning" >ลบ/แก้ไข</button> </a>';
+      $bb ='<a href="Edit_subject?'.$q.'"> <button type="button"  class="btn btn-info" >แก้ไขแบบทดสอบ</button> </a>'.'<a href=""> <button type="button" onclick="return delete_subject('.$q.');" class="btn btn-danger" >ลบ</button> </a>';
+                 
+                 
   }   
 ?>
 
 
                                    
-                <td>
+        <td>
                     
             <?php echo '<div class="subject">'.$data['stwSubject_text'].'</div>
             <div class="question">'.$num_q.' คำถาม</div><br>
             <div class="datetime">กำหนดทำแบบทดสอบ: '.$dt.'</div>
-          '.$bt.'<a href="score.php?'.$q.'"><button type="button"  class="btn btn-danger" >ดูผลทดสอบ</button> </a></a>
+          '.$bt.'<a href="score.php?'.$q.'"><button type="button"  class="btn btn-warning" >ดูผลทดสอบ</button> </a></a>
                 <hr>';; ?>
-                </td>
-               
+        </td>
+        <td>
+              <?php 
+                   echo $bb;
+              ?>
+        </td>
 
 
 

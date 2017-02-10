@@ -94,32 +94,42 @@ if ($_SESSION['ses_id']=='') {
 
                 <div class="row">
                     <div class="col-md-12">
-                        <center><h2>เพิ่มหัวข้อทดสอบ</h2></center>
+                        <center><h2>แก้ไขหัวข้อทดสอบ</h2></center>
     <?php
-    if ($_POST) {
-        
-    
-        include("connect.php"); 
-
-
-    $subject = $_POST['subject'];
+     include("connect.php"); 
+     if (isset($_POST['ok'])) {
+    $subject = $_GET['subject_id'];
+    $subject_text =$_POST['subject'];
     $date_test = $_POST['date'];
     $time_start =$_POST['time_start'];
     $time_end =$_POST['time_end'];
    
-        $sql ="REPLACE INTO stwSubject VALUES('','$subject','$date_test',
-        '$time_start','$time_end')";
+        $sql ="UPDATE stwSubject SET
+
+          stwSubject_text = '$subject_text',
+          stwDate_test ='$date_test',
+          stwTime_start ='$time_start',
+          stwTime_end ='$time_end'
+          WHERE stwSubject_id = '$subject' "; 
         $result = mysqli_query($conn,$sql);
         if ($result) { 
 
-             echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>บันทึกข้อมูลเรียบร้อย</div>';
+             echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>แก้ไขข้อมูลเรียบร้อย</div>';
             
         } else{
-            echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>เกิดข้อผิดพลาดในการบันทึกข้อมูล กรุณาลองใหม่</div>';
+            echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>เกิดข้อผิดพลาดในการแก้ไขข้อมูล กรุณาลองใหม่</div>';
+
 
         }
-mysqli_close($conn);
     }
+    
+       
+
+
+    $subject = $_GET['subject_id'];
+    $sql = "SELECT * FROM stwSubject WHERE stwSubject_id =$subject";
+    $res =mysqli_query($conn,$sql);
+    $row =mysqli_fetch_array($res,MYSQLI_ASSOC);
 
 
     ?>
@@ -137,7 +147,7 @@ mysqli_close($conn);
           <div class="form-group">
                     <label class="col-md-4 control-label" for="fn">หัวข้อการทดสอบ</label>  
                 <div class="col-md-4">
-                    <input name="subject" type="text" class="form-control input-md" id="text" >
+                    <input name="subject" type="text" class="form-control input-md" id="text"  value="<?php echo $row['stwSubject_text'];?>">
                     <span id="mdd"></span>
     
                 </div>
@@ -148,9 +158,13 @@ mysqli_close($conn);
                 <div class="col-md-4">
                    
                     <label >วันที่จะทดสอบ</label>  
-                    <input type="text" id="datepicker"  class="form-control input-md" name="date" ><br> <label >เวลาเริ่ม</label>
-                    <input type="time"  class="form-control input-md" name="time_start" ><br> <label >เวลาสิ้นสุด</label>
-                    <input type="time" class="form-control input-md" name="time_end" >
+                    <input type="text" id="datepicker"  class="form-control input-md" name="date" value="<?php echo $row['stwDate_test'];?>">
+                    <br>
+                    <label >เวลาเริ่ม</label>
+                    <input type="time"  class="form-control input-md" name="time_start" value="<?php echo $row['stwTime_start'];?>">
+                    <br> 
+                    <label >เวลาสิ้นสุด</label>
+                    <input type="time" class="form-control input-md" name="time_end" value="<?php echo $row['stwTime_end'];?>" >
 
     
                 </div>
@@ -162,13 +176,21 @@ mysqli_close($conn);
              <div class="form-group">
                 <label class="col-md-4 control-label" for=""></label>
                 <div class="col-md-4">
-            <button id="ok"  class="btn btn-primary" >ตกลง</button>
+            <button name="ok"  class="btn btn-primary" >ตกลง</button>
             
 
                 </div>
             </div>
 
-     </form>                       
+     </form> 
+<?php
+   
+        
+mysqli_close($conn);
+    
+     
+
+?>                      
                         
                         
                            

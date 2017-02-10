@@ -11,7 +11,7 @@ include("email/PHPMailerAutoload.php");
                 $firstname =$row['stwFirstname'];
                 $encrypt=md5(55+10+$row['stwUser_id']);
                 
-                $body= 'Hi, <br/> <br/>Your Username  is '.$row['stwUsername'].' <br><br>Click here to reset your password http://localhost/Web/reset.php?encrypt='.$encrypt.'&action=reset   <br/> <br/>--<br>Tarlnwza007<br>love you na.';
+                $body= 'Hi, <br/> <br/>Your Username  is '.$row['stwUsername'].' <br><br>Click here to reset your password http://172.20.96.200/reset.php?encrypt='.$encrypt.'&action=reset   <br/> <br/>--<br>Thank you<br>STWAFW team.';
 $mail = new PHPMailer;
 $mail->isSMTP();
 $mail->CharSet = 'UTF-8';
@@ -22,8 +22,8 @@ $mail->Port = 587;
 $mail->SMTPSecure = 'tls';
 $mail->SMTPAuth = true;
 $mail->Username = "leavemetar@gmail.com";
-$mail->Password = "leavetar123";
-$mail->setFrom('leavemetar@gmail.com', 'Administrator@Web');
+$mail->Password = "021934432";
+$mail->setFrom('leavemetar@gmail.com', 'Administrator@STWAFW');
 $mail->addAddress($email,$firstname);
 $mail->Subject = 'FORGET PASSWORD';
 $mail->msgHTML($body);
@@ -38,6 +38,7 @@ if (!$mail->send()) {
                 
             }else
             echo "<script>alert('ไม่พบอีเมลล์ในระบบ')</script>";
+             echo "<script>window.location='index'</script>";
              
             
         }

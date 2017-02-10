@@ -78,7 +78,7 @@ if ($_SESSION['ses_id']=='') {
                 ';
 
                
-                echo ' <button type="button" class="btn btn-success btn-xl" onclick="return user_request('.$_SESSION['ID'].');">ร้องขอชิวิต</button>';
+                echo ' <button type="button" class="btn btn-success btn-xl" onclick="return user_request('.$_SESSION['ID'].');">ร้องขอการทำแบบทดสอบ</button>';
                
             
 
