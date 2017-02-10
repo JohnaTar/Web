@@ -99,7 +99,7 @@ include("connect.php");
         $num_q = $row[0];
     } 
   //////////////////////////////////////////////////////////////////////
-
+ 
   $s =$num_q *50/100;
   $sql ="SELECT COUNT(*) FROM stwscore WHERE stwSubject_id=$subject_id AND amount >=$s";
   $r = mysqli_query($conn, $sql);
@@ -130,7 +130,7 @@ include("connect.php");
                 <td><?php echo $data['stwTime_end']; ?></td>
                 <td><?php  echo $num_h; ?></td>
                 <td><?php  echo $num_p; ?></td>   
-               <td><a href="View_report_detail?id=<?php echo  $data['stwSubject_id'];?>" class="btn btn-success">Detail</td>             
+               <td><a href="View_report_detail?id=<?php echo  $data['stwSubject_id'];?>" class="btn btn-success">Detail</a></td>             
                         
            
                

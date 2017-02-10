@@ -16,8 +16,9 @@
     <script src="js/tarss.js"></script>
     <script src="js/popImg.js"></script>
     <script src="js/nattee.js"></script>
-  
-
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
 
 
 <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -28,3 +29,6 @@
 <script type="text/javascript" src="js/rv-jquery-fontsize-2.0.3.min.js"></script>
 
  <title>Welcome - STWAFW</title>
+<script src="js/plugins/morris/raphael.min.js"></script>
+    <script src="js/plugins/morris/morris.min.js"></script>
+ 
