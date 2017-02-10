@@ -131,7 +131,7 @@ echo '<p><img class="img-circle" width="200" height="200" border="2" src="'.$row
                     </li>
 
                     <li>
-                        <a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i> รายงานการอบรม</a>
+                        <a href="View_report"><i class="fa fa-fw fa-bar-chart-o"></i> รายงานการทำแบบทดสอบ</a>
                     </li>
                     
                     <li>

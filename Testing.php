@@ -148,23 +148,44 @@ while($data = mysqli_fetch_array($result)) {
 <?php
   $sql = "SELECT * FROM stwChoice WHERE stwQuestion_id = $question_id ORDER BY stwChoice_id ASC";
   $r = mysqli_query($conn, $sql);
-  echo '<div  class="question">'.$question_text.'.</div>';
-  //แสดง radio และตัวเลือกของคำถามนั้นๆ
+?>
+ <form class="form-horizontal">
+     <div class="form-group">
+        <label class="col-md-2 control-label">คำถาม</label>
+            <div class="col-md-4">
+                <input type="text" value="<?php echo $question_text; ?> " class="form-control"  readonly>
+                   
+            </div>
+      </div>
+      </form>
+  
+
+<?php
+
+      
   while($ch = mysqli_fetch_array($r)) {
 
-    echo "<div class=\"radio\"><input type=\"radio\"  name=\"$question_id\" value=\"{$ch['stwChoice_id']}</div>
-        <div class=\"choice\">{$ch['stwChoice_text']}</div>";
-
-  }
- $i++;
-
-}
 
 
+    echo "
 
+    <div class=\"form-group\">
+        <div class=\"radio\">
+    <label class=\"col-md-1 control-label\">คำคอบ</label>
 
-mysqli_close($conn);
+          <input type=\"radio\"  name=\"$question_id\" value=\"{$ch['stwChoice_id']}
+          </div>
+        <div class=\"choice\">{$ch['stwChoice_text']}
+      </div>
+    </div>
+        ";
 ?>
+
+
+
+
+<?php }  $i++;   }  mysqli_close($conn); ?>
+
 
 
 <!-- *********************************ปุ่ม************ -->            

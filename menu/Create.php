@@ -81,7 +81,7 @@ include("connect.php");
             <?php echo '<div class="subject">'.$data['stwSubject_text'].'</div>
             <div class="question">'.$num_q.' คำถาม</div><br>
             <div class="datetime">กำหนดทำแบบทดสอบ: '.$dt.'</div>
-          '.$bt.'<a href="score.php?'.$q.'"><button type="button"  class="btn btn-warning" >ดูผลทดสอบ</button> </a></a>
+          '.$bt.'<a href="score.php?'.$q.'"></a>
                 <hr>';; ?>
         </td>
         <td>
