@@ -132,8 +132,8 @@ if(isset($_SESSION['ID'])) {
  
    
 <?php
-
-$sql = "SELECT * FROM stwQuestion WHERE stwSubject_id = $subject_id ";
+$sql = "SELECT * FROM stwQuestion WHERE stwSubject_id = '$subject_id' ORDER BY RAND ()";
+//$sql = "SELECT * FROM stwQuestion  WHERE stwSubject_id = $subject_id ";
 $result = mysqli_query($conn, $sql);
   $i =1;
 while($data = mysqli_fetch_array($result)) {
@@ -146,7 +146,7 @@ while($data = mysqli_fetch_array($result)) {
   </div>
  
 <?php
-  $sql = "SELECT * FROM stwChoice WHERE stwQuestion_id = $question_id ORDER BY stwChoice_id ASC";
+  $sql = "SELECT * FROM stwChoice WHERE stwQuestion_id = $question_id ORDER BY RAND ()";
   $r = mysqli_query($conn, $sql);
 ?>
  <form class="form-horizontal">

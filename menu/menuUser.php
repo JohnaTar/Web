@@ -127,8 +127,8 @@ echo '<p><img class="img-circle" width="200" height="200" border="2" src="'.$row
 
                      <li>
 
-                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-file""></i> เนื้อหา<i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="demo" class="collapse">
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo1"><i class="fa fa-fw fa-file""></i> เนื้อหา<i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo1" class="collapse">
                             <li>
                                 <a href="Content?ID=1">บทที่ 1</a>
                             </li>
