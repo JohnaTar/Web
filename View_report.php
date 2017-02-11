@@ -63,6 +63,7 @@ if ($_SESSION['ses_id']=='') {
                                         <th>วันที่ทดสอบ</th>
                                         <th>เวลาเริ่ม</th>
                                         <th>เวลาสิ้นสุด</th> 
+                                        <th>เกณฑ์การผ่านแบบทดสอบ</th>
                                         <th>จำนวนคนทดสอบ</th>
                                         <th>จำนวนคนผ่าน</th>
                                         <th>เมนู</th>
@@ -89,6 +90,7 @@ include("connect.php");
 
      while($data = mysqli_fetch_array($result)) {
     $subject_id = $data['stwSubject_id'];
+    $pass =$data['stwSubject_past'];
 
    
     $sql = "SELECT COUNT(*) FROM stwQuestion WHERE stwSubject_id = $subject_id";  //นับจำนวนคำถามของหัวข้อนี้
@@ -100,7 +102,7 @@ include("connect.php");
     } 
   //////////////////////////////////////////////////////////////////////
  
-  $s =$num_q *50/100;
+  $s =$num_q *$pass/100;
   $sql ="SELECT COUNT(*) FROM stwscore WHERE stwSubject_id=$subject_id AND amount >=$s";
   $r = mysqli_query($conn, $sql);
     $num_p = 0;
@@ -122,12 +124,13 @@ include("connect.php");
         
 
 
-
+                
                 <td><?php echo $i ?></td>       
                 <td><?php echo $data['stwSubject_text']; ?></td>
                 <td><?php echo $data['stwDate_test']; ?></td>
                 <td><?php echo $data['stwTime_start']; ?></td>
                 <td><?php echo $data['stwTime_end']; ?></td>
+                <td><?php echo $pass; ?></td>
                 <td><?php  echo $num_h; ?></td>
                 <td><?php  echo $num_p; ?></td>   
                <td><a href="View_report_detail?id=<?php echo  $data['stwSubject_id'];?>" class="btn btn-success">Detail</a></td>             

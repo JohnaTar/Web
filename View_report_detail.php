@@ -27,28 +27,7 @@ if ($_SESSION['ses_id']=='') {
   
     </head>
    
- <script type="text/javascript">
-    $(function() {
-
-    
-  
-    Morris.Donut({
-        element: 'morris-donut-chart',
-        data: [{
-            label: "ผ่านการทำแบบทดสอบ",
-            value: 100
-        }, {
-            label: "ไม่ผ่านการทำแบบทดสอบ",
-            value: 30
-    
-        }],
-        resize: true
-    });
-
-  
-
-});
-</script>
+ 
         <body>
         
             
@@ -94,14 +73,10 @@ if ($_SESSION['ses_id']=='') {
     include("connect.php");
 
     $sub = $_GET['id'];
-    $ss="SELECT
-stwsubject.stwSubject_text
-FROM
-stwsubject
-INNER JOIN stwscore ON stwscore.stwSubject_id = stwsubject.stwSubject_id
-";
+    $ss="SELECT * FROM stwsubject WHERE stwSubject_id ='$sub'";
 $res = mysqli_query($conn,$ss);
 $rr=mysqli_fetch_array($res,MYSQLI_ASSOC);
+$pass =$rr['stwSubject_past'];
    
 
 
@@ -111,7 +86,8 @@ $rr=mysqli_fetch_array($res,MYSQLI_ASSOC);
 
     
 
-?>                                               
+?>    
+                      
                 <div class="row">
                     <div class="col-md-12">
                     <center><h2>ตารางรายงานการทำแบบทดสอบ : <?php echo $rr['stwSubject_text']; ?></h2></center>
@@ -131,6 +107,15 @@ $rr=mysqli_fetch_array($res,MYSQLI_ASSOC);
                                 <tbody>   
                                 <tr>
 <?php
+ $sql ="SELECT COUNT(*) FROM stwscore WHERE stwSubject_id=$sub ";
+  $r = mysqli_query($conn, $sql);
+    $num_h = 0;
+    if($r) {
+        $row = mysqli_fetch_array($r);
+        $num_h = $row[0];
+    } 
+
+ 
  
     $sqli = "SELECT COUNT(*) FROM stwQuestion WHERE stwSubject_id = '$sub'";  //นับจำนวนคำถามของหัวข้อนี้
     $r = mysqli_query($conn, $sqli);
@@ -139,6 +124,44 @@ $rr=mysqli_fetch_array($res,MYSQLI_ASSOC);
         $row = mysqli_fetch_array($r);
         $num_q = $row[0];
     } 
+
+     $s =$num_q *$pass/100;
+  $sql ="SELECT COUNT(*) FROM stwscore WHERE stwSubject_id=$sub AND amount >=$s";
+  $r = mysqli_query($conn, $sql);
+    $num_p = 0;
+    if($r) {
+        $row = mysqli_fetch_array($r);
+        $num_p = $row[0];
+    } 
+
+    ?>
+    <script type="text/javascript">
+    $(function() {
+
+    
+  
+    Morris.Donut({
+        element: 'morris-donut-chart',
+        data: [{
+            label: "ผ่านการทำแบบทดสอบ",
+            value: <?php echo $num_p; ?>
+
+        }, {
+            label: "ไม่ผ่านการทำแบบทดสอบ",
+            value: <?php echo $num_h-$num_p; ?>
+    
+        }],
+        resize: true
+    });
+
+  
+
+});
+</script>                     
+
+
+
+    <?php
 
  $sql ="
 SELECT
@@ -167,17 +190,18 @@ $result = mysqli_query($conn,$sql);
                                                $rows['stwLastname']; ?>
                                 <td><?php echo $rows['stwDept_name']; ?></td>
                                 <td><?php echo $rows['amount'];  ?> / <?php echo $num_q; ?></td>
-                                <td> <?php $SC=$num_q *50/100;
+                                <td> <?php $SC=$num_q *$pass/100;
                                         if ($rows['amount']<=$SC) {
-                                             echo '<span class="label label-warning">ไม่ผ่าน</span>';
+                                               echo '<i class="fa fa-times fa-2x"></i>';
                                         }else{
-                                            echo '<span class="label label-success">ผ่าน</span>';
+                                            echo '<i class="fa fa-check fa-2x"></i>';
                                         }
 
                                      ?>
                                     
 
                                 </td>
+
         
 
                                 </tr>

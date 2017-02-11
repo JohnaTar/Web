@@ -100,6 +100,7 @@ if ($_SESSION['ses_id']=='') {
      if (isset($_POST['ok'])) {
     $subject = $_GET['subject_id'];
     $subject_text =$_POST['subject'];
+    $past=$_POST['Past'];
     $date_test = $_POST['date'];
     $time_start =$_POST['time_start'];
     $time_end =$_POST['time_end'];
@@ -107,6 +108,7 @@ if ($_SESSION['ses_id']=='') {
         $sql ="UPDATE stwSubject SET
 
           stwSubject_text = '$subject_text',
+          stwSubject_past ='$past',
           stwDate_test ='$date_test',
           stwTime_start ='$time_start',
           stwTime_end ='$time_end'
@@ -152,6 +154,24 @@ if ($_SESSION['ses_id']=='') {
     
                 </div>
             </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="selectbasic">เกณท์การผ่านทดสอบ</label>
+                    <div class="col-md-4">
+                    <select  name="Past" class="form-control input-md">
+              <option value = "50" <?php if($row['stwSubject_past'] == '50'){echo "selected='selected'";} ?>>50% </option>
+                <option value = "55"<?php if($row['stwSubject_past'] == '55'){echo "selected='selected'";} ?>>55% </option>
+                  <option value = "60"<?php if($row['stwSubject_past'] == '60'){echo "selected='selected'";} ?>>60% </option>
+                    <option value = "65"<?php if($row['stwSubject_past'] == '65'){echo "selected='selected'";} ?>>65% </option>
+                      <option value = "70"<?php if($row['stwSubject_past'] == '70'){echo "selected='selected'";} ?>>70% </option>
+                        <option value = "75"<?php if($row['stwSubject_past'] == '75'){echo "selected='selected'";} ?>>75% </option>
+                          <option value = "80"<?php if($row['stwSubject_past'] == '80'){echo "selected='selected'";} ?>>80% </option>
+                            <option value = "85"<?php if($row['stwSubject_past'] == '85'){echo "selected='selected'";} ?>>85% </option>
+                              <option value = "90"<?php if($row['stwSubject_past'] == '90'){echo "selected='selected'";} ?>>90% </option>
+                                <option value = "95"<?php if($row['stwSubject_past'] == '95'){echo "selected='selected'";} ?>>95% </option>      
+                </select>
+                </div>
+            </div>
+               
 
             <div class="form-group">
                     <label class="col-md-4 control-label" for="fn">วันเวลาที่จะทดสอบ</label>  

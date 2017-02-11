@@ -104,10 +104,11 @@ if ($_SESSION['ses_id']=='') {
 
     $subject = $_POST['subject'];
     $date_test = $_POST['date'];
+    $past =$_POST['Past'];
     $time_start =$_POST['time_start'];
     $time_end =$_POST['time_end'];
    
-        $sql ="REPLACE INTO stwSubject VALUES('','$subject','$date_test',
+        $sql ="REPLACE INTO stwSubject VALUES('','$subject','$past','$date_test',
         '$time_start','$time_end')";
         $result = mysqli_query($conn,$sql);
         if ($result) { 
@@ -140,6 +141,23 @@ mysqli_close($conn);
                     <input name="subject" type="text" class="form-control input-md" id="text" >
                     <span id="mdd"></span>
     
+                </div>
+            </div>
+             <div class="form-group">
+                <label class="col-md-4 control-label" for="selectbasic">เกณท์การผ่านทดสอบ</label>
+                    <div class="col-md-4">
+                    <select  name="Past" class="form-control input-md">
+              <option value = "50">50% </option>
+                <option value = "55">55%  </option>
+                  <option value = "60">60%  </option>
+                    <option value = "65">65%  </option>
+                      <option value = "70">70%  </option>
+                        <option value = "75">75%  </option>
+                          <option value = "80">80% </option>
+                            <option value = "85">85% </option>
+                              <option value = "90">90% </option>
+                                <option value = "95">95% </option>           
+                </select>
                 </div>
             </div>
 
