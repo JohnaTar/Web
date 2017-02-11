@@ -41,7 +41,7 @@ else {	//ตรวจนับคะแนน
 	$sql = "REPLACE INTO stwscore VALUES($testee_id, $subject_id, $score)";
 	mysqli_query($conn, $sql);
 
-	$sql = "DELETE FROM stwUser WHERE stwUser_id = $testee_id AND stwSubject_id = $subject_id";
+	$sql = "DELETE FROM stwtesting WHERE stwUser_id = $testee_id AND stwSubject_id = $subject_id";
 	mysqli_query($conn, $sql);
 				
 	mysqli_close($conn);
