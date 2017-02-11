@@ -45,8 +45,7 @@ include("connect.php");
 
      while($data = mysqli_fetch_array($result)) {
     $subject_id = $data['stwSubject_id'];
-    $dt = "วันที่ " . $data['stwDate_test'] . " เวลา " . $data['stwTime_start'] . " - " . $data['stwTime_end'];
-    $dp =$data['stwSubject_past'];  
+    $dt = "วันที่ " . $data['stwDate_test'] . " เวลา " . $data['stwTime_start'] . " - " . $data['stwTime_end'];  
    
     $sql = "SELECT COUNT(*) FROM stwQuestion WHERE stwSubject_id = $subject_id";  //นับจำนวนคำถามของหัวข้อนี้
     $r = mysqli_query($conn, $sql);
@@ -82,13 +81,21 @@ include("connect.php");
             <?php echo '<div class="subject">'.$data['stwSubject_text'].'</div>
             <div class="question">'.$num_q.' คำถาม</div><br>
             <div class="datetime">กำหนดทำแบบทดสอบ: '.$dt.'</div>
-            <div class="past"> เกณฑ์การทำแบบทดสอบ: '.$dp.'%</div>
           '.$bt.'<a href="score.php?'.$q.'"></a>
                 <hr>';; ?>
         </td>
-      <td>
-        <button type="button"  class="btn btn-info" >ดูผลทดสอบ</button> 
-      </td>
+        <td>
+              <?php if ($_SESSION['status']==3) {
+                                 echo '<a href="View_result_user?'.$q.'"><button type="button"  class="btn btn-info" >ดูผลทดสอบ</button></a> ';
+                            } else{
+                                echo $bb;
+                            }
+
+
+
+                        ?>
+                           
+        </td>
 
 
 
