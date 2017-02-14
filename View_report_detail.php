@@ -73,7 +73,7 @@ if ($_SESSION['ses_id']=='') {
     include("connect.php");
 
     $sub = $_GET['id'];
-    $ss="SELECT * FROM stwsubject WHERE stwSubject_id ='$sub'";
+    $ss="SELECT * FROM stwSubject WHERE stwSubject_id ='$sub'";
 $res = mysqli_query($conn,$ss);
 $rr=mysqli_fetch_array($res,MYSQLI_ASSOC);
 $pass =$rr['stwSubject_past'];
@@ -168,17 +168,17 @@ SELECT
 stwscore.stwUser_id,
 stwscore.stwSubject_id,
 stwscore.amount,
-stwuser.stwFirstname,
-stwuser.stwLastname,
-stwdepartment.stwDept_name,
-stwsubject.stwSubject_text,
-stwprefix.stwPrefix_name
+stwUser.stwFirstname,
+stwUser.stwLastname,
+stwDepartment.stwDept_name,
+stwSubject.stwSubject_text,
+stwPrefix.stwPrefix_name
 FROM
 stwscore
-INNER JOIN stwuser ON stwscore.stwUser_id = stwuser.stwUser_id
-INNER JOIN stwdepartment ON stwuser.stwDept_id = stwdepartment.stwDept_id
-INNER JOIN stwsubject ON stwscore.stwSubject_id = stwsubject.stwSubject_id
-INNER JOIN stwprefix ON stwuser.stwPrefix_id = stwprefix.stwPrefix_id
+INNER JOIN stwUser ON stwscore.stwUser_id = stwUser.stwUser_id
+INNER JOIN stwDepartment ON stwUser.stwDept_id = stwDepartment.stwDept_id
+INNER JOIN stwSubject ON stwscore.stwSubject_id = stwSubject.stwSubject_id
+INNER JOIN stwPrefix ON stwUser.stwPrefix_id = stwPrefix.stwPrefix_id
 WHERE stwscore.stwSubject_id = '$sub'";
 $result = mysqli_query($conn,$sql);
     $i=1;

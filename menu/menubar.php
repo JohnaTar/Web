@@ -143,12 +143,22 @@ echo '<p><img class="img-circle" width="200" height="200" border="2" src="'.$row
                             <li>
                                 <a href="Tables"> จัดการข้อมูลสมาชิก</a>
                             </li>
-                            <li>
+            <?php 
+                    if ($_SESSION['status']==1) {
+                        echo '<li>
                                 <a href="Tables1"> จัดการข้อมูลแผนก</a>
                             </li>
                             <li>
                                 <a href="Logo"> เปลี่ยนโลโก็</a>
-                            </li>
+                            </li>'
+                            ;
+                    }else{
+
+                    }
+
+
+            ?>
+                           
                             
                         </ul>
                     </li>  

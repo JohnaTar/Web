@@ -143,7 +143,7 @@ include("connect.php");
 
                                
                                  </tr>                       
-                                <?php } $i++;
+                                <?php $i++;} 
                                 mysqli_close($conn);
                                 ?>
                                 </tbody>

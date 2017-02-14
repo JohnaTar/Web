@@ -99,22 +99,6 @@ $result = mysqli_query($conn, $sql);
 
 
 
-$Sub_ID =$_GET['subject_id'];
-$User_ID =$_SESSION['ID'];
- $sql = "SELECT * FROM stwscore
-        WHERE stwUser_id = '$User_ID'
-         AND stwSubject_id = '$Sub_ID' ";
-$result = mysqli_query($conn, $sql);    
-    $num = mysqli_num_rows($result);
-    if($num <= 0){
-    echo "<script>";
-        echo "alert(\"Username และ Password ไม่ถูกต้อง\");"; 
-        echo "window.history.back()";
-    echo "</script>";
-    } else{
-
-    }
-
     
   $sqli = "SELECT COUNT(*) FROM stwQuestion WHERE stwSubject_id = '$Sub_ID'";  //นับจำนวนคำถามของหัวข้อนี้
     $r = mysqli_query($conn, $sqli);
@@ -130,16 +114,16 @@ include("connect.php");
 stwscore.stwUser_id,
 stwscore.stwSubject_id,
 stwscore.amount,
-stwuser.stwFirstname,
-stwuser.stwLastname,
-stwsubject.stwSubject_text,
-stwprefix.stwPrefix_name,
-stwsubject.stwSubject_past
+stwUser.stwFirstname,
+stwUser.stwLastname,
+stwSubject.stwSubject_text,
+stwPrefix.stwPrefix_name,
+stwSubject.stwSubject_past
 FROM
 stwscore
-INNER JOIN stwuser ON stwscore.stwUser_id = stwuser.stwUser_id
-INNER JOIN stwsubject ON stwscore.stwSubject_id = stwsubject.stwSubject_id
-INNER JOIN stwprefix ON stwuser.stwPrefix_id = stwprefix.stwPrefix_id
+INNER JOIN stwUser ON stwscore.stwUser_id = stwUser.stwUser_id
+INNER JOIN stwSubject ON stwscore.stwSubject_id = stwSubject.stwSubject_id
+INNER JOIN stwPrefix ON stwUser.stwPrefix_id = stwPrefix.stwPrefix_id
 WHERE stwscore.stwSubject_id =  '$Sub_ID'";
 $result = mysqli_query($conn,$sql);
 $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
