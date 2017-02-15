@@ -124,7 +124,8 @@ stwscore
 INNER JOIN stwUser ON stwscore.stwUser_id = stwUser.stwUser_id
 INNER JOIN stwSubject ON stwscore.stwSubject_id = stwSubject.stwSubject_id
 INNER JOIN stwPrefix ON stwUser.stwPrefix_id = stwPrefix.stwPrefix_id
-WHERE stwscore.stwSubject_id =  '$Sub_ID'";
+WHERE stwscore.stwUser_id =  '$User_ID'";
+
 $result = mysqli_query($conn,$sql);
 $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
 $pass=$row['stwSubject_past'];
@@ -133,7 +134,7 @@ $pass=$row['stwSubject_past'];
                                                $row['stwFirstname']." ".
                                                $row['stwLastname']; ?>
                                 <td><?php echo $row['stwSubject_text']; ?></td>
-                                <td><?php echo $row['stwSubject_past']; ?></td>
+                                <td><?php echo $row['stwSubject_past']; ?> % </td>
                                 <td><?php echo $row['amount'];  ?> / <?php echo $num_q;  ?></td>
                                 <td>  
                                         <?php $SC=$num_q *$pass/100;

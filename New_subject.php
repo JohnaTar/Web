@@ -108,7 +108,7 @@ if ($_SESSION['ses_id']=='') {
     $time_start =$_POST['time_start'];
     $time_end =$_POST['time_end'];
    
-        $sql ="REPLACE INTO stwSubject VALUES('','$subject','$past','$date_test',
+        $sql ="REPLACE INTO stwSubject VALUES('','$subject','$date_test','$past',
         '$time_start','$time_end')";
         $result = mysqli_query($conn,$sql);
         if ($result) { 
