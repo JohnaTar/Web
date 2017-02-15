@@ -138,7 +138,7 @@ mysqli_close($conn);
           <div class="form-group">
                     <label class="col-md-4 control-label" for="fn">หัวข้อการทดสอบ</label>  
                 <div class="col-md-4">
-                    <input name="subject" type="text" class="form-control input-md" id="text" >
+                    <input name="subject" type="text" class="form-control input-md" id="text" required="" >
                     <span id="mdd"></span>
     
                 </div>
@@ -167,8 +167,8 @@ mysqli_close($conn);
                    
                     <label >วันที่จะทดสอบ</label>  
                     <input type="text" id="datepicker"  class="form-control input-md" name="date" ><br> <label >เวลาเริ่ม</label>
-                    <input type="time"  class="form-control input-md" name="time_start" ><br> <label >เวลาสิ้นสุด</label>
-                    <input type="time" class="form-control input-md" name="time_end" >
+                    <input type="text" id ="timepicker" class="form-control input-md" name="time_start" ><br> <label >เวลาสิ้นสุด</label>
+                    <input type="text"  id ="timepicker1" class="form-control input-md" name="time_end" >
 
     
                 </div>

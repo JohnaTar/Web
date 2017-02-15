@@ -181,10 +181,10 @@ if ($_SESSION['ses_id']=='') {
                     <input type="text" id="datepicker"  class="form-control input-md" name="date" value="<?php echo $row['stwDate_test'];?>">
                     <br>
                     <label >เวลาเริ่ม</label>
-                    <input type="time"  class="form-control input-md" name="time_start" value="<?php echo $row['stwTime_start'];?>">
+                    <input type="text" id="timepicker" class="form-control input-md" name="time_start" value="<?php echo $row['stwTime_start'];?>">
                     <br> 
                     <label >เวลาสิ้นสุด</label>
-                    <input type="time" class="form-control input-md" name="time_end" value="<?php echo $row['stwTime_end'];?>" >
+                    <input type="text" id="timepicker1" class="form-control input-md" name="time_end" value="<?php echo $row['stwTime_end'];?>" >
 
     
                 </div>

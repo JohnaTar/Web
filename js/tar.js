@@ -199,10 +199,10 @@ $( function() {
   });
 });
   $( function() {
-    $( "#timepicker" ).timepicker();
+    $( "#timepicker" ).timepicker({ timeFormat: 'HH:mm' });
   } );
   $( function() {
-    $( "#timepicker1" ).timepicker();
+    $( "#timepicker1" ).timepicker({ timeFormat: 'HH:mm' });
   } );
 ///////////////////////////////Delete//////////////////////////////////////
 function delete_user(id){
