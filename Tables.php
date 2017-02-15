@@ -55,8 +55,15 @@ if ($_SESSION['ses_id']=='') {
                     <div class="col-md-12">
                         <center><h2>ตารางแสดงข้อมูลสมาชิก</h2></center>
                             <div class="table-responsive">
+<?php 
+        if ($_SESSION['status']==1) {
+            echo ' <button type="button" class="btn btn-info btn-xl" data-toggle="modal" data-target="#myModal">เพิ่มข้อมูลสมาชิก</button>';
+        } else{
+            
+        }
 
-                        <button type="button" class="btn btn-info btn-xl" data-toggle="modal" data-target="#myModal">เพิ่มข้อมูลสมาชิก</button>
+?>
+                       
                         
                            
                          <table class="table table-striped table-hover" id="myTable">
