@@ -77,22 +77,22 @@ echo '<p><img class="img-circle" width="200" height="200" border="2" src="'.$row
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-file""></i> เนื้อหา <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse">
                             <li>
-                                <a href="Content?ID=1">บทที่ 1</a>
+                                <a href="Content?ID=1">การแนะนำเกี่ยวกับการทำงานและความปลอดภัย</a>
                             </li>
                             <li>
-                                <a href="Content?ID=2">บทที่ 2</a>
+                                <a href="Content?ID=2">สภาพแวดล้อมที่ปลอดภัยและที่เป็นอันตรายในการทำงาน</a>
                             </li>
                             <li>
-                                <a href="Content?ID=3">บทที่ 3</a>
+                                <a href="Content?ID=3">การป้องกันอันตรายส่วนบุคคล3</a>
                             </li>
                             <li>
-                                <a href="Content?ID=4">บทที่ 4</a>
+                                <a href="Content?ID=4">การป้องกันอันตรายเฉพาะด้าน อันตรายจากสภาพต่าง ๆ</a>
                             </li>
                             <li>
-                                <a href="Content?ID=5">บทที่ 5</a>
+                                <a href="Content?ID=5">การป้องกันและการดับเพลิง</a>
                             </li>
                             <li>
-                                <a href="Content?ID=6">บทที่ 6</a>
+                                <a href="Content?ID=6">การปฐมพยาบาลเบื้องต้น</a>
                             </li>
                         </ul>
                     </li>  
@@ -102,22 +102,22 @@ echo '<p><img class="img-circle" width="200" height="200" border="2" src="'.$row
                             
                         
                             <li>
-                                <a href="edit_lesson?ID=1"> บทที่ 1</a>
+                                <a href="edit_lesson?ID=1"> การแนะนำเกี่ยวกับการทำงานและความปลอดภัย</a>
                             </li>
                             <li>
-                                <a href="edit_lesson?ID=2"> บทที่ 2</a>
+                                <a href="edit_lesson?ID=2">สภาพแวดล้อมที่ปลอดภัยและที่เป็นอันตรายในการทำงาน</a>
                             </li>
                            <li>
-                                <a href="edit_lesson?ID=3"> บทที่ 3</a>
+                                <a href="edit_lesson?ID=3"> การป้องกันอันตรายส่วนบุคคล</a>
                             </li>
                              <li>
-                                <a href="edit_lesson?ID=4"> บทที่ 4</a>
+                                <a href="edit_lesson?ID=4"> การป้องกันอันตรายเฉพาะด้าน อันตรายจากสภาพต่าง ๆ</a>
                             </li>
                              <li>
-                                <a href="edit_lesson?ID=5"> บทที่ 5</a>
+                                <a href="edit_lesson?ID=5"> การป้องกันและการดับเพลิง</a>
                             </li>
                              <li>
-                                <a href="edit_lesson?ID=6"> บทที่ 6</a>
+                                <a href="edit_lesson?ID=6"> การปฐมพยาบาลเบื้องต้น</a>
                             </li>
                             
                         </ul>
