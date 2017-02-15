@@ -27,7 +27,7 @@
             <div class="form-group">
                     <label class="col-md-2 control-label" for="fn">Picture</label>  
                 <div class="col-md-10">
-                    <input name="image" type="file" placeholder="Title" class="form-control input-md"  accept="image/*">
+                    <input name="image" type="file" placeholder="Title" class="form-control input-md">
     
                 </div>
             </div>

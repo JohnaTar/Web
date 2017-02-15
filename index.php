@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+CTYPE html>
 <html>
 <head>
   
@@ -25,13 +25,19 @@ stwShowlogo
 INNER JOIN stwUrllogo ON stwShowlogo.stwUrllogo_id = stwUrllogo.stwUrllogo_id
 ";
     $result =mysqli_query($conn,$sql);
-while($row = mysqli_fetch_array($result,MYSQLI_ASSOC))
-{
+$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
 
- echo '<p><img class="img-circle" class="img-responsive" width="270" height="260" border="2" src="'.$row['stwUrlname'].'"></p>';
+  if ($row['stwUrlname']=='Images/logo.gif') {
+    echo '<center><p><img  class="img-responsive" width="180" height="140" border="2" src="'.$row['stwUrlname'].'"></p></center>';
+  } else{
+    echo '<p><img class="img-circle" class="img-responsive" width="270" height="260" border="2" src="'.$row['stwUrlname'].'"></p>';
+
+  }
+
+ 
 
 
-}
+
 
 ?>
                 <h3 class="text-center">Safety Training Web Application for Factory Workers</h3>
@@ -60,4 +66,6 @@ while($row = mysqli_fetch_array($result,MYSQLI_ASSOC))
 
 </body>
 </html>
+
+
 

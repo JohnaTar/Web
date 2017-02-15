@@ -38,7 +38,7 @@ move_uploaded_file($_FILES['image']['tmp_name'],"Infophoto/".$_FILES['image']['n
 $location="Infophoto/".$_FILES["image"]["name"];
 
 
-
+}
 
 
   
@@ -70,7 +70,7 @@ if ($query) {
 }
 
 }
-}
+
   
   
 
