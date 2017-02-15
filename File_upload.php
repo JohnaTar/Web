@@ -63,7 +63,16 @@ if ($_SESSION['ses_id']=='') {
  
 
                             <div class="table-responsive">
-                        <button type="button" class="btn btn-info btn-xl" data-toggle="modal" data-target="#addFILE">Add Files</button>
+<?php
+  if ($_SESSION['status']==3) {
+                              
+    } else{
+
+      echo '
+                        <button type="button" class="btn btn-info btn-xl" data-toggle="modal" data-target="#addFILE">Add Files</button>';
+    }                          
+?>
+                      
                         <br>
                         <br>
                         
