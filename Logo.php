@@ -44,7 +44,7 @@ if ($_SESSION['ses_id']=='') {
                                 <i class="fa fa-dashboard"></i>  <a href="index">Dashboard</a>
                             </li>
                             <li class="active">
-                                <i class="fa fa-table"></i> ข้อมูลแผนก
+                                <i class="fa fa-table"></i> Logo
                             </li>
                         </ol>
                     </div>

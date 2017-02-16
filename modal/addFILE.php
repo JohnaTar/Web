@@ -5,7 +5,7 @@
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-            <h1 class="modal-title">เพิ่มคำถาม</h1>
+            <h1 class="modal-title">Add File</h1>
 
         
          
