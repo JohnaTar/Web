@@ -241,7 +241,7 @@ function add_user_form(){
   });
   return false;
 }
-//////////////////////////////////////////////////////////////////
+
 function edit_user_form(){
   $.ajax({
     type:"POST",

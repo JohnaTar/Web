@@ -161,16 +161,7 @@ onsubmit="return edit_user_form();">
                     </select>
                     </div>
             </div>
-            <div class="form-group">
-                <label class="col-md-4 control-label" for="selectbasic">สถานะการทำแบบทดสอบ</label>
-                    <div class="col-md-4">
-                    <select  name="stwActivate" class="form-control input-md">
-                <option value="1"<?php if($result['stwActivate'] == '1'){echo "selected='selected'";} ?>>อนุมัติ </option>
-                <option value="2"<?php if($result['stwActivate'] == '2'){echo "selected='selected'";} ?>>ไม่อนุมัติ</option>
-                
-                    </select>
-                    </div>
-            </div>
+          
            
             <div class="form-group">
                 <label class="col-md-4 control-label" for="selectbasic">แผนก</label>

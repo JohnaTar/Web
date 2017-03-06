@@ -69,7 +69,7 @@ if ($_SESSION['ses_id']=='') {
     } else{
 
       echo '
-                        <button type="button" class="btn btn-info btn-xl" data-toggle="modal" data-target="#addFILE">Add Files</button>';
+                        <button type="button" class="btn btn-success btn-xl" data-toggle="modal" data-target="#addFILE"><i class="fa fa-cloud-upload fa-2x" aria-hidden="true"></i></button>';
     }                          
 ?>
                       
@@ -102,17 +102,16 @@ if ($_SESSION['ses_id']=='') {
     ?>
             <tr> 
 
-                <td><?php echo $i; ?></td>
+      <td><?php echo $i; ?></td>
                 <td><?php echo $row['stwFileupload_name'];?></td>
                 <td> <?php if ($_SESSION['status']==3) {
-                    echo ' <a href="'.$row['stwFileupload_path'].'" ; " class="btn btn-success btn-xl" >Download </a>
+                    echo ' <a href="'.$row['stwFileupload_path'].'" ; " class="btn btn-info btn-xl" ><i class="fa fa-cloud-download fa-2x" aria-hidden="true"></i> </a>
 ';
                    
                 } else {
-                     echo ' <a href="'.$row['stwFileupload_path'].'" ; " class="btn btn-success btn-xl" >Download</a>
-                     <button type="button" class="btn btn-danger btn-sm" 
-                onclick="return del_fileupload ('.$row['stwFileupload_id'].');" >ลบ </button>
-
+                     echo ' <a href="'.$row['stwFileupload_path'].'" ; " class="btn btn-info btn-xl" ><i class="fa fa-cloud-download fa-2x" aria-hidden="true"></i></a>
+                     <button type="button" class="btn btn-danger btn-xl" 
+                onclick="return del_fileupload ('.$row['stwFileupload_id'].');" ><i class="fa fa-exclamation fa-2x" aria-hidden="true"></i> </button>
 ';
 
 

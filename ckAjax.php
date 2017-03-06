@@ -143,14 +143,7 @@ $sql ="UPDATE stwDepartment SET
 
 if (isset($_POST['stwUser_id'])) {
 
-  if ($_POST['stwActivate']=='1') {
-    $Request ='3';
-  } else{
-    $Request ='1';
-  }
-
-$sql ="UPDATE stwUser SET
-
+  $sql ="UPDATE stwUser SET
           stwPrefix_id = '".$_POST["stwPrefix_id"]."',
           stwFirstname = '".$_POST["stwFirstname"]."',
           stwLastname = '".$_POST["stwLastname"]."',
@@ -159,13 +152,10 @@ $sql ="UPDATE stwUser SET
           stwTel = '".$_POST["stwTel"]."',
           stwDept_id = '".$_POST["stwDept_id"]."',
           stwStatus_id ='".$_POST["stwStatus_id"]."',
-          stwActivate = '".$_POST["stwActivate"]."',
-          stwRequest ='".$Request."'
+          stwEdit_date =NOW()
           WHERE stwUser_id = '".$_POST["stwUser_id"]."' "; 
     $result = mysqli_query($conn,$sql);
-
     if($result) {
-
         echo "แก้ไขข้อมูลเรียบร้อย"; 
         exit();
     
@@ -174,8 +164,8 @@ $sql ="UPDATE stwUser SET
         echo "ไม่สามารถแก้ไขข้อมูลได้"; 
         exit();
     
-
     }
+
 }
 
 
@@ -184,11 +174,11 @@ $sql ="UPDATE stwUser SET
   if(isset($_POST['stwUsername'])){
     
 
-  $sql = "INSERT INTO `stwUser` (`stwUsername`, `stwPassword`, `stwFirstname`, `stwLastname`, `stwEmail`, `stwTel`, `stwGender`, `stwActivate`, `stwDept_id`,`stwStatus_id`,`stwPrefix_id`,`stwRequest`,`stwCreated_date`)
+  $sql = "INSERT INTO `stwUser` (`stwUsername`, `stwPassword`, `stwFirstname`, `stwLastname`, `stwEmail`, `stwTel`, `stwGender`,`stwDept_id`,`stwStatus_id`,`stwPrefix_id`,`stwCreated_date`)
       VALUES ('".$_POST["stwUsername"]."','".md5($_POST["stwPassword"])."'
            ,'".$_POST["stwFirstname"]."','".$_POST["stwLastname"]."',
-           '".$_POST["stwEmail"]."','".$_POST["stwTel"]."','".$_POST["stwGender"]."',
-           '".$_POST["stwActivate"]."','".$_POST["stwDept_id"]."','".$_POST["stwStatus_id"]."','".$_POST["stwPrefix_id"]."','".$_POST["stwRequest"]."',NOW())";
+           '".$_POST["stwEmail"]."','".$_POST["stwTel"]."','".$_POST["stwGender"]."','".$_POST["stwDept_id"]."',
+           '".$_POST["stwStatus_id"]."','".$_POST["stwPrefix_id"]."',NOW())";
   $query = mysqli_query($conn,$sql);
   
 if($query) {
@@ -206,58 +196,8 @@ if($query) {
 
 //edit authen *********************************
 
-if(isset($_POST['authen'])){
-  $sql = "SELECT * FROM stwUser
-          WHERE stwUser_id = '".$_POST['authen']."'";
-  $query =mysqli_query($conn,$sql);
-  $result =mysqli_fetch_array($query,MYSQLI_ASSOC);
-
-  echo ' <form class="form-horizontal" id="save_authen">
-            <div class="form-group" >
-                <label class="col-md-4 control-label" for="selectbasic">สถานะการอบรม</label>
-                    <div class="col-md-4">
-                    <select  name="stwActivate" class="form-control input-md">
-                <option value="1">อนุมัติ </option>
-                <option value="2">ไม่อนุมัติ</option>
-                
-                    </select>
-                  <input name="authen_id" value="'.$result['stwUser_id'].'"  type="hidden">
-
-                    </div>
-            </div>
-          
-';
 
 
-}
-
-
-if (isset($_POST['authen_id'])) {
-  if ($_POST['stwActivate']=='1') {
-    $Request ='3';
-  } else{
-    $Request ='1';
-  }
-  $sql ="UPDATE stwUser SET
-
-          stwActivate = '".$_POST['stwActivate']."',
-          stwRequest = '".$Request."'
-          WHERE stwUser_id = '".$_POST['authen_id']."' "; 
-    $result = mysqli_query($conn,$sql);
-
-    if($result) {
-
-        echo "แก้ไขสิทธิ์เรียบร้อย"; 
-        exit();
-    
-    
-    }else {
-        echo "ไม่สามารถแก้ไขสิทธิ์ได้"; 
-        exit();
-    
-
-    }
-}
 
 if (isset($_POST['PassUser_id'])) {
     $sql ="UPDATE stwUser SET
@@ -278,27 +218,6 @@ if (isset($_POST['PassUser_id'])) {
     
 
     }
-}
-
-if (isset($_POST['request'])) {
-  $request = '2';
-  $sql ="UPDATE stwUser SET stwRequest ='".$request."'
-        WHERE stwUser_id ='".$_POST['request']."'";
-         $result = mysqli_query($conn,$sql);
-
-    if($result) {
-
-        echo "กำลังร้องขอสิทธิ์ในทำแบบทดสอบ โปรดรอการอนุมัติ "; 
-        exit();
-    
-    
-    }else {
-        echo "ไม่สามารถดำเนินการได้"; 
-        exit();
-    
-
-    }
- 
 }
 
 

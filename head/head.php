@@ -28,7 +28,8 @@
 <script type="text/javascript" src="js/store.min.js"></script>
 <script type="text/javascript" src="js/rv-jquery-fontsize-2.0.3.min.js"></script>
 
- <title>Welcome - STWAFW</title>
+<title>Welcome - STWAFW</title>
 <script src="js/plugins/morris/raphael.min.js"></script>
-    <script src="js/plugins/morris/morris.min.js"></script>
+<script src="js/plugins/morris/morris.min.js"></script>
+<script src="https://use.fontawesome.com/f3b3d4d487.js"></script>
  

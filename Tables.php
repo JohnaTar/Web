@@ -50,19 +50,21 @@ if ($_SESSION['ses_id']=='') {
                         </ol>
                     </div>
                 </div> 
-<!-- *********************************start table************************************* -->                                               
+<!-- *********************************start table************************************* -->
+<?php 
+        if ($_SESSION['status']==1) {
+            echo ' <button type="button" class="btn btn-info btn-xl" data-toggle="modal" data-target="#myModal"><i class="fa fa-user-plus fa-2x" aria-hidden="true"></i></button>';
+        } else{
+            
+        }
+        
+
+?>                                               
                 <div class="row">
                     <div class="col-md-12">
                         <center><h2>ตารางแสดงข้อมูลสมาชิก</h2></center>
                             <div class="table-responsive">
-<?php 
-        if ($_SESSION['status']==1) {
-            echo ' <button type="button" class="btn btn-info btn-xl" data-toggle="modal" data-target="#myModal">เพิ่มข้อมูลสมาชิก</button>';
-        } else{
-            
-        }
 
-?>
                        
                         
                            
@@ -75,8 +77,6 @@ if ($_SESSION['ses_id']=='') {
                                         <th>อีเมลล์</th>
                                         <th>แผนก</th> 
                                         <th>ประเภทผู้ใช้</th>
-                                        <th>สถานะการอบรม</th>
-                                        <th>ร้องขอสิทธิ์</th>
                                         <th>วันที่สมัคร</th>
                                         <th>เมนู</th>
                                         
@@ -101,7 +101,7 @@ if ($_SESSION['ses_id']=='') {
         $strSeconds= date("s",strtotime($strDate));
         $strMonthCut = Array("","ม.ค.","ก.พ.","มี.ค.","เม.ย.","พ.ค.","มิ.ย.","ก.ค.","ส.ค.","ก.ย.","ต.ค.","พ.ย.","ธ.ค.");
         $strMonthThai=$strMonthCut[$strMonth];
-        return "$strDay $strMonthThai $strYear, $strHour:$strMinute";
+        return "$strDay/$strMonthThai/$strYear $strHour:$strMinute";
     }
 
   
@@ -113,8 +113,8 @@ if ($_SESSION['ses_id']=='') {
              
 
       
-        $sql = "SELECT stwUser.stwUser_id,stwUser.stwFirstname,stwUser.stwLastname,stwUser.stwActivate,stwUser.stwGender,stwUser.stwTel,stwUser.stwEmail,stwStatus.stwStatus_name,stwPrefix.stwPrefix_name,
-            stwDepartment.stwDept_name,stwUser.stwCreated_date,stwUser.stwRequest
+        $sql = "SELECT stwUser.stwUser_id,stwUser.stwFirstname,stwUser.stwLastname,stwUser.stwGender,stwUser.stwTel,stwUser.stwEmail,stwStatus.stwStatus_name,stwPrefix.stwPrefix_name,
+            stwDepartment.stwDept_name,stwUser.stwCreated_date
                 FROM stwUser
                 INNER JOIN stwStatus
                 ON stwUser.stwStatus_id = stwStatus.stwStatus_id 
@@ -146,32 +146,17 @@ if ($_SESSION['ses_id']=='') {
                                 echo '<span class="label label-danger">Administrator</span>';
                             }
                             else if ($row['stwStatus_name'] == 'Super User' ){
-                                echo '<span class="label label-info">Super User</span>';
+                                echo '<i class="fa fa-user fa-2x btn-warning" aria-hidden="true"></i>';
                             }
                             else if ($row['stwStatus_name'] == 'User' ){
-                                echo '<span class="label label-warning">User</span>';
-                            }?></td>
-               
-                <td><?php if($row['stwActivate'] == '1'){
-                                echo '<span class="label label-success">อนุมัติ</span>';
-                            }
-                            else if ($row['stwActivate'] == '2' ){
-                                echo '<span class="label label-danger">ไม่อนุมัติ</span>';
-                            
-                            }?> 
+                                echo '<i class="fa fa-user-secret fa-2x btn-info" aria-hidden="true"></i>';
+                            }?>
+                                
                 </td>
-                <td> <?php if ($row['stwRequest']=='1') {
-                    echo '<i class="fa fa-bars  fa-2x "></i>';
-                } elseif ($row['stwRequest']=='2') { 
-                    echo '<i class="fa fa-spinner fa-spin fa-2x fa-fw"></i>';
-                } else {
-                    echo '<i class="fa fa-check fa-2x"></i>';
-                }
+
+              
+               
                 
-
-
-
-                ?></td>
                 <td><?php   echo DateThai($strDate);; ?></td>
                
 <?php 

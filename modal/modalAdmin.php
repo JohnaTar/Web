@@ -128,29 +128,19 @@
             
           
 
-<!-- **********************************dept********************************** -->
-            <div class="form-group">
-                <label class="col-md-4 control-label" for="selectbasic">ประเภทผู้ใช้</label>
-                    <div class="col-md-4">
-                    <select  name="stwStatus_id" class="form-control input-md">
-                
-                <option value="2">Super User</option>
-                <option value="3">User</option>
-                    </select>
-                    </div>
-            </div>
-            <div class="form-group">
-                <label class="col-md-4 control-label" for="selectbasic">สถานะการทำแบบทดสอบ</label>
-                    <div class="col-md-4">
-                    <select  name="stwActivate" class="form-control input-md">
-                <option value="1">อนุมัติ </option>
-                <option value="2">ไม่อนุมัติ</option>
-                
-                    </select>
-                    </div>
-            </div>
-                <input type="hidden" name="stwRequest" value="1">
-                    
+
+             <div class="form-group">
+              <label class="col-md-4 control-label" for="fn">ประเภทผู้ใช้</label>  
+              <div class="col-md-4">
+              
+  <label><input type="radio" required="" name="stwStatus_id" value="2">Super User</label>
+
+
+  <label><input type="radio" required="" name="stwStatus_id" value="3">User</label>
+</div>
+</div>
+           
+              
 
               
             

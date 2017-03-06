@@ -61,7 +61,7 @@ $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
   </div>
 </div>
 
- <?php include("modal/modalRegister.php");?>
+
 <?php include("modal/forget_email.php");?>
     
 

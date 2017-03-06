@@ -1,7 +1,7 @@
 <td>
     <div class="btn-group">
   <button type="button" class="btn btn-success dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    เมนู<span class="caret"></span>
+  <i class="fa fa-bars  fa-2x "></i> 
   </button>
   <ul class="dropdown-menu">
    
