@@ -78,8 +78,16 @@ if ($_SESSION['ses_id']=='') {
                                         <th>แผนก</th> 
                                         <th>ประเภทผู้ใช้</th>
                                         <th>วันที่สมัคร</th>
-                                        <th>เมนู</th>
-                                        
+<?php 
+if ($_SESSION['status']==1) {
+               echo '<th>เมนู</th>';
+             }else {
+             }
+
+
+
+?>
+                                      
                                                                                    
                                     </tr>
                                  </thead>
@@ -146,10 +154,10 @@ if ($_SESSION['ses_id']=='') {
                                 echo '<span class="label label-danger">Administrator</span>';
                             }
                             else if ($row['stwStatus_name'] == 'Super User' ){
-                                echo '<i class="fa fa-user fa-2x btn-warning" aria-hidden="true"></i>';
+                                echo '<i class="fa fa-user-secret fa-2x btn-warning" aria-hidden="true"></i>';
                             }
                             else if ($row['stwStatus_name'] == 'User' ){
-                                echo '<i class="fa fa-user-secret fa-2x btn-info" aria-hidden="true"></i>';
+                                echo '<i class="fa fa-user fa-2x btn-info" aria-hidden="true"></i>';
                             }?>
                                 
                 </td>
@@ -162,8 +170,7 @@ if ($_SESSION['ses_id']=='') {
 <?php 
 if ($_SESSION['status']==1) {
                 include("menu/admin.php");
-             }else if ($_SESSION['status']==2) {
-                include("menu/super.php");
+             }else {
              }
 
 

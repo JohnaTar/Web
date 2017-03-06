@@ -149,18 +149,16 @@ onsubmit="return edit_user_form();">
                 </div>
             </div>
 <!-- **********************************dept*********************** -->
-            
+           <div class="form-group">
+              <label class="col-md-4 control-label" for="fn">ประเภทผู้ใช้</label>  
+              <div class="col-md-4">
+              
+  <label><input type="radio" required="" name="stwStatus_id" value="2" <?php if($result['stwStatus_id'] == '2'){echo "checked='checked'";} ?>>Super User</label>
 
-            <div class="form-group">
-                <label class="col-md-4 control-label" for="selectbasic">ประเภทผู้ใช้</label>
-                    <div class="col-md-4">
-                    <select  name="stwStatus_id" class="form-control input-md">
-                
-                <option value="2" <?php if($result['stwStatus_id'] == '2'){echo "selected='selected'";} ?>>Super User</option>
-                <option value="3" <?php if($result['stwStatus_id'] == '3'){echo "selected='selected'";} ?>>User</option>
-                    </select>
-                    </div>
-            </div>
+
+  <label><input type="radio" required="" name="stwStatus_id" value="3"<?php if($result['stwStatus_id'] == '3'){echo "checked='checked'";} ?>>User</label>
+</div>
+</div>
           
            
             <div class="form-group">

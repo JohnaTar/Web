@@ -11,7 +11,7 @@
          
         
 <div class="modal-body">
-           
+           <input type="hidden" name="Userid" value="<?php echo $_SESSION['ID']; ?>">
           
 
             <div class="form-group">

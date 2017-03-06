@@ -31,7 +31,7 @@ if (isset($_POST['Submit']))
 			$name =$_FILES["file"]["name"];
 
 
-  $sql = "INSERT INTO `stwFileupload` (`stwFileupload_id`,`stwFileupload_name`, `stwFileupload_path`) VALUES ('','$name','$location')";
+  $sql = "INSERT INTO `stwFileupload` (`stwFileupload_id`,`stwFileupload_name`, `stwFileupload_path`, `stwUser`) VALUES ('','$name','$location','".$_POST['Userid']."')";
   $query =mysqli_query($conn,$sql);
   if ($query) {
   	echo "<script>alert('Success!!')</script>";
