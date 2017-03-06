@@ -53,7 +53,8 @@ if ($_SESSION['ses_id']=='') {
 <!-- *********************************start table************************************* -->
 <?php 
         if ($_SESSION['status']==1) {
-            echo ' <button type="button" class="btn btn-info btn-xl" data-toggle="modal" data-target="#myModal"><i class="fa fa-user-plus fa-2x" aria-hidden="true"></i></button>';
+            echo ' <button type="button" class="btn btn-info btn-xl" data-toggle="modal" data-target="#myModal"><i class="fa fa-user-plus fa-2x" aria-hidden="true"></i></button> :
+             <button type="button" class="btn btn-danger btn-xl" data-toggle="modal" data-target="#add_exel"><i class="fa fa-upload fa-2x" aria-hidden="true"></i></button>';
         } else{
             
         }
@@ -199,7 +200,7 @@ if ($_SESSION['status']==1) {
  <!-- *******************end table************************ -->
 <?php include("modal/modalAdmin.php");
      
-      include("modal/authen.php");
+      include("modal/add_exel.php");
  ?>
   
   
