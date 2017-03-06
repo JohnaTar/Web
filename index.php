@@ -47,11 +47,13 @@ $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
     <form class="form-" action="checklogin" method="POST">
         <input type="text" placeholder="Username"  required="" name="Username" />
                 <input type="password" placeholder="Password" required="" name="Password" />
-                <button type="submit" class="btn btn-warning">เข้าสู่ระบบ</button> 
-                <button type="button" class="btn btn-success " data-toggle="modal" data-target="#myModal">สมัครสมาชิก</button>
+                <button type="submit" class="btn btn-info ">เข้าสู่ระบบ</button> 
+              
+
+  
     </form>
            </div>
-            <a href=""  data-toggle="modal" data-target="#forget_email" ><span class="label label-danger">FORGET PASSWORD</span> </a>
+            <a href=""  data-toggle="modal" data-target="#forget_email" ><span class="label label-success">FORGET PASSWORD</span> </a>
 
 
   </div>
