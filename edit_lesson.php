@@ -65,7 +65,7 @@ if ($_SESSION['ses_id']=='') {
                         <center><h2>แก้ไขเนื่อหา :<?php echo $row['stwLesson_name']; ?></h2></center>
                             <div class="table-responsive">
 
-                        <button type="button" class="btn btn-info btn-xl" data-toggle="modal" data-target="#addLesson">เพิ่มเนื้อหา</button>
+                        <button type="button" class="btn btn-info btn-xl" data-toggle="modal" data-target="#addLesson"><i class="fa fa-file-text-o fa-2x" aria-hidden="true"></i></button>
                         
                            
                          <table class="table table-striped table-hover" id="myTable">

@@ -69,7 +69,7 @@ if ($_SESSION['ses_id']=='') {
     } else{
 
       echo '
-                        <button type="button" class="btn btn-success btn-xl" data-toggle="modal" data-target="#addFILE"><i class="fa fa-cloud-upload fa-2x" aria-hidden="true"></i></button>';
+                        <button type="button" class="btn btn-success btn-xl" data-toggle="modal" data-target="#addFILE"><i class="fa fa-file-pdf-o fa-2x" aria-hidden="true"></i></button>';
     }                          
 ?>
                       

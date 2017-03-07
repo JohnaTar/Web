@@ -54,7 +54,7 @@ if ($_SESSION['ses_id']=='') {
                     <div class="col-md-6">
                         <center><h2>ข้อมูลแผนก</h2></center>
                             <div class="table-responsive">
-                        <button type="button" class="btn btn-info btn-xl" data-toggle="modal" data-target="#add_dept">เพิ่มข้อมูลแผนก</button>
+                        <button type="button" class="btn btn-info btn-xl" data-toggle="modal" data-target="#add_dept"><i class="fa fa-file-text-o fa-2x" aria-hidden="true"></i></button>
                         <br>
                         <br>
                         
@@ -89,7 +89,8 @@ if ($_SESSION['ses_id']=='') {
                 <td><?php echo $row['stwDept_name']; ?></td>
 
                 <td><button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#edit_dept"
-                onclick="return show_department(<?php echo $row['stwDept_id']?>);" >แก้ไข </button></td>
+                onclick="return show_department(<?php echo $row['stwDept_id']?>);" >
+<i class="fa fa-wrench fa-2x" aria-hidden="true"></i> </button></td>
 
                
 
