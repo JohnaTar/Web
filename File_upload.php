@@ -83,7 +83,8 @@ if ($_SESSION['ses_id']=='') {
                                         <th>ลำดับ</th>
                                         <th>ชื่อไฟล์</th>
                                         <th>ผู้อับโหลด</th>
-                                        <th>เมนู</th>
+                                        <th>ดาวโหลด</th>
+                                        <th>ลบ</th>
                                        
                                        
                                                                                    
@@ -103,18 +104,41 @@ if ($_SESSION['ses_id']=='') {
     ?>
             <tr> 
 
-      <td><?php echo $i; ?></td>
+                <td><?php echo $i; ?></td>
                 <td><?php echo $row['stwFileupload_name'];?></td>
+                <td> 
+                    <?php if ($row['stwUser_id']==1) {
+                      echo 'Administrator';
+                    } else{
+
+$sql ="SELECT stwUser.stwFirstname,stwUser.stwLastname
+       FROM stwFileupload
+       INNER JOIN stwUser 
+       ON stwFileupload.stwUser_id = stwUser.stwUser_id";
+$reslut =mysqli_query($conn,$sql);
+$ss=mysqli_fetch_array($reslut,MYSQLI_ASSOC);
+               echo 
+                    
+                    $ss['stwFirstname']." ".$ss['stwLastname']; 
+
+
+                    }
+
+                     ?>
+                
+                </td>
                 <td> <?php if ($_SESSION['status']==3) {
                     echo ' <a href="'.$row['stwFileupload_path'].'" ; " class="btn btn-info btn-xl" ><i class="fa fa-cloud-download fa-2x" aria-hidden="true"></i> </a>
 ';
                    
                 } else {
                      echo ' <a href="'.$row['stwFileupload_path'].'" ; " class="btn btn-info btn-xl" ><i class="fa fa-cloud-download fa-2x" aria-hidden="true"></i></a>
+                     <td>
                      <button type="button" class="btn btn-danger btn-xl" 
                 onclick="return del_fileupload ('.$row['stwFileupload_id'].');" ><i class="fa fa-exclamation fa-2x" aria-hidden="true"></i> </button>
+                </td>
 ';
-
+  
 
                 }
 
