@@ -1,8 +1,8 @@
--- MySQL dump 10.14  Distrib 5.5.50-MariaDB, for Linux (x86_64)
+-- MySQL dump 10.14  Distrib 5.5.52-MariaDB, for Linux (x86_64)
 --
 -- Host: localhost    Database: mydb
 -- ------------------------------------------------------
--- Server version	5.5.50-MariaDB
+-- Server version	5.5.52-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -51,12 +51,9 @@ DROP TABLE IF EXISTS `stwContent`;
 CREATE TABLE `stwContent` (
   `stwContent_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `stwLesson_id` int(10) unsigned NOT NULL,
-  `stwContent_title` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
-  `stwContent_detail` text COLLATE utf8_unicode_ci NOT NULL,
-  `stwContent_img` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
-  `stwYoutube` varchar(250) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `stwContent_detail` longtext COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`stwContent_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=94 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=DYNAMIC;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -65,6 +62,7 @@ CREATE TABLE `stwContent` (
 
 LOCK TABLES `stwContent` WRITE;
 /*!40000 ALTER TABLE `stwContent` DISABLE KEYS */;
+INSERT INTO `stwContent` VALUES (39,1,'<p style=\"text-align: center;\">sdsadsadas</p><p style=\"text-align: center;\">asdasd</p><p style=\"text-align: center;\">asd</p><p style=\"text-align: center;\">sadas</p>'),(40,2,'<p>sdasdsadas</p>'),(41,3,''),(42,4,''),(43,5,''),(44,6,''),(46,6,'<p>asdsadadasdasdsa</p>');
 /*!40000 ALTER TABLE `stwContent` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -87,7 +85,7 @@ CREATE TABLE `stwDepartment` (
 
 LOCK TABLES `stwDepartment` WRITE;
 /*!40000 ALTER TABLE `stwDepartment` DISABLE KEYS */;
-INSERT INTO `stwDepartment` VALUES (1,'ITt'),(2,'HR'),(3,'OG'),(0,'rr');
+INSERT INTO `stwDepartment` VALUES (1,'ITtd'),(2,'HR'),(3,'OG'),(0,'rr'),(0,'ssss');
 /*!40000 ALTER TABLE `stwDepartment` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -102,8 +100,9 @@ CREATE TABLE `stwFileupload` (
   `stwFileupload_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `stwFileupload_name` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
   `stwFileupload_path` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
+  `stwUser_id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`stwFileupload_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -112,7 +111,7 @@ CREATE TABLE `stwFileupload` (
 
 LOCK TABLES `stwFileupload` WRITE;
 /*!40000 ALTER TABLE `stwFileupload` DISABLE KEYS */;
-INSERT INTO `stwFileupload` VALUES (1,'er.docx','fileupload/er.docx');
+INSERT INTO `stwFileupload` VALUES (22,'การพัฒนาเว็บแอพพลิเคชั่นการอบรมด้านความปลอดภัยให้กับพนักงานโรงงาน.pdf','fileupload/การพัฒนาเว็บแอพพลิเคชั่นการอบรมด้านความปลอดภัยให้กับพนักงานโรงงาน.pdf',1);
 /*!40000 ALTER TABLE `stwFileupload` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -254,52 +253,6 @@ INSERT INTO `stwStatus` VALUES (1,'Administrator'),(2,'Super User'),(3,'User');
 UNLOCK TABLES;
 
 --
--- Table structure for table `stwSubject`
---
-
-DROP TABLE IF EXISTS `stwSubject`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `stwSubject` (
-  `stwSubject_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `stwSubject_text` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `stwDate_test` date DEFAULT NULL,
-  `stwSubject_past` tinyint(2) unsigned NOT NULL,
-  `stwTime_start` time DEFAULT NULL,
-  `stwTime_end` time DEFAULT NULL,
-  PRIMARY KEY (`stwSubject_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `stwSubject`
---
-
-LOCK TABLES `stwSubject` WRITE;
-/*!40000 ALTER TABLE `stwSubject` DISABLE KEYS */;
-INSERT INTO `stwSubject` VALUES (40,'การแนะนำเกี่ยวกับการทำงานและความปลอดภัย','2017-02-15',70,'12:00:00','15:00:00'),(41,'สภาพแวดล้อมที่ปลอดภัยและที่เป็นอันตรายในการทำงาน','2017-02-18',75,'14:28:00','18:00:00'),(42,'การป้องกันอันตรายส่วนบุคคล','2017-02-17',50,'12:00:00','15:00:00'),(43,'การป้องกันอันตรายเฉพาะด้าน อันตรายจากสภาพต่าง ๆ','2017-02-18',50,'12:40:00','15:00:00'),(44,'การปฐมพยาบาลเบื้องต้น','2017-02-18',50,'00:00:00','02:00:00'),(48,'การป้องกันและการดับเพลิง','2017-02-18',50,'00:30:00','02:30:00');
-/*!40000 ALTER TABLE `stwSubject` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_unicode_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
-DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `delstwQuestion` AFTER DELETE ON `stwSubject` FOR EACH ROW BEGIN
-	DELETE FROM stwQuestion 
-    	WHERE stwSubject_id = old.stwSubject_id;
-END */;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-
---
 -- Table structure for table `stwUrllogo`
 --
 
@@ -339,15 +292,14 @@ CREATE TABLE `stwUser` (
   `stwEmail` varchar(254) COLLATE utf8_unicode_ci NOT NULL,
   `stwTel` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `stwGender` tinyint(1) unsigned NOT NULL,
-  `stwActivate` tinyint(1) unsigned NOT NULL,
   `stwDept_id` int(11) unsigned NOT NULL,
   `stwStatus_id` int(11) unsigned NOT NULL,
   `stwPrefix_id` int(11) unsigned NOT NULL,
   `stwCreated_date` datetime NOT NULL,
-  `stwRequest` tinyint(1) unsigned NOT NULL,
   `stwProfileurl` varchar(250) COLLATE utf8_unicode_ci DEFAULT 'Images/avatar.png	',
+  `stwEdit_date` datetime DEFAULT NULL,
   PRIMARY KEY (`stwUser_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=374 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=376 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -356,31 +308,8 @@ CREATE TABLE `stwUser` (
 
 LOCK TABLES `stwUser` WRITE;
 /*!40000 ALTER TABLE `stwUser` DISABLE KEYS */;
-INSERT INTO `stwUser` VALUES (361,'admin','e10adc3949ba59abbe56e057f20f883e','','','','',0,1,0,1,0,'2016-11-12 14:48:36',0,'photos/teacher.png'),(367,'leavetar12345','2b792dabb4328a140caef066322c49ff','niwat','thaiprathom','kootardodo@hotmail.com','0944174005',1,1,0,2,1,'2017-01-27 07:38:19',3,'Images/avatar.png	'),(368,'nattee','8892dda9ffc2c5c15344bfaae3ea2fdd','นัทที','สุวานิช','natteesuvanit@outlook.clo.th','0876776704',1,1,1,3,1,'2017-01-30 10:26:18',3,'Images/avatar.png	'),(369,'445566','2b792dabb4328a140caef066322c49ff','thaiprathom','niwat','kodotardodo@hotmail.com','0944174005',1,1,1,2,1,'2017-01-31 09:42:17',3,'Images/avatar.png	'),(370,'ball123659','61017160b25e937e7f8d430c90b1dc84','ธนา','จันทร์อบ','ball123659@gmail.com','0867745834',1,1,1,2,1,'2017-01-31 16:18:59',1,'Images/avatar.png	'),(371,'leavetar1234596','5d780364c63ff5cc9005fdd53d39a52a','niwat','thaiprathom','kootarddodo@hotmail.com','0944174005',1,1,1,2,1,'2017-02-03 14:09:13',3,'Images/avatar.png	'),(372,'johntar','5d780364c63ff5cc9005fdd53d39a52a','j','k','k@hotmail.com','0944174005',1,2,3,3,3,'2017-02-09 11:14:34',1,'Images/avatar.png	'),(373,'kromma','4297f44b13955235245b2497399d7a93','krommavut','nongnuch','krommavut@gmail.com','1231231233',1,2,2,3,1,'2017-02-14 08:41:43',1,'photos/DSC053931.jpg');
+INSERT INTO `stwUser` VALUES (1,'admin','e10adc3949ba59abbe56e057f20f883e','','','','',0,0,1,0,'2016-11-12 14:48:36','photos/teacher.png',NULL),(367,'leavetar12345','2b792dabb4328a140caef066322c49ff','niwat','thaiprathom','kootardodo@hotmail.com','0944174005',1,0,2,1,'2017-01-27 07:38:19','Images/avatar.png	','2017-03-06 16:37:44'),(369,'445566','2b792dabb4328a140caef066322c49ff','thaiprathom','niwat','kodotardodo@hotmail.com','0944174005',1,1,2,1,'2017-01-31 09:42:17','Images/avatar.png	',NULL),(371,'leavetar1234596','5d780364c63ff5cc9005fdd53d39a52a','niwat','thaiprathom','kootarddodo@hotmail.com','0944174005',1,1,2,1,'2017-02-03 14:09:13','Images/avatar.png	',NULL),(374,'aaaa','47bce5c74f589f4867dbd57e9ca9f808','aaasdasdsa','aaa','tt@hotmail.com','7777777777',1,1,2,1,'2017-03-06 16:33:11','Images/avatar.png	','2017-03-09 15:18:41'),(375,'ssss','8f60c8102d29fcd525162d02eed4566b','sss','ssss','a@hotmail.com','1111111111',2,1,2,1,'2017-03-09 15:18:31','Images/avatar.png	',NULL);
 /*!40000 ALTER TABLE `stwUser` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `stwscore`
---
-
-DROP TABLE IF EXISTS `stwscore`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `stwscore` (
-  `stwUser_id` int(10) unsigned NOT NULL,
-  `stwSubject_id` int(10) unsigned NOT NULL,
-  `amount` int(5) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `stwscore`
---
-
-LOCK TABLES `stwscore` WRITE;
-/*!40000 ALTER TABLE `stwscore` DISABLE KEYS */;
-/*!40000 ALTER TABLE `stwscore` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -417,4 +346,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-02-16 11:24:14
+-- Dump completed on 2017-03-09 15:47:35
