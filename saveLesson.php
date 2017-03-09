@@ -8,10 +8,10 @@ if (isset($_POST['conntent'])) {
   $result = mysqli_query($conn, $sql);
   if ($result) {
     echo "<script>alert('บันทึกข้อมูลเรียบร้อย')</script>";
-          echo "<script> window.history.go(-2);</script>";
+          echo "<script> window.history.back();</script>";
   }else{
    echo "<script>alert('ไม่สามารถบันทึกข้อมูลได้')</script>";
-         echo "<script> window.history.go(-2);</script>";
+         echo "<script> window.history.back();</script>";
   }
 
 

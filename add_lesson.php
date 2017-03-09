@@ -43,7 +43,7 @@ if ($_SESSION['ses_id']=='') {
     
 
       div#editor {
-          width: 81%;
+          width: 90%;
           margin: auto;
           text-align: left;
       }
@@ -114,11 +114,11 @@ stwContent WHERE stwLesson_id ='".$ID."'";
    ?>
  
 
-                    
+ <form class="form-horizontal" action="saveLesson" method="POST">                   
 <div class="row">
     <div class="col-md-12">
         <div id="editor">
-<form class="form-horizontal" action="saveLesson" method="POST">
+
       <div class="form-group">
         <textarea id="edit" name="conntent" ><?php echo $row['stwContent_detail'];?></textarea>
         <div class="col-md-12">
