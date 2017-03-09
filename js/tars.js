@@ -28,35 +28,7 @@ function use_this_logo(id){
   return false;
 }
 //////////////////////////////////////////////////////////////////////
-function del_lesson(id){
-  if(confirm("คุณต้องการลบข้อมูลเนื้อหาหรือไม่")){
-    $.ajax({
-      type:"POST",
-      url:"ckAjaxs.php",
-      data:{del_lesson:id},
-      success:function(data){
-        alert(data);
-        location.reload();
-      }
-    });
-  }
-  return false;
-}
-////////////////////////////////////////////////////////////////////
-function show_edit_info(id){
-  $.ajax({
-        type:"POST",
-        url:"ckAjaxs.php",
-        data:{edit_info:id},
-      success:function(data){
-          
-         $("#info_form").html(data);
 
-      }
-  });
-    return false;
-
-}
 
 ///////////////////////////////////////////////////////////////////////
 function del_fileupload(id){
@@ -74,17 +46,4 @@ function del_fileupload(id){
   return false;
 }
 
-$(function(){ 
-  $("img").popImg(); 
-})
 
-$(document).ready(function() { 
-    $.rvFontsize({
-        targetSection: '#content .post',
-        store: true, // store.min.js required!
-        controllers: {
-            appendTo: '#rvfs-controllers',
-            showResetButton: true
-        }
-    }); 
-});

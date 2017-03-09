@@ -264,42 +264,8 @@ function edit_user_form(){
 }
 ////////////////////////////////////////////////////////////////
 
-function show_authen(id){
-  $.ajax({
-        type:"POST",
-        url:"ckAjax.php",
-        data:{authen:id},
-      success:function(data){
-          $("#authen_form").html(data);
-
-      }
-  });
-    return false;
-
-}
-
-function edit_authen(){
-  $.ajax({
-    type:"POST",
-    url:"ckAjax.php",
-    data:$("#save_authen").serialize(),
-    success:function(data){
-
-        $(".close").trigger("click");
-      
-     
-      
-      //show result
-      alert(data);
 
 
-      location.reload();
-      //reload page
-      
-    }
-  });
-  return false;
-}
 
 
 
@@ -326,20 +292,7 @@ function edit_user_form1(){ //มี 2 อันเพราะติดสิ�
   return false;
 }
 ////////////////////////////////////////////////////////////////
-function user_request(id){
-  if(confirm("คุณต้องการขอสิทธื์ในการอบรมหรือไม่")){
-    $.ajax({
-      type:"POST",
-      url:"ckAjax.php",
-      data:{request:id},
-      success:function(data){
-        alert(data);
-        location.reload();
-      }
-    });
-  }
-  return false;
-}
+
 ////////////////////////////////////////////////////////////////
 function show_add_question(id){
   $.ajax({

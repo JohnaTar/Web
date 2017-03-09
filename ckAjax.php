@@ -311,9 +311,6 @@ if (isset($_POST['text'])){
             </div>';
   } 
 
-if (isset($_POST['question'])) {
-  echo "asdasdsads";
-}
 
 
 

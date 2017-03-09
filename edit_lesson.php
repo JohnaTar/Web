@@ -62,21 +62,21 @@ if ($_SESSION['ses_id']=='') {
 ?>                                               
                 <div class="row">
                     <div class="col-md-12">
+                      <a href="add_lesson?ID=<?php echo $_GET['ID'];?>" class="btn btn-info" role="button"><i class="fa fa-file-text-o fa-2x" aria-hidden="true"></i></a>
                         <center><h2>แก้ไขเนื่อหา :<?php echo $row['stwLesson_name']; ?></h2></center>
                             <div class="table-responsive">
 
-                        <button type="button" class="btn btn-info btn-xl" data-toggle="modal" data-target="#addLesson"><i class="fa fa-file-text-o fa-2x" aria-hidden="true"></i></button>
+                        
+                       
                         
                            
                          <table class="table table-striped table-hover" id="myTable">
                                 <thead>
                                     <tr>
                                           
-                                        <th>Title</th>
+                                       
                                         <th>Content</th>
-                                        <th>Picture</th>
-                                        <th>Youtube</th>
-                                        <th>Menu</th> 
+                                       
                                       
                                         
                                                                                    
@@ -89,10 +89,7 @@ if ($_SESSION['ses_id']=='') {
    $ID =$_GET['ID'];
     $sql ="SELECT
 stwContent.stwContent_id,
-stwContent.stwContent_title,
 stwContent.stwContent_detail,
-stwContent.stwContent_img,
-stwContent.stwYoutube,
 stwContent.stwLesson_id
 FROM
 stwContent WHERE stwLesson_id ='".$ID."'";
@@ -100,19 +97,9 @@ stwContent WHERE stwLesson_id ='".$ID."'";
    while($row=mysqli_fetch_array($res,MYSQLI_ASSOC)){
 
    ?>
-<td> <?php echo $row['stwContent_title'];?></td>
 <td> <?php echo $row['stwContent_detail'];?></td>
-<td><?php echo '<img class="img"  width="50" height="50" border="2" src="'.$row['stwContent_img'].'">'; ?></td>
 
-<td>
- 
-    <?php if ($row['stwYoutube']==NULL) {  
-        }else{
-           $VDO =  $row['stwYoutube'];
-      echo 'https://www.youtube.com/watch?v='.$VDO.' ';
-        }
-    ?>
-</td>
+
 
   
  <td>
