@@ -4,7 +4,7 @@ if (isset($_POST['conntent'])) {
   $data = $_POST['conntent'];
   $less_id = $_POST['lesson'];
 
-  $sql = "INSERT INTO `stwContent` (`stwContent_id`, `stwLesson_id`, `stwContent_detail`) VALUES ('', '$less_id', '$data')";
+  $sql = "UPDATE `stwContent` SET `stwContent_detail`='$data' WHERE (`stwLesson_id`='$less_id') ";
   $result = mysqli_query($conn, $sql);
   if ($result) {
     echo "<script>alert('บันทึกข้อมูลเรียบร้อย')</script>";
