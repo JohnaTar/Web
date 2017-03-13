@@ -188,9 +188,11 @@ $(function () {
 
 
 ///////////////////////////Data Table///////////////////////////////////////////////////
-$(function(){
-    $('#myTable').DataTable();
-});
+$(document).ready(function() {
+    $('#myTable').DataTable( {
+        "order": [[ 5, "asc" ]]
+    } );
+} );
 $( function() {
     $( "#datepicker" ).datepicker({
     dateFormat: 'yy/mm/dd',

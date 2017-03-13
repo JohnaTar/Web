@@ -33,6 +33,7 @@ if ( $width > $maxDimW || $height > $maxDimH ) {
 
 }
 
+
 move_uploaded_file($_FILES['image']['tmp_name'],"photo/".$_FILES['image']['name']);
 $location="photo/".$_FILES["image"]["name"];
 

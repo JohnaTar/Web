@@ -54,7 +54,7 @@ if ($_SESSION['ses_id']=='') {
 <?php 
         if ($_SESSION['status']==1) {
             echo ' <button type="button" class="btn btn-info btn-xl" data-toggle="modal" data-target="#myModal"><i class="fa fa-user-plus fa-2x" aria-hidden="true"></i></button> :
-             <button type="button" class="btn btn-danger btn-xl" data-toggle="modal" data-target="#add_exel"><i class="fa fa-upload fa-2x" aria-hidden="true"></i></button>';
+             <button type="button" class="btn btn-danger btn-xl" data-toggle="modal" data-target="#add_exel"><i class="fa fa-file-excel-o fa-2x" aria-hidden="true"></i></button>';
         } else{
             
         }
@@ -123,14 +123,16 @@ if ($_SESSION['status']==1) {
 
       
         $sql = "SELECT stwUser.stwUser_id,stwUser.stwFirstname,stwUser.stwLastname,stwUser.stwGender,stwUser.stwTel,stwUser.stwEmail,stwStatus.stwStatus_name,stwPrefix.stwPrefix_name,
-            stwDepartment.stwDept_name,stwUser.stwCreated_date
-                FROM stwUser
+            stwDepartment.stwDept_name,stwUser.stwCreated_date  
+                FROM stwUser  
                 INNER JOIN stwStatus
                 ON stwUser.stwStatus_id = stwStatus.stwStatus_id 
                 INNER JOIN stwDepartment
                 ON stwUser.stwDept_id = stwDepartment.stwDept_id
                 INNER JOIN stwPrefix
-                ON stwUser.stwPrefix_id = stwPrefix.stwPrefix_id";
+                ON stwUser.stwPrefix_id = stwPrefix.stwPrefix_id
+                
+                ";
         $result = mysqli_query($conn, $sql);
       
           

@@ -2,11 +2,11 @@
 include("connect.php");
 if (isset($_POST['show_add_quest'])) {
 
-	$sql ="SELECT stwSubject_text FROM stwSubject
+	$sql ="SELECT stwSubject_name FROM stwSubject
 			WHERE stwSubject_id ='".$_POST['show_add_quest']."'";
 	$row=mysqli_query($conn,$sql);
 	$res =mysqli_fetch_array($row,MYSQLI_ASSOC); 
-	echo '<div class="alert alert-info alert-dismissable">ชื่อแบบทดสอบ :'.$res['stwSubject_text'].' </div>';
+	echo '<div class="alert alert-info alert-dismissable">ชื่อแบบทดสอบ :'.$res['stwSubject_name'].' </div>';
 	
 
   $id = $_POST['show_add_quest'];
@@ -19,21 +19,7 @@ if (isset($_POST['show_add_quest'])) {
   } 
 
 if (isset($_POST['suject_id'])) {
-	$sql = "SELECT CONCAT(stwDate_test, ' ', stwTime_start) FROM stwSubject WHERE stwSubject_id = '".$_POST['suject_id']."'";
-$result = mysqli_query($conn, $sql);
-$row = mysqli_fetch_array($result);
-$dt_test = strtotime($row[0]);
-$now = strtotime("now");
-
-if(($row[0] != "0000-00-00 00:00:00 ") && ($now >= $dt_test)) {
-    echo '
-                    ขณะนี้เลยวันเวลาที่กำหนดในการทำแบบทดสอบหัวข้อนี้แล้ว
-                    ดังนั้นจึงไม่อนุญาตให้เพิ่มคำถามในแบบทดสอบหัวข้อนี้อีก
-            
-            ';
-
-} else { 
-
+	
 			
 		
 		$sql = "REPLACE INTO stwQuestion VALUES('','".$_POST['suject_id']."','".$_POST['question']."')";
@@ -60,7 +46,7 @@ if(($row[0] != "0000-00-00 00:00:00 ") && ($now >= $dt_test)) {
 
 
 
-					}
+					
 		
 
 

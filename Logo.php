@@ -5,7 +5,7 @@ if ($_SESSION['ses_id']=='') {
      echo "<script>alert('PLEASE LOGIN')</script>";
      echo "<script>window.location='index'</script>";
  
-  } else if ($_SESSION['status']== 3 ) {
+  } else if ($_SESSION['status']== 3 && $_SESSION['status']==2 ) {
     echo "<script>alert('NO PERMISSION')</script>";
     echo "<script>window.location='index'</script>";
 

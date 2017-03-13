@@ -66,7 +66,7 @@ if ($_SESSION['ses_id']=='') {
                             <?php if ($_SESSION['status']==3) {
                                 # code...
                             } else{
-                                echo ' <a href="New_subject"> <button type="button" class="btn btn-info btn-xl" >เพิ่มแบบทดสอบ</button></a>';
+                                echo ' <a href="New_subject"> <button type="button" class="btn btn-info btn-xl" ><i class="fa fa-plus fa-2x" aria-hidden="true"></i></button></a>';
                             }
 
 

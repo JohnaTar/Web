@@ -36,7 +36,7 @@ if(isset($_POST["Import"])){
 	         //throws a message if data successfully imported to mysql database from excel file
 	         echo "<script type=\"text/javascript\">
 						alert(\"CSV File has been successfully Imported.\");
-						window.location = \"tables\"
+						window.location = \"Tables\"
 					</script>";
 	        
 			 
