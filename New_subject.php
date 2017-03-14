@@ -107,9 +107,11 @@ if ($_SESSION['ses_id']=='') {
     $past =$_POST['Past'];
     $time_start =$_POST['time_start'];
     $time_end =$_POST['time_end'];
+
    
-        $sql ="REPLACE INTO stwSubject VALUES('','$subject','$date_test','$past',
-        '$time_start','$time_end')";
+   
+        $sql ="INSERT INTO `stwExam` (`stwExam_name`, `stwExam_date`, `stwExam_start`, `stwExam_end`, `stwExam_create`, `stwExam_past`) VALUES ('$subject', '$date_test
+        ', '$time_start', '$time_end',NOW(), '$past')";
         $result = mysqli_query($conn,$sql);
         if ($result) { 
 
@@ -124,7 +126,7 @@ mysqli_close($conn);
 
 
     ?>
-    <a href="Create"><button class="btn btn-success">แสดงแบบทดสอบ</button> </a>
+    <a href="Create"><button class="btn btn-success"><i class="fa fa-reply fa-2x" aria-hidden="true"></i></button> </a>
     <br>
     <br>
 
@@ -146,7 +148,7 @@ mysqli_close($conn);
             <div class="form-group">
                     <label class="col-md-4 control-label" for="fn">เกณฑ์การผ่านแบบทดสอบ</label>  
                 <div class="col-md-4">
-                    <input name="subject" type="text" class="form-control input-md" id="text" required="" >
+                    <input name="Past" type="text" class="form-control input-md" id="text" required="" >
                     <span id="mdd"></span>
     
                 </div>
@@ -170,7 +172,7 @@ mysqli_close($conn);
              <div class="form-group">
                 <label class="col-md-4 control-label" for=""></label>
                 <div class="col-md-4">
-            <button id="ok"  class="btn btn-primary" >ตกลง</button>
+            <button id="ok"  class="btn btn-primary" ><i class="fa fa-share fa-2x" aria-hidden="true"></i></button>
             
 
                 </div>
