@@ -137,13 +137,13 @@ $(document).ready(function() {
 <!-- ****************start table****** -->
 
 
-
+<form class="form-horizontal" method="POST" id="add_exam_form" onsubmit="return add_exam_form();">
 
 <div class="row">
     <div class="col-md-12">
                         <center><h2>เพิ่มหัวข้อทดสอบ</h2></center>
    
-        <div class="row form-group">
+        <div class="row form-group ">
             <div class="col-md-12">
                 <ul class="nav nav-pills nav-justified thumbnail setup-panel">
                     <li class="active"><a href="#step-1">
@@ -174,7 +174,9 @@ $(document).ready(function() {
         <div class="row clearfix">
             <div class="col-md-12 column">
 
-            <form class="form-horizontal" method="POST">
+            
+
+
 
 
 <!-- *****************************first from********************** -->
@@ -207,7 +209,7 @@ $(document).ready(function() {
                 </div>
             </div>
 
-            
+
 
 
     
@@ -218,14 +220,14 @@ $(document).ready(function() {
                 
 <!-- </form> -->
                 
-                <button id="activate-step-2" class="btn btn-primary btn-md"><i class="fa fa-share fa-2x" aria-hidden="true"></i></button>
+                <button id="activate-step-2" class="btn btn-info btn-md"><i class="fa fa-share fa-2x" aria-hidden="true"></i></button>
             </div>
         </div>
     </div>
 
-</form>
-<script type="text/javascript">
-$(document).ready(function(){
+
+    <script type="text/javascript">
+    $(document).ready(function(){
     $('#select_all').on('click',function(){
         if(this.checked){
             $('.checkbox').each(function(){
@@ -245,8 +247,8 @@ $(document).ready(function(){
             $('#select_all').prop('checked',false);
         }
     });
-});
-</script>
+    });
+    </script>
 
 
     <div class="row setup-content" id="step-2">
@@ -297,15 +299,15 @@ $(document).ready(function(){
  <?php 
      include("connect.php");
      $sql ="SELECT
-stwPrefix.stwPrefix_name,stwDepartment.stwDept_name,
-stwUser.stwUser_id,stwUser.stwLastname,stwUser.stwFirstname
-FROM
-stwUser
-INNER JOIN stwPrefix ON stwUser.stwPrefix_id = stwPrefix.stwPrefix_id
-INNER JOIN stwDepartment ON stwUser.stwDept_id = stwDepartment.stwDept_id
-";
+    stwPrefix.stwPrefix_name,stwDepartment.stwDept_name,
+    stwUser.stwUser_id,stwUser.stwLastname,stwUser.stwFirstname
+    FROM
+    stwUser
+    INNER JOIN stwPrefix ON stwUser.stwPrefix_id = stwPrefix.stwPrefix_id
+    INNER JOIN stwDepartment ON stwUser.stwDept_id = stwDepartment.stwDept_id
+    ";
     $res =mysqli_query($conn,$sql);
-$i =1;
+    $i =1;
 
   while($row=mysqli_fetch_array($res,MYSQLI_ASSOC)){
 
@@ -352,7 +354,7 @@ $i =1;
             </div>
         </div>
                 
-                <button id="activate-step-3" class="btn btn-primary btn-md">Activate Step 3</button>
+                <button id="activate-step-3" class="btn btn-info btn-md"><i class="fa fa-share fa-2x" aria-hidden="true"></i></button>
             </div>
         </div>
     </div>
@@ -360,22 +362,23 @@ $i =1;
 
 
 
-<form class="container">
+    <div class="container">
 
     <div class="row setup-content" id="step-3">
         <div class="col-xs-12">
             <div class="col-md-12 well text-center">
                 <h1 class="text-center"> STEP 3</h1>
                 
-<!--<form></form> --> 
+<button type="submit" class="btn btn-primary btn-md">Activate Step 4</button>
+
                 
-                <button id="activate-step-4" class="btn btn-primary btn-md">Activate Step 4</button>
+             
             </div>
         </div>
     </div>
 
-</form>
 
+    </div>
 
 
 
@@ -403,14 +406,12 @@ $i =1;
 
 
 
+  
 
 
 
 
-
-
-
-
+</form>
 
 
 
@@ -425,7 +426,6 @@ $i =1;
                            
    
    
-  
   
 
 

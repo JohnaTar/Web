@@ -16,6 +16,7 @@
     <script src="js/tar.js"></script>
     <script src="js/tars.js"></script>
     <script src="js/tarss.js"></script>
+    <script src="js/exam.js"></script>
    
     <script src="js/nattee.js"></script>
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
