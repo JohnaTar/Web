@@ -165,7 +165,7 @@ $(document).ready(function() {
 
         <div class="row setup-content" id="step-1">
         <div class="col-md-12">
-            <div class="col-md-12 well text-center">
+            <div class="col-md-12  text-center">
                 <h1> STEP 1</h1>
 
 <!-- <form> -->               
@@ -220,7 +220,7 @@ $(document).ready(function() {
                 
 <!-- </form> -->
                 
-                <button id="activate-step-2" class="btn btn-info btn-md"><i class="fa fa-share fa-2x" aria-hidden="true"></i></button>
+                <button id="activate-step-2" class="btn btn-success btn-md"><i class="fa fa-arrow-right fa-2x" aria-hidden="true"></i></i></button>
             </div>
         </div>
     </div>
@@ -253,7 +253,7 @@ $(document).ready(function() {
 
     <div class="row setup-content" id="step-2">
         <div class="col-md-12">
-            <div class="col-md-12 well text-center">
+            <div class="col-md-12  text-center">
                 <h1 class="text-center"> STEP 2</h1>
                 <div class="text-right"> 
                 
@@ -310,7 +310,7 @@ $(document).ready(function() {
     $i =1;
 
   while($row=mysqli_fetch_array($res,MYSQLI_ASSOC)){
-
+  $stwUser_id = $row['stwUser_id'];
               
                   
     
@@ -341,6 +341,7 @@ $(document).ready(function() {
                     <td>
                         <?php echo $row['stwDept_name']; ?>
                     </td>
+                    
                     <td>
                         <input type="checkbox" name="select[]" class="checkbox" value="<?php echo $stwUser_id; ?> ">
 
@@ -354,7 +355,7 @@ $(document).ready(function() {
             </div>
         </div>
                 
-                <button id="activate-step-3" class="btn btn-info btn-md"><i class="fa fa-share fa-2x" aria-hidden="true"></i></button>
+                <button id="activate-step-3" class="btn btn-success btn-md"><i class="fa fa-arrow-right fa-2x" aria-hidden="true"></i></i></button>
             </div>
         </div>
     </div>
