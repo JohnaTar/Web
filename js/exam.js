@@ -14,7 +14,7 @@ function add_exam_form(){
 
       
       //reload page
-      location.reload();
+     location.replace("Create");
     }
   });
   return false;

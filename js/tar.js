@@ -193,6 +193,15 @@ $(document).ready(function() {
         "order": [[ 5, "asc" ]]
     } );
 } );
+$(document).ready(function() {
+    $('#myTable1').DataTable();
+} );
+$(document).ready(function() {
+    $('#myTable2').DataTable();
+} );
+
+
+
 
 
 

@@ -166,13 +166,13 @@ $(document).ready(function() {
         <div class="row setup-content" id="step-1">
         <div class="col-md-12">
             <div class="col-md-12  text-center">
-                <h1> STEP 1</h1>
+               
 
 <!-- <form> -->               
                 
     <div class="container col-md-12">
         <div class="row clearfix">
-            <div class="col-md-12 column">
+            <div class="col-md-12 well column">
 
             
 
@@ -226,35 +226,37 @@ $(document).ready(function() {
     </div>
 
 
-    <script type="text/javascript">
+<script type="text/javascript">
     $(document).ready(function(){
     $('#select_all').on('click',function(){
         if(this.checked){
-            $('.checkbox').each(function(){
+            $('input:checkbox[name="select[]"]').each(function(){
                 this.checked = true;
             });
         }else{
-             $('.checkbox').each(function(){
+             $('input:checkbox[name="select[]"]').each(function(){
                 this.checked = false;
             });
         }
     });
     
-    $('.checkbox').on('click',function(){
-        if($('.checkbox:checked').length == $('.checkbox').length){
+    $('input:checkbox[name="select[]"]').on('click',function(){
+        if($('input:checkbox[name="select[]"]:checked').length == $('input:checkbox[name="select[]"]').length){
             $('#select_all').prop('checked',true);
         }else{
             $('#select_all').prop('checked',false);
         }
     });
     });
-    </script>
+
+    
+</script>
 
 
-    <div class="row setup-content" id="step-2">
-        <div class="col-md-12">
-            <div class="col-md-12  text-center">
-                <h1 class="text-center"> STEP 2</h1>
+<div class="row setup-content" id="step-2">
+    <div class="col-md-12">
+        <div class="col-md-12  ">
+                
                 <div class="text-right"> 
                 
                 
@@ -275,30 +277,40 @@ $(document).ready(function() {
 
 
   <div class="row clearfix">
-            <div class="col-md-12 column">
-                <table class="table table-bordered table-hover" id="tab_logic">
-                <thead>
-                    <tr >
-                        <th class="text-center">
-                            #
-                        </th>
-                        <th class="text-center">
-                            ชื่อ-นามสกุล
-                        </th>
-                        <th class="text-center">
-                            แผนก
-                        </th>
-                        <th class="text-center">
-                            ตัวเลือก
-                        </th>
+            <div class="col-md-12 well column">
+             <div class="table-responsive">
+
                        
-                                            
                         
-                    </tr>
-                </thead>
- <?php 
-     include("connect.php");
-     $sql ="SELECT
+                           
+                         <table class="table table-striped table-hover" id="myTable1">
+                                <thead>
+                                    <tr>
+                                        <th>ลำดับ</th>
+                                        <th>ชื่อ-นามสกุล</th>                    
+                                        <th>แผนก</th>
+                                        <th>ตัวเลือก</th>
+
+                                      
+                                                                                   
+                                    </tr>
+                                 </thead>
+                                <tbody>   
+
+                                <tr>
+   
+    <?php
+     
+
+        include("connect.php");
+       
+              
+
+
+             
+
+      
+        $sql ="SELECT
     stwPrefix.stwPrefix_name,stwDepartment.stwDept_name,
     stwUser.stwUser_id,stwUser.stwLastname,stwUser.stwFirstname
     FROM
@@ -311,66 +323,167 @@ $(document).ready(function() {
 
   while($row=mysqli_fetch_array($res,MYSQLI_ASSOC)){
   $stwUser_id = $row['stwUser_id'];
-              
-                  
-    
-
-
-
-
     ?>
-   
 
-
-
-
-    
-                <tbody>
-
-
-                    <tr id='addr0'>
-                    <td>
-                        <?php echo $i; ?>
-                    </td>
-                       <td><?php echo 
+                <td> <?php echo $i; ?></td>                   
+                <td><?php echo 
                     $row['stwPrefix_name']." ".
                     $row['stwFirstname']." ".
-                    $row['stwLastname']; ?>
-                           
-                       </td>
-                    <td>
-                        <?php echo $row['stwDept_name']; ?>
-                    </td>
-                    
-                    <td>
+                    $row['stwLastname']; ?></td>
+                <td><?php echo $row['stwDept_name']; ?></td>
+                <td>
                         <input type="checkbox" name="select[]" class="checkbox" value="<?php echo $stwUser_id; ?> ">
 
-                    </td>   
-                      
-                    </tr>
-                    <tr id='addr1'></tr>
-                     <?php $i++;}  mysqli_close($conn); ?>
-                </tbody>
-                </table>
-            </div>
-        </div>
+                    </td>  
                 
-                <button id="activate-step-3" class="btn btn-success btn-md"><i class="fa fa-arrow-right fa-2x" aria-hidden="true"></i></i></button>
+
+              
+               
+                
+                
+
+
+
+                               
+                                 </tr>                       
+                              <?php $i++;}  mysqli_close($conn); ?>
+                </tbody>
+                                </tbody>
+                            </table>
+                            
+                            
+               
+            </div>
+
+        </div>
+                <center>
+                <button id="activate-step-3" class="btn btn-success btn-md"><i class="fa fa-arrow-right fa-2x" aria-hidden="true"></i></i></button></center>
             </div>
         </div>
     </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function(){
+    $('#Q_all').on('click',function(){
+        if(this.checked){
+            $('input:checkbox[name="question[]"]').each(function(){
+                this.checked = true;
+            });
+        }else{
+             $('input:checkbox[name="question[]"]').each(function(){
+                this.checked = false;
+            });
+        }
+    });
+    
+    $('input:checkbox[name="question[]"]').on('click',function(){
+        if($('input:checkbox[name="question[]"]:checked').length == $('input:checkbox[name="question[]"]').length){
+            $('#Q_all').prop('checked',true);
+        }else{
+            $('#Q_all').prop('checked',false);
+        }
+    });
+    });
+
+    
+</script>
 
 
 
-
-    <div class="container">
 
     <div class="row setup-content" id="step-3">
-        <div class="col-xs-12">
-            <div class="col-md-12 well text-center">
-                <h1 class="text-center"> STEP 3</h1>
+        <div class="col-md-12">
+        <div class="text-right">
+                    
+                <input type="checkbox" id="Q_all" > Select all
+            </div>
+            <div class="col-md-12 well ">
+
+            <div class="table-responsive">
+            
+               <table class="table table-striped table-hover" id="myTable2">
+                                <thead>
+                                    <tr>
+                                        <th>ลำดับ</th>
+                                        <th>คำถาม</th>                    
+                                        <th>ชุดคำถาม</th>
+                                        <th>ตัวเลือก</th>
+
+                                      
+                                                                                   
+                                    </tr>
+                                 </thead>
+                                <tbody>   
+
+                                <tr>
+   
+    <?php
+     
+
+        include("connect.php");
+       
+              
+
+
+             
+
+      
+        $sql ="SELECT
+stwSubject.stwSubject_name,
+stwQuestion.stwQuestion_text,
+stwQuestion.stwQuestion_id
+FROM
+stwQuestion
+INNER JOIN stwSubject ON stwQuestion.stwSubject_id = stwSubject.stwSubject_id
+    ";
+    $res =mysqli_query($conn,$sql);
+    $i =1;
+
+  while($row=mysqli_fetch_array($res,MYSQLI_ASSOC)){
+  $Q_id = $row['stwQuestion_id'];
+    ?>
+
+                <td> <?php echo $i; ?></td>                   
+                <td><?php echo $row['stwQuestion_text']; ?></td>
+                <td><?php echo $row['stwSubject_name']; ?></td>
+                <td>
+                        <input type="checkbox" name="question[]" class="checkbox" value="<?php echo $Q_id; ?> ">
+
+                    </td>  
+              
+               
                 
-<button type="submit" class="btn btn-primary btn-md">Activate Step 4</button>
+                
+
+
+
+                               
+                                 </tr>                       
+                              <?php $i++;}  mysqli_close($conn); ?>
+                </tbody>
+                                </tbody>
+                            </table>
+                </div>
+               
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+<center>
+<button type="submit" class="btn btn-primary btn-md"><i class="fa fa-floppy-o fa-2x     " aria-hidden="true"></i></button></center>
 
                 
              
@@ -379,7 +492,7 @@ $(document).ready(function() {
     </div>
 
 
-    </div>
+
 
 
 

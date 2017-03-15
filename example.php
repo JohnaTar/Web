@@ -29,7 +29,23 @@ if (isset($_POST['subject'])) {
 				$res = mysqli_query($conn,$sqli);
 				
 					
-				} echo "บัน";
+				} 
+
+			$Q_id=$_POST['question'];
+
+			$Nn = count($Q_id);
+
+			for($c=0; $c < $Nn; $c++){
+
+				$sqll ="INSERT INTO `stwExam_detail` (`stwExam_id`, `stwQuestion_id`) VALUES ('$exam', '$Q_id[$c]')";
+				$ress = mysqli_query($conn,$sqll);
+					
+				} echo "บันทึกข้อมูลเรียบร้อย";
+
+
+
+
+
 	
 			
 			}

@@ -97,19 +97,20 @@ include("connect.php");
 //อ่านหัวข้อแบบทดสอบจากตาราง subject
 //ให้รูปแบบวันเดือนปีให้เป็น date-month-year และเวลาเป็น hour:minute
     $sql = "SELECT *, 
-                DATE_FORMAT(stwDate_test, '%d-%m-%Y') AS stwDate_test, 
-                TIME_FORMAT(stwTime_start, '%H:%i') AS stwTime_start,  
-                TIME_FORMAT(stwTime_end, '%H:%i') AS stwTime_end   
-            FROM stwSubject ORDER BY  stwSubject_id DESC";
+                DATE_FORMAT(stwExam_date, '%d-%m-%Y') AS stwExam_test, 
+                TIME_FORMAT(stwExam_start, '%H:%i') AS stwExam_start,  
+                TIME_FORMAT(stwExam_end, '%H:%i') AS stwExam_end   
+            FROM stwExam ORDER BY  stwExam_id DESC";
 
     $result = mysqli_query($conn,$sql);
 
      while($data = mysqli_fetch_array($result)) {
-    $subject_id = $data['stwSubject_id'];
-    $dt = "วันที่ " . $data['stwDate_test'] . " เวลา " . $data['stwTime_start'] . " - " . $data['stwTime_end']; 
-    $dp =$data['stwSubject_past']; 
+    $subject_id = $data['stwExam_id'];
+    $dt = "วันที่ " . $data['stwExam_test'] . " เวลา " . $data['stwExam_start'] . " - " . $data['stwExam_end']; 
+    $dp =$data['stwExam_past']; 
+/////////////////////////////////////////////////////////////////////////////////////////////
    
-    $sql = "SELECT COUNT(*) FROM stwQuestion WHERE stwSubject_id = $subject_id";  //นับจำนวนคำถามของหัวข้อนี้
+    $sql = "SELECT COUNT(*) FROM stwExam_detail WHERE stwExam_id = $subject_id";  //
     $r = mysqli_query($conn, $sql);
     $num_q = 0;
     if($r) {
@@ -117,46 +118,44 @@ include("connect.php");
         $num_q = $row[0];
     }
     //สร้างปุ่มให้สอดคล้องกับชนิดผู้ใช้ระหว่าง tester และ testee
-    $bt = "";
+
+    $bt = ""; 
     $q = "subject_id=$subject_id";
     if($_SESSION['status']  == 3 ) {
         $bt = '<a href="Testing.php?'.$q.'"> <button type="button"  class="btn btn-success" >ทำแบบทดสอบ</button> </a>';
          //'<a href="testing.php?'.$q.'">ทำแบบทดสอบ</a>';
     }
     else  {
-      $bt = //'<a href="add-question.php?'.$q.'">เพิ่มคำถาม</a>'. origin
-                '<button type="button" class="btn btn-success" data-toggle="modal" data-target="#addQuest" onclick="return show_add_question('.$subject_id.');" >เพิ่มคำถาม </button>'.
-
-             // '<a href="testing.php?'.$q.'">ดูแบบทดสอบ</a>'.
-                 '<a href="show_question?'.$q.'"> <button type="button"  class="btn btn-info" >แก้ไขคำถาม</button> </a>';
-             // '<a href="#">ลบ/แก้ไข</a>';
-      $bb ='<a href="Edit_subject?'.$q.'"> <button type="button"  class="btn btn-info" >แก้ไขแบบทดสอบ</button> </a>'.'<a href=""> <button type="button" onclick="return delete_subject('.$q.');" class="btn btn-danger" >ลบ</button> </a>';
+      
                  
                  
   }   
+  
 ?>
 
 
                                    
         <td>
                     
-            <?php echo '<div class="subject">'.$data['stwSubject_text'].'</div>
-            <div class="question">'.$num_q.' คำถาม</div><br>
+            <?php echo '<div class="subject">'.$data['stwExam_name'].'</div>
+             <div class="question">'.$num_q.' คำถาม</div><br>  
             <div class="datetime">กำหนดทำแบบทดสอบ: '.$dt.'</div>
             <div class="past"> เกณฑ์การทำแบบทดสอบ: '.$dp.' %</div>
-          '.$bt.'<a href="score.php?'.$q.'"></a>
-                <hr>';; ?>
+          
+                <hr>'; ?>
         </td>
-        <td>
+        <td> 
               <?php if ($_SESSION['status']==3) {
-                                 echo '<a href="View_result_user?'.$q.'"><button type="button"  class="btn btn-info" >ดูผลทดสอบ</button></a> ';
+                echo '<a href="View_result_user?'.$q.'"><button type="button"  class="btn btn-info" >ดูผลทดสอบ</button></a> ';
                             } else{
-                                echo $bb;
+                                 
+            echo '<button type="button" class="btn btn-success btn-xl" ><i class="fa fa-cog fa-2x" aria-hidden="true"></i></button> :
+             <button type="button" class="btn btn-danger btn-xl" ><i class="fa fa-times fa-2x" aria-hidden="true"></i></button>';  
                             }
 
 
 
-                        ?>
+                ?>
                            
         </td>
 
