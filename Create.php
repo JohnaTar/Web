@@ -149,8 +149,8 @@ include("connect.php");
                 echo '<a href="View_result_user?'.$q.'"><button type="button"  class="btn btn-info" >ดูผลทดสอบ</button></a> ';
                             } else{
                                  
-            echo '<button type="button" class="btn btn-success btn-xl" ><i class="fa fa-cog fa-2x" aria-hidden="true"></i></button> :
-             <button type="button" class="btn btn-danger btn-xl" ><i class="fa fa-times fa-2x" aria-hidden="true"></i></button>';  
+            echo '<button type="button"  class="btn btn-success btn-xl" ><i class="fa fa-cog fa-2x" aria-hidden="true"></i></button> :
+             <button type="button" onclick="return delete_subject('.$subject_id.');" class="btn btn-danger btn-xl" > <i class="fa fa-times fa-2x" aria-hidden="true"></i></button>';  
                             }
 
 
@@ -160,10 +160,6 @@ include("connect.php");
         </td>
 
 
-
-
-                              
-                                 </tr>                       
                                 <?php } 
                                 mysqli_close($conn);
                                 ?>
@@ -190,7 +186,7 @@ include("connect.php");
 
  
  
-  <?php include("modal/addQuest.php");?>
+  
 
 
 

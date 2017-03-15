@@ -4,7 +4,7 @@ function delete_subject(id){
     $.ajax({
       type:"POST",
       url:"ckAjaxs-nattee.php",
-      data:{delete:id},
+      data:{exam_id:id},
       success:function(data){
         alert(data);
         location.reload();
