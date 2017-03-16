@@ -56,5 +56,5 @@ else {
 	echo "<script>alert('เสร็จสิ้นการทดสอบและตรวจนับคะแนนแล้ว')</script>";
     echo "<script>window.location='Create'</script>";
 
-
+}
 ?>
