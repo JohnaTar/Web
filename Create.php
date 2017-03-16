@@ -94,13 +94,23 @@ if ($_SESSION['ses_id']=='') {
     <?php
      
 include("connect.php");
-//อ่านหัวข้อแบบทดสอบจากตาราง subject
-//ให้รูปแบบวันเดือนปีให้เป็น date-month-year และเวลาเป็น hour:minute
+   if ($_SESSION['status']==3) {
+       
+        $sql ="SELECT stwExam_User.stwExam_id,stwExam_User.stwUser_id,
+                      stwExam.stwExam_name,stwExam.stwExam_date,stwExam.stwExam_start,
+                      stwExam.stwExam_end,stwExam.stwExam_create,stwExam.stwExam_past
+               FROM stwExam_User 
+               INNER JOIN stwExam 
+               ON stwExam_User.stwExam_id = stwExam.stwExam_id
+               WHERE stwExam_User.stwUser_id = '".$_SESSION['ID']."'";
+
+   }else {
     $sql = "SELECT *, 
                 DATE_FORMAT(stwExam_date, '%d-%m-%Y') AS stwExam_test, 
                 TIME_FORMAT(stwExam_start, '%H:%i') AS stwExam_start,  
                 TIME_FORMAT(stwExam_end, '%H:%i') AS stwExam_end   
             FROM stwExam ORDER BY  stwExam_id DESC";
+}
 
     $result = mysqli_query($conn,$sql);
 
@@ -121,15 +131,7 @@ include("connect.php");
 
     $bt = ""; 
     $q = "subject_id=$subject_id";
-    if($_SESSION['status']  == 3 ) {
-        $bt = '<a href="Testing.php?'.$q.'"> <button type="button"  class="btn btn-success" >ทำแบบทดสอบ</button> </a>';
-         //'<a href="testing.php?'.$q.'">ทำแบบทดสอบ</a>';
-    }
-    else  {
-      
-                 
-                 
-  }   
+   
   
 ?>
 
@@ -146,7 +148,10 @@ include("connect.php");
         </td>
         <td> 
               <?php if ($_SESSION['status']==3) {
-                echo '<a href="View_result_user?'.$q.'"><button type="button"  class="btn btn-info" >ดูผลทดสอบ</button></a> ';
+    echo '<a href="Testing.php?'.$q.'"> <button type="button"  class="btn btn-success" ><i class="fa fa-play fa-2x" aria-hidden="true"></i></button> 
+        </a>
+        <a href="View_result_user?'.$q.'"><button type="button"  class="btn btn-info" ><i class="fa fa-clipboard fa-2x" aria-hidden="true"></i></button>
+        </a>  ';
                             } else{
                                  
             echo '<button type="button"  class="btn btn-success btn-xl" ><i class="fa fa-cog fa-2x" aria-hidden="true"></i></button> :
@@ -158,7 +163,7 @@ include("connect.php");
                 ?>
                            
         </td>
-
+                        </tr>
 
                                 <?php } 
                                 mysqli_close($conn);

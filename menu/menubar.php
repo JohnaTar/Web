@@ -116,7 +116,7 @@
                         <a href="File_upload"><i class="fa fa-fw fa-file-word-o"></i> เอกสารเพิ่มเติม</a>
                     </li>                
                     <li>                 
-                        <a href="Create"><i class="fa fa-fw fa-edit"></i> สร้างหัวข้อแบบทดสอบ</a>
+                        <a href="Create"><i class="fa fa-fw fa-edit"></i> หัวข้อแบบทดสอบ</a>
                     </li>
 
                     <li>

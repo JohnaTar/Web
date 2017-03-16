@@ -41,12 +41,12 @@ if ($_SESSION['ses_id']=='') {
       { 
         if(data ==true)
         { 
-         $("#ok").attr("disabled",false);
+         $("#activate-step-2").attr("disabled",false);
               
             $("#mdd").html("<span style='color:green'>หัวข้อการอบรมนี้สามารถสร้างได้</span>");
             }else if (data ==false) {
               
-                $("#ok").attr("disabled",true);
+                $("#activate-step-2").attr("disabled",true);
                
                
             $("#mdd").html("<span style='color:red'>หัวข้อการอบรมมีอยุ่ในระบบแล้ว</span>");

@@ -59,9 +59,56 @@ if ($_SESSION['ses_id']=='') {
   });    
 
 
-
+$(document).ready(function() {
     
-  
+    var navListItems = $('ul.setup-panel li a'),
+        allWells = $('.setup-content');
+
+    allWells.hide();
+
+    navListItems.click(function(e)
+    {
+        e.preventDefault();
+        var $target = $($(this).attr('href')),
+            $item = $(this).closest('li');
+        
+        if (!$item.hasClass('disabled')) {
+            navListItems.closest('li').removeClass('active');
+            $item.addClass('active');
+            allWells.hide();
+            $target.show();
+        }
+    });
+    
+    $('ul.setup-panel li.active a').trigger('click');
+    
+    // DEMO ONLY //
+    $('#activate-step-2').on('click', function(e) {
+        $('ul.setup-panel li:eq(1)').removeClass('disabled');
+        $('ul.setup-panel li a[href="#step-2"]').trigger('click');
+        $(this).remove();
+    })
+    
+    $('#activate-step-3').on('click', function(e) {
+        $('ul.setup-panel li:eq(2)').removeClass('disabled');
+        $('ul.setup-panel li a[href="#step-3"]').trigger('click');
+        $(this).remove();
+    })
+    
+    $('#activate-step-4').on('click', function(e) {
+        $('ul.setup-panel li:eq(3)').removeClass('disabled');
+        $('ul.setup-panel li a[href="#step-4"]').trigger('click');
+        $(this).remove();
+    })
+    
+    $('#activate-step-3').on('click', function(e) {
+        $('ul.setup-panel li:eq(2)').removeClass('disabled');
+        $('ul.setup-panel li a[href="#step-3"]').trigger('click');
+        $(this).remove();
+    })
+});
+
+
 </script>
 
         <body>
@@ -90,133 +137,409 @@ if ($_SESSION['ses_id']=='') {
 <!-- ****************start table****** -->
 
 
+<form class="form-horizontal" method="POST" id="add_exam_form" onsubmit="return add_exam_form();">
 
-
-                <div class="row">
-                    <div class="col-md-12">
-                        <center><h2>แก้ไขหัวข้อทดสอบ</h2></center>
-    <?php
-     include("connect.php"); 
-     if (isset($_POST['ok'])) {
-    $subject = $_GET['subject_id'];
-    $subject_text =$_POST['subject'];
-    $past=$_POST['Past'];
-    $date_test = $_POST['date'];
-    $time_start =$_POST['time_start'];
-    $time_end =$_POST['time_end'];
+<div class="row">
+    <div class="col-md-12">
+                        <center><h2>เพิ่มหัวข้อทดสอบ</h2></center>
    
-        $sql ="UPDATE stwSubject SET
+        <div class="row form-group ">
+            <div class="col-md-12">
+                <ul class="nav nav-pills nav-justified thumbnail setup-panel">
+                    <li class="active"><a href="#step-1">
+                        <h4 class="list-group-item-heading">Step 1</h4>
+                        <p class="list-group-item-text">สร้างหัวข้อทดสอบ</p>
+                    </a></li>
+                    <li class="disabled"><a href="#step-2">
+                        <h4 class="list-group-item-heading">Step 2</h4>
+                        <p class="list-group-item-text">เลือกผู้ทดสอบ</p>
+                    </a></li>
+                    <li class="disabled"><a href="#step-3">
+                        <h4 class="list-group-item-heading">Step 3</h4>
+                        <p class="list-group-item-text">เลือกคำถาม</p>
+                    </a></li>
+                     
+                </ul>
+            </div>
+        </div>
 
-          stwSubject_text = '$subject_text',
-          stwSubject_past ='$past',
-          stwDate_test ='$date_test',
-          stwTime_start ='$time_start',
-          stwTime_end ='$time_end'
-          WHERE stwSubject_id = '$subject' "; 
-        $result = mysqli_query($conn,$sql);
-        if ($result) { 
+        <div class="row setup-content" id="step-1">
+        <div class="col-md-12">
+            <div class="col-md-12  text-center">
+               
 
-             echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>แก้ไขข้อมูลเรียบร้อย</div>';
+<!-- <form> -->               
+                
+    <div class="container col-md-12">
+        <div class="row clearfix">
+            <div class="col-md-12 well column">
+
             
-        } else{
-            echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>เกิดข้อผิดพลาดในการแก้ไขข้อมูล กรุณาลองใหม่</div>';
 
 
-        }
-    }
-    
-       
-
-
-    $subject = $_GET['subject_id'];
-    $sql = "SELECT * FROM stwSubject WHERE stwSubject_id =$subject";
-    $res =mysqli_query($conn,$sql);
-    $row =mysqli_fetch_array($res,MYSQLI_ASSOC);
-
-
-    ?>
-    <a href="Create"><button class="btn btn-success">แสดงแบบทดสอบ</button> </a>
-    <br>
-    <br>
-
-<div class="alert alert-danger alert-dismissable">การกำหนดวันเวลา จะทำให้ผู้เข้าทดสอบสามารถทำแบบทดสอบได้เฉพาะในวันและช่วงเวลาที่กำหนดเท่านั้น</div>
-
-
-<form class="form-horizontal" method="POST">
 
 
 <!-- *****************************first from********************** -->
           <div class="form-group">
                     <label class="col-md-4 control-label" for="fn">หัวข้อการทดสอบ</label>  
                 <div class="col-md-4">
-                    <input name="subject" type="text" class="form-control input-md" id="text"  value="<?php echo $row['stwSubject_text'];?>">
+                    <input name="subject" type="text" class="form-control input-md" id="text" required="" >
                     <span id="mdd"></span>
     
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-md-4 control-label" for="selectbasic">เกณท์การผ่านทดสอบ</label>
-                    <div class="col-md-4">
-                    <select  name="Past" class="form-control input-md">
-              <option value = "50" <?php if($row['stwSubject_past'] == '50'){echo "selected='selected'";} ?>>50% </option>
-                <option value = "55"<?php if($row['stwSubject_past'] == '55'){echo "selected='selected'";} ?>>55% </option>
-                  <option value = "60"<?php if($row['stwSubject_past'] == '60'){echo "selected='selected'";} ?>>60% </option>
-                    <option value = "65"<?php if($row['stwSubject_past'] == '65'){echo "selected='selected'";} ?>>65% </option>
-                      <option value = "70"<?php if($row['stwSubject_past'] == '70'){echo "selected='selected'";} ?>>70% </option>
-                        <option value = "75"<?php if($row['stwSubject_past'] == '75'){echo "selected='selected'";} ?>>75% </option>
-                          <option value = "80"<?php if($row['stwSubject_past'] == '80'){echo "selected='selected'";} ?>>80% </option>
-                            <option value = "85"<?php if($row['stwSubject_past'] == '85'){echo "selected='selected'";} ?>>85% </option>
-                              <option value = "90"<?php if($row['stwSubject_past'] == '90'){echo "selected='selected'";} ?>>90% </option>
-                                <option value = "95"<?php if($row['stwSubject_past'] == '95'){echo "selected='selected'";} ?>>95% </option>      
-                </select>
+                    <label class="col-md-4 control-label" for="fn">เกณฑ์การผ่านแบบทดสอบ</label>  
+                <div class="col-md-4">
+                    <input name="Past" type="text" class="form-control input-md" id="text" required="" >
+                    <span id="mdd"></span>
+    
                 </div>
             </div>
-               
-
             <div class="form-group">
                     <label class="col-md-4 control-label" for="fn">วันเวลาที่จะทดสอบ</label>  
                 <div class="col-md-4">
                    
                     <label >วันที่จะทดสอบ</label>  
-                    <input type="text" id="datepicker"  class="form-control input-md" name="date" value="<?php echo $row['stwDate_test'];?>">
-                    <br>
-                    <label >เวลาเริ่ม</label>
-                    <input type="text" id="timepicker" class="form-control input-md" name="time_start" value="<?php echo $row['stwTime_start'];?>">
-                    <br> 
-                    <label >เวลาสิ้นสุด</label>
-                    <input type="text" id="timepicker1" class="form-control input-md" name="time_end" value="<?php echo $row['stwTime_end'];?>" >
+                    <input type="text" id="datepicker"  class="form-control input-md" name="date" ><br> <label >เวลาเริ่ม</label>
+                    <input type="text" id ="timepicker" class="form-control input-md" name="time_start" ><br> <label >เวลาสิ้นสุด</label>
+                    <input type="text"  id ="timepicker1" class="form-control input-md" name="time_end" >
 
     
                 </div>
             </div>
 
-            
 
 
-             <div class="form-group">
-                <label class="col-md-4 control-label" for=""></label>
-                <div class="col-md-4">
-            <button name="ok"  class="btn btn-primary" >ตกลง</button>
-            
 
-                </div>
+    
             </div>
-
-     </form> 
-<?php
-   
+        </div>
         
-mysqli_close($conn);
+    </div>
+                
+<!-- </form> -->
+                
+                <button id="activate-step-2" class="btn btn-success btn-md"><i class="fa fa-arrow-right fa-2x" aria-hidden="true"></i></i></button>
+            </div>
+        </div>
+    </div>
+
+
+<script type="text/javascript">
+    $(document).ready(function(){
+    $('#select_all').on('click',function(){
+        if(this.checked){
+            $('input:checkbox[name="select[]"]').each(function(){
+                this.checked = true;
+            });
+        }else{
+             $('input:checkbox[name="select[]"]').each(function(){
+                this.checked = false;
+            });
+        }
+    });
     
+    $('input:checkbox[name="select[]"]').on('click',function(){
+        if($('input:checkbox[name="select[]"]:checked').length == $('input:checkbox[name="select[]"]').length){
+            $('#select_all').prop('checked',true);
+        }else{
+            $('#select_all').prop('checked',false);
+        }
+    });
+    });
+
+    
+</script>
+
+
+<div class="row setup-content" id="step-2">
+    <div class="col-md-12">
+        <div class="col-md-12  ">
+                
+                <div class="text-right"> 
+                
+                
+                <input type="checkbox" id="select_all" > Select all
+
+ 
+
+
+
+
+
+                </div>
+                <br>
+                <ul class="main">
+    
+
+
+
+
+  <div class="row clearfix">
+            <div class="col-md-12 well column">
+             <div class="table-responsive">
+
+                       
+                        
+                           
+                         <table class="table table-striped table-hover" id="myTable1">
+                                <thead>
+                                    <tr>
+                                        <th>ลำดับ</th>
+                                        <th>ชื่อ-นามสกุล</th>                    
+                                        <th>แผนก</th>
+                                        <th>ตัวเลือก</th>
+
+                                      
+                                                                                   
+                                    </tr>
+                                 </thead>
+                                <tbody>   
+
+                                <tr>
+   
+    <?php
      
 
-?>                      
+        include("connect.php");
+       
+              
+
+
+             
+
+      
+        $sql ="SELECT
+    stwPrefix.stwPrefix_name,stwDepartment.stwDept_name,
+    stwUser.stwUser_id,stwUser.stwLastname,stwUser.stwFirstname
+    FROM
+    stwUser
+    INNER JOIN stwPrefix ON stwUser.stwPrefix_id = stwPrefix.stwPrefix_id
+    INNER JOIN stwDepartment ON stwUser.stwDept_id = stwDepartment.stwDept_id
+    ";
+    $res =mysqli_query($conn,$sql);
+    $i =1;
+
+  while($row=mysqli_fetch_array($res,MYSQLI_ASSOC)){
+  $stwUser_id = $row['stwUser_id'];
+    ?>
+
+                <td> <?php echo $i; ?></td>                   
+                <td><?php echo 
+                    $row['stwPrefix_name']." ".
+                    $row['stwFirstname']." ".
+                    $row['stwLastname']; ?></td>
+                <td><?php echo $row['stwDept_name']; ?></td>
+                <td>
+                        <input type="checkbox" name="select[]" class="checkbox" value="<?php echo $stwUser_id; ?> ">
+
+                    </td>  
+                
+
+              
+               
+                
+                
+
+
+
+                               
+                                 </tr>                       
+                              <?php $i++;}  mysqli_close($conn); ?>
+                </tbody>
+                                </tbody>
+                            </table>
+                            
+                            
+               
+            </div>
+
+        </div>
+                <center>
+                <button id="activate-step-3" class="btn btn-success btn-md"><i class="fa fa-arrow-right fa-2x" aria-hidden="true"></i></i></button></center>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function(){
+    $('#Q_all').on('click',function(){
+        if(this.checked){
+            $('input:checkbox[name="question[]"]').each(function(){
+                this.checked = true;
+            });
+        }else{
+             $('input:checkbox[name="question[]"]').each(function(){
+                this.checked = false;
+            });
+        }
+    });
+    
+    $('input:checkbox[name="question[]"]').on('click',function(){
+        if($('input:checkbox[name="question[]"]:checked').length == $('input:checkbox[name="question[]"]').length){
+            $('#Q_all').prop('checked',true);
+        }else{
+            $('#Q_all').prop('checked',false);
+        }
+    });
+    });
+
+    
+</script>
+
+
+
+
+    <div class="row setup-content" id="step-3">
+        <div class="col-md-12">
+        <div class="text-right">
+                    
+                <input type="checkbox" id="Q_all" > Select all
+            </div>
+            <div class="col-md-12 well ">
+
+            <div class="table-responsive">
+            
+               <table class="table table-striped table-hover" id="myTable2">
+                                <thead>
+                                    <tr>
+                                        <th>ลำดับ</th>
+                                        <th>คำถาม</th>                    
+                                        <th>ชุดคำถาม</th>
+                                        <th>ตัวเลือก</th>
+
+                                      
+                                                                                   
+                                    </tr>
+                                 </thead>
+                                <tbody>   
+
+                                <tr>
+   
+    <?php
+     
+
+        include("connect.php");
+       
+              
+
+
+             
+
+      
+        $sql ="SELECT
+stwSubject.stwSubject_name,
+stwQuestion.stwQuestion_text,
+stwQuestion.stwQuestion_id
+FROM
+stwQuestion
+INNER JOIN stwSubject ON stwQuestion.stwSubject_id = stwSubject.stwSubject_id
+    ";
+    $res =mysqli_query($conn,$sql);
+    $i =1;
+
+  while($row=mysqli_fetch_array($res,MYSQLI_ASSOC)){
+  $Q_id = $row['stwQuestion_id'];
+    ?>
+
+                <td> <?php echo $i; ?></td>                   
+                <td><?php echo $row['stwQuestion_text']; ?></td>
+                <td><?php echo $row['stwSubject_name']; ?></td>
+                <td>
+                        <input type="checkbox" name="question[]" class="checkbox" value="<?php echo $Q_id; ?> ">
+
+                    </td>  
+              
+               
+                
+                
+
+
+
+                               
+                                 </tr>                       
+                              <?php $i++;}  mysqli_close($conn); ?>
+                </tbody>
+                                </tbody>
+                            </table>
+                </div>
+               
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+<center>
+<button type="submit" class="btn btn-primary btn-md"><i class="fa fa-floppy-o fa-2x     " aria-hidden="true"></i></button></center>
+
+                
+             
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    
                         
+
+    </div>            
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+</form>
+
+
+
+
+
+                    
+   
+            </div>
+        </div> 
+     </div>                  
                         
                            
    
    
-  
   
 
 

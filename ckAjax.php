@@ -224,8 +224,8 @@ if (isset($_POST['PassUser_id'])) {
 
 
 if (isset($_POST['text'])){
-        $sql = "SELECT * FROM stwSubject 
-                WHERE stwSubject_text='".$_POST['text']."'";
+        $sql = "SELECT * FROM stwExam 
+                WHERE stwExam_name  ='".$_POST['text']."'";
         $result = mysqli_query($conn, $sql);
           if(mysqli_num_rows($result) == 0){
              echo true;

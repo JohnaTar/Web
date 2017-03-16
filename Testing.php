@@ -85,21 +85,22 @@ if ($_SESSION['ses_id']=='') {
                 <div class="col-md-12"> 
 <?php 
       $subject_id = $_GET['subject_id'];
-      $sql = "SELECT stwSubject_text,
-        DATE_FORMAT(stwDate_test, '%d/%m/%Y'), 
-        TIME_FORMAT(stwTime_start, '%H:%i'),  
-        TIME_FORMAT(stwTime_end, '%H:%i'),
-        stwDate_test, stwTime_start, stwTime_end
-      FROM stwSubject WHERE stwSubject_id = $subject_id";
+      $sql = "SELECT stwExam_name,
+        DATE_FORMAT(stwExam_date, '%d/%m/%Y'), 
+        TIME_FORMAT(stwExam_start, '%H:%i'),  
+        TIME_FORMAT(stwExam_end, '%H:%i'),
+        stwExam_date, stwExam_start, stwExam_end
+      FROM stwExam WHERE stwExam_id = $subject_id";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_array($result);
 $datetime = $row[1] . "   " . $row[2]. "-" . $row[3];
 
 ?>
-<center><h2><div class="alert alert-info alert-dismissable">เรื่อง : <?php echo $row['stwSubject_text']; ?></div></h2> </center>
+<center><h2><div class="alert alert-info alert-dismissable">เรื่อง : <?php echo $row['stwExam_name']; ?></div></h2> </center>
 <center><h2><div class="alert alert-success alert-dismissable"> <?php echo "[$datetime]"; ?></div></h2> </center>
 
 <?php
+/*
 $now = strtotime("now");
 $start = $row[4] . " " . $row[5];
 $end = $row[4] . " " . $row[6];
@@ -114,9 +115,12 @@ if(($_SESSION['status'] == "3") && ($row[1] != "00/00/0000") && (($start > $now)
   
   exit;
 } 
+*/
 if(isset($_SESSION['ID'])) {
   $testee_id = $_SESSION['ID'];
-  $sql = "SELECT COUNT(*) FROM stwscore WHERE stwSubject_id = $subject_id AND stwUser_id = $testee_id";
+  // $sql = "SELECT COUNT(*) FROM stwscore WHERE stwSubject_id = $subject_id AND stwUser_id = $testee_id";
+
+  $sql ="SELECT COUNT(*) FROM stwExam_User WHERE stwUser_id =$testee_id AND stwExam_id=$subject_id AND stwScore";
   $result = mysqli_query($conn, $sql);
   $row = mysqli_fetch_array($result);
   if($row[0] !=0) {
@@ -132,8 +136,12 @@ if(isset($_SESSION['ID'])) {
  
    
 <?php
-$sql = "SELECT * FROM stwQuestion WHERE stwSubject_id = '$subject_id' ORDER BY RAND ()";
-//$sql = "SELECT * FROM stwQuestion  WHERE stwSubject_id = $subject_id ";
+//$sql = "SELECT * FROM stwQuestion WHERE stwSubject_id = '$subject_id' ORDER BY RAND ()";
+$sql ="SELECT stwQuestion.stwQuestion_text,stwExam_detail.stwExam_id,
+       stwExam_detail.stwQuestion_id
+       FROM stwExam_detail
+       INNER JOIN stwQuestion ON stwExam_detail.stwQuestion_id = stwQuestion.stwQuestion_id
+       WHERE stwExam_id =$subject_id";
 $result = mysqli_query($conn, $sql);
   $i =1;
 while($data = mysqli_fetch_array($result)) {
