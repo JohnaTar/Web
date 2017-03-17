@@ -92,13 +92,7 @@ $pass =$rr['stwExam_past'];
                                 <tbody>   
                                 <tr>
 <?php
- $sql ="SELECT COUNT(*) FROM stwscore WHERE stwSubject_id=$sub ";
-  $r = mysqli_query($conn, $sql);
-    $num_h = 0;
-    if($r) {
-        $row = mysqli_fetch_array($r);
-        $num_h = $row[0];
-    } 
+
 
  
  
@@ -143,12 +137,25 @@ $result = mysqli_query($conn,$sql);
                                 }
 
                                 ?> / <?php echo $num_q; ?></td>
-                                <td> <?php $SC=$num_q *$pass/100;
-                                        if ($rows['stwScore']<=$SC) {
-                                               echo '<i class="fa fa-times fa-2x"></i>';
-                                        }else{
-                                            echo '<i class="fa fa-check fa-2x"></i>';
-                                        }
+                                <td> <?php   $SC=$num_q *$pass/100;
+                                 if ($rows['stwScore']==null) {
+                                  echo '<i class="fa fa-spinner fa-pulse fa-2x fa-fw"></i>
+                                               <span class="sr-only">Loading...</span>';
+                                } 
+                                elseif ($rows['stwScore']<=$SC) {
+                                   echo '<i class="fa fa-times fa-2x"></i>';
+                               
+                                }else{
+                                   echo '<i class="fa fa-check fa-2x"></i>';
+
+                                }
+
+
+                                       
+                                      
+                                             
+                                           
+                                        
 
                                      ?>
                                     

@@ -39,10 +39,12 @@ if ($_SESSION['ses_id']=='') {
                 }else {
 
                 include("menu/menubar.php");
+
             }
 
                  ?>
 <!-- *********************************************************** -->
+<?php  include("modal/show_score.php"); ?>
         <div id="page-wrapper">
             <div class="container-fluid">            
                 <div class="row">
@@ -150,8 +152,11 @@ include("connect.php");
               <?php if ($_SESSION['status']==3) {
     echo '<a href="Testing.php?'.$q.'"> <button type="button"  class="btn btn-success" ><i class="fa fa-play fa-2x" aria-hidden="true"></i></button> 
         </a>
-        <a href="View_result_user?'.$q.'"><button type="button"  class="btn btn-info" ><i class="fa fa-clipboard fa-2x" aria-hidden="true"></i></button>
-        </a>  ';
+        
+        <button type="button" onclick="return show_score('.$subject_id.');" class="btn btn-info btn-xl" data-toggle="modal" data-target="#show_score">  <i class="fa fa-clipboard fa-2x" aria-hidden="true"></i></button>
+
+
+         ';
                             } else{
                                  
             echo '<button type="button"  class="btn btn-success btn-xl" ><i class="fa fa-cog fa-2x" aria-hidden="true"></i></button> :

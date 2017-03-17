@@ -19,3 +19,18 @@ function add_exam_form(){
   });
   return false;
 }
+
+function show_score(id){
+  $.ajax({
+        type:"POST",
+        url:"example.php",
+        data:{sub_id:id},
+      success:function(data)
+      {
+        $("#score_form").html(data);
+
+      }
+  });
+    return false;
+
+} 

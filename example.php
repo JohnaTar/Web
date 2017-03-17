@@ -1,4 +1,5 @@
 <?php
+session_start();
 include("connect.php");
 if (isset($_POST['subject'])) {
 
@@ -42,38 +43,56 @@ if (isset($_POST['subject'])) {
 					
 				} echo "บันทึกข้อมูลเรียบร้อย";
 
-
-
-
-
-	
-			
+		
 			}
         	
-        
 
-
-
-
-
-
-
-
-
-
-
-
-
-	
-
-
-
-
-	
-	
 }
 
+if (isset($_POST['sub_id'])) {
+	
+$sql = "SELECT * FROM stwExam_User
+        WHERE stwUser_id = '".$_SESSION['ID']."'
+         AND stwExam_id = '".$_POST['sub_id']."' 
+         AND stwScore ";
+$result = mysqli_query($conn, $sql);    
+    $num = mysqli_num_rows($result);
+    if($num <= 0){
+    echo 'ไม่พบข้อมูลการทำแบบทดสอบของท่าน';
+
+	} else{
+
+		$row =mysqli_fetch_array($result,MYSQLI_ASSOC);
+		echo '<center>คะแนนที่ท่านได้คือ : '.$row['stwScore'].'</center>';
+
+		 $sqli = "SELECT COUNT(*) FROM stwExam_detail WHERE stwExam_id = '".$_POST['sub_id']."'";  //
+    		$r = mysqli_query($conn, $sqli);
+    		$num_q = 0;
+    		if($r) {
+        			$rows = mysqli_fetch_array($r);
+        			$num_q = $rows[0];
+        		}
+        		$sq ="SELECT stwExam_past FROM stwExam WHERE stwExam_id ='".$_POST['sub_id']."'";
+        		$re =mysqli_query($conn,$sq);
+        		$rowss =mysqli_fetch_array($re,MYSQLI_ASSOC);
+        		$pass=$rowss['stwExam_past'];
+        		$SC=$num_q *$pass/100;
+
+        		if ($row['stwScore']<=$SC) {
+                                   echo '<center><i class="fa fa-times fa-2x" style="color:red"></i> : ไม่ผ่านการทดสอบ </center>';
+                               
+                                }else{
+                                   echo '<center><i class="fa fa-check fa-2x"style="color:green"></i> : ผ่านการทดสอบ </center>';
+                               }
 
 
+                  
+
+
+		
+
+
+	}
+}
 
 ?>
