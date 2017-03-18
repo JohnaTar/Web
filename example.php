@@ -58,7 +58,7 @@ $sql = "SELECT * FROM stwExam_User
 $result = mysqli_query($conn, $sql);    
     $num = mysqli_num_rows($result);
     if($num <= 0){
-    echo 'ไม่พบข้อมูลการทำแบบทดสอบของท่าน';
+    echo '<center>ไม่พบข้อมูลการทำแบบทดสอบของท่าน</center>';
 
 	} else{
 
@@ -75,7 +75,7 @@ $result = mysqli_query($conn, $sql);
         		$sq ="SELECT stwExam_past FROM stwExam WHERE stwExam_id ='".$_POST['sub_id']."'";
         		$re =mysqli_query($conn,$sq);
         		$rowss =mysqli_fetch_array($re,MYSQLI_ASSOC);
-        		$pass=$rowss['stwExam_past'];
+        		$pass=$rowss[0];
         		$SC=$num_q *$pass/100;
 
         		if ($row['stwScore']<=$SC) {

@@ -141,7 +141,7 @@ $(document).ready(function() {
 
 <div class="row">
     <div class="col-md-12">
-                        <center><h2>เพิ่มหัวข้อทดสอบ</h2></center>
+                        <center><h2>แก้ไขหัวข้อทดสอบ</h2></center>
    
         <div class="row form-group ">
             <div class="col-md-12">
@@ -174,7 +174,21 @@ $(document).ready(function() {
         <div class="row clearfix">
             <div class="col-md-12 well column">
 
-            
+            <?php  
+                include("connect.php");
+                $exam_id =$_GET['subject_id'];
+              
+                $sql ="SELECT *, 
+                DATE_FORMAT(stwExam_date, '%d-%m-%Y') AS stwExam_test, 
+                TIME_FORMAT(stwExam_start, '%H:%i') AS stwExam_start,  
+                TIME_FORMAT(stwExam_end, '%H:%i') AS stwExam_end   
+            FROM stwExam WHERE stwExam_id =$exam_id ";
+            $reslut = mysqli_query($conn,$sql);
+            $rows=mysqli_fetch_array($reslut,MYSQLI_ASSOC);
+
+
+
+             ?>
 
 
 
@@ -183,7 +197,7 @@ $(document).ready(function() {
           <div class="form-group">
                     <label class="col-md-4 control-label" for="fn">หัวข้อการทดสอบ</label>  
                 <div class="col-md-4">
-                    <input name="subject" type="text" class="form-control input-md" id="text" required="" >
+                    <input name="subject" type="text" class="form-control input-md" id="text" required="" value="<?php  echo $rows['stwExam_name'];?>">
                     <span id="mdd"></span>
     
                 </div>
@@ -191,7 +205,8 @@ $(document).ready(function() {
             <div class="form-group">
                     <label class="col-md-4 control-label" for="fn">เกณฑ์การผ่านแบบทดสอบ</label>  
                 <div class="col-md-4">
-                    <input name="Past" type="text" class="form-control input-md" id="text" required="" >
+                    <input name="Past" type="text" class="form-control input-md" id="text" required=""  
+                    value="<?php echo $rows['stwExam_past']; ?>" >
                     <span id="mdd"></span>
     
                 </div>
@@ -201,9 +216,13 @@ $(document).ready(function() {
                 <div class="col-md-4">
                    
                     <label >วันที่จะทดสอบ</label>  
-                    <input type="text" id="datepicker"  class="form-control input-md" name="date" ><br> <label >เวลาเริ่ม</label>
-                    <input type="text" id ="timepicker" class="form-control input-md" name="time_start" ><br> <label >เวลาสิ้นสุด</label>
-                    <input type="text"  id ="timepicker1" class="form-control input-md" name="time_end" >
+                    <input type="text" id="datepicker"  class="form-control input-md" name="date"  
+                    value="<?php echo $rows['stwExam_date']; ?>"><br> <label >เวลาเริ่ม</label>
+                    <input type="text" id ="timepicker" class="form-control input-md" name="time_start" 
+                    value="<?php  echo $rows['stwExam_start'];?>"><br> 
+                    <label >เวลาสิ้นสุด</label>
+                    <input type="text"  id ="timepicker1" class="form-control input-md" name="time_end" 
+                    value="<?php echo $rows['stwExam_end']; ?>" >
 
     
                 </div>
@@ -303,7 +322,22 @@ $(document).ready(function() {
      
 
         include("connect.php");
-       
+        
+          
+          
+
+
+
+$sqq = "SELECT stwExam_User.stwUser_id,stwExam_User.stwExam_id 
+                       FROM stwExam_User WHERE stwExam_id = $exam_id"; 
+            $choose = mysqli_query($conn, $sqq);
+            while ($rowss = mysqli_fetch_array($choose)) {
+                $id = $rowss[0];  
+            }
+                   
+               
+
+      
               
 
 
@@ -323,6 +357,22 @@ $(document).ready(function() {
 
   while($row=mysqli_fetch_array($res,MYSQLI_ASSOC)){
   $stwUser_id = $row['stwUser_id'];
+  $sqq = "SELECT stwExam_User.stwExam_id,stwExam_User.stwUser_id
+              FROM stwExam_User WHERE stwExam_id=$exam_id AND stwUser_id =$stwUser_id";  
+            $choose = mysqli_query($conn, $sqq);
+            $roww= mysqli_fetch_array($choose,MYSQLI_ASSOC);
+            $id = $roww['stwUser_id'];
+
+
+           if($id == $stwUser_id) { //ถ้าเคยเลือกตัวเลือกนั้น ให้เติมแอตทริบิวต์ checked ไว้ในแท็กของ radio
+                $checked = " checked";
+            }
+      
+
+  
+
+ 
+
     ?>
 
                 <td> <?php echo $i; ?></td>                   
@@ -332,7 +382,8 @@ $(document).ready(function() {
                     $row['stwLastname']; ?></td>
                 <td><?php echo $row['stwDept_name']; ?></td>
                 <td>
-                        <input type="checkbox" name="select[]" class="checkbox" value="<?php echo $stwUser_id; ?> ">
+                        <input type="checkbox" name="select[]" class="checkbox" value="<?php echo $stwUser_id; ?> "
+                        <?php echo $checked; ?>>
 
                     </td>  
                 
@@ -346,7 +397,8 @@ $(document).ready(function() {
 
                                
                                  </tr>                       
-                              <?php $i++;}  mysqli_close($conn); ?>
+                              <?php $i++;}  
+          mysqli_close($conn); ?>
                 </tbody>
                                 </tbody>
                             </table>

@@ -16,7 +16,7 @@ $testee_id = $_SESSION['ID'];
 $subject_id = $_GET['id'];
 
 
-$sql = "SELECT COUNT(*) FROM stwtesting WHERE stwSubject_id = $subject_id AND stwUser_id = $testee_id";
+$sql = "SELECT COUNT(*) FROM stwtesting WHERE stwExam_id = $subject_id AND stwUser_id = $testee_id";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_array($result);
 
@@ -31,10 +31,10 @@ if($row[0] == 0) {
 
 else {	
 	$sql = "SELECT COUNT(*) FROM stwtesting
-				WHERE stwSubject_id = $subject_id AND stwUser_id = $testee_id AND stwChoice_id IN(
+				WHERE stwExam_id = $subject_id AND stwUser_id = $testee_id AND stwChoice_id IN(
 					SELECT stwChoice_id 
 					FROM stwChoice 
-					WHERE  stwSubject_id = $subject_id AND stwAnswer = 'yes')";
+					WHERE  stwExam_id = $subject_id AND stwAnswer = 'yes')";
 			
 	$result =  mysqli_query($conn, $sql);
 	$row = mysqli_fetch_array($result);
@@ -48,7 +48,7 @@ else {
 
 	mysqli_query($conn, $sql);
 
-	$sql = "DELETE FROM stwtesting WHERE stwUser_id = $testee_id AND stwSubject_id = $subject_id";
+	$sql = "DELETE FROM stwtesting WHERE stwUser_id = $testee_id AND stwExam_id = $subject_id";
 	mysqli_query($conn, $sql);
 				
 	mysqli_close($conn);

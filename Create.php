@@ -99,8 +99,11 @@ include("connect.php");
    if ($_SESSION['status']==3) {
        
         $sql ="SELECT stwExam_User.stwExam_id,stwExam_User.stwUser_id,
-                      stwExam.stwExam_name,stwExam.stwExam_date,stwExam.stwExam_start,
-                      stwExam.stwExam_end,stwExam.stwExam_create,stwExam.stwExam_past
+                      stwExam.stwExam_name,
+                      DATE_FORMAT(stwExam_date, '%d-%m-%Y') AS stwExam_date,
+                      TIME_FORMAT(stwExam_start, '%H:%i') AS   stwExam_start,
+                      TIME_FORMAT(stwExam_end, '%H:%i') AS stwExam_end,
+                      stwExam.stwExam_create,stwExam.stwExam_past
                FROM stwExam_User 
                INNER JOIN stwExam 
                ON stwExam_User.stwExam_id = stwExam.stwExam_id
@@ -159,7 +162,8 @@ include("connect.php");
          ';
                             } else{
                                  
-            echo '<button type="button"  class="btn btn-success btn-xl" ><i class="fa fa-cog fa-2x" aria-hidden="true"></i></button> :
+            echo '<a href="Edit_subject.php?'.$q.'"> <button type="button"  class="btn btn-success btn-xl" ><i class="fa fa-cog fa-2x" aria-hidden="true"></i>
+            </button></a> :
              <button type="button" onclick="return delete_subject('.$subject_id.');" class="btn btn-danger btn-xl" > <i class="fa fa-times fa-2x" aria-hidden="true"></i></button>';  
                             }
 

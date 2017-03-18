@@ -18,7 +18,7 @@ if ($_SESSION['ses_id']=='') {
         ?>
         <title>SB Admin - Bootstrap Admin Template</title>
        
-  
+     
     </head>
     <script>
       
@@ -100,7 +100,7 @@ $datetime = $row[1] . "   " . $row[2]. "-" . $row[3];
 <center><h2><div class="alert alert-success alert-dismissable"> <?php echo "[$datetime]"; ?></div></h2> </center>
 
 <?php
-/*
+
 $now = strtotime("now");
 $start = $row[4] . " " . $row[5];
 $end = $row[4] . " " . $row[6];
@@ -115,7 +115,7 @@ if(($_SESSION['status'] == "3") && ($row[1] != "00/00/0000") && (($start > $now)
   
   exit;
 } 
-*/
+
 if(isset($_SESSION['ID'])) {
   $testee_id = $_SESSION['ID'];
   // $sql = "SELECT COUNT(*) FROM stwscore WHERE stwSubject_id = $subject_id AND stwUser_id = $testee_id";
@@ -141,7 +141,7 @@ $sql ="SELECT stwQuestion.stwQuestion_text,stwExam_detail.stwExam_id,
        stwExam_detail.stwQuestion_id
        FROM stwExam_detail
        INNER JOIN stwQuestion ON stwExam_detail.stwQuestion_id = stwQuestion.stwQuestion_id
-       WHERE stwExam_id =$subject_id";
+       WHERE stwExam_id =$subject_id ORDER BY RAND ()" ;
 $result = mysqli_query($conn, $sql);
   $i =1;
 while($data = mysqli_fetch_array($result)) {
@@ -166,7 +166,7 @@ while($data = mysqli_fetch_array($result)) {
             </div>
       </div>
       </form>
-  
+
 
 <?php
 
