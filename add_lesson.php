@@ -91,7 +91,7 @@ if ($_SESSION['ses_id']=='') {
 
     include("connect.php");
     $ID =$_GET['ID'];
-    $sql ="SELECT stwLesson_name FROM stwLesson WHERE stwLesson_id='".$ID."'";
+    $sql ="SELECT stwContent.stwContent_detail, stwSubject.stwSubject_id, stwSubject.stwSubject_name FROM stwContent INNER JOIN stwSubject ON stwSubject.stwSubject_id = stwContent.stwSubject_id WHERE stwSubject.stwSubject_id ='".$ID."'";
     $res =mysqli_query($conn,$sql);
     $row =mysqli_fetch_array($res,MYSQLI_ASSOC);
 
@@ -99,19 +99,7 @@ if ($_SESSION['ses_id']=='') {
 ?>          
 
 
-<center><h2>แก้ไขเนื่อหา :<?php echo $row['stwLesson_name']; ?></h2></center>
- <?php 
-   $ID =$_GET['ID'];
-    $sql ="SELECT
-stwContent.stwContent_id,
-stwContent.stwContent_detail,
-stwContent.stwLesson_id
-FROM
-stwContent WHERE stwLesson_id ='".$ID."'";
-    $res =mysqli_query($conn,$sql);
-   $row=mysqli_fetch_array($res,MYSQLI_ASSOC);
-
-   ?>
+<center><h2>แก้ไขเนื่อหา :<?php echo $row['stwSubject_name']; ?></h2></center>
  
 
  <form class="form-horizontal" action="saveLesson" method="POST">                   
@@ -171,7 +159,10 @@ stwContent WHERE stwLesson_id ='".$ID."'";
 
   <script>
     $(function(){
-      $('#edit').froalaEditor()
+      $('#edit').froalaEditor( {
+     
+      heightMax: 600
+    })
 
         .on('froalaEditor.image.beforeUpload', function (e, editor, files) {
           if (files.length) {
@@ -198,10 +189,7 @@ stwContent WHERE stwLesson_id ='".$ID."'";
     </div>
 </div>
  <!-- *******************end table***********************   
-  {
-     
-      heightMax: 600
-    }
+ 
      -->
 
   
