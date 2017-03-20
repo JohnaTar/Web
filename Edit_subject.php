@@ -137,7 +137,7 @@ $(document).ready(function() {
 <!-- ****************start table****** -->
 
 
-<form class="form-horizontal" method="POST" id="add_exam_form" onsubmit="return add_exam_form();">
+<form class="form-horizontal" method="POST" >
 
 <div class="row">
     <div class="col-md-12">
@@ -194,6 +194,7 @@ $(document).ready(function() {
 
 
 <!-- *****************************first from********************** -->
+
           <div class="form-group">
                     <label class="col-md-4 control-label" for="fn">หัวข้อการทดสอบ</label>  
                 <div class="col-md-4">
@@ -276,18 +277,7 @@ $(document).ready(function() {
     <div class="col-md-12">
         <div class="col-md-12  ">
                 
-                <div class="text-right"> 
-                
-                
-                <input type="checkbox" id="select_all" > Select all
-
- 
-
-
-
-
-
-                </div>
+      
                 <br>
                 <ul class="main">
     
@@ -309,6 +299,7 @@ $(document).ready(function() {
                                         <th>ชื่อ-นามสกุล</th>                    
                                         <th>แผนก</th>
                                         <th>ตัวเลือก</th>
+                                        <th>เมนู</th>
 
                                       
                                                                                    
@@ -357,35 +348,50 @@ $sqq = "SELECT stwExam_User.stwUser_id,stwExam_User.stwExam_id
 
   while($row=mysqli_fetch_array($res,MYSQLI_ASSOC)){
   $stwUser_id = $row['stwUser_id'];
-  $sqq = "SELECT stwExam_User.stwExam_id,stwExam_User.stwUser_id
+  $sqq = "SELECT stwExam_User.stwExam_User_id,stwExam_User.stwExam_id,stwExam_User.stwUser_id
               FROM stwExam_User WHERE stwExam_id=$exam_id AND stwUser_id =$stwUser_id";  
             $choose = mysqli_query($conn, $sqq);
             $roww= mysqli_fetch_array($choose,MYSQLI_ASSOC);
             $id = $roww['stwUser_id'];
 
 
-           if($id == $stwUser_id) { //ถ้าเคยเลือกตัวเลือกนั้น ให้เติมแอตทริบิวต์ checked ไว้ในแท็กของ radio
-                $checked = " checked";
-            }
+          
       
 
   
-
  
 
     ?>
-
+            
                 <td> <?php echo $i; ?></td>                   
                 <td><?php echo 
                     $row['stwPrefix_name']." ".
                     $row['stwFirstname']." ".
                     $row['stwLastname']; ?></td>
                 <td><?php echo $row['stwDept_name']; ?></td>
-                <td>
-                        <input type="checkbox" name="select[]" class="checkbox" value="<?php echo $stwUser_id; ?> "
-                        <?php echo $checked; ?>>
+                <td><?php 
+                        if($id == $stwUser_id) { 
+                    
+                      echo '<center><i class="fa fa-check fa-2x"style="color:green"></i> </center>';   
+                    
+            }else{
+                       echo '<center><i class="fa fa-times fa-2x" style="color:red"></i>  </center>';    
+            } 
+            ?>
 
-                    </td>  
+                </td>  
+                 <td><?php 
+                        if($id == $stwUser_id) { 
+                    
+                      echo '<button  type="button" class="btn btn-warning" onclick="delete_user_exam('.$roww['stwExam_User_id'].');"><i class="fa fa-eraser" aria-hidden="true"></i></button>';   
+                    
+            }else{
+                       echo '   <button class="btn btn-info" onclick="add_user_exam('.$row['stwUser_id'].'); exam_id('.$exam_id.');"><i class="fa fa-sign-in" aria-hidden="true"></i></button>';    
+            } 
+            ?>
+
+                </td>  
+
                 
 
               

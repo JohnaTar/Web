@@ -1,6 +1,15 @@
 <?php
 session_start();
 include("connect.php");
+if (isset($_POST)) {
+  
+
+    $sqli = "INSERT INTO `stwExam_User` (`stwUser_id`, `stwExam_id`) VALUES ('$id[$i]', '$exam')";
+  echo $_POST['add_user_id'];
+  
+  echo $_POST['exam_id'];
+
+}
 if (isset($_POST['subject'])) {
 
 
@@ -94,5 +103,20 @@ $result = mysqli_query($conn, $sql);
 
 	}
 }
+
+
+if (isset($_POST['exam_user_id'])) {
+   $sql = "DELETE FROM stwExam_User WHERE stwExam_User_id ='".$_POST['exam_user_id']."'";
+   $result = mysqli_query($conn,$sql);
+   if ($result) {
+       echo "ลบสมาชิกออกจากการทดสอบเรียบร้อย";
+   }else{
+       echo "ไม่สามารถลบสมาชิกออกจากการทดสอบเรียบร้อย";
+   }
+}
+
+
+
+
 
 ?>
