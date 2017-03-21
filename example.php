@@ -7,15 +7,19 @@ if (isset($_POST['subject'])) {
 
 
 	 $subject = $_POST['subject'];
-    $date_test = $_POST['date'];
+    $date_test = $_POST['date'] ;
     $past =$_POST['Past'];
     $time_start =$_POST['time_start'];
     $time_end =$_POST['time_end'];
+    $date = str_replace('/', '-', $date_test);
+   $datetest=date('Y-m-d', strtotime($date));
+   
+
 
    
    
         $sql ="INSERT INTO `stwExam` (`stwExam_name`, `stwExam_date`,`stwExam_start`,`stwExam_end`, `stwExam_create`, `stwExam_past`) 
-        	VALUES ('$subject', '$date_test','$time_start','$time_end',NOW(),'$past')";
+        	VALUES ('$subject', '$datetest','$time_start','$time_end',NOW(),'$past')";
         if (mysqli_query($conn,$sql)) {
 
         	$exam =mysqli_insert_id($conn);
@@ -106,7 +110,6 @@ if (isset($_POST['exam_user_id'])) {
        echo "ไม่สามารถลบสมาชิกออกจากการทดสอบเรียบร้อย";
    }
 }
-
 
 
 
