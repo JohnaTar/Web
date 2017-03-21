@@ -1,15 +1,7 @@
 <?php
 session_start();
 include("connect.php");
-if (isset($_POST)) {
-  
 
-    $sqli = "INSERT INTO `stwExam_User` (`stwUser_id`, `stwExam_id`) VALUES ('$id[$i]', '$exam')";
-  echo $_POST['add_user_id'];
-  
-  echo $_POST['exam_id'];
-
-}
 if (isset($_POST['subject'])) {
 
 

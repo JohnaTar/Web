@@ -43,7 +43,11 @@ function delete_user_exam(id){
       {
         alert(data);
         
-   $("#step-2").load(location.href + " #step-2");
+   $("#myTable1").load(location.href + " #myTable1");
+
+
+
+   
 
 
 
@@ -53,37 +57,7 @@ function delete_user_exam(id){
 
 }
 
-function add_user_exam(id){
-  $.ajax({
-        type:"POST",
-        url:"example.php",
-        data:{add_user_id:id},
-      success:function(data)
-      {
-        alert(data);
-        $("#step-2").load(location.href + " #step-2");
-        
-  
-      }
-  });
-    return false;
 
-}  
-function exam_id(id){
-  $.ajax({
-        type:"POST",
-        url:"example.php",
-        data:{exam_id:id},
-      success:function(data)
-      {
-        
-        alert(data);
-  
-      }
-  });
-    return false;
-
-}  
 
 
 

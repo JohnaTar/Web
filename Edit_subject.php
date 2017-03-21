@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+$_SESSION['exam_id'] = $_GET['subject_id'];
 if ($_SESSION['ses_id']=='') {
      echo "<script>alert('PLEASE LOGIN')</script>";
      echo "<script>window.location='index'</script>";
@@ -137,7 +137,7 @@ $(document).ready(function() {
 <!-- ****************start table****** -->
 
 
-<form class="form-horizontal" method="POST" >
+<form class="form-horizontal" method="POST"  action="save_edit_exam">
 
 <div class="row">
     <div class="col-md-12">
@@ -190,7 +190,7 @@ $(document).ready(function() {
 
              ?>
 
-
+                    <input type="hidden" name="Exam_no" value="<?php echo $exam_id; ?>">
 
 
 <!-- *****************************first from********************** -->
@@ -273,7 +273,7 @@ $(document).ready(function() {
 </script>
 
 
-<div class="row setup-content" id="step-2">
+  <div class="row setup-content" id="step-2">
     <div class="col-md-12">
         <div class="col-md-12  ">
                 
@@ -319,12 +319,7 @@ $(document).ready(function() {
 
 
 
-$sqq = "SELECT stwExam_User.stwUser_id,stwExam_User.stwExam_id 
-                       FROM stwExam_User WHERE stwExam_id = $exam_id"; 
-            $choose = mysqli_query($conn, $sqq);
-            while ($rowss = mysqli_fetch_array($choose)) {
-                $id = $rowss[0];  
-            }
+
                    
                
 
@@ -378,6 +373,7 @@ $sqq = "SELECT stwExam_User.stwUser_id,stwExam_User.stwExam_id
                        echo '<center><i class="fa fa-times fa-2x" style="color:red"></i>  </center>';    
             } 
             ?>
+           
 
                 </td>  
                  <td><?php 
@@ -386,11 +382,11 @@ $sqq = "SELECT stwExam_User.stwUser_id,stwExam_User.stwExam_id
                       echo '<button  type="button" class="btn btn-warning" onclick="delete_user_exam('.$roww['stwExam_User_id'].');"><i class="fa fa-eraser" aria-hidden="true"></i></button>';   
                     
             }else{
-                       echo '   <button class="btn btn-info" onclick="add_user_exam('.$row['stwUser_id'].'); exam_id('.$exam_id.');"><i class="fa fa-sign-in" aria-hidden="true"></i></button>';    
+                       echo '   <button type="button" class="btn btn-info" onclick="edit_exam_user('.$row['stwUser_id'].');"><i class="fa fa-sign-in" aria-hidden="true"></i></button>';    
             } 
             ?>
 
-                </td>  
+                </td>   
 
                 
 
@@ -451,10 +447,7 @@ $sqq = "SELECT stwExam_User.stwUser_id,stwExam_User.stwExam_id
 
     <div class="row setup-content" id="step-3">
         <div class="col-md-12">
-        <div class="text-right">
-                    
-                <input type="checkbox" id="Q_all" > Select all
-            </div>
+       
             <div class="col-md-12 well ">
 
             <div class="table-responsive">
@@ -466,6 +459,7 @@ $sqq = "SELECT stwExam_User.stwUser_id,stwExam_User.stwExam_id
                                         <th>คำถาม</th>                    
                                         <th>ชุดคำถาม</th>
                                         <th>ตัวเลือก</th>
+                                        <th>เมนู</th>
 
                                       
                                                                                    
@@ -497,17 +491,45 @@ INNER JOIN stwSubject ON stwQuestion.stwSubject_id = stwSubject.stwSubject_id
     $res =mysqli_query($conn,$sql);
     $i =1;
 
-  while($row=mysqli_fetch_array($res,MYSQLI_ASSOC)){
-  $Q_id = $row['stwQuestion_id'];
+  while($rowsss=mysqli_fetch_array($res,MYSQLI_ASSOC)){
+
+  $Q_id = $rowsss['stwQuestion_id'];
+  $rr="SELECT stwExam_detail.stwExam_detail_id,stwExam_detail.stwExam_id,
+                   stwExam_detail.stwQuestion_id
+        FROM stwExam_detail
+        WHERE stwExam_id = $exam_id AND stwQuestion_id =$Q_id";
+           $tt =mysqli_query($conn,$rr);
+           $ww= mysqli_fetch_array($tt,MYSQLI_ASSOC);
+        $A_id = $ww['stwQuestion_id'];
+
+
     ?>
 
                 <td> <?php echo $i; ?></td>                   
-                <td><?php echo $row['stwQuestion_text']; ?></td>
-                <td><?php echo $row['stwSubject_name']; ?></td>
-                <td>
-                        <input type="checkbox" name="question[]" class="checkbox" value="<?php echo $Q_id; ?> ">
-
-                    </td>  
+                <td><?php echo $rowsss['stwQuestion_text']; ?></td>
+                <td><?php echo $rowsss['stwSubject_name']; ?></td>
+                <td><?php 
+                        if($Q_id == $A_id) { 
+                    
+                      echo '<center><i class="fa fa-check fa-2x"style="color:green"></i> </center>';   
+                    
+            }else{
+                       echo '<center><i class="fa fa-times fa-2x" style="color:red"></i>  </center>';    
+            } 
+            ?>
+                  </td>  
+                  <td>
+                      <?php 
+                        if($Q_id == $A_id) { 
+                    
+                    echo '<button  type="button" class="btn btn-warning" onclick="delete_quest_exam('.$ww['stwExam_detail_id'].');"><i class="fa fa-eraser" aria-hidden="true"></i></button>';   
+                    
+            }else{
+                      echo '   <button type="button" class="btn btn-info" onclick="edit_quest_exam('.$rowsss['stwQuestion_id'].');"><i class="fa fa-sign-in" aria-hidden="true"></i></button>';    
+            } 
+            
+            ?>
+                  </td>
               
                
                 
