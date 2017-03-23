@@ -79,7 +79,7 @@ if ($_SESSION['ses_id']=='') {
     
 include("connect.php");
     $sql = "SELECT *, 
-                DATE_FORMAT(stwExam_date, '%d-%m-%Y') AS stwExam_test, 
+                DATE_FORMAT(stwExam_date, '%d-%m-%Y') AS stwExam_date, 
                 TIME_FORMAT(stwExam_start, '%H:%i') AS stwExam_start,  
                 TIME_FORMAT(stwExam_end, '%H:%i') AS stwExam_end   
             FROM stwExam ORDER BY  stwExam_id DESC";
@@ -120,7 +120,7 @@ include("connect.php");
                 
                 <td><?php echo $i ?></td>       
                 <td><?php echo $data['stwExam_name']; ?></td>
-                <td><?php echo $data['stwExam_test']; ?></td>
+                <td><?php echo $data['stwExam_date']; ?></td>
                 <td><?php echo $data['stwExam_start']; ?></td>
                 <td><?php echo $data['stwExam_end']; ?></td>
                 <td><?php echo $pass; ?></td>

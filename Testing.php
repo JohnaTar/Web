@@ -160,8 +160,8 @@ while($data = mysqli_fetch_array($result)) {
  <form class="form-horizontal">
      <div class="form-group">
         <label class="col-md-2 control-label">คำถาม</label>
-            <div class="col-md-4">
-                <input type="text" value="<?php echo $question_text; ?> " class="form-control"  readonly>
+            <div class="col-md-6">
+          <?php echo $question_text; ?> 
                    
             </div>
       </div>

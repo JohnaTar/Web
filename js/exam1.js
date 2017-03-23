@@ -28,12 +28,6 @@ function delete_quest_exam(id){
         
         $("#myTable2").load(location.href + " #myTable2");
 
-
-
-   
-
-
-
       }
   });
     return false;

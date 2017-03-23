@@ -191,8 +191,7 @@ $(document).ready(function() {
             <div class="form-group">
                     <label class="col-md-4 control-label" for="fn">เกณฑ์การผ่านแบบทดสอบ</label>  
                 <div class="col-md-4">
-                    <input name="Past" type="text" class="form-control input-md" id="text" required="" >
-                    <span id="mdd"></span>
+                    <input name="Past"    class="form-control input-md"  required="" type='number' max='100'>
     
                 </div>
             </div>
