@@ -17,9 +17,11 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="fn">อีเมลล์</label>  
                 <div class="col-md-4">
-                    <input  name="email" type="email" placeholder="Email" class="form-control input-md" required="" id="Email" data-validation="email">
-                     <span id="msg2"></span>
+                    <input  name="email" type="email" placeholder="Email" class="form-control input-md" required="">
+                     
     
+
+
                 </div>
             </div>
 

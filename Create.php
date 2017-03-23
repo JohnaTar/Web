@@ -121,7 +121,7 @@ include("connect.php");
 
      while($data = mysqli_fetch_array($result)) {
     $subject_id = $data['stwExam_id'];
-    $dt = "วันที่ " . $data['stwExam_test'] . " เวลา " . $data['stwExam_start'] . " - " . $data['stwExam_end']; 
+    $dt = "วันที่ " . $data['stwExam_date'] . " เวลา " . $data['stwExam_start'] . " - " . $data['stwExam_end']; 
     $dp =$data['stwExam_past']; 
 /////////////////////////////////////////////////////////////////////////////////////////////
    

@@ -6,7 +6,7 @@
                     <span class="icon-bar"></span>  
                     <span class="icon-bar"></span>                              
                 </button>
-                <a class="navbar-brand" href="index">Welcome</a>
+                <a class="navbar-brand" href="User">Welcome</a>
             </div>
             <!-- Top Menu Items **************************************************-->           
              <ul class="nav navbar-right top-nav">
@@ -151,7 +151,9 @@
                     </li> 
                     <li>                 
                         <a href="File_upload"><i class="fa fa-fw fa-file-word-o"></i> เอกสารเพิ่มเติม</a>
-                    </li>                    
+                    </li>       
+
+                           
 
 
 

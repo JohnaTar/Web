@@ -84,7 +84,13 @@ if ($_SESSION['ses_id']=='') {
                                         <th>ชื่อไฟล์</th>
                                         <th>ผู้อับโหลด</th>
                                         <th>ดาวโหลด</th>
-                                        <th>ลบ</th>
+                                        <?php 
+                                         if ($_SESSION['status']==1) {
+                                             echo '<th>ลบ</th>';
+             }else {
+             }
+                                        ?>
+                                      
                                        
                                        
                                                                                    
