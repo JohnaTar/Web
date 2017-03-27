@@ -20,7 +20,52 @@ if ($_SESSION['ses_id']=='') {
         include("head/head.php");
        
         ?>
-        
+        <style type="text/css">
+            .material-switch > input[type="checkbox"] {
+    display: none;   
+}
+
+.material-switch > label {
+    cursor: pointer;
+    height: 0px;
+    position: relative; 
+    width: 40px;  
+}
+
+.material-switch > label::before {
+    background: rgb(0, 0, 0);
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    content: '';
+    height: 16px;
+    margin-top: -8px;
+    position:absolute;
+    opacity: 0.3;
+    transition: all 0.4s ease-in-out;
+    width: 40px;
+}
+.material-switch > label::after {
+    background: rgb(255, 255, 255);
+    border-radius: 16px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+    content: '';
+    height: 24px;
+    left: -4px;
+    margin-top: -8px;
+    position: absolute;
+    top: -4px;
+    transition: all 0.3s ease-in-out;
+    width: 24px;
+}
+.material-switch > input[type="checkbox"]:checked + label::before {
+    background: inherit;
+    opacity: 0.5;
+}
+.material-switch > input[type="checkbox"]:checked + label::after {
+    background: inherit;
+    left: 20px;
+}
+        </style>
     
     </head>
     <script >
@@ -227,7 +272,7 @@ $(document).ready(function() {
 
 <script type="text/javascript">
     $(document).ready(function(){
-    $('#select_all').on('click',function(){
+    $('#someSwitchOptionInfo').on('click',function(){
         if(this.checked){
             $('input:checkbox[name="select[]"]').each(function(){
                 this.checked = true;
@@ -256,18 +301,27 @@ $(document).ready(function() {
     <div class="col-md-12">
         <div class="col-md-12  ">
                 
-                <div class="text-right"> 
+              
                 
                 
-                <input type="checkbox" id="select_all" > Select all
+                        
+                        <div class="material-switch pull-right">
+                            <input id="someSwitchOptionInfo" name="someSwitchOption001" type="checkbox"/>
+                            <label for="someSwitchOptionInfo" class="label-info"></label>
+                        </div>
 
- 
+                      
+                        
+                    
+                    
 
 
 
 
 
-                </div>
+                
+                <br>
+                <br>
                 <br>
                 <ul class="main">
     
@@ -363,7 +417,7 @@ $(document).ready(function() {
 </div>
 <script type="text/javascript">
     $(document).ready(function(){
-    $('#Q_all').on('click',function(){
+    $('#someSwitchOptionDanger').on('click',function(){
         if(this.checked){
             $('input:checkbox[name="question[]"]').each(function(){
                 this.checked = true;
@@ -392,10 +446,12 @@ $(document).ready(function() {
 
     <div class="row setup-content" id="step-3">
         <div class="col-md-12">
-        <div class="text-right">
-                    
-                <input type="checkbox" id="Q_all" > Select all
-            </div>
+        <div class="material-switch pull-right">
+                            <input id="someSwitchOptionDanger" name="someSwitchOption001" type="checkbox"/>
+                            <label for="someSwitchOptionDanger" class="label-danger"></label>
+                        </div>
+                        <br>
+                        <br><br>
             <div class="col-md-12 well ">
 
             <div class="table-responsive">

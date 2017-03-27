@@ -47,13 +47,21 @@ $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
     <form class="form-" action="checklogin" method="POST">
         <input type="text" placeholder="Username"  required="" name="Username" />
                 <input type="password" placeholder="Password" required="" name="Password" />
-                <button type="submit" class="btn btn-info ">เข้าสู่ระบบ</button> 
+                <br>
+                <button type="submit" class="btn btn-success "><i class="fa fa-sign-in " aria-hidden="true"> : Login</i></button> 
+                 
               
 
   
     </form>
+    
+    <a href=""  data-toggle="modal" data-target="#forget_email" ><i class="fa fa-cog " aria-hidden="true"></i>  FORGET PASSWORD</span> </a>  
+      
+
+
+    
            </div>
-            <a href=""  data-toggle="modal" data-target="#forget_email" ><span class="label label-success">FORGET PASSWORD</span> </a>
+           
 
 
   </div>

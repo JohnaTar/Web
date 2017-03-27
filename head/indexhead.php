@@ -8,7 +8,7 @@
 
     <script src="js/tar.js"></script>
     <link rel="stylesheet" href="cssindex/style.css">
-    <
+    <script src="https://use.fontawesome.com/f3b3d4d487.js"></script>
    
 
     

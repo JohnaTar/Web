@@ -80,8 +80,9 @@ $result = mysqli_query($conn, $sql);
         		$sq ="SELECT stwExam_past FROM stwExam WHERE stwExam_id ='".$_POST['sub_id']."'";
         		$re =mysqli_query($conn,$sq);
         		$rowss =mysqli_fetch_array($re,MYSQLI_ASSOC);
-        		$pass=$rowss[0];
+        		$pass=$rowss['stwExam_past'];
         		$SC=$num_q *$pass/100;
+      
 
         		if ($row['stwScore']<=$SC) {
                                    echo '<center><i class="fa fa-times fa-2x" style="color:red"></i> : ไม่ผ่านการทดสอบ </center>';
