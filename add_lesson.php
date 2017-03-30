@@ -117,22 +117,20 @@ stwContent WHERE stwLesson_id ='".$ID."'";
  <form class="form-horizontal" action="saveLesson" method="POST">                   
 <div class="row">
     <div class="col-md-12">
+    
         <div id="editor">
 
       <div class="form-group">
+       <button id="btnSubmit" name="submit" class="btn btn-success" ><i class="fa fa-floppy-o fa-2x" aria-hidden="true"></i></button>
+       <br>
+       <br>
         <textarea id="edit" name="conntent" ><?php echo $row['stwContent_detail'];?></textarea>
-        <div class="col-md-12">
-        </div>
+        
       </div> 
 
           <input type="hidden" name="lesson" value="<?php echo $_GET['ID'];?>"> 
  
-            <div class="form-group">
-                <label class="col-md-4 control-label" for="submit"></label>
-                <div class="col-md-4">
-            <button id="btnSubmit" name="submit" class="btn btn-primary" >ตกลง</button>
-                </div>
-            </div>
+            
     
   
     
@@ -173,7 +171,10 @@ stwContent WHERE stwLesson_id ='".$ID."'";
 
   <script>
     $(function(){
-      $('#edit').froalaEditor()
+      $('#edit').froalaEditor({
+      heightMin: 150,
+      heightMax: 600
+    })
         .on('froalaEditor.image.beforeUpload', function (e, editor, files) {
           if (files.length) {
             var reader = new FileReader();
@@ -200,16 +201,7 @@ stwContent WHERE stwLesson_id ='".$ID."'";
 </div>
  <!-- *******************end table************************ -->
 
-  <?php 
-   include("modal/Info_edit.php");
-  include("modal/addLesson.php");
   
-
-
-  
-
-
-  ?>
 
 
     </body>

@@ -11,7 +11,8 @@ include("email/PHPMailerAutoload.php");
                 $firstname =$row['stwFirstname'];
                 $encrypt=md5(55+10+$row['stwUser_id']);
                 
-                $body= 'Hi, <br/> <br/>Your Username  is '.$row['stwUsername'].' <br><br>Click here to reset your password http://172.20.96.200/reset.php?encrypt='.$encrypt.'&action=reset   <br/> <br/>--<br>Thank you<br>STWAFW team.';
+                $body= 'Hi, <br/> <br/>Your Username  is '.$row['stwUsername'].' <br><br>Click here to reset your password  http://localhost/reset.php?encrypt='.$encrypt.'&action=reset   <br/> <br/>--<br>Thank you<br>STWAFW team.';
+                
 $mail = new PHPMailer;
 $mail->isSMTP();
 $mail->CharSet = 'UTF-8';

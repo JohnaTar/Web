@@ -185,7 +185,7 @@ onsubmit="return edit_user_form1();">
             <div class="form-group">
                 <label class="col-md-4 control-label" for="submit"></label>
                 <div class="col-md-4">
-            <button id="btnSubmit" name="submit" class="btn btn-primary" >ตกลง</button>
+            <button id="btnSubmit" name="submit" class="btn btn-primary" ><i class="fa fa-floppy-o fa-2x" aria-hidden="true"></i></button>
                 </div>
             </div>
 </form>
