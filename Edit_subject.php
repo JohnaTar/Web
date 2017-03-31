@@ -148,7 +148,7 @@ $(document).ready(function() {
                 <ul class="nav nav-pills nav-justified thumbnail setup-panel">
                     <li class="active"><a href="#step-1">
                         <h4 class="list-group-item-heading">Step 1</h4>
-                        <p class="list-group-item-text">สร้างหัวข้อทดสอบ</p>
+                        <p class="list-group-item-text">แก้ไขหัวข้อทดสอบ</p>
                     </a></li>
                     <li class="disabled"><a href="#step-2">
                         <h4 class="list-group-item-heading">Step 2</h4>

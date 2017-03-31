@@ -76,7 +76,7 @@ if ($_SESSION['ses_id']=='') {
 <!-- *****************start table************************* -->                                               
                 <div class="row">
                     <div class="col-md-12 text-center" >
-                    <h1>Welcome</h1>
+                    <h1>ยินดีต้อนรับ </h1><h2>การพัฒนาเว็บแอพพลิเคชั่นการอบรมด้านความปลอดภัยให้กับพนักงานโรงงาน</h2>
                     <h1 ><marquee direction="right" >ข่าวประชาสัมพันธ์<i class="fa fa-exclamation-triangle" style="color:red" aria-hidden="true"></i></marquee></h1>
   
                            <?php 

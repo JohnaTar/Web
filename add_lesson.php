@@ -172,7 +172,7 @@ stwContent WHERE stwLesson_id ='".$ID."'";
   <script>
     $(function(){
       $('#edit').froalaEditor({
-      heightMin: 150,
+     
       heightMax: 600
     })
         .on('froalaEditor.image.beforeUpload', function (e, editor, files) {

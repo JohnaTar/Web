@@ -125,7 +125,7 @@ include("connect.php");
                 <td><?php echo $data['stwExam_end']; ?></td>
                 <td><?php echo $pass; ?></td>
                 <td><?php  echo $num_p; ?></td>   
-               <td><a href="View_report_detail?id=<?php echo  $data['stwExam_id'];?>" class="btn btn-success"><i class="fa fa-bars  fa-2x "></i></a></td>             
+               <td><a href="View_report_detail?id=<?php echo  $data['stwExam_id'];?>" class="btn btn-success"><i class="fa fa-bars   "></i></a></td>             
                         
            
                

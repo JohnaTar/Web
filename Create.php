@@ -68,7 +68,7 @@ if ($_SESSION['ses_id']=='') {
                             <?php if ($_SESSION['status']==3) {
                                 # code...
                             } else{
-                                echo ' <a href="New_subject"> <button type="button" class="btn btn-info btn-xl" ><i class="fa fa-plus fa-2x" aria-hidden="true"></i></button></a>';
+                                echo ' <a href="New_subject"> <button type="button" class="btn btn-info btn-xl" ><i class="fa fa-plus " aria-hidden="true"></i></button></a>';
                             }
 
 
@@ -153,18 +153,18 @@ include("connect.php");
         </td>
         <td> 
               <?php if ($_SESSION['status']==3) {
-    echo '<a href="Testing.php?'.$q.'"> <button type="button"  class="btn btn-success" ><i class="fa fa-play fa-2x" aria-hidden="true"></i></button> 
+    echo '<a href="Testing.php?'.$q.'"> <button type="button"  class="btn btn-success" ><i class="fa fa-play " aria-hidden="true"></i></button> 
         </a>
         
-        <button type="button" onclick="return show_score('.$subject_id.');" class="btn btn-info btn-xl" data-toggle="modal" data-target="#show_score">  <i class="fa fa-clipboard fa-2x" aria-hidden="true"></i></button>
+        <button type="button" onclick="return show_score('.$subject_id.');" class="btn btn-info btn-xl" data-toggle="modal" data-target="#show_score">  <i class="fa fa-clipboard " aria-hidden="true"></i></button>
 
 
          ';
                             } else{
                                  
-            echo '<a href="Edit_subject.php?'.$q.'"> <button type="button"  class="btn btn-success btn-xl" ><i class="fa fa-cog fa-2x" aria-hidden="true"></i>
+            echo '<a href="Edit_subject.php?'.$q.'"> <button type="button"  class="btn btn-success btn-xl" ><i class="fa fa-cog " aria-hidden="true"></i>
             </button></a> :
-             <button type="button" onclick="return delete_subject('.$subject_id.');" class="btn btn-danger btn-xl" > <i class="fa fa-times fa-2x" aria-hidden="true"></i></button>';  
+             <button type="button" onclick="return delete_subject('.$subject_id.');" class="btn btn-danger btn-xl" > <i class="fa fa-times " aria-hidden="true"></i></button>';  
                             }
 
 
