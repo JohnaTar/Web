@@ -171,10 +171,8 @@ stwContent WHERE stwLesson_id ='".$ID."'";
 
   <script>
     $(function(){
-      $('#edit').froalaEditor({
-     
-      heightMax: 600
-    })
+      $('#edit').froalaEditor()
+
         .on('froalaEditor.image.beforeUpload', function (e, editor, files) {
           if (files.length) {
             var reader = new FileReader();
@@ -199,7 +197,12 @@ stwContent WHERE stwLesson_id ='".$ID."'";
                  </div>
     </div>
 </div>
- <!-- *******************end table************************ -->
+ <!-- *******************end table***********************   
+  {
+     
+      heightMax: 600
+    }
+     -->
 
   
 
