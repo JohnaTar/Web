@@ -63,14 +63,10 @@ if ($_SESSION['ses_id']=='') {
                     <?php
                     include("connect.php");
 $ID =$_GET['ID'];
- $sql ="SELECT
-stwLesson.stwLesson_name,
-stwLesson.stwLesson_id
-FROM
-stwLesson
+ $sql ="SELECT stwContent.stwContent_detail, stwSubject.stwSubject_id, stwSubject.stwSubject_name FROM stwContent INNER JOIN stwSubject ON stwSubject.stwSubject_id = stwContent.stwSubject_id WHERE stwSubject.stwSubject_id ='".$ID."'";
 
 
-WHERE stwLesson_id ='".$ID."'";
+
 $res =mysqli_query($conn,$sql);
 $row =mysqli_fetch_array($res,MYSQLI_ASSOC);
 
@@ -79,22 +75,11 @@ $row =mysqli_fetch_array($res,MYSQLI_ASSOC);
     <div class="row">
       <div class="col-md-12"> 
          <div class="page-header">
-                 <h1><?php echo $row['stwLesson_name'];  ?></h1>
+                 <h1><?php echo $row['stwSubject_name'];  ?></h1>
         </div>
        </div> 
     </div>
-    <?php  
-
-    $sql="SELECT stwContent.stwLesson_id,
-stwContent.stwContent_detail
-FROM
-stwContent WHERE stwLesson_id ='".$ID."'";
-$res =mysqli_query($conn,$sql);
- while($row=mysqli_fetch_array($res,MYSQLI_ASSOC)){
-
-
-    ?>
-    
+   
   
    
 
@@ -119,7 +104,7 @@ $res =mysqli_query($conn,$sql);
     
             
 
-<?php }?>
+
 
 
 
