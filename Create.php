@@ -6,6 +6,7 @@ if ($_SESSION['ses_id']=='') {
      echo "<script>window.location='index.php'</script>";
  
   } 
+  unset($_SESSION['exam_id']);
   
 
 ?>
@@ -103,18 +104,26 @@ include("connect.php");
                       DATE_FORMAT(stwExam_date, '%d-%m-%Y') AS stwExam_date,
                       TIME_FORMAT(stwExam_start, '%H:%i') AS   stwExam_start,
                       TIME_FORMAT(stwExam_end, '%H:%i') AS stwExam_end,
-                      stwExam.stwExam_create,stwExam.stwExam_past
+                      stwExam.stwExam_create,stwExam.stwExam_past,stwSubject.stwSubject_name
+
                FROM stwExam_User 
                INNER JOIN stwExam 
                ON stwExam_User.stwExam_id = stwExam.stwExam_id
-               WHERE stwExam_User.stwUser_id = '".$_SESSION['ID']."'";
+              INNER JOIN stwSubject ON stwExam.stwSubject_id = stwSubject.stwSubject_id
 
+
+
+               WHERE stwExam_User.stwUser_id = '".$_SESSION['ID']."' 
+               ORDER BY  stwExam_id DESC ";
+  
    }else {
     $sql = "SELECT *, 
-                DATE_FORMAT(stwExam_date, '%d-%m-%Y') AS stwExam_test, 
+                DATE_FORMAT(stwExam_date, '%d-%m-%Y') AS stwExam_date, 
                 TIME_FORMAT(stwExam_start, '%H:%i') AS stwExam_start,  
                 TIME_FORMAT(stwExam_end, '%H:%i') AS stwExam_end   
-            FROM stwExam ORDER BY  stwExam_id DESC";
+            FROM stwExam
+            INNER JOIN stwSubject ON stwExam.stwSubject_id = stwSubject.stwSubject_id
+             ORDER BY  stwExam_id DESC";
 }
 
     $result = mysqli_query($conn,$sql);
@@ -144,10 +153,11 @@ include("connect.php");
                                    
         <td>
                     
-            <?php echo '<div class="subject">'.$data['stwExam_name'].'</div>
+            <?php echo ' <div class="subject"> <B>หัวข้อการทดสอบ</B> : ' .$data['stwSubject_name'].'</div>
+            <div class="subject"><B>ชื่อการทดสอบ : </B>'.$data['stwExam_name'].'</div>
              <div class="question">'.$num_q.' คำถาม</div><br>  
-            <div class="datetime">กำหนดทำแบบทดสอบ: '.$dt.'</div>
-            <div class="past"> เกณฑ์การทำแบบทดสอบ: '.$dp.' %</div>
+            <div class="datetime"><B>กำหนดทำแบบทดสอบ</B> : '.$dt.'</div>
+            <div class="past"><B> เกณฑ์การทำแบบทดสอบ</B> : '.$dp.' %</div>
           
                 <hr>'; ?>
         </td>

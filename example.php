@@ -5,8 +5,8 @@ include("connect.php");
 if (isset($_POST['subject'])) {
 
 
-
-	 $subject = $_POST['subject'];
+    $topic =$_POST['topic'];
+    $subject = $_POST['subject'];
     $date_test = $_POST['date'] ;
     $past =$_POST['Past'];
     $time_start =$_POST['time_start'];
@@ -15,11 +15,10 @@ if (isset($_POST['subject'])) {
    $datetest=date('Y-m-d', strtotime($date));
    
 
-
+    $sql ="INSERT INTO `stwExam` (`stwSubject_id`, `stwExam_name`, `stwExam_date`, `stwExam_start`, `stwExam_end`, `stwExam_create`, `stwExam_past`) VALUES ('$topic', '$subject', '$datetest', '$time_start', '$time_end', NOW(), '$past')";
    
    
-        $sql ="INSERT INTO `stwExam` (`stwExam_name`, `stwExam_date`,`stwExam_start`,`stwExam_end`, `stwExam_create`, `stwExam_past`) 
-        	VALUES ('$subject', '$datetest','$time_start','$time_end',NOW(),'$past')";
+       
         if (mysqli_query($conn,$sql)) {
 
         	$exam =mysqli_insert_id($conn);

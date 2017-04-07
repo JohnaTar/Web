@@ -53,7 +53,7 @@ if ($_SESSION['ses_id']=='') {
 <!-- *********************************start table************************************* -->
 <?php 
         if ($_SESSION['status']==1) {
-            echo ' <button type="button" class="btn btn-info btn-xl" data-toggle="modal" data-target="#myModal"><i class="fa fa-user-plus fa-2x" aria-hidden="true"></i></button> :
+            echo ' <button type="button" class="btn btn-info btn-xl" data-toggle="modal" data-target="#myModal"><i class="fa fa-user-plus fa-2x" aria-hidden="true"></i> </button> :
              <button type="button" class="btn btn-danger btn-xl" data-toggle="modal" data-target="#add_exel"><i class="fa fa-file-excel-o fa-2x" aria-hidden="true"></i></button>';
         } else{
             
@@ -100,6 +100,7 @@ if ($_SESSION['status']==1) {
      
 
         include("connect.php");
+
         function DateThai($strDate)
     {
         $strYear = date("Y",strtotime($strDate))+543;
@@ -131,6 +132,7 @@ if ($_SESSION['status']==1) {
                 ON stwUser.stwDept_id = stwDepartment.stwDept_id
                 INNER JOIN stwPrefix
                 ON stwUser.stwPrefix_id = stwPrefix.stwPrefix_id
+                ORDER BY stwUser.stwUser_id ASC
                 
                 ";
         $result = mysqli_query($conn, $sql);

@@ -138,10 +138,10 @@ $ss=mysqli_fetch_array($reslut,MYSQLI_ASSOC);
 ';
                    
                 } else {
-                     echo ' <a href="'.$row['stwFileupload_path'].'" ; " class="btn btn-info btn-xl" ><i class="fa fa-cloud-download fa-2x" aria-hidden="true"></i></a>
+                     echo ' <a href="'.$row['stwFileupload_path'].'" ; " class="btn btn-info btn-xl" ><i class="fa fa-cloud-download " aria-hidden="true"></i></a>
                      <td>
                      <button type="button" class="btn btn-danger btn-xl" 
-                onclick="return del_fileupload ('.$row['stwFileupload_id'].');" ><i class="fa fa-exclamation fa-2x" aria-hidden="true"></i> </button>
+                onclick="return del_fileupload ('.$row['stwFileupload_id'].');" ><i class="fa fa-exclamation " aria-hidden="true"></i> </button>
                 </td>
 ';
   

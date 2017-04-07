@@ -90,7 +90,7 @@ if ($_SESSION['ses_id']=='') {
 
                 <td><button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#edit_dept"
                 onclick="return show_department(<?php echo $row['stwDept_id']?>);" >
-<i class="fa fa-wrench fa-2x" aria-hidden="true"></i> </button></td>
+<i class="fa fa-wrench " aria-hidden="true"></i> </button></td>
 
                
 

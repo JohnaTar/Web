@@ -56,7 +56,7 @@ if ($_SESSION['ses_id']=='') {
                         <center><h2>ตารางรายงานการทำแบบทดสอบ</h2></center>
                             <div class="table-responsive">       
                            
-                         <table class="table table-striped table-hover" id="myTable">
+                         <table class="table table-striped table-hover" id="myTable1">
                                 <thead>
                                         <th>ลำดับ</th>
                                         <th>ชื่อแบบทดสอบ</th>

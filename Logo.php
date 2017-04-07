@@ -94,9 +94,9 @@ if ($_SESSION['ses_id']=='') {
                 <td><?php echo '<img class="img"  width="150" height="150" border="2" src="'.$row['stwUrlname'].'">'; ?></td>
 
                 <td> <button type="button" class="btn btn-success btn-sm" 
-                onclick="return use_this_logo(<?php echo $row['stwUrllogo_id']?>);" ><i class="fa fa-check fa-2x" aria-hidden="true"></i></button>
+                onclick="return use_this_logo(<?php echo $row['stwUrllogo_id']?>);" ><i class="fa fa-check " aria-hidden="true"></i></button>
                 <button type="button" class="btn btn-danger btn-sm" 
-                onclick="return del_logo(<?php echo $row['stwUrllogo_id']?>);" ><i class="fa fa-times fa-2x" aria-hidden="true"></i></button>
+                onclick="return del_logo(<?php echo $row['stwUrllogo_id']?>);" ><i class="fa fa-times " aria-hidden="true"></i></button>
                
                 </td>
 

@@ -48,9 +48,7 @@ else {
 
 	mysqli_query($conn, $sql);
 
-	$sql = "DELETE FROM stwtesting WHERE stwUser_id = $testee_id AND stwExam_id = $subject_id";
-	mysqli_query($conn, $sql);
-				
+	
 	mysqli_close($conn);
 
 	echo "<script>alert('เสร็จสิ้นการทดสอบและตรวจนับคะแนนแล้ว')</script>";

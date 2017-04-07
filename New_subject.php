@@ -167,18 +167,7 @@ $(document).ready(function() {
 <!-- *********************************************************** -->
         <div id="page-wrapper">
             <div class="container-fluid">            
-                <div class="row">
-                    <div class="col-md-12">                    
-                        <ol class="breadcrumb">
-                            <li>
-                                <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
-                            </li>
-                            <li class="active">
-                                <i class="fa fa-table"></i>แบบทดสอบ
-                            </li>
-                        </ol>
-                    </div>
-                </div> 
+               
 <!-- ****************start table****** -->
 
 
@@ -225,14 +214,32 @@ $(document).ready(function() {
 
 
 <!-- *****************************first from********************** -->
+<div class="form-group">
+                <label class="col-md-4 control-label" for="selectbasic">หัวข้อการทดสอบ</label>
+                    <div class="col-md-6">
+                    <select  name="topic" class="form-control input-md">
+               <?php   
+               include("connect.php");
+            $sql = "SELECT * FROM `stwSubject` ";
+            $result = mysqli_query($conn, $sql);
+        while($row=mysqli_fetch_array($result,MYSQLI_ASSOC))
+        {
+            echo "<option value =$row[stwSubject_id]>$row[stwSubject_name]</option>";
+        }
+               ?>
+
+                    </select>
+                </div>
+            </div>
           <div class="form-group">
-                    <label class="col-md-4 control-label" for="fn">หัวข้อการทดสอบ</label>  
+                    <label class="col-md-4 control-label" for="fn">ชื่อการทดสอบ</label>  
                 <div class="col-md-4">
                     <input name="subject" type="text" class="form-control input-md" id="text" required="" >
                     <span id="mdd"></span>
     
                 </div>
             </div>
+                
             <div class="form-group">
                     <label class="col-md-4 control-label" for="fn">เกณฑ์การผ่านแบบทดสอบ</label>  
                 <div class="col-md-4">
@@ -252,7 +259,7 @@ $(document).ready(function() {
     
                 </div>
             </div>
-
+<button id="activate-step-2" class="btn btn-success btn-md"><i class="fa fa-arrow-right fa-2x" aria-hidden="true"></i></i></button>
 
 
 
@@ -264,7 +271,7 @@ $(document).ready(function() {
                 
 <!-- </form> -->
                 
-                <button id="activate-step-2" class="btn btn-success btn-md"><i class="fa fa-arrow-right fa-2x" aria-hidden="true"></i></i></button>
+                
             </div>
         </div>
     </div>
