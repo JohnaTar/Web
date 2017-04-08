@@ -1,6 +1,7 @@
 <?php
 	include("connect.php");
 	if (isset($_POST['subject'])) {
+    $topic =$_POST['topic'];
     $subject = $_POST['subject'];
     $date_test = $_POST['date'];
     $past =$_POST['Past'];
@@ -10,7 +11,7 @@
     $date = str_replace('/', '-', $date_test);
    $datetest=date('Y-m-d', strtotime($date));
 
-    	$sql ="UPDATE `stwExam` SET `stwExam_name`='$subject', `stwExam_date`='$datetest', `stwExam_start`= 
+    	$sql ="UPDATE `stwExam` SET `stwSubject_id`='$topic',`stwExam_name`='$subject', `stwExam_date`='$datetest', `stwExam_start`= 
     	'$time_start', `stwExam_end`='$time_end', `stwExam_edit`=NOW(), `stwExam_past`= '$past' WHERE (`stwExam_id`='$exam_id') ";
     	$res =mysqli_query($conn,$sql);
     	if ($res) {

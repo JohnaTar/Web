@@ -83,6 +83,7 @@ $pass =$rr['stwExam_past'];
                                         <th>แผนก</th>
                                         <th>คะแนนที่ได้</th>
                                         <th>สถานะการทดสอบ</th> 
+                                        <th>คำตอบ</th>
                                        
 
                                         
@@ -115,7 +116,7 @@ $pass =$rr['stwExam_past'];
  $sql ="  SELECT stwExam_User.stwScore,stwExam_User.stwScore_date,
                  stwUser.stwFirstname,stwUser.stwLastname,
                  stwPrefix.stwPrefix_name,stwDepartment.stwDept_name,
-                 stwExam_User.stwExam_id
+                 stwExam_User.stwExam_id,stwExam_User.stwUser_id
           FROM stwExam_User
           INNER JOIN stwUser ON stwExam_User.stwUser_id = stwUser.stwUser_id
           INNER JOIN stwPrefix ON stwUser.stwPrefix_id = stwPrefix.stwPrefix_id
@@ -142,24 +143,29 @@ $result = mysqli_query($conn,$sql);
                                   echo '<i class="fa fa-spinner fa-pulse fa-2x fa-fw"></i>
                                                <span class="sr-only">Loading...</span>';
                                 } 
-                                elseif ($rows['stwScore']<=$SC) {
-                                   echo '<i class="fa fa-times fa-2x"></i>';
-                               
+                                elseif ($rows['stwScore']<=$SC AND $rows['stwScore'] !=$SC) {
+                                   echo '<i class="fa fa-times fa-2x" style="color:red"></i>';
+                           
                                 }else{
-                                   echo '<i class="fa fa-check fa-2x"></i>';
+                                   echo '<i class="fa fa-check fa-2x" style="color:green"></i>';
 
                                 }
-
-
-                                       
-                                      
-                                             
-                                           
-                                        
 
                                      ?>
                                     
 
+                                </td>
+                                <td>
+
+                                   <?php  
+                                   if ($rows['stwScore']==null){
+                                     echo '<a href="View_answer_user?id='.$rows['stwUser_id'].'" class="btn btn-info disabled"><i class="fa fa-bars   "></i></a>';
+
+                                   }else{
+                                    echo '<a href="View_answer_user?id='.$rows['stwUser_id'].'" class="btn btn-info"><i class="fa fa-bars   "></i></a>';
+                                    $_SESSION['answer'] = $sub;
+                                   }
+                                ?>
                                 </td>
 
         

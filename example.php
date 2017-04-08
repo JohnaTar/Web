@@ -83,7 +83,7 @@ $result = mysqli_query($conn, $sql);
         		$SC=$num_q *$pass/100;
       
 
-        		if ($row['stwScore']<=$SC) {
+        		if ($row['stwScore']<=$SC AND $row['stwScore'] !=$SC) {
                                    echo '<center><i class="fa fa-times fa-2x" style="color:red"></i> : ไม่ผ่านการทดสอบ </center>';
                                
                                 }else{

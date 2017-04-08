@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+unset($_SESSION['answer']);
 if ($_SESSION['ses_id']=='') {
      echo "<script>alert('PLEASE LOGIN')</script>";
      echo "<script>window.location='index'</script>";

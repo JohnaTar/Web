@@ -83,6 +83,7 @@ if ($_SESSION['ses_id']=='') {
                            include("connect.php");
                            $USERID =$_SESSION['ID'];
                            $TIME = date("d-m-Y");
+                           echo $TIME;
 
                            
                           
@@ -96,7 +97,7 @@ if ($_SESSION['ses_id']=='') {
 FROM
 stwExam_User
 INNER JOIN stwExam ON stwExam_User.stwExam_id = stwExam.stwExam_id
- WHERE stwUser_id =$USERID AND stwScore IS NULL";
+ WHERE stwUser_id =$USERID AND stwScore IS NULL AND stwExam_date ";
                             $query=mysqli_query($conn,$sq);
                             while ($tt=mysqli_fetch_array($query,MYSQLI_ASSOC)) {
                             

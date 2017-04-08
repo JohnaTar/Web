@@ -186,7 +186,7 @@ $(document).ready(function() {
             $reslut = mysqli_query($conn,$sql);
             $rows=mysqli_fetch_array($reslut,MYSQLI_ASSOC);
 
-
+            $subject =$rows['stwSubject_id'];
 
              ?>
 
@@ -194,9 +194,32 @@ $(document).ready(function() {
 
 
 <!-- *****************************first from********************** -->
+<div class="form-group">
+                <label class="col-md-4 control-label" for="selectbasic">หัวข้อการทดสอบ</label>
+                    <div class="col-md-6">
+                    <select  name="topic" class="form-control input-md">
+               <?php   
+            
+            $sql = "SELECT * FROM `stwSubject` ";
+            $result = mysqli_query($conn, $sql);
+        while($row=mysqli_fetch_array($result,MYSQLI_ASSOC))
+        {
+              if ($subject ==$row['stwSubject_id']) {
+              $sel= "selected";
+          }else {
+              $sel = "";
+          }
+            
+        
+               ?>
+ <option value="<?php echo $row['stwSubject_id'];?>" <?php echo $sel; ?>><?php echo $row['stwSubject_name']; ?> </option>
+    <?php }?>
+                    </select>
+                </div>
+            </div>
 
           <div class="form-group">
-                    <label class="col-md-4 control-label" for="fn">หัวข้อการทดสอบ</label>  
+                    <label class="col-md-4 control-label" for="fn">ชื่อการทดสอบ</label>  
                 <div class="col-md-4">
                     <input name="subject" type="text" class="form-control input-md" id="text" required="" value="<?php  echo $rows['stwExam_name'];?>">
                     <span id="mdd"></span>
@@ -228,6 +251,7 @@ $(document).ready(function() {
     
                 </div>
             </div>
+               <button id="activate-step-2" class="btn btn-success btn-md"><i class="fa fa-arrow-right fa-2x" aria-hidden="true"></i></i></button>
 
 
 
@@ -240,7 +264,7 @@ $(document).ready(function() {
                 
 <!-- </form> -->
                 
-                <button id="activate-step-2" class="btn btn-success btn-md"><i class="fa fa-arrow-right fa-2x" aria-hidden="true"></i></i></button>
+             
             </div>
         </div>
     </div>
