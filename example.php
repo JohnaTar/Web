@@ -63,11 +63,11 @@ $result = mysqli_query($conn, $sql);
     $num = mysqli_num_rows($result);
     if($num <= 0){
     echo '<center>ไม่พบข้อมูลการทำแบบทดสอบของท่าน</center>';
-
 	} else{
+           
 
 		$row =mysqli_fetch_array($result,MYSQLI_ASSOC);
-		echo '<center>คะแนนที่ท่านได้คือ : '.$row['stwScore'].'</center>';
+     echo '<center>คะแนนที่ท่านได้คือ : '.$row['stwScore'].'</center>';
 
 		 $sqli = "SELECT COUNT(*) FROM stwExam_detail WHERE stwExam_id = '".$_POST['sub_id']."'";  //
     		$r = mysqli_query($conn, $sqli);

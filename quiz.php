@@ -154,7 +154,7 @@ if ($_SESSION['ses_id']=='') {
 
 
 <!-- *************************MENU BAR************************** -->
-                  <?php include("menu/menuUser.php"); ?>
+                <?php include("menu/menuUser.php"); ?>
 <!-- *********************************************************** -->
         <div id="page-wrapper">
             <div class="container-fluid">            
@@ -312,7 +312,7 @@ if ($i==1) {
 <input type="button" name="next" class="next action-button" value="Next" />
 </fieldset>';
 }else{
-    echo '<input type="button" name="previous" class="previous action-button" value="Previous" />
+    echo '
 <input type="button" id="btnSubmit"  value="Save" class="next action-button"  />
 </fieldset>';
 }

@@ -85,9 +85,8 @@ if (isset($_POST['edit_quiz_id'])) {
 }
 if (isset($_POST['delete_quiz'])){
 	
-   $sql="DELETE stwQuestion ,stwChoice FROM stwQuestion  INNER JOIN stwChoice
-         WHERE stwQuestion.stwQuestion_id=stwChoice.stwQuestion_id 
-         and stwQuestion.stwQuestion_id ='".$_POST['delete_quiz']."' ";
+
+   $sql="DELETE from stwQuestion Where stwQuestion_id = '".$_POST['delete_quiz']."' ";
  $result = mysqli_query($conn,$sql);
 
     if($result) {
