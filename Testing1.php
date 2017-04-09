@@ -1,17 +1,11 @@
 <?php
 session_start();
-
 if ($_SESSION['ses_id']=='') {
      echo "<script>alert('PLEASE LOGIN')</script>";
-     echo "<script>window.location='index'</script>";
+     echo "<script>window.location='index.php'</script>";
  
-  } else if ($_SESSION['status']== 3 ) {
-    echo "<script>alert('NO PERMISSION')</script>";
-    echo "<script>window.location='index'</script>";
-
+  } 
   
-} else{
-}
 ?>
 <!DOCTYPE html>
 
@@ -20,11 +14,10 @@ if ($_SESSION['ses_id']=='') {
     <head>
         <?php 
         include("head/head.php");
-
-
         
         ?>
-  <style type="text/css">
+        <title>SB Admin - Bootstrap Admin Template</title>
+       <style type="text/css">
       
   
 /*basic reset*/
@@ -149,11 +142,41 @@ if ($_SESSION['ses_id']=='') {
 
 
 
-
   </style>      
   
+     
     </head>
+    <script>
+      
+      $(function() {  
+  $(':radio').change(function(event) {
+    var subject_id = <?php echo $_GET['subject_id']; ?>;
+    var question_id = event.target.name;
+    var choice_id = event.target.value;
+    
+    $.ajax({
+      url: 'Select-choice.php',
+      type: 'post',
+      data: {'stwSubject_id':subject_id, 'stwQuestion_id':question_id, 'stwchoice_id':choice_id},
+      dataType: 'script',
+      beforeSend: function() {
+        $('body').css({cursor: 'wait'});
+      }, 
+      complete: function() {
+        $('body').css({cursor: 'default'});
+      }
+    });
+  });
+  
+  $('#btnSubmit').click(function() {
+    if(confirm('ยืนยันการเสร็จสิ้นการทำแบบทดสอบ?')) {
+      var stwSubject_id = <?php echo $_GET['subject_id']; ?>;
+      window.location = 'finish.php?id=' + stwSubject_id;
+    }
+  });
+});
 
+    </script>
         <body>
         
             
@@ -161,19 +184,73 @@ if ($_SESSION['ses_id']=='') {
 
 
 <!-- *************************MENU BAR************************** -->
-                <?php include("menu/menubar.php"); ?>
+                <?php if ($_SESSION['status']==3) {
+                    
+                    include ("menu/menuUser.php");
+                }else {
+                include("menu/menubar.php");
+            }
+                 ?>
 <!-- *********************************************************** -->
         <div id="page-wrapper">
             <div class="container-fluid">            
+               
                 
-<!-- *********************************start table************************************* -->
-                    
-                <div class="row">
-                    <div class="col-md-12  alert alert-info ">
-                      <form id="msform">
-  <!-- progressbar -->
-  <?php  include("connect.php");
-   $sql = "SELECT COUNT(*) FROM stwExam_detail ";  //
+
+             <div class="row">
+                <div class="col-md-12 "> 
+<?php 
+      $subject_id = $_GET['subject_id'];
+      $sql = "SELECT stwExam_name,
+        DATE_FORMAT(stwExam_date, '%d/%m/%Y'), 
+        TIME_FORMAT(stwExam_start, '%H:%i'),  
+        TIME_FORMAT(stwExam_end, '%H:%i'),
+        stwExam_date, stwExam_start, stwExam_end
+      FROM stwExam WHERE stwExam_id = $subject_id";
+$result = mysqli_query($conn, $sql);
+$row = mysqli_fetch_array($result);
+$datetime = $row[1] . "   " . $row[2]. "-" . $row[3];
+
+?>
+<center><h2><div class="alert alert-info alert-dismissable">เรื่อง : <?php echo $row['stwExam_name']; ?></div></h2> </center>
+<center><h2><div class="alert alert-success alert-dismissable"> <?php echo "[$datetime]"; ?></div></h2> </center>
+
+<?php
+
+$now = strtotime("now");
+$start = $row[4] . " " . $row[5];
+$end = $row[4] . " " . $row[6];
+$start = strtotime($start);
+$end = strtotime($end);
+//ถ้าเป็นผู้ทำแบบทดสอบ และกำหนดวันเวลาที่แน่นอนในการทำแบบทดสอบ
+//แล้วถ้าไม่อยู่ในช่วงวันเวลาที่กำหนดในการทำแบบทดสอบ จะไม่แสดงคำถาม
+if(($_SESSION['status'] == "3") && ($row[1] != "00/00/0000") && (($start > $now) || ($end < $now))) {
+  echo "<script>alert('ขณะนี้ไม่อยู่ในช่วงวันเวลาที่กำหนดในการทำแบบทดสอบ')</script>";
+  
+    echo "<script>window.location='Create'</script>";
+
+  
+  exit;
+} 
+
+if(isset($_SESSION['ID'])) {
+  $testee_id = $_SESSION['ID'];
+  // $sql = "SELECT COUNT(*) FROM stwscore WHERE stwSubject_id = $subject_id AND stwUser_id = $testee_id";
+
+  $sql ="SELECT COUNT(*) FROM stwExam_User WHERE stwUser_id =$testee_id AND stwExam_id=$subject_id AND stwScore";
+  $result = mysqli_query($conn, $sql);
+  $row = mysqli_fetch_array($result);
+  if($row[0] !=0) {
+    mysqli_close($conn);
+    echo "<script>alert('ท่านได้ทำแบบสอบทดสอบหัวข้อนี้ไปแล้ว ไม่สามารถทำซ้ำได้อีก')</script>";
+    echo "<script>window.location='Create'</script>";
+    exit;
+  }
+}
+  
+?>
+<?php  include("connect.php");
+   $sql = "SELECT COUNT(*) FROM stwExam_detail WHERE stwExam_id = $subject_id ";  //
     $r = mysqli_query($conn, $sql);
     $num_q = 0;
     if($r) {
@@ -192,9 +269,12 @@ if ($_SESSION['ses_id']=='') {
     
     
   </ul>
+
+ 
+   
               
                       <?php 
-                      include("connect.php");
+                
 //$sql = "SELECT * FROM stwQuestion WHERE stwSubject_id = '$subject_id' ORDER BY RAND ()";
 $sql ="SELECT stwQuestion.stwQuestion_text,stwExam_detail.stwExam_id,
        stwExam_detail.stwQuestion_id
@@ -245,40 +325,55 @@ while($data = mysqli_fetch_array($result)) {
 
 
  
-<?php }  ?>
-<input type="button" name="previous" class="previous action-button" value="Previous" />
+<?php }  
+
+if ($i==1) {
+    echo '<input type="button" name="next" class="next action-button" value="Next" />
+</fieldset>';
+}else if ($i!=20) {
+    echo '<input type="button" name="previous" class="previous action-button" value="Previous" />
 <input type="button" name="next" class="next action-button" value="Next" />
-</fieldset>
+</fieldset>';
+}else{
+    echo '
+<input type="submit" value="Save" class="next action-button"  />
+</fieldset>';
+}
+?>
+
+
+
 
 <?php $i++;   }  mysqli_close($conn); ?>
 
 
-                 
-      
-  <!-- fieldsets -->
-  
-  
-  </form>
-                           
-                    
-                            
-                            </div>
 
-                        </div>
-                        <!-- Grid -->
-                    </div>
+<!-- *********************************ปุ่ม************ -->            
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="submit"></label>
+                <div class="col-md-4">
+            <button id="btnSubmit" name="submit" class="btn btn-primary" >เสร็จสิ้นการทดสอบ</button>
+                </div>
+            </div>
+ 
                     <!-- Row -->
                  </div>
     </div>
 </div>
+ <!-- *******************end table************************ -->
 
-  
+   
+    
+                </div>
+            </div>
   
 
 
  
  
-  
+ 
+
+
 <script type="text/javascript">
     
 //jQuery time
@@ -364,8 +459,6 @@ $(".submit").click(function(){
 })
 
 </script>
-
-
 
 
 
