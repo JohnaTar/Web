@@ -23,7 +23,7 @@ if ($_SESSION['ses_id']=='') {
 
         
         ?>
-         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="lip/css/froala_editor.css">
   <link rel="stylesheet" href="lip/css/froala_style.css">
   <link rel="stylesheet" href="lip/css/plugins/code_view.css">

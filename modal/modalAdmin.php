@@ -46,6 +46,15 @@
                 </div>
             </div>
 </div>
+             <div class="form-group">
+                    <label class="col-md-4 control-label" for="fn">หมายเลขบัตรประชาชน</label>  
+                <div class="col-md-4">
+                    <input  id="Personal_ID" type="number" placeholder="Personal-ID" class="form-control input-md" required="" maxlength="12" name="stwPersonal">
+                         <span id="per_id" ></span>
+    
+                </div>
+            </div>
+
             <div class="form-group">
                 <label class="col-md-4 control-label" for="selectbasic">คำนำหน้า</label>
                     <div class="col-md-4">

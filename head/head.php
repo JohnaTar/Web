@@ -18,7 +18,7 @@
     <script src="js/tarss.js"></script>
     <script src="js/exam.js"></script>
     <script src="js/exam1.js"></script>
-   
+    <script src="js/edit_after_100.js"></script>
     <script src="js/nattee.js"></script>
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
 <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
@@ -35,5 +35,7 @@
 <script src="js/plugins/morris/morris.min.js"></script>
 <!--  #############################FRONT####################################-->
 <script src="https://use.fontawesome.com/f3b3d4d487.js"></script>
-<!--  #############################NEW####################################-->
+<!--  #############################FONT size####################################-->
  
+<script type="text/javascript" src="js/store.min.js"></script>
+<script type="text/javascript" src="js/rv-jquery-fontsize-2.0.3.min.js"></script>

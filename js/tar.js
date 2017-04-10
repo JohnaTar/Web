@@ -151,39 +151,7 @@ $(function () {
     });
 
 ////////////////////////////////////////Email//////////////////////////////////
-$(function () {
-  $("#Email").change(function(){
-   
-    $.ajax({
-      url: "ckAjax.php",
-      data: "Email=" + $("#Email").val(),
-      type: "POST",
-   
-      
-      success: function(data) 
-        { 
-        if(data ==true){
-            
-            $("#btnSubmit").attr("disabled",false);
-             $("#Password").attr("disabled",false);
-                $("#rePassword").attr("disabled",false);
-                  $("#UserName").attr("disabled",false);
-          
-            $("#msg2").html("<span style='color:green'>Emailใช้งานได้</span>");
-            }else if (data ==false) {
-              $("#btnSubmit").attr("disabled",true);
-                $("#Password").attr("disabled",true);
-                  $("#rePassword").attr("disabled",true);
-                    $("#UserName").attr("disabled",true);
-               
-            $("#msg2").html("<span style='color:red'>Emailใช้งานไม่ได้กรุณากรอกใหม่</span>");
 
-            }
-        }
-    
-      });
-    });
-  });
 
 
 

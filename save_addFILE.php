@@ -8,7 +8,7 @@ if (isset($_POST['Submit']))
 	$file_basename = substr($filename, 0, strripos($filename, '.')); // get file extention
 	$file_ext = substr($filename, strripos($filename, '.')); // get file name
 	
-	$allowed_file_types = array('.doc','.docx','.rtf','.pdf');	
+	$allowed_file_types = array('.doc','.docx','.pptx','.pdf');	
 
 	if (in_array($file_ext,$allowed_file_types))
 	{	

@@ -174,11 +174,11 @@ if (isset($_POST['stwUser_id'])) {
   if(isset($_POST['stwUsername'])){
     
 
-  $sql = "INSERT INTO `stwUser` (`stwUsername`, `stwPassword`, `stwFirstname`, `stwLastname`, `stwEmail`, `stwTel`, `stwGender`,`stwDept_id`,`stwStatus_id`,`stwPrefix_id`,`stwCreated_date`)
+  $sql = "INSERT INTO `stwUser` (`stwUsername`, `stwPassword`, `stwFirstname`, `stwLastname`, `stwEmail`, `stwTel`, `stwGender`,`stwDept_id`,`stwStatus_id`,`stwPrefix_id`,`stwCreated_date`,`stwPersonal_id`)
       VALUES ('".$_POST["stwUsername"]."','".md5($_POST["stwPassword"])."'
            ,'".$_POST["stwFirstname"]."','".$_POST["stwLastname"]."',
            '".$_POST["stwEmail"]."','".$_POST["stwTel"]."','".$_POST["stwGender"]."','".$_POST["stwDept_id"]."',
-           '".$_POST["stwStatus_id"]."','".$_POST["stwPrefix_id"]."',NOW())";
+           '".$_POST["stwStatus_id"]."','".$_POST["stwPrefix_id"]."',NOW(),'".$_POST['stwPersonal']."')";
   $query = mysqli_query($conn,$sql);
   
 if($query) {

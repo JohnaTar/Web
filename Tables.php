@@ -78,7 +78,7 @@ if ($_SESSION['ses_id']=='') {
                                         <th>อีเมลล์</th>
                                         <th>แผนก</th> 
                                         <th>ประเภทผู้ใช้</th>
-                                        <th>วันที่สมัคร</th>
+                                        <th>วันที่เพิ่มข้อมูล</th>
 <?php 
 if ($_SESSION['status']==1) {
                echo '<th>เมนู</th>';
