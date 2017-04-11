@@ -87,7 +87,7 @@ onsubmit="return edit_user_form1();">
           <div class="form-group">
                 <label class="col-md-4 control-label" for="selectbasic">คำนำหน้า</label>
                     <div class="col-md-4">
-                    <select  name="stwPrefix_id" class="form-control input-md">
+                    <select  name="stwPrefix_id" class="form-control input-md" id="prefix">
                     
                 <option value="1" <?php if($result['stwPrefix_id'] == '1'){echo "selected='selected'";} ?> >นาย </option>
                 <option value="2" <?php if($result['stwPrefix_id'] == '2'){echo "selected='selected'";} ?> >นาง</option>
@@ -120,10 +120,10 @@ onsubmit="return edit_user_form1();">
               <label class="col-md-4 control-label" for="fn">เพศ</label>  
               <div class="col-md-4">
               
-  <label><input type="radio" name="stwGender" value="1" <?php if($result['stwGender'] == '1'){echo "checked='checked'";} ?>>ชาย</label>
+  <label><input type="radio" id="radio_1" name="stwGender" value="1" <?php if($result['stwGender'] == '1'){echo "checked='checked'";} ?>>ชาย</label>
 
 
-  <label><input type="radio" name="stwGender" value="2" <?php if($result['stwGender'] == '2'){echo "checked='checked'";} ?>>หญิง</label>
+  <label><input type="radio" id="radio_2" name="stwGender" value="2" <?php if($result['stwGender'] == '2'){echo "checked='checked'";} ?>>หญิง</label>
 </div>
 </div>
             <div class="form-group">

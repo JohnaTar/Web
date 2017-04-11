@@ -266,8 +266,8 @@ function edit_user_form1(){ //มี 2 อันเพราะติดสิ�
       alert(data);
 
 
-       location.replace("User");
-      //reload page
+       location.reload();
+      //reload page;
       
     }
   });

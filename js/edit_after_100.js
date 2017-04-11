@@ -103,3 +103,37 @@ $(function () {
 
     });
   });
+$(function(){
+   $("#prefix").change(function(){
+    var prefix = $("#prefix ").val();
+  
+    if (prefix !=1) {
+      $("#radio_2").prop("checked", true)
+    }else {
+      $("#radio_1").prop("checked", true)
+    
+    }
+   });
+});
+$(function () {
+$("#radio_1").change(function(){
+  var radio_1 =$("#radio_1").val();
+  
+  if (radio_1=1) {
+    $("#prefix").val("1");
+  }else{
+    $("#prefix").val("3");
+  }
+});
+});
+$(function () {
+$("#radio_2").change(function(){
+  var radio_2 =$("#radio_2").val();
+  
+  if (radio_1=2) {
+    $("#prefix").val("3");
+  }else{
+    $("#prefix").val("1");
+  }
+});
+});

@@ -58,7 +58,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="selectbasic">คำนำหน้า</label>
                     <div class="col-md-4">
-                    <select  name="stwPrefix_id" class="form-control input-md">
+                    <select  name="stwPrefix_id" class="form-control input-md" id="prefix">
                 <?php    include('connect.php');
                         $sql = "SELECT * FROM stwPrefix";
                         $result = mysqli_query($conn, $sql);
@@ -89,10 +89,10 @@
               <label class="col-md-4 control-label" for="fn">เพศ</label>  
               <div class="col-md-4">
               
-  <label><input type="radio" required="" name="stwGender" value="1">ชาย</label>
+  <label><input type="radio" required="" id="radio_1" name="stwGender" value="1">ชาย</label>
 
 
-  <label><input type="radio" required="" name="stwGender" value="2">หญิง</label>
+  <label><input type="radio" required="" id="radio_2" name="stwGender" value="2">หญิง</label>
 </div>
 </div>
 

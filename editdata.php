@@ -1,4 +1,4 @@
-<?php
+/<?php
 session_start();
 
 if ($_SESSION['ses_id']=='') {
@@ -91,11 +91,11 @@ onsubmit="return edit_user_form();">
           <div class="form-group">
                 <label class="col-md-4 control-label" for="selectbasic">คำนำหน้า</label>
                     <div class="col-md-4">
-                    <select  name="stwPrefix_id" class="form-control input-md">
+                    <select  name="stwPrefix_id" class="form-control input-md" id="prefix">
                     
                 <option value="1" <?php if($result['stwPrefix_id'] == '1'){echo "selected='selected'";} ?> >นาย </option>
-                <option value="2" <?php if($result['stwPrefix_id'] == '2'){echo "selected='selected'";} ?> >นาง</option>
-                <option value="3" <?php if($result['stwPrefix_id'] == '3'){echo "selected='selected'";} ?>>นางสาว</option>
+                <option value="2"  <?php if($result['stwPrefix_id'] == '2'){echo "selected='selected'";} ?> >นาง</option>
+                <option value="3"  <?php if($result['stwPrefix_id'] == '3'){echo "selected='selected'";} ?>>นางสาว</option>
                 </select>
                 </div>
             </div>
@@ -124,10 +124,10 @@ onsubmit="return edit_user_form();">
               <label class="col-md-4 control-label" for="fn">เพศ</label>  
               <div class="col-md-4">
               
-  <label><input type="radio" required="" name="stwGender" value="1" <?php if($result['stwGender'] == '1'){echo "checked='checked'";} ?>>ชาย</label>
+  <label><input type="radio" required=""  id="radio_1" name="stwGender" value="1" <?php if($result['stwGender'] == '1'){echo "checked='checked'";} ?>>ชาย</label>
 
 
-  <label><input type="radio"  required ="" name="stwGender" value="2" <?php if($result['stwGender'] == '2'){echo "checked='checked'";} ?>>หญิง</label>
+  <label><input type="radio"  required ="" id="radio_2" name="stwGender" value="2" <?php if($result['stwGender'] == '2'){echo "checked='checked'";} ?>>หญิง</label>
 </div>
 </div>
 <!-- **********************************email******************** -->
