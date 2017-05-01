@@ -67,7 +67,7 @@ $result = mysqli_query($conn, $sql);
            
 
 		$row =mysqli_fetch_array($result,MYSQLI_ASSOC);
-     echo '<center>คะแนนที่ท่านได้คือ : '.$row['stwScore'].'</center>';
+   
 
 		 $sqli = "SELECT COUNT(*) FROM stwExam_detail WHERE stwExam_id = '".$_POST['sub_id']."'";  //
     		$r = mysqli_query($conn, $sqli);
@@ -80,9 +80,12 @@ $result = mysqli_query($conn, $sql);
         		$re =mysqli_query($conn,$sq);
         		$rowss =mysqli_fetch_array($re,MYSQLI_ASSOC);
         		$pass=$rowss['stwExam_past'];
+                 $score=$row['stwScore'];
+                 $SCs= ($score/$num_q)*100;
         		$SC=$num_q *$pass/100;
+                  $result =round($SCs);
       
-
+                echo '<center>คะแนนที่ท่านได้คือ : '.$result.' %</center>';
         		if ($row['stwScore']<=$SC AND $row['stwScore'] !=$SC) {
                                    echo '<center><i class="fa fa-times fa-2x" style="color:red"></i> : ไม่ผ่านการทดสอบ </center>';
                                

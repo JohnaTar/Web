@@ -29,8 +29,8 @@ if ($_SESSION['ses_id']=='') {
 
 /*form styles*/
 #msform {
-    width: 600px;
-    margin: 50px auto;
+    width: 700px;
+    margin: 40px auto;
     text-align: center;
     position: relative;
 }
@@ -41,7 +41,7 @@ if ($_SESSION['ses_id']=='') {
     box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
     padding: 20px 30px;
     box-sizing: border-box;
-    width: 80%;
+    width: 100%;
     margin: 0 10%;
     
     /*stacking fieldsets above each other*/
@@ -80,7 +80,7 @@ if ($_SESSION['ses_id']=='') {
 }
 /*headings*/
 .fs-title {
-    font-size: 15px;
+    font-size: 18px;
     text-transform: uppercase;
     color: #2C3E50;
     margin-bottom: 10px;
@@ -140,6 +140,66 @@ if ($_SESSION['ses_id']=='') {
     background: #27AE60;
     color: white;
 }
+
+
+label.btn span {
+  font-size: 18px;
+}
+
+label input[type="radio"] ~ i.fa.fa-circle-o{
+    color: black;    display: inline;
+}
+label input[type="radio"] ~ i.fa.fa-dot-circle-o{
+    display: none;
+}
+label input[type="radio"]:checked ~ i.fa.fa-circle-o{
+    display: none;
+}
+label input[type="radio"]:checked ~ i.fa.fa-dot-circle-o{
+    color: green;    display: inline;
+}
+label:hover input[type="radio"] ~ i.fa {
+color:green;
+}
+
+
+div[data-toggle="buttons"] label.active{
+    color: green;
+}
+
+div[data-toggle="buttons"] label {
+display: inline-block;
+padding: 6px 12px;
+margin-bottom: 0;
+font-size: 14px;
+font-weight: normal;
+line-height: 2em;
+text-align: left;
+white-space: nowrap;
+vertical-align: top;
+cursor: pointer;
+background-color: none;
+border: 0px solid 
+#c8c8c8;
+border-radius: 3px;
+color: black;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+-o-user-select: none;
+user-select: none;
+
+}
+
+div[data-toggle="buttons"] label:hover {
+color: green;
+}
+
+div[data-toggle="buttons"] label:active, div[data-toggle="buttons"] label.active {
+-webkit-box-shadow: none;
+box-shadow: none;
+}
+
 
 
 
@@ -271,9 +331,10 @@ while($data = mysqli_fetch_array($result)) {
   $sql = "SELECT * FROM stwChoice WHERE stwQuestion_id = $question_id ORDER BY RAND ()";
   $r = mysqli_query($conn, $sql);
 ?>
-<fieldset>
-    <h2 class="fs-title">  <?php echo $question_text; ?> </h2>
-          
+              <fieldset>
+    <h1 class="fs-title">  <?php echo $question_text; ?> </h1>
+          <div class="form-group">
+            <div class="btn-group btn-group-vertical" data-toggle="buttons">
                    
           
     
@@ -287,17 +348,17 @@ while($data = mysqli_fetch_array($result)) {
 
 
 
-        echo "
+        echo ' 
+                   
+                    
+    <label class="btn">
+          <input type="radio" name="'.$question_id.'"  value="'.$ch['stwChoice_id'].'"><i class="fa fa-circle-o fa-2x"></i><i class="fa fa-dot-circle-o fa-2x"></i><span> :'.$ch['stwChoice_text'].'</span>
+        </label>
+    
+    
 
-     <div class=\"form-group\">
-      
-    <label class=\"col-md-12 control-label\">คำตอบ</label>
-    
-  <input type=\"radio\"  name=\"$question_id\" value=\"{$ch['stwChoice_id']} \" >{$ch['stwChoice_text']}
-        
-    
-    </div>
-  ";
+                    
+                                ';
 ?>
 
 
@@ -305,16 +366,16 @@ while($data = mysqli_fetch_array($result)) {
 <?php }  
 
 if ($i==1) {
-    echo '<input type="button" name="next" class="next action-button" value="Next" />
-</fieldset>';
+    echo '</div></div><input type="button" name="next" class="next action-button" value="Next" />
+ </fieldset>';
 }else if ($i!=$num_q) {
-    echo '<input type="button" name="previous" class="previous action-button" value="Previous" />
+    echo '</div></div><input type="button" name="previous" class="previous action-button" value="Previous" />
 <input type="button" name="next" class="next action-button" value="Next" />
-</fieldset>';
+ </fieldset>';
 }else{
-    echo '<input type="button" name="previous" class="previous action-button" value="Previous" />
+    echo '</div></div><input type="button" name="previous" class="previous action-button" value="Previous" />
 <input type="button" id="btnSubmit"  value="Save" class="next action-button"  />
-</fieldset>';
+ </fieldset>';
 }
 ?>
 
@@ -460,6 +521,8 @@ $(".submit").click(function(){
     if(confirm('ยืนยันการเสร็จสิ้นการทำแบบทดสอบ?')) {
       var stwSubject_id = <?php echo $_GET['subject_id']; ?>;
       window.location = 'finish.php?id=' + stwSubject_id;
+    }else{
+      location.reload();
     }
   });
 });

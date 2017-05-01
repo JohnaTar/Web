@@ -7,9 +7,9 @@ if (isset($_POST['show_choice'])) {
   $result =mysqli_fetch_array($query,MYSQLI_ASSOC);
    echo ' <form class="form-horizontal" id="edit_choice_data"> 
              <div class="form-group">
-                    <label class="col-md-4 control-label" for="fn">ตัวเลือก</label>  
+                    <label class="col-md-2 control-label" for="fn">ตัวเลือก</label>  
 
-                <div class="col-md-4">
+                <div class="col-md-10">
                     <input  name="edit_choice_name"  type="text" placeholder="Choice" class="form-control input-md" required="" value="'.$result['stwChoice_text'].'">
 
                   </div>
@@ -50,9 +50,9 @@ if (isset($_POST['show_quiz'])) {
   $result =mysqli_fetch_array($query,MYSQLI_ASSOC);
    echo ' <form class="form-horizontal" id="edit_choice_data"> 
              <div class="form-group">
-                    <label class="col-md-4 control-label" for="fn">คำถาม</label>  
+                    <label class="col-md-2 control-label" for="fn">คำถาม</label>  
 
-                <div class="col-md-4">
+                <div class="col-md-10">
                     <input  name="edit_quiz_name"  type="text" placeholder="Question" class="form-control input-md" required="" value="'.$result['stwQuestion_text'].'">
 
                   </div>

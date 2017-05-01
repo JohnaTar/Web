@@ -17,21 +17,58 @@ if ($_SESSION['ses_id']=='') {
         <?php 
         include("head/head.php");        
         ?>
-       <style type="text/css">
-         p { display: inline-block; }
-  .font-size-label { margin-right: 20px; }
-  #font-size { margin: 0 5px; }
-  button { 
-    width: 30px;
-    height: 30px;
-  }
+      
+      <script language="javascript" src="js/jquery-1.2.6.min.js"></script>
+<script type="text/javascript">
+$(function(){
+    var minFont=8; // กำหนดขนาดตัวอักษรต่ำสุด
+    var maxFont=18; //  กำหนดขนาดตัวอักษรสูงสุด
+    var nowFont=12; // กำหนดขนาดตัวอักษรเริมต้น
+    var objSet="p"; // แท็กที่ต้องการกำหนดขนาดตัวอักษร อาจใช้เป็น * หรือ a หรือ a.menu เป็นต้น
+    $(objSet).css("font-size",nowFont);
+    $(".mFont button").click(function(){
+            var inCase=$(this).text();
+            if(inCase=="A +"){
+                if(nowFont<maxFont){
+                    nowFont++;
+                }else{
+                    nowFont=maxFont;
+                }
+                $(objSet).css("font-size",nowFont);
+            }
+            if(inCase=="A -"){
+                if(nowFont>minFont){
+                    nowFont--;
+                }else{
+                    nowFont=minFont;
+                }
+                $(objSet).css("font-size",nowFont);
+            }
+    });
+});
+</script> 
+<style type="text/css">
+                   
 
-h1 { 
-  height: 60px; 
-  padding: 0;
-  margin: 0;
+
+mFont button{
+    width:50px;
+    height:20px;
+    text-align:center;
+    display:block;
+    float:left;
+    background-color:#000000;
+    color:#FFFFFF;
+    font-size:12px;
+    font-weight:bold;
+    border:1px solid #666666;
+    margin-right:2px;
+    line-height:17px;
+    cursor:pointer;
+        font-family:tahoma;
 }
-       </style>
+                    </style>
+       
 
 
        
@@ -89,6 +126,10 @@ $row =mysqli_fetch_array($res,MYSQLI_ASSOC);
     <div class="row">
       <div class="col-md-12"> 
          <div class="page-header">
+         <div class="mFont">
+<button>A -</button>
+<button>A +</button>
+</div>
                  <h1><?php echo $row['stwSubject_name'];  ?></h1>
         </div>
        </div> 
@@ -106,14 +147,10 @@ $row =mysqli_fetch_array($res,MYSQLI_ASSOC);
 
   <div class="row">
    <div class="col-md-12">
-              <h1>Resize Me</h1>
-  <p class="font-size-label">Font Size</p>
-  <button id="up">+</button>
-  <p id="font-size"></p>
-  <button id="down">-</button>
+       
  <?php echo $row['stwContent_detail']; ?>
-     
-                    
+       
+                 
          
   </div>
 </div>
@@ -146,33 +183,9 @@ $row =mysqli_fetch_array($res,MYSQLI_ASSOC);
 </div>
  <!-- *******************end table************************ -->
 
-  
-  <script type="text/javascript">
-    function getSize() {
-  size = $( "h1" ).css( "font-size" );
-  size = parseInt(size, 10);
-  $( "#font-size" ).text(  size  );
-}
 
-//get inital font size
-getSize();
+ 
 
-$( "#up" ).on( "click", function() {
-
-  // parse font size, if less than 50 increase font size
-  if ((size + 2) <= 50) {
-    $( "h1" ).css( "font-size", "+=2" );
-    $( "#font-size" ).text(  size += 2 );
-  }
-});
-
-$( "#down" ).on( "click", function() {
-  if ((size - 2) >= 12) {
-    $( "h1" ).css( "font-size", "-=2" );
-    $( "#font-size" ).text(  size -= 2  );
-  }
-});
-  </script>
 
 
  

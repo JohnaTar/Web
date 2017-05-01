@@ -100,7 +100,7 @@ include("connect.php");
    if ($_SESSION['status']==3) {
        
         $sql ="SELECT stwExam_User.stwExam_id,stwExam_User.stwUser_id,
-                      stwExam.stwExam_name,
+                      stwExam.stwExam_name,stwExam_User.stwScore,
                       DATE_FORMAT(stwExam_date, '%d-%m-%Y') AS stwExam_date,
                       TIME_FORMAT(stwExam_start, '%H:%i') AS   stwExam_start,
                       TIME_FORMAT(stwExam_end, '%H:%i') AS stwExam_end,
@@ -163,13 +163,14 @@ include("connect.php");
         </td>
         <td> 
               <?php if ($_SESSION['status']==3) {
-    echo '<a href="Testing.php?'.$q.'"> <button type="button"  class="btn btn-success" ><i class="fa fa-play " aria-hidden="true"></i></button> 
-        </a>
-        
-        <button type="button" onclick="return show_score('.$subject_id.');" class="btn btn-info btn-xl" data-toggle="modal" data-target="#show_score">  <i class="fa fa-clipboard " aria-hidden="true"></i></button>
+               
+                if ($data['stwScore']==null) {
+                  echo ' <a href="Testing.php?'.$q.'"> <button type="button"  class="btn btn-success" ><i class="fa fa-play " aria-hidden="true"></i></button> 
+        </a>';
+                }else{
 
-
-         ';
+                }
+    echo '  <button type="button" onclick="return show_score('.$subject_id.');" class="btn btn-info btn-xl" data-toggle="modal" data-target="#show_score">  <i class="fa fa-clipboard " aria-hidden="true"></i></button> ';
                             } else{
                                  
             echo '<a href="Edit_subject.php?'.$q.'"> <button type="button"  class="btn btn-success btn-xl" ><i class="fa fa-cog " aria-hidden="true"></i>

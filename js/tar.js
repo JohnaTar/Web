@@ -187,20 +187,7 @@ $( function() {
     $( "#timepicker1" ).timepicker({ timeFormat: 'HH:mm' });
   } );
 ///////////////////////////////Delete//////////////////////////////////////
-function delete_user(id){
-  if(confirm("คุณต้องการลบข้อมูลหรือไม่")){
-    $.ajax({
-      type:"POST",
-      url:"ckAjax.php",
-      data:{delete:id},
-      success:function(data){
-        alert(data);
-        location.reload();
-      }
-    });
-  }
-  return false;
-}
+
 //////////////////////////////////Add User////////////////////////////////////////
 function add_user_form(){
   $.ajax({

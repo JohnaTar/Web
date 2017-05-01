@@ -81,8 +81,7 @@ if ($_SESSION['ses_id']=='') {
                    
                     </div>
          
-    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#show_edit_choice" onclick="return show_edit_quiz(<?php echo $data['stwQuestion_id']?>);"  >แก้ไข 
-    </button>
+    
                 
                  
                 </div>  
@@ -114,13 +113,7 @@ if ($_SESSION['ses_id']=='') {
                     </div>
                  
              
-<?php
-             echo ' 
-           <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#show_edit_choice" onclick="return show_edit_choice( '.$ch['stwChoice_id'].');"  >แก้ไข 
-      </button>';
-        
 
-?>
 
  
      
@@ -140,9 +133,9 @@ if ($_SESSION['ses_id']=='') {
                 <label class="col-md-4 control-label" for=""></label>
                 <div class="col-md-4">
 
-        <button   class="btn btn-danger btn-sm" data-toggle="modal" data-target="#answer_form" onclick="return change_answer(<?php echo $question_id  ?>);">ลบ</button>
+        <button   class="btn btn-danger btn-sm" data-toggle="modal" data-target="#answer_form" onclick="return change_answer(<?php echo $question_id  ?>);">แก้ไข</button>
   
-            <button   class="btn btn-danger btn-sm" onclick="return delete_quiz(<?php echo $question_id  ?>);">ลบ</button>
+           
 
             
 

@@ -115,7 +115,7 @@ if ($_SESSION['ses_id']=='') {
                 <td><button type="button" class="btn btn-success" data-toggle="modal" data-target="#addQuest" onclick="return show_add_question(<?php echo $subject_id ;?>);" ><i class="fa fa-plus " aria-hidden="true"></i> </button>
                 </td>
                 <td>
-                    <a href="show_question?subject_id=<?php echo $subject_id;?>"> <button type="button"  class="btn btn-info" ><i class="fa fa-cog " aria-hidden="true"></i></button> </a>
+                    <a href="show_question_1?subject_id=<?php echo $subject_id;?>"> <button type="button"  class="btn btn-info" ><i class="fa fa-cog " aria-hidden="true"></i></button> </a>
                 </td>
                           
                

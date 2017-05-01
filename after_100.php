@@ -15,6 +15,20 @@ if (isset($_POST['Personal_ID'])) {
     exit();
   }
 
+    if (isset($_POST['User'])) {
+     $id=$_POST['User'];
+     $N = count($id);
+     for($i=0; $i < $N; $i++){
+  $sql = "DELETE  FROM stwUser 
+                        WHERE stwUser_id = '$id[$i]'  ";
+    $query = mysqli_query($conn,$sql);
+    }    
+  echo "ลบข้อมูลเรียบร้อย";
+}else{
+  echo "กรุณาเลือกข้อมูลสมาชิก";
+}
+
+
 
 
 ?>

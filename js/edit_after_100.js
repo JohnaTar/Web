@@ -18,7 +18,21 @@ $(function () {
         
         $("#per_id").html("<span style='color:red'>กรุณากรอกเลขบัตรประชาชน  13 หลัก  </span>");
     }else if (Personal.length =13) {
-        $.ajax({
+      $id =Personal;
+      $sum = 0;
+        $total = 0;
+        $digi = 13;
+        
+        for($i=0; $i<12; $i++){
+            $sum = $sum + ($id[$i]) * $digi;
+            $digi--;
+        }
+        $total = (11 - ($sum % 11)) % 10;
+        
+        if($total != $id[12]){ //ตัวที่ 13 มีค่าไม่เท่ากับผลรวมจากการคำนวณ ให้ add error
+           $("#per_id").html("<span style='color:red'>หมายเลขบัตรประชาชนไม่ถูกต้อง </span>");
+        }else{
+          $.ajax({
       url: "after_100.php",
       data: "Personal_ID=" + $("#Personal_ID").val(),
       type: "POST",
@@ -50,10 +64,17 @@ $(function () {
         }
     
             });
-  
+
+        }
+/*    
+
+
+        
+  */
          }
     });
   });
+
 $(function () {
   $("#Email").change(function(){
     var email = $("#Email").val();
@@ -137,3 +158,68 @@ $("#radio_2").change(function(){
   }
 });
 });
+function delete_user_form(){
+  if(confirm("คุณต้องการลบข้อมูลหรือไม่")){
+  $.ajax({
+    type:"POST",
+    url:"after_100.php",
+    data:$("#delete_user").serialize(),
+    success:function(data){
+      
+      //close modal
+      $(".close").trigger("click");
+      
+      //show result
+      alert(data);
+
+
+      
+      //reload page
+      location.reload();
+    }
+  });
+}
+  return false;
+}
+
+
+function change_answer(id){
+ 
+    $.ajax({
+      type:"POST",
+      url:"after_100_1.php",
+       data:{change_answer:id},
+       
+      success:function(data){
+        
+      $("#ans_form").html(data);
+
+      }
+    });
+  
+  return false;
+}
+
+function chang_answer_edit(){
+ 
+  $.ajax({
+    type:"POST",
+    url:"after_100_1.php",
+    data:$("#chang_answer_edit").serialize(),
+    success:function(data){
+      
+      //close modal
+      $(".close").trigger("click");
+      
+      //show result
+      alert(data);
+
+
+      
+      //reload page
+      location.reload();
+    }
+  });
+
+  return false;
+}

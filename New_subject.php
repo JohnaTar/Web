@@ -293,9 +293,9 @@ $(document).ready(function() {
     
     $('input:checkbox[name="select[]"]').on('click',function(){
         if($('input:checkbox[name="select[]"]:checked').length == $('input:checkbox[name="select[]"]').length){
-            $('#select_all').prop('checked',true);
+            $('#someSwitchOptionInfo').prop('checked',true);
         }else{
-            $('#select_all').prop('checked',false);
+            $('#someSwitchOptionInfo').prop('checked',false);
         }
     });
     });
@@ -438,9 +438,9 @@ $(document).ready(function() {
     
     $('input:checkbox[name="question[]"]').on('click',function(){
         if($('input:checkbox[name="question[]"]:checked').length == $('input:checkbox[name="question[]"]').length){
-            $('#Q_all').prop('checked',true);
+            $('#someSwitchOptionDanger').prop('checked',true);
         }else{
-            $('#Q_all').prop('checked',false);
+            $('#someSwitchOptionDanger').prop('checked',false);
         }
     });
     });
